@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-09-04
 title: Teams
 ---
 
@@ -37,7 +37,8 @@ Lists all of the Teams in the system or Octopus Deploy Space (if provided). The 
 
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`CanBeDeleted`** :span[boolean]{.type-label}  
     Gets or sets a flag indicating whether the team can be deleted. The built-in teams provided by Octopus generally cannot be deleted.
@@ -79,7 +80,7 @@ Lists all of the Teams in the system or Octopus Deploy Space (if provided). The 
 ```json
 {
   "Id": "string",
-  "ItemType": "string",
+  "ItemType": "Team",
   "Items": [
     {
       "CanBeDeleted": false,
@@ -94,9 +95,7 @@ Lists all of the Teams in the system or Octopus Deploy Space (if provided). The 
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "MemberUserIds": [
         "Users-1",
@@ -107,17 +106,15 @@ Lists all of the Teams in the system or Octopus Deploy Space (if provided). The 
       "SpaceId": "Spaces-1"
     }
   ],
-  "ItemsPerPage": 0,
+  "ItemsPerPage": 30,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "LastPageNumber": 0,
+  "LastPageNumber": 1,
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -225,9 +222,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/teams`, `/api/teams`.
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "MemberUserIds": [
     "Users-1",
@@ -305,9 +300,7 @@ Lists all of the Teams in the supplied Octopus Deploy Space. The results will be
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     },
     "MemberUserIds": [
       "Users-1",
@@ -386,9 +379,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/teams/{id}`, `/api/teams/{id}`.
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "MemberUserIds": [
     "Users-1",
@@ -507,9 +498,7 @@ The Everyone Team is treated as a special case and its members and external grou
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "MemberUserIds": [
     "Users-1",
@@ -564,7 +553,8 @@ List all the Scoped User Roles for the Team. Results will be sorted by Space Id 
 
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`EnvironmentIds`** :span[array of string]{.type-label}
   - **`Id`** :span[string]{.type-label}  
@@ -596,7 +586,7 @@ List all the Scoped User Roles for the Team. Results will be sorted by Space Id 
 ```json
 {
   "Id": "string",
-  "ItemType": "string",
+  "ItemType": "ScopedUserRole",
   "Items": [
     {
       "EnvironmentIds": [
@@ -607,9 +597,7 @@ List all the Scoped User Roles for the Team. Results will be sorted by Space Id 
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "ProjectGroupIds": [
         "string"
@@ -627,17 +615,15 @@ List all the Scoped User Roles for the Team. Results will be sorted by Space Id 
       "UserRoleId": "string"
     }
   ],
-  "ItemsPerPage": 0,
+  "ItemsPerPage": 30,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "LastPageNumber": 0,
+  "LastPageNumber": 1,
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::

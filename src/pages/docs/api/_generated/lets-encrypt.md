@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-09-03
+modDate: 2026-09-04
 title: Lets Encrypt
 ---
 
@@ -48,9 +48,7 @@ To configure the Let's Encrypt integration, see https://octopus.com/docs/securit
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Path": "string",
   "RegistrationEmailAddress": "string"
@@ -62,7 +60,13 @@ To configure the Let's Encrypt integration, see https://octopus.com/docs/securit
 
 :endpoint{method="PUT" path="/api/letsencryptconfiguration"}
 
-To re-enable Let's Encrypt you must go through the configuration process again. If the integration is enabled, set `Enabled: false` to disable it. If you set `Enabled: true` when it is already enabled, or `Enabled: false` when it is already disabled, no changes occur. If you set `Enabled: true` when the integration is disabled, an error is returned.
+To re-enable Let's Encrypt you must go through the configuration process again.
+
+If the integration is enabled, set `Enabled: false` to disable it.
+
+If you set `Enabled: true` when it is already enabled, or `Enabled: false` when it is already disabled, no changes occur.
+
+If you set `Enabled: true` when the integration is disabled, an error is returned.
 
 **Request Body**
 
@@ -113,9 +117,7 @@ To re-enable Let's Encrypt you must go through the configuration process again. 
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Path": "string",
   "RegistrationEmailAddress": "string"

@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-09-03
+modDate: 2026-09-04
 title: Authentication
 ---
 
@@ -70,9 +70,7 @@ Provides the details of the enabled authentication providers.
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "OctopusIdDynamicRegistrationPending": false,
   "RememberMeEnabled": false,
@@ -122,9 +120,7 @@ Determine whether an external server (.e.g Okta) has initiated login from a URL 
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "ProviderName": "string",
   "WasLoginInitiated": false

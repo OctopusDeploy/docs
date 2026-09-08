@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-09-03
+modDate: 2026-09-04
 title: Runbooks
 ---
 
@@ -80,7 +80,8 @@ Also reachable at `/api/projects/{projectId}/runbooks`, `/api/spaces/{spaceIdent
 
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`CancelQueuedTasks`** :span[boolean]{.type-label}
   - **`CancelRunningTasks`** :span[boolean]{.type-label}
@@ -127,7 +128,7 @@ Also reachable at `/api/projects/{projectId}/runbooks`, `/api/spaces/{spaceIdent
 ```json
 {
   "Id": "string",
-  "ItemType": "string",
+  "ItemType": "Runbook",
   "Items": [
     {
       "CancelQueuedTasks": false,
@@ -153,9 +154,7 @@ Also reachable at `/api/projects/{projectId}/runbooks`, `/api/spaces/{spaceIdent
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "MultiTenancyMode": "Untenanted",
       "Name": "string",
@@ -175,17 +174,15 @@ Also reachable at `/api/projects/{projectId}/runbooks`, `/api/spaces/{spaceIdent
       "SpaceId": "Spaces-1"
     }
   ],
-  "ItemsPerPage": 0,
+  "ItemsPerPage": 30,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "LastPageNumber": 0,
+  "LastPageNumber": 1,
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -243,7 +240,7 @@ Also reachable at `/api/projects/{projectId}/runbooks`, `/api/spaces/{spaceIdent
 - **`RunbookProcessId`** :span[string]{.type-label}  
   Leave unset. Octopus creates an empty runbook process for the new runbook and links it automatically.
 - **`RunbookTags`** :span[array of string]{.type-label}  
-  Tags to apply to the runbook, each written as "TagSet/Tag" using either the names or the IDs of the tag set and tag (for example "Ops/Nightly"). Call find_tag_sets to discover which tag sets apply to runbooks and what tags they contain.
+  Tags to apply to the runbook, each written as "TagSet/Tag" using either the names or the IDs of the tag set and tag (for example "Ops/Nightly"). Find the tag sets first to discover which ones apply to runbooks and what tags they contain.
 - **`Slug`** :span[string]{.type-label}  
   A short URL-friendly identifier for the runbook, unique within the project. Generated from the name when omitted.
 - **`SpaceId`** :span[string]{.type-label} *(required)*  
@@ -360,9 +357,7 @@ Also reachable at `/api/projects/{projectId}/runbooks`, `/api/spaces/{spaceIdent
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "MultiTenancyMode": "Untenanted",
   "Name": "string",
@@ -466,9 +461,7 @@ Also reachable at `/api/projects/{projectId}/runbooks/all/v2`, `/api/spaces/{spa
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "MultiTenancyMode": "Untenanted",
       "Name": "string",
@@ -676,9 +669,7 @@ Also reachable at `/api/projects/{projectId}/runbooks/{id}`, `/api/spaces/{space
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "MultiTenancyMode": "Untenanted",
   "Name": "string",
@@ -757,9 +748,9 @@ Also reachable at `/api/projects/{projectId}/runbooks/{id}`, `/api/spaces/{space
   - **`Unit`** :span[enum]{.type-label}  
     Allowed values: `Days`, `Items`.
 - **`RunbookProcessId`** :span[string]{.type-label}  
-  Leave this as the value returned by get_runbook. Octopus manages the link between a runbook and its process.
+  Leave this as the value returned when fetching the runbook. Octopus manages the link between a runbook and its process.
 - **`RunbookTags`** :span[array of string]{.type-label}  
-  The runbook's complete set of tags, each written as "TagSet/Tag" using either the names or the IDs of the tag set and tag (for example "Ops/Nightly"). This replaces the current tags, so resubmit the existing ones you want to keep. Call find_tag_sets to discover which tag sets apply to runbooks.
+  The runbook's complete set of tags, each written as "TagSet/Tag" using either the names or the IDs of the tag set and tag (for example "Ops/Nightly"). This replaces the current tags, so resubmit the existing ones you want to keep. Find the tag sets first to discover which ones apply to runbooks.
 - **`Slug`** :span[string]{.type-label}  
   A short URL-friendly identifier for the runbook, unique within the project. The current slug is kept when omitted.
 - **`SpaceId`** :span[string]{.type-label} *(required)*
@@ -878,9 +869,7 @@ Also reachable at `/api/projects/{projectId}/runbooks/{id}`, `/api/spaces/{space
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "MultiTenancyMode": "Untenanted",
   "Name": "string",
@@ -983,9 +972,7 @@ Also reachable at `/api/projects/{projectId}/runbooks/{id}/environments`, `/api/
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     },
     "Name": "string",
     "Slug": "string",
@@ -1107,9 +1094,7 @@ Also reachable at `/api/projects/{projectId}/runbooks/{id}/runbookRunTemplate`, 
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "PromoteTo": [
     {
@@ -1128,9 +1113,7 @@ Also reachable at `/api/projects/{projectId}/runbooks/{id}/runbookRunTemplate`, 
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Name": "string",
       "PromoteTo": [
@@ -1221,9 +1204,7 @@ Gets a Runbook Run Preview that describes what steps will/won't be run during a 
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "StepsToExecute": [
     {
@@ -1337,9 +1318,7 @@ Gets a Runbook Run Preview that describes what steps will/won't be run during a 
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "StepsToExecute": [
     {
@@ -1604,9 +1583,7 @@ Gets a list of Runbook Run Previews that describes what steps will/won't be run 
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     },
     "StepsToExecute": [
       {
@@ -1725,9 +1702,7 @@ Also reachable at `/api/projects/{projectId}/runbooks/{runbookId}/runbookSnapsho
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "NextNameIncrement": "string",
   "Packages": [
@@ -1787,7 +1762,8 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks`, `/api/spaces/{s
 
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`CancelQueuedTasks`** :span[boolean]{.type-label}
   - **`CancelRunningTasks`** :span[boolean]{.type-label}
@@ -1834,7 +1810,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks`, `/api/spaces/{s
 ```json
 {
   "Id": "string",
-  "ItemType": "string",
+  "ItemType": "Runbook",
   "Items": [
     {
       "CancelQueuedTasks": false,
@@ -1860,9 +1836,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks`, `/api/spaces/{s
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "MultiTenancyMode": "Untenanted",
       "Name": "string",
@@ -1882,17 +1856,15 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks`, `/api/spaces/{s
       "SpaceId": "Spaces-1"
     }
   ],
-  "ItemsPerPage": 0,
+  "ItemsPerPage": 30,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "LastPageNumber": 0,
+  "LastPageNumber": 1,
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -2090,9 +2062,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks/{id}`, `/api/spac
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "MultiTenancyMode": "Untenanted",
   "Name": "string",
@@ -2123,7 +2093,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks/{id}`, `/api/spac
 **Path Parameters**
 
 - **`gitRef`** :span[string]{.type-label} *(required)*  
-  The Git branch to commit the change to. This must be a branch — a tag or commit cannot be written to — and the branch must not be protected in the project's version control settings. Use get_branches to list the project's branches.
+  The Git branch where the runbook is stored.
 - **`id`** :span[string]{.type-label} *(required)*  
   The ID of the runbook to update. A runbook stored in Git uses its slug as the ID, which is only unique within its project and Git ref.
 - **`projectId`** :span[string]{.type-label} *(required)*  
@@ -2158,7 +2128,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks/{id}`, `/api/spac
 - **`ForcePackageDownload`** :span[boolean]{.type-label}  
   Re-download every package on each run instead of reusing the copy already cached on the deployment target. Resets to false when omitted.
 - **`GitRef`** :span[string]{.type-label} *(required)*  
-  The Git branch to commit the change to. This must be a branch — a tag or commit cannot be written to — and the branch must not be protected in the project's version control settings. Use get_branches to list the project's branches.
+  The Git branch to commit the change to. This must be a branch — a tag or commit cannot be written to — and the branch must not be protected in the project's version control settings. Find the project's branches first to see the valid values.
 - **`Id`** :span[string]{.type-label} *(required)*  
   The ID of the runbook to update. A runbook stored in Git uses its slug as the ID, which is only unique within its project and Git ref.
 - **`MultiTenancyMode`** :span[enum]{.type-label}  
@@ -2177,9 +2147,9 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks/{id}`, `/api/spac
   - **`Unit`** :span[enum]{.type-label}  
     Allowed values: `Days`, `Items`.
 - **`RunbookProcessId`** :span[string]{.type-label}  
-  Leave this as the value returned by get_runbook. Octopus manages the link between a runbook and its process.
+  Leave this as the value returned when fetching the runbook. Octopus manages the link between a runbook and its process.
 - **`RunbookTags`** :span[array of string]{.type-label}  
-  The runbook's complete set of tags, each written as "TagSet/Tag" using either the names or the IDs of the tag set and tag (for example "Ops/Nightly"). This replaces the current tags, so resubmit the existing ones you want to keep. Call find_tag_sets to discover which tag sets apply to runbooks.
+  The runbook's complete set of tags, each written as "TagSet/Tag" using either the names or the IDs of the tag set and tag (for example "Ops/Nightly"). This replaces the current tags, so resubmit the existing ones you want to keep. Find the tag sets first to discover which ones apply to runbooks.
 - **`Slug`** :span[string]{.type-label}  
   A short URL-friendly identifier for the runbook, unique within the project. The current slug is kept when omitted.
 - **`SpaceId`** :span[string]{.type-label} *(required)*
@@ -2300,9 +2270,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks/{id}`, `/api/spac
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "MultiTenancyMode": "Untenanted",
   "Name": "string",
@@ -2436,9 +2404,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks/{id}/environments
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     },
     "Name": "string",
     "Slug": "string",
@@ -2563,9 +2529,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks/{id}/runbookRunTe
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "PromoteTo": [
     {
@@ -2584,9 +2548,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks/{id}/runbookRunTe
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Name": "string",
       "PromoteTo": [
@@ -2678,9 +2640,7 @@ Gets a Runbook Run Preview that describes what steps will/won't be run during a 
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "StepsToExecute": [
     {
@@ -2796,9 +2756,7 @@ Gets a Runbook Run Preview that describes what steps will/won't be run during a 
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "StepsToExecute": [
     {
@@ -2935,9 +2893,7 @@ Gets a list of Runbook Run Previews that describes what steps will/won't be run 
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     },
     "StepsToExecute": [
       {
@@ -3057,9 +3013,7 @@ Also reachable at `/api/projects/{projectId}/{gitref}/runbooks/{runbookId}/runbo
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "NextNameIncrement": "string",
   "Packages": [
@@ -3115,7 +3069,8 @@ Gets a paginated list of the Runbooks in the supplied Octopus Deploy Space (sort
 
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`CancelQueuedTasks`** :span[boolean]{.type-label}
   - **`CancelRunningTasks`** :span[boolean]{.type-label}
@@ -3162,7 +3117,7 @@ Gets a paginated list of the Runbooks in the supplied Octopus Deploy Space (sort
 ```json
 {
   "Id": "string",
-  "ItemType": "string",
+  "ItemType": "Runbook",
   "Items": [
     {
       "CancelQueuedTasks": false,
@@ -3188,9 +3143,7 @@ Gets a paginated list of the Runbooks in the supplied Octopus Deploy Space (sort
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "MultiTenancyMode": "Untenanted",
       "Name": "string",
@@ -3210,17 +3163,15 @@ Gets a paginated list of the Runbooks in the supplied Octopus Deploy Space (sort
       "SpaceId": "Spaces-1"
     }
   ],
-  "ItemsPerPage": 0,
+  "ItemsPerPage": 30,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "LastPageNumber": 0,
+  "LastPageNumber": 1,
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -3276,7 +3227,7 @@ Also reachable at `/api/runbooks`, `/api/spaces/{spaceIdentifier}/runbooks`.
 - **`RunbookProcessId`** :span[string]{.type-label}  
   Leave unset. Octopus creates an empty runbook process for the new runbook and links it automatically.
 - **`RunbookTags`** :span[array of string]{.type-label}  
-  Tags to apply to the runbook, each written as "TagSet/Tag" using either the names or the IDs of the tag set and tag (for example "Ops/Nightly"). Call find_tag_sets to discover which tag sets apply to runbooks and what tags they contain.
+  Tags to apply to the runbook, each written as "TagSet/Tag" using either the names or the IDs of the tag set and tag (for example "Ops/Nightly"). Find the tag sets first to discover which ones apply to runbooks and what tags they contain.
 - **`Slug`** :span[string]{.type-label}  
   A short URL-friendly identifier for the runbook, unique within the project. Generated from the name when omitted.
 - **`SpaceId`** :span[string]{.type-label} *(required)*  
@@ -3393,9 +3344,7 @@ Also reachable at `/api/runbooks`, `/api/spaces/{spaceIdentifier}/runbooks`.
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "MultiTenancyMode": "Untenanted",
   "Name": "string",
@@ -3509,9 +3458,7 @@ Lists all of the Runbooks in the supplied Space. The results will be sorted alph
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     },
     "MultiTenancyMode": "Untenanted",
     "Name": "string",
@@ -3621,9 +3568,7 @@ Also reachable at `/api/runbooks/{id}`, `/api/spaces/{spaceIdentifier}/runbooks/
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "MultiTenancyMode": "Untenanted",
   "Name": "string",
@@ -3700,9 +3645,9 @@ Also reachable at `/api/runbooks/{id}`, `/api/spaces/{spaceIdentifier}/runbooks/
   - **`Unit`** :span[enum]{.type-label}  
     Allowed values: `Days`, `Items`.
 - **`RunbookProcessId`** :span[string]{.type-label}  
-  Leave this as the value returned by get_runbook. Octopus manages the link between a runbook and its process.
+  Leave this as the value returned when fetching the runbook. Octopus manages the link between a runbook and its process.
 - **`RunbookTags`** :span[array of string]{.type-label}  
-  The runbook's complete set of tags, each written as "TagSet/Tag" using either the names or the IDs of the tag set and tag (for example "Ops/Nightly"). This replaces the current tags, so resubmit the existing ones you want to keep. Call find_tag_sets to discover which tag sets apply to runbooks.
+  The runbook's complete set of tags, each written as "TagSet/Tag" using either the names or the IDs of the tag set and tag (for example "Ops/Nightly"). This replaces the current tags, so resubmit the existing ones you want to keep. Find the tag sets first to discover which ones apply to runbooks.
 - **`Slug`** :span[string]{.type-label}  
   A short URL-friendly identifier for the runbook, unique within the project. The current slug is kept when omitted.
 - **`SpaceId`** :span[string]{.type-label} *(required)*
@@ -3821,9 +3766,7 @@ Also reachable at `/api/runbooks/{id}`, `/api/spaces/{spaceIdentifier}/runbooks/
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "MultiTenancyMode": "Untenanted",
   "Name": "string",
@@ -3928,9 +3871,7 @@ Also reachable at `/api/runbooks/{id}/environments`, `/api/spaces/{spaceIdentifi
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     },
     "Name": "string",
     "Slug": "string",
@@ -4003,9 +3944,7 @@ Also reachable at `/api/runbooks/{id}/runbookRunTemplate`, `/api/spaces/{spaceId
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "PromoteTo": [
     {
@@ -4024,9 +3963,7 @@ Also reachable at `/api/runbooks/{id}/runbookRunTemplate`, `/api/spaces/{spaceId
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Name": "string",
       "PromoteTo": [
@@ -4117,9 +4054,7 @@ Gets a Runbook Run Preview that describes what steps will/won't be run during a 
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "StepsToExecute": [
     {
@@ -4233,9 +4168,7 @@ Gets a Runbook Run Preview that describes what steps will/won't be run during a 
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "StepsToExecute": [
     {
@@ -4485,9 +4418,7 @@ Also reachable at `/api/runbooks/{runbookId}/runbookSnapshotTemplate`, `/api/spa
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "NextNameIncrement": "string",
   "Packages": [

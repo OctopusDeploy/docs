@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-09-04
 title: Branches
 ---
 
@@ -33,7 +33,8 @@ Also reachable at `/api/projects/{projectId}/git/branches`, `/api/spaces/{spaceI
 
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`CanonicalName`** :span[string]{.type-label}  
     Minimum length 1.
@@ -63,7 +64,7 @@ Also reachable at `/api/projects/{projectId}/git/branches`, `/api/spaces/{spaceI
 ```json
 {
   "Id": "string",
-  "ItemType": "string",
+  "ItemType": "GitBranch",
   "Items": [
     {
       "CanonicalName": "string",
@@ -72,24 +73,20 @@ Also reachable at `/api/projects/{projectId}/git/branches`, `/api/spaces/{spaceI
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Name": "string"
     }
   ],
-  "ItemsPerPage": 0,
+  "ItemsPerPage": 30,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "LastPageNumber": 0,
+  "LastPageNumber": 1,
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -153,9 +150,7 @@ Also reachable at `/api/projects/{projectId}/git/branches/v2`, `/api/spaces/{spa
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string"
 }
@@ -206,9 +201,7 @@ Gets a named version control branch for a project.
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string"
 }
@@ -257,9 +250,7 @@ Gets a git commit for a project.
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string"
 }
@@ -310,9 +301,7 @@ Gets a named version control reference for a project.
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string"
 }
@@ -347,7 +336,8 @@ Also reachable at `/api/projects/{projectId}/git/tags`, `/api/spaces/{spaceIdent
 
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`CanonicalName`** :span[string]{.type-label}  
     Minimum length 1.
@@ -376,7 +366,7 @@ Also reachable at `/api/projects/{projectId}/git/tags`, `/api/spaces/{spaceIdent
 ```json
 {
   "Id": "string",
-  "ItemType": "string",
+  "ItemType": "GitTag",
   "Items": [
     {
       "CanonicalName": "string",
@@ -384,24 +374,20 @@ Also reachable at `/api/projects/{projectId}/git/tags`, `/api/spaces/{spaceIdent
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Name": "string"
     }
   ],
-  "ItemsPerPage": 0,
+  "ItemsPerPage": 30,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "LastPageNumber": 0,
+  "LastPageNumber": 1,
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -446,9 +432,7 @@ Also reachable at `/api/projects/{projectId}/git/tags/{tagName}`, `/api/spaces/{
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string"
 }

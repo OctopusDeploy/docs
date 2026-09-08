@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-09-04
 title: Runbook Snapshots
 ---
 
@@ -125,7 +125,8 @@ Runbook Snapshots will be ordered from most recent to least recent.
 
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`Assembled`** :span[string]{.type-label}  
     Format `date-time`.
@@ -171,7 +172,7 @@ Runbook Snapshots will be ordered from most recent to least recent.
 ```json
 {
   "Id": "string",
-  "ItemType": "string",
+  "ItemType": "RunbookSnapshot",
   "Items": [
     {
       "Assembled": "2020-01-01T00:00:00.000Z",
@@ -189,9 +190,7 @@ Runbook Snapshots will be ordered from most recent to least recent.
         "string"
       ],
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Name": "string",
       "Notes": "string",
@@ -208,17 +207,15 @@ Runbook Snapshots will be ordered from most recent to least recent.
       "VariableSnapshotConcurrencyToken": "string"
     }
   ],
-  "ItemsPerPage": 0,
+  "ItemsPerPage": 30,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "LastPageNumber": 0,
+  "LastPageNumber": 1,
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -356,9 +353,7 @@ Also reachable at `/api/projects/{projectId}/runbookSnapshots`, `/api/spaces/{sp
     "string"
   ],
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "Notes": "string",
@@ -467,9 +462,7 @@ Also reachable at `/api/projects/{projectId}/runbookSnapshots/{idOrName}`, `/api
     "string"
   ],
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "Notes": "string",
@@ -633,9 +626,7 @@ Also reachable at `/api/projects/{projectId}/runbookSnapshots/{id}`, `/api/space
     "string"
   ],
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "Notes": "string",
@@ -691,7 +682,8 @@ Also reachable at `/api/projects/{projectId}/runbookSnapshots/{id}/runbookRuns`,
 
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`ChangeRequestSettings`** :span[array of object]{.type-label}
   - **`Comments`** :span[string]{.type-label}
@@ -759,7 +751,7 @@ Also reachable at `/api/projects/{projectId}/runbookSnapshots/{id}/runbookRuns`,
 ```json
 {
   "Id": "string",
-  "ItemType": "string",
+  "ItemType": "RunbookRun",
   "Items": [
     {
       "ChangeRequestSettings": [
@@ -798,9 +790,7 @@ Also reachable at `/api/projects/{projectId}/runbookSnapshots/{id}/runbookRuns`,
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "ManifestVariableSetId": "string",
       "Name": "string",
@@ -832,17 +822,15 @@ Also reachable at `/api/projects/{projectId}/runbookSnapshots/{id}/runbookRuns`,
       "UseGuidedFailure": false
     }
   ],
-  "ItemsPerPage": 0,
+  "ItemsPerPage": 30,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "LastPageNumber": 0,
+  "LastPageNumber": 1,
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -926,9 +914,7 @@ Gets a document that describes what steps will/won't be run during a run to a gi
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "StepsToExecute": [
     {
@@ -1023,9 +1009,7 @@ Gets all of the information necessary for creating or editing a run for this sna
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "PromoteTo": [
     {
@@ -1044,9 +1028,7 @@ Gets all of the information necessary for creating or editing a run for this sna
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Name": "string",
       "PromoteTo": [
@@ -1159,9 +1141,7 @@ Update the variable snapshots associated with the runbook snapshot to the latest
     "string"
   ],
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "Notes": "string",
@@ -1284,9 +1264,7 @@ Update the variable snapshots associated with the runbook snapshot to the latest
       "string"
     ],
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     },
     "Name": "string",
     "Notes": "string",
@@ -1379,9 +1357,7 @@ Also reachable at `/api/projects/{projectId}/runbookSnapshots/{id}/variables`, `
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     },
     "OwnerId": "string",
     "ScopeValues": {
@@ -1536,9 +1512,7 @@ Also reachable at `/api/projects/{projectId}/runbookSnapshots/{runbookSnapshotId
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     },
     "StepsToExecute": [
       {
@@ -1606,7 +1580,8 @@ Runbook Snapshots will be ordered from most recent to least recent.
 
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`Assembled`** :span[string]{.type-label}  
     Format `date-time`.
@@ -1652,7 +1627,7 @@ Runbook Snapshots will be ordered from most recent to least recent.
 ```json
 {
   "Id": "string",
-  "ItemType": "string",
+  "ItemType": "RunbookSnapshot",
   "Items": [
     {
       "Assembled": "2020-01-01T00:00:00.000Z",
@@ -1670,9 +1645,7 @@ Runbook Snapshots will be ordered from most recent to least recent.
         "string"
       ],
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Name": "string",
       "Notes": "string",
@@ -1689,17 +1662,15 @@ Runbook Snapshots will be ordered from most recent to least recent.
       "VariableSnapshotConcurrencyToken": "string"
     }
   ],
-  "ItemsPerPage": 0,
+  "ItemsPerPage": 30,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "LastPageNumber": 0,
+  "LastPageNumber": 1,
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -1750,7 +1721,8 @@ Gets a paginated list of the runbook snapshots in the supplied Octopus Deploy Sp
 
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`Assembled`** :span[string]{.type-label}  
     Format `date-time`.
@@ -1796,7 +1768,7 @@ Gets a paginated list of the runbook snapshots in the supplied Octopus Deploy Sp
 ```json
 {
   "Id": "string",
-  "ItemType": "string",
+  "ItemType": "RunbookSnapshot",
   "Items": [
     {
       "Assembled": "2020-01-01T00:00:00.000Z",
@@ -1814,9 +1786,7 @@ Gets a paginated list of the runbook snapshots in the supplied Octopus Deploy Sp
         "string"
       ],
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Name": "string",
       "Notes": "string",
@@ -1833,17 +1803,15 @@ Gets a paginated list of the runbook snapshots in the supplied Octopus Deploy Sp
       "VariableSnapshotConcurrencyToken": "string"
     }
   ],
-  "ItemsPerPage": 0,
+  "ItemsPerPage": 30,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "LastPageNumber": 0,
+  "LastPageNumber": 1,
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -1979,9 +1947,7 @@ Also reachable at `/api/runbookSnapshots`, `/api/spaces/{spaceIdentifier}/runboo
     "string"
   ],
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "Notes": "string",
@@ -2088,9 +2054,7 @@ Also reachable at `/api/runbookSnapshots/{id}`, `/api/spaces/{spaceIdentifier}/r
     "string"
   ],
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "Notes": "string",
@@ -2252,9 +2216,7 @@ Also reachable at `/api/runbookSnapshots/{id}`, `/api/spaces/{spaceIdentifier}/r
     "string"
   ],
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "Notes": "string",
@@ -2309,7 +2271,8 @@ Also reachable at `/api/runbookSnapshots/{id}/runbookRuns`, `/api/spaces/{spaceI
 
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`ChangeRequestSettings`** :span[array of object]{.type-label}
   - **`Comments`** :span[string]{.type-label}
@@ -2377,7 +2340,7 @@ Also reachable at `/api/runbookSnapshots/{id}/runbookRuns`, `/api/spaces/{spaceI
 ```json
 {
   "Id": "string",
-  "ItemType": "string",
+  "ItemType": "RunbookRun",
   "Items": [
     {
       "ChangeRequestSettings": [
@@ -2416,9 +2379,7 @@ Also reachable at `/api/runbookSnapshots/{id}/runbookRuns`, `/api/spaces/{spaceI
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "ManifestVariableSetId": "string",
       "Name": "string",
@@ -2450,17 +2411,15 @@ Also reachable at `/api/runbookSnapshots/{id}/runbookRuns`, `/api/spaces/{spaceI
       "UseGuidedFailure": false
     }
   ],
-  "ItemsPerPage": 0,
+  "ItemsPerPage": 30,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "LastPageNumber": 0,
+  "LastPageNumber": 1,
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -2544,9 +2503,7 @@ Gets a document that describes what steps will/won't be run during a run to a gi
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "StepsToExecute": [
     {
@@ -2644,9 +2601,7 @@ Gets all of the information necessary for creating or editing a run for this sna
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "PromoteTo": [
     {
@@ -2665,9 +2620,7 @@ Gets all of the information necessary for creating or editing a run for this sna
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Name": "string",
       "PromoteTo": [
@@ -2778,9 +2731,7 @@ Update the variable snapshots associated with the runbook snapshot to the latest
     "string"
   ],
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "Notes": "string",
@@ -2843,7 +2794,8 @@ Runbook Snapshots will be ordered from most recent to least recent.
 
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`Assembled`** :span[string]{.type-label}  
     Format `date-time`.
@@ -2889,7 +2841,7 @@ Runbook Snapshots will be ordered from most recent to least recent.
 ```json
 {
   "Id": "string",
-  "ItemType": "string",
+  "ItemType": "RunbookSnapshot",
   "Items": [
     {
       "Assembled": "2020-01-01T00:00:00.000Z",
@@ -2907,9 +2859,7 @@ Runbook Snapshots will be ordered from most recent to least recent.
         "string"
       ],
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Name": "string",
       "Notes": "string",
@@ -2926,17 +2876,15 @@ Runbook Snapshots will be ordered from most recent to least recent.
       "VariableSnapshotConcurrencyToken": "string"
     }
   ],
-  "ItemsPerPage": 0,
+  "ItemsPerPage": 30,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "LastPageNumber": 0,
+  "LastPageNumber": 1,
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::

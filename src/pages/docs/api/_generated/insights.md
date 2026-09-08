@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-09-03
+modDate: 2026-09-04
 title: Insights
 ---
 
@@ -31,7 +31,8 @@ Returns a paginated list of the Insights Reports in the supplied Octopus Deploy 
 
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`AllTenants`** :span[boolean]{.type-label}
   - **`ChannelIds`** :span[array of string]{.type-label}
@@ -72,7 +73,7 @@ Returns a paginated list of the Insights Reports in the supplied Octopus Deploy 
 ```json
 {
   "Id": "string",
-  "ItemType": "string",
+  "ItemType": "InsightsReport",
   "Items": [
     {
       "AllTenants": false,
@@ -90,9 +91,7 @@ Returns a paginated list of the Insights Reports in the supplied Octopus Deploy 
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Name": "string",
       "ProjectGroupIds": [
@@ -115,17 +114,15 @@ Returns a paginated list of the Insights Reports in the supplied Octopus Deploy 
       "TimeZone": "string"
     }
   ],
-  "ItemsPerPage": 0,
+  "ItemsPerPage": 30,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "LastPageNumber": 0,
+  "LastPageNumber": 1,
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -269,9 +266,7 @@ Creates a new Insights Report.
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "ProjectGroupIds": [
@@ -434,9 +429,7 @@ Creates a new Insights Report.
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     },
     "Name": "string",
     "ProjectGroupIds": [
@@ -530,9 +523,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/insights/reports/{id}`.
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "ProjectGroupIds": [
@@ -703,9 +694,7 @@ Updates an existing Insights Report
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "ProjectGroupIds": [
@@ -816,9 +805,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/insights/reports/{id}/v1`.
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     },
     "Name": "string",
     "ProjectGroupIds": [
@@ -989,9 +976,7 @@ Updates an existing Insights Report
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     },
     "Name": "string",
     "ProjectGroupIds": [
