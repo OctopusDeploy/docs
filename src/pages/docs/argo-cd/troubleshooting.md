@@ -299,7 +299,9 @@ Behavior:
 Cause:
 
 - Live Status is not enabled
+- Project doesn't have any deployments
 
 Resolution:
 
-- Enable Live Status via the "Live Status" toggle switch at the top of the dashboard.
+- Enable Live Status via the "Live Status" toggle switch at the top of the dashboard
+- Deploy a release in the desired project
