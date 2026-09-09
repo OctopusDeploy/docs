@@ -73,22 +73,22 @@ Behavior:
 
 Cause:
 
-- A load balancer or proxy between the gateway and Octopus Server closes connections it considers idle
+- A load balancer or proxy between the Kubernetes monitor and Octopus Server closes connections it considers idle
 - The Kubernetes monitor sends a health check to Octopus Server every 30 seconds by default to hold the connection open. If the load balancer's idle timeout is shorter than the health check interval (or health checks are disabled), the connection is terminated before the next health check is sent
 
 Resolution:
 
-- Increase the idle timeout on your load balancer so it comfortably exceeds the health check interval (`gateway.octopus.healthCheck.interval`, default 30 seconds)
+- Increase the idle timeout on your load balancer so it comfortably exceeds the health check interval (`kubernetesMonitor.monitor.healthCheck.interval`, default 30 seconds)
 - Alternatively, reduce the health check interval below the load balancer's idle timeout:
 
 ```bash
 helm upgrade --atomic \
   --version "2.*.*" \
-  --namespace ""octopus-agent-$AGENT_NAME"" \
+  --namespace "octopus-agent-$AGENT_NAME" \
   --reuse-values \
-  --set monitor.healthCheck.interval ="15s" \
-    $HELM_RELEASE \
-    oci://registry-1.docker.io/octopusdeploy/kubernetes-agent
+  --set kubernetesMonitor.monitor.healthCheck.interval="15s" \
+  $HELM_RELEASE \
+  oci://registry-1.docker.io/octopusdeploy/kubernetes-agent
 ```
 
 ## Unexpected object statuses
