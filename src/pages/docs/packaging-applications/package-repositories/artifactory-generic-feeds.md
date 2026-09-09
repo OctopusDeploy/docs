@@ -57,7 +57,7 @@ The regex layout in Artifactory is used to [list the versions of an artifact](ht
 If a package has been found and selected but fetching versions fails when creating deployments this is likely due to the layout not matching the artifact within Artifactory.
 :::
 
-On the test page, you can search for packages, this will return the packageId expected by Octopus along with the artifact details. The expected packageId is `path/module` where the path is the folder structure to the artifact returned from the AQL query <code>items.find(...)</code> and the module is determined by the regex expression set on the feed within Octopus.
+On the test page, you can search for packages, this will return the packageId expected by Octopus along with the artifact details.
 
 :::div{.warning}
 The package search for the feed is case-sensitive, so you must match the package's case in the Package Name field exactly to find the package. A package name can be partially searched for, or the full package name and version can be searched for. For example, for a package called 'FileTransferService-10.0.zip,' you can search for 'File', 'FileTransferService', or 'FileTransferService-10.0.zip'.
