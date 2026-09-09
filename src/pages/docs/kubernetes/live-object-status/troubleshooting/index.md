@@ -69,7 +69,7 @@ Behavior:
 - The Kubernetes monitor installs and connects successfully, but loses its connection to Octopus Server after every quiet period of the same length (e.g. 60 seconds without activity)
 - The "connectivity" tab of the Kubernetes agent intermittently shows "Offline" for the Kubernetes monitor component, depending on when the last health check ran
 - The Kubernetes monitor pod logs show stream errors followed by an immediate reconnection
-- If the load balancer drops connections silently instead of closing them, the logs show failing health checks (`keep alive check failed - cancelling subscribers` with `DeadlineExceeded` errors) and the Kubernetes monitor pod restart count climbs at a regular cadence
+- If the load balancer drops connections silently instead of closing them, the logs show failing health checks (`Health check failed - cancelling subscribers` with `DeadlineExceeded` errors) and the Kubernetes monitor pod restart count climbs at a regular cadence
 
 Cause:
 

@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-09-15
-modDate: 2026-09-07
+modDate: 2026-09-09
 title: Troubleshooting Argo CD in Octopus
 navTitle: Troubleshooting
 description: How to resolve configuration issues
@@ -174,7 +174,7 @@ Behavior:
 - Deployments with Argo CD steps fail intermittently with gRPC connection errors, and succeed when retried
 - The "Gateway connectivity" tab of the Argo CD instance intermittently shows "Unavailable", depending on when the last health check ran
 - The gateway pod logs show stream errors followed by an immediate reconnection
-- If the load balancer drops connections silently instead of closing them, the logs show failing health checks (`keep alive check failed - cancelling subscribers` with `DeadlineExceeded` errors) and the gateway pod restart count climbs at a regular cadence
+- If the load balancer drops connections silently instead of closing them, the logs show failing health checks (`Health check failed - cancelling subscribers` with `DeadlineExceeded` errors) and the gateway pod restart count climbs at a regular cadence
 
 Cause:
 
