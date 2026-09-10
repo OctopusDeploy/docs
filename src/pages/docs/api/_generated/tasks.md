@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-09-03
+modDate: 2026-09-04
 title: Tasks
 ---
 
@@ -70,7 +70,8 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks`, `/api/tasks`.
 
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`Arguments`** :span[object]{.type-label}  
     Gets or sets any arguments to the task.
@@ -145,7 +146,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks`, `/api/tasks`.
 ```json
 {
   "Id": "string",
-  "ItemType": "string",
+  "ItemType": "Task",
   "Items": [
     {
       "Arguments": {
@@ -171,9 +172,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks`, `/api/tasks`.
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "LastUpdatedTime": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Name": "string",
       "PendingInterruptionTypes": [
@@ -191,17 +190,15 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks`, `/api/tasks`.
       "State": "Queued"
     }
   ],
-  "ItemsPerPage": 0,
+  "ItemsPerPage": 30,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "LastPageNumber": 0,
+  "LastPageNumber": 1,
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -336,9 +333,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks`, `/api/tasks`.
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "LastUpdatedTime": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "PendingInterruptionTypes": [
@@ -462,9 +457,7 @@ Note that deployment tasks cannot be re-run.
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "LastUpdatedTime": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "PendingInterruptionTypes": [
@@ -620,9 +613,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}`, `/api/tasks/{id}`.
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "LastUpdatedTime": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "PendingInterruptionTypes": [
@@ -744,9 +735,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}/cancel`, `/api/tasks
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "LastUpdatedTime": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "PendingInterruptionTypes": [
@@ -900,9 +889,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}/details`, `/api/task
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "PhysicalLogSize": 0,
   "Progress": {
@@ -933,9 +920,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}/details`, `/api/task
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "LastUpdatedTime": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     },
     "Name": "string",
     "PendingInterruptionTypes": [
@@ -996,7 +981,8 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}/queued-behind`, `/ap
 
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`Arguments`** :span[object]{.type-label}  
     Gets or sets any arguments to the task.
@@ -1071,7 +1057,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}/queued-behind`, `/ap
 ```json
 {
   "Id": "string",
-  "ItemType": "string",
+  "ItemType": "Task",
   "Items": [
     {
       "Arguments": {
@@ -1097,9 +1083,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}/queued-behind`, `/ap
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "LastUpdatedTime": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Name": "string",
       "PendingInterruptionTypes": [
@@ -1117,17 +1101,15 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}/queued-behind`, `/ap
       "State": "Queued"
     }
   ],
-  "ItemsPerPage": 0,
+  "ItemsPerPage": 30,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "LastPageNumber": 0,
+  "LastPageNumber": 1,
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -1282,9 +1264,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}/state`, `/api/tasks/
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "LastUpdatedTime": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "PendingInterruptionTypes": [
@@ -1344,9 +1324,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}/status/messages`, `/
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Message": "string",
       "Title": "string"

@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-09-03
+modDate: 2026-09-04
 title: Platform Hub
 ---
 
@@ -24,7 +24,8 @@ title: Platform Hub
 
 `200` — Success
 
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`Description`** :span[string]{.type-label}
   - **`Details`** :span[object]{.type-label}
@@ -41,7 +42,7 @@ title: Platform Hub
 :::api-example{label="Response"}
 ```json
 {
-  "ItemType": "string",
+  "ItemType": "PlatformHubAccount",
   "Items": [
     {
       "Description": "string",
@@ -53,10 +54,10 @@ title: Platform Hub
       "Slug": "string"
     }
   ],
-  "ItemsPerPage": 0,
-  "LastPageNumber": 0,
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "ItemsPerPage": 30,
+  "LastPageNumber": 1,
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -225,7 +226,8 @@ title: Platform Hub
 
 `200` — The requested Platform Hub certificates.
 
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`Archived`** :span[string]{.type-label}  
     Format `date-time`.
@@ -275,7 +277,7 @@ title: Platform Hub
 :::api-example{label="Response"}
 ```json
 {
-  "ItemType": "string",
+  "ItemType": "PlatformHubCertificate",
   "Items": [
     {
       "Archived": "2020-01-01T00:00:00.000Z",
@@ -297,9 +299,7 @@ title: Platform Hub
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Name": "string",
       "NotAfter": "2020-01-01T00:00:00.000Z",
@@ -325,10 +325,10 @@ title: Platform Hub
       "Version": 0
     }
   ],
-  "ItemsPerPage": 0,
-  "LastPageNumber": 0,
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "ItemsPerPage": 30,
+  "LastPageNumber": 1,
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -465,9 +465,7 @@ title: Platform Hub
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "NotAfter": "2020-01-01T00:00:00.000Z",
@@ -590,9 +588,7 @@ title: Platform Hub
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "NotAfter": "2020-01-01T00:00:00.000Z",
@@ -713,9 +709,7 @@ title: Platform Hub
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "NotAfter": "2020-01-01T00:00:00.000Z",
@@ -843,9 +837,7 @@ title: Platform Hub
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "NotAfter": "2020-01-01T00:00:00.000Z",
@@ -992,9 +984,7 @@ title: Platform Hub
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "NotAfter": "2020-01-01T00:00:00.000Z",
@@ -1202,9 +1192,7 @@ title: Platform Hub
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "NotAfter": "2020-01-01T00:00:00.000Z",
@@ -1351,9 +1339,7 @@ title: Platform Hub
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "ProcessTemplateVersionUsageCount": 0,
   "ProcessTemplateVersionUsages": [
@@ -1405,7 +1391,8 @@ title: Platform Hub
 
 `200` — The requested list of Platform Hub Feeds
 
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`FeedType`** :span[enum]{.type-label}  
     Allowed values: `None`, `NuGet`, `Docker`, `Maven`, `OctopusProject`, `GitHub`, `Helm`, `OciRegistry`, `AwsElasticContainerRegistry`, `BuiltIn`, `S3`, `AzureContainerRegistry`, `GoogleContainerRegistry`, `ArtifactoryGeneric`, `Npm`, `GcsStorage`, `PyPi`.
@@ -1427,7 +1414,7 @@ title: Platform Hub
 :::api-example{label="Response"}
 ```json
 {
-  "ItemType": "string",
+  "ItemType": "PlatformHubFeed",
   "Items": [
     {
       "FeedType": "None",
@@ -1441,10 +1428,10 @@ title: Platform Hub
       "Slug": "string"
     }
   ],
-  "ItemsPerPage": 0,
-  "LastPageNumber": 0,
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "ItemsPerPage": 30,
+  "LastPageNumber": 1,
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -1668,7 +1655,8 @@ title: Platform Hub
 
 `200` — Returns a paginated collection of searched package descriptions in platform hub
 
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`Description`** :span[string]{.type-label}
   - **`Id`** :span[string]{.type-label}  
@@ -1683,7 +1671,7 @@ title: Platform Hub
 :::api-example{label="Response"}
 ```json
 {
-  "ItemType": "string",
+  "ItemType": "PlatformHubPackageDescription",
   "Items": [
     {
       "Description": "string",
@@ -1692,10 +1680,10 @@ title: Platform Hub
       "Name": "string"
     }
   ],
-  "ItemsPerPage": 0,
-  "LastPageNumber": 0,
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "ItemsPerPage": 30,
+  "LastPageNumber": 1,
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -1732,7 +1720,8 @@ title: Platform Hub
 
 `200` — Contains a paginated collection of package versions returned from a search
 
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`FeedId`** :span[string]{.type-label}
   - **`Id`** :span[string]{.type-label}  
@@ -1754,7 +1743,7 @@ title: Platform Hub
 :::api-example{label="Response"}
 ```json
 {
-  "ItemType": "string",
+  "ItemType": "PlatformHubPackageVersion",
   "Items": [
     {
       "FeedId": "string",
@@ -1767,10 +1756,10 @@ title: Platform Hub
       "Version": "string"
     }
   ],
-  "ItemsPerPage": 0,
-  "LastPageNumber": 0,
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "ItemsPerPage": 30,
+  "LastPageNumber": 1,
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -1792,7 +1781,8 @@ title: Platform Hub
 
 `200` — Success
 
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`Description`** :span[string]{.type-label}
   - **`Details`** :span[object]{.type-label}
@@ -1808,7 +1798,7 @@ title: Platform Hub
 :::api-example{label="Response"}
 ```json
 {
-  "ItemType": "string",
+  "ItemType": "PlatformHubGitCredential",
   "Items": [
     {
       "Description": "string",
@@ -1825,10 +1815,10 @@ title: Platform Hub
       }
     }
   ],
-  "ItemsPerPage": 0,
-  "LastPageNumber": 0,
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "ItemsPerPage": 30,
+  "LastPageNumber": 1,
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -1904,7 +1894,8 @@ title: Platform Hub
 
 `200` — Success
 
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`Description`** :span[string]{.type-label}
   - **`Details`** :span[object]{.type-label}
@@ -1920,7 +1911,7 @@ title: Platform Hub
 :::api-example{label="Response"}
 ```json
 {
-  "ItemType": "string",
+  "ItemType": "PlatformHubGitCredentialV2",
   "Items": [
     {
       "Description": "string",
@@ -1937,10 +1928,10 @@ title: Platform Hub
       }
     }
   ],
-  "ItemsPerPage": 0,
-  "LastPageNumber": 0,
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "ItemsPerPage": 30,
+  "LastPageNumber": 1,
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -2221,7 +2212,8 @@ title: Platform Hub
 
 `200` — Success
 
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`CanonicalName`** :span[string]{.type-label}  
     Minimum length 1.
@@ -2244,7 +2236,7 @@ title: Platform Hub
 :::api-example{label="Response"}
 ```json
 {
-  "ItemType": "string",
+  "ItemType": "GitBranch",
   "Items": [
     {
       "CanonicalName": "string",
@@ -2253,17 +2245,15 @@ title: Platform Hub
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Name": "string"
     }
   ],
-  "ItemsPerPage": 0,
-  "LastPageNumber": 0,
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "ItemsPerPage": 30,
+  "LastPageNumber": 1,
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -2314,9 +2304,7 @@ title: Platform Hub
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string"
 }
@@ -2340,7 +2328,8 @@ title: Platform Hub
 
 `200` — Success
 
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`CanonicalName`** :span[string]{.type-label}  
     Minimum length 1.
@@ -2362,7 +2351,7 @@ title: Platform Hub
 :::api-example{label="Response"}
 ```json
 {
-  "ItemType": "string",
+  "ItemType": "GitTag",
   "Items": [
     {
       "CanonicalName": "string",
@@ -2370,17 +2359,15 @@ title: Platform Hub
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Name": "string"
     }
   ],
-  "ItemsPerPage": 0,
-  "LastPageNumber": 0,
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "ItemsPerPage": 30,
+  "LastPageNumber": 1,
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::

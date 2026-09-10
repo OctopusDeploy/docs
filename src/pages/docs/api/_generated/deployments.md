@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-09-04
 title: Deployments
 ---
 
@@ -46,7 +46,8 @@ Lists all of the Deployments in the supplied Space. The results will be sorted f
 
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`ChangeRequestSettings`** :span[array of object]{.type-label}
   - **`Changes`** :span[array of object]{.type-label}
@@ -114,7 +115,7 @@ Lists all of the Deployments in the supplied Space. The results will be sorted f
 ```json
 {
   "Id": "string",
-  "ItemType": "string",
+  "ItemType": "Deployment",
   "Items": [
     {
       "ChangeRequestSettings": [
@@ -159,9 +160,7 @@ Lists all of the Deployments in the supplied Space. The results will be sorted f
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "ManifestVariableSetId": "string",
       "Name": "string",
@@ -191,17 +190,15 @@ Lists all of the Deployments in the supplied Space. The results will be sorted f
       "UseGuidedFailure": false
     }
   ],
-  "ItemsPerPage": 0,
+  "ItemsPerPage": 30,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "LastPageNumber": 0,
+  "LastPageNumber": 1,
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -347,9 +344,7 @@ Also reachable at `/api/deployments`, `/api/spaces/{spaceIdentifier}/deployments
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "ManifestVariableSetId": "string",
   "Name": "string",
@@ -514,9 +509,7 @@ Also reachable at `/api/deployments`, `/api/spaces/{spaceIdentifier}/deployments
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "ManifestVariableSetId": "string",
   "Name": "string",
@@ -937,9 +930,7 @@ Also reachable at `/api/deployments/v1`, `/api/spaces/{spaceIdentifier}/deployme
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "ManifestVariableSetId": "string",
   "Name": "string",
@@ -1088,9 +1079,7 @@ Also reachable at `/api/deployments/v1`, `/api/spaces/{spaceIdentifier}/deployme
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     },
     "ManifestVariableSetId": "string",
     "Name": "string",
@@ -1268,9 +1257,7 @@ Also reachable at `/api/deployments/{id}`, `/api/spaces/{spaceIdentifier}/deploy
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "ManifestVariableSetId": "string",
   "Name": "string",

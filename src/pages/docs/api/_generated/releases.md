@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-09-04
 title: Releases
 ---
 
@@ -37,7 +37,8 @@ Releases will be ordered from most recent to least recent,
 
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`Assembled`** :span[string]{.type-label}  
     Format `date-time`.
@@ -82,7 +83,7 @@ Releases will be ordered from most recent to least recent,
 ```json
 {
   "Id": "string",
-  "ItemType": "string",
+  "ItemType": "Release",
   "Items": [
     {
       "Assembled": "2020-01-01T00:00:00.000Z",
@@ -103,9 +104,7 @@ Releases will be ordered from most recent to least recent,
         "string"
       ],
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "ProjectDeploymentProcessSnapshotId": "string",
       "ProjectId": "Projects-1",
@@ -127,17 +126,15 @@ Releases will be ordered from most recent to least recent,
       }
     }
   ],
-  "ItemsPerPage": 0,
+  "ItemsPerPage": 30,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "LastPageNumber": 0,
+  "LastPageNumber": 1,
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -174,7 +171,8 @@ Releases will be ordered from most recent to least recent,
 
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`Assembled`** :span[string]{.type-label}  
     Format `date-time`.
@@ -219,7 +217,7 @@ Releases will be ordered from most recent to least recent,
 ```json
 {
   "Id": "string",
-  "ItemType": "string",
+  "ItemType": "Release",
   "Items": [
     {
       "Assembled": "2020-01-01T00:00:00.000Z",
@@ -240,9 +238,7 @@ Releases will be ordered from most recent to least recent,
         "string"
       ],
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "ProjectDeploymentProcessSnapshotId": "string",
       "ProjectId": "Projects-1",
@@ -264,17 +260,15 @@ Releases will be ordered from most recent to least recent,
       }
     }
   ],
-  "ItemsPerPage": 0,
+  "ItemsPerPage": 30,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "LastPageNumber": 0,
+  "LastPageNumber": 1,
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -309,7 +303,8 @@ Releases will be ordered from most recent to least recent
 
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`Assembled`** :span[string]{.type-label}  
     Format `date-time`.
@@ -354,7 +349,7 @@ Releases will be ordered from most recent to least recent
 ```json
 {
   "Id": "string",
-  "ItemType": "string",
+  "ItemType": "Release",
   "Items": [
     {
       "Assembled": "2020-01-01T00:00:00.000Z",
@@ -375,9 +370,7 @@ Releases will be ordered from most recent to least recent
         "string"
       ],
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "ProjectDeploymentProcessSnapshotId": "string",
       "ProjectId": "Projects-1",
@@ -399,17 +392,15 @@ Releases will be ordered from most recent to least recent
       }
     }
   ],
-  "ItemsPerPage": 0,
+  "ItemsPerPage": 30,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "LastPageNumber": 0,
+  "LastPageNumber": 1,
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -478,9 +469,7 @@ Also reachable at `/api/projects/{projectId}/releases/{id}/variables`, `/api/spa
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     },
     "OwnerId": "string",
     "ScopeValues": {
@@ -649,9 +638,7 @@ Also reachable at `/api/projects/{projectId}/releases/{version}`, `/api/spaces/{
     "string"
   ],
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "ProjectDeploymentProcessSnapshotId": "string",
   "ProjectId": "Projects-1",
@@ -713,7 +700,8 @@ Lists all of the Releases in the supplied Octopus Deploy Space, from all project
 
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`Assembled`** :span[string]{.type-label}  
     Format `date-time`.
@@ -758,7 +746,7 @@ Lists all of the Releases in the supplied Octopus Deploy Space, from all project
 ```json
 {
   "Id": "string",
-  "ItemType": "string",
+  "ItemType": "Release",
   "Items": [
     {
       "Assembled": "2020-01-01T00:00:00.000Z",
@@ -779,9 +767,7 @@ Lists all of the Releases in the supplied Octopus Deploy Space, from all project
         "string"
       ],
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "ProjectDeploymentProcessSnapshotId": "string",
       "ProjectId": "Projects-1",
@@ -803,17 +789,15 @@ Lists all of the Releases in the supplied Octopus Deploy Space, from all project
       }
     }
   ],
-  "ItemsPerPage": 0,
+  "ItemsPerPage": 30,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "LastPageNumber": 0,
+  "LastPageNumber": 1,
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -994,9 +978,7 @@ Also reachable at `/api/releases`, `/api/spaces/{spaceIdentifier}/releases`.
     "string"
   ],
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "ProjectDeploymentProcessSnapshotId": "string",
   "ProjectId": "Projects-1",
@@ -1051,7 +1033,7 @@ Also reachable at `/api/releases/create/v1`, `/api/spaces/{spaceIdentifier}/rele
 - **`GitCommit`** :span[string]{.type-label}  
   Only set alongside GitRef, when a specific commit is needed; GitRef alone uses the tip of that ref.
 - **`GitRef`** :span[string]{.type-label}  
-  The Git branch, tag or commit to snapshot the deployment process from. Required for a project that stores its configuration in Git, and must be left unset for one stored in the database — the command fails either way round. List a project's branches with get_branches.
+  The Git branch, tag or commit to snapshot the deployment process from. Required for a project that stores its configuration in Git, and must be left unset for one stored in the database — the command fails either way round. Find the project's branches first when you need a branch reference.
 - **`GitResources`** :span[array of string]{.type-label}  
   Git ref to use for a git resource in the release. Format: StepName:GitRef or StepName:GitResourceName:GitRef. If the GitResourceName is omitted, it's assumed to be the primary git resource for the step. The GitRef can be replaced with an asterisk. An asterisk will use the tip ref of the step-defined default branch.
 - **`IgnoreChannelRules`** :span[boolean]{.type-label}  
@@ -1229,9 +1211,7 @@ Also reachable at `/api/releases/{id}`, `/api/spaces/{spaceIdentifier}/releases/
     "string"
   ],
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "ProjectDeploymentProcessSnapshotId": "string",
   "ProjectId": "Projects-1",
@@ -1436,9 +1416,7 @@ Also reachable at `/api/releases/{id}`, `/api/spaces/{spaceIdentifier}/releases/
     "string"
   ],
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "ProjectDeploymentProcessSnapshotId": "string",
   "ProjectId": "Projects-1",
@@ -1549,9 +1527,7 @@ Also reachable at `/api/releases/{id}/deployments/template`, `/api/spaces/{space
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "PromoteTo": [
     {
@@ -1570,9 +1546,7 @@ Also reachable at `/api/releases/{id}/deployments/template`, `/api/spaces/{space
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Name": "string",
       "PromoteTo": [
@@ -1603,7 +1577,8 @@ Also reachable at `/api/releases/{releaseId}/defects`, `/api/spaces/{spaceIdenti
 
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`Description`** :span[string]{.type-label}  
     Minimum length 1.
@@ -1632,7 +1607,7 @@ Also reachable at `/api/releases/{releaseId}/defects`, `/api/spaces/{spaceIdenti
 ```json
 {
   "Id": "string",
-  "ItemType": "string",
+  "ItemType": "Defect",
   "Items": [
     {
       "Description": "string",
@@ -1640,24 +1615,20 @@ Also reachable at `/api/releases/{releaseId}/defects`, `/api/spaces/{spaceIdenti
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Status": "Unresolved"
     }
   ],
-  "ItemsPerPage": 0,
+  "ItemsPerPage": 30,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "LastPageNumber": 0,
+  "LastPageNumber": 1,
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -1721,9 +1692,7 @@ Also reachable at `/api/releases/{releaseId}/defects`, `/api/spaces/{spaceIdenti
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Status": "Unresolved"
 }
@@ -1768,9 +1737,7 @@ Also reachable at `/api/releases/{releaseId}/defects/resolve`, `/api/spaces/{spa
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Status": "Unresolved"
 }
@@ -1805,7 +1772,8 @@ Deployments will be ordered from most recent to least recent.
 
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`ChangeRequestSettings`** :span[array of object]{.type-label}
   - **`Changes`** :span[array of object]{.type-label}
@@ -1873,7 +1841,7 @@ Deployments will be ordered from most recent to least recent.
 ```json
 {
   "Id": "string",
-  "ItemType": "string",
+  "ItemType": "Deployment",
   "Items": [
     {
       "ChangeRequestSettings": [
@@ -1918,9 +1886,7 @@ Deployments will be ordered from most recent to least recent.
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "ManifestVariableSetId": "string",
       "Name": "string",
@@ -1950,17 +1916,15 @@ Deployments will be ordered from most recent to least recent.
       "UseGuidedFailure": false
     }
   ],
-  "ItemsPerPage": 0,
+  "ItemsPerPage": 30,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "LastPageNumber": 0,
+  "LastPageNumber": 1,
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -2065,9 +2029,7 @@ Also reachable at `/api/releases/{releaseId}/deployments/preview/{environmentId}
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "StepsToExecute": [
     {
@@ -2219,9 +2181,7 @@ Also reachable at `/api/releases/{releaseId}/deployments/previews`, `/api/spaces
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     },
     "StepsToExecute": [
       {
@@ -2338,9 +2298,7 @@ Also reachable at `/api/releases/{releaseId}/progression`, `/api/spaces/{spaceId
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "NextDeployments": [
     "Environments-1",
@@ -2503,9 +2461,7 @@ Only the release notes are changed and everything else about the Release is left
     "string"
   ],
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "ProjectDeploymentProcessSnapshotId": "string",
   "ProjectId": "Projects-1",
@@ -2665,9 +2621,7 @@ Also reachable at `/api/releases/{releaseId}/snapshot-variables`, `/api/spaces/{
     "string"
   ],
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "ProjectDeploymentProcessSnapshotId": "string",
   "ProjectId": "Projects-1",

@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-09-03
+modDate: 2026-09-04
 title: Certificates
 ---
 
@@ -43,7 +43,8 @@ Also reachable at `/api/certificates`, `/api/spaces/{spaceIdentifier}/certificat
 
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`Archived`** :span[string]{.type-label}  
     Format `date-time`.
@@ -104,7 +105,7 @@ Also reachable at `/api/certificates`, `/api/spaces/{spaceIdentifier}/certificat
 ```json
 {
   "Id": "string",
-  "ItemType": "string",
+  "ItemType": "Certificate",
   "Items": [
     {
       "Archived": "2020-01-01T00:00:00.000Z",
@@ -130,9 +131,7 @@ Also reachable at `/api/certificates`, `/api/spaces/{spaceIdentifier}/certificat
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Name": "string",
       "NotAfter": "2020-01-01T00:00:00.000Z",
@@ -166,17 +165,15 @@ Also reachable at `/api/certificates`, `/api/spaces/{spaceIdentifier}/certificat
       "Version": 0
     }
   ],
-  "ItemsPerPage": 0,
+  "ItemsPerPage": 30,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "LastPageNumber": 0,
+  "LastPageNumber": 1,
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -346,9 +343,7 @@ Adds a new certificate
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "NotAfter": "2020-01-01T00:00:00.000Z",
@@ -503,9 +498,7 @@ Lists X.509 certificates managed by Octopus.
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     },
     "Name": "string",
     "NotAfter": "2020-01-01T00:00:00.000Z",
@@ -571,9 +564,7 @@ Returns the server thumbprint used to identify this Octopus Server to any Tentac
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "SignatureAlgorithm": "string",
@@ -692,9 +683,7 @@ Also reachable at `/api/certificates/generate`, `/api/spaces/{spaceIdentifier}/c
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "NotAfter": "2020-01-01T00:00:00.000Z",
@@ -831,9 +820,7 @@ Also reachable at `/api/certificates/generate`, `/api/spaces/{spaceIdentifier}/c
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "NotAfter": "2020-01-01T00:00:00.000Z",
@@ -875,7 +862,9 @@ Also reachable at `/api/certificates/generate`, `/api/spaces/{spaceIdentifier}/c
 
 Also reachable at `/api/certificates/v2`, `/api/spaces/{spaceIdentifier}/certificates/v2`.
 
-List the X.509 certificates in the supplied Octopus Deploy Space in pages. Current certificates are sorted by soonest expiry first unless OrderBy says otherwise; archived certificates are always sorted by most recently archived. Skip and Take are required. TotalResults is always the real count of matching certificates, including when Tenant or FirstResult is supplied. Certificate data and passwords are never returned by this endpoint.
+List the X.509 certificates in the supplied Octopus Deploy Space in pages. Current certificates are sorted by soonest expiry first unless OrderBy says otherwise; archived certificates are always sorted by most recently archived.
+
+Skip and Take are required. TotalResults is always the real count of matching certificates, including when Tenant or FirstResult is supplied. Certificate data and passwords are never returned by this endpoint.
 
 **Path Parameters**
 
@@ -905,7 +894,8 @@ List the X.509 certificates in the supplied Octopus Deploy Space in pages. Curre
 
 `200` — Success
 
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`Archived`** :span[string]{.type-label}  
     Format `date-time`.
@@ -959,7 +949,7 @@ List the X.509 certificates in the supplied Octopus Deploy Space in pages. Curre
 :::api-example{label="Response"}
 ```json
 {
-  "ItemType": "string",
+  "ItemType": "Certificate",
   "Items": [
     {
       "Archived": "2020-01-01T00:00:00.000Z",
@@ -985,9 +975,7 @@ List the X.509 certificates in the supplied Octopus Deploy Space in pages. Curre
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Name": "string",
       "NotAfter": "2020-01-01T00:00:00.000Z",
@@ -1021,10 +1009,10 @@ List the X.509 certificates in the supplied Octopus Deploy Space in pages. Curre
       "Version": 0
     }
   ],
-  "ItemsPerPage": 0,
-  "LastPageNumber": 0,
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "ItemsPerPage": 30,
+  "LastPageNumber": 1,
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -1142,9 +1130,7 @@ Also reachable at `/api/certificates/{id}`, `/api/spaces/{spaceIdentifier}/certi
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "NotAfter": "2020-01-01T00:00:00.000Z",
@@ -1338,9 +1324,7 @@ Modifies an existing certificate
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "NotAfter": "2020-01-01T00:00:00.000Z",
@@ -1603,9 +1587,7 @@ Also reachable at `/api/certificates/{id}/replace`, `/api/spaces/{spaceIdentifie
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "NotAfter": "2020-01-01T00:00:00.000Z",
@@ -1846,7 +1828,9 @@ Also reachable at `/api/certificates/{id}/usages`, `/api/spaces/{spaceIdentifier
         "Id": "string",
         "LastModifiedBy": "string",
         "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-        "Links": {}
+        "Links": {
+          "Self": "/api/..."
+        }
       },
       "EnvironmentIds": [
         "Environments-1",
@@ -1860,9 +1844,7 @@ Also reachable at `/api/certificates/{id}/usages`, `/api/spaces/{spaceIdentifier
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "MachinePolicyId": "string",
       "Name": "string",
@@ -1900,9 +1882,7 @@ Also reachable at `/api/certificates/{id}/usages`, `/api/spaces/{spaceIdentifier
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Name": "string",
       "SpaceId": "Spaces-1",
@@ -1914,9 +1894,7 @@ Also reachable at `/api/certificates/{id}/usages`, `/api/spaces/{spaceIdentifier
     }
   ],
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "ProjectUsages": [
     {
@@ -1955,9 +1933,7 @@ Also reachable at `/api/certificates/{id}/usages`, `/api/spaces/{spaceIdentifier
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "LifecycleId": "string",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Name": "string",
       "PersistenceSettings": {
@@ -2015,9 +1991,7 @@ Also reachable at `/api/certificates/{id}/usages`, `/api/spaces/{spaceIdentifier
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Name": "string",
       "ProjectEnvironments": {
@@ -2061,7 +2035,8 @@ Only returns configurations for the global Certificate
 
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`Id`** :span[string]{.type-label}  
     Gets or sets a unique identifier for this resource.
@@ -2089,33 +2064,29 @@ Only returns configurations for the global Certificate
 ```json
 {
   "Id": "string",
-  "ItemType": "string",
+  "ItemType": "CertificateConfiguration",
   "Items": [
     {
       "Id": "string",
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Name": "string",
       "SignatureAlgorithm": "string",
       "Thumbprint": "string"
     }
   ],
-  "ItemsPerPage": 0,
+  "ItemsPerPage": 30,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "LastPageNumber": 0,
+  "LastPageNumber": 1,
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -2152,9 +2123,7 @@ Only returns configurations for the global Certificate
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "SignatureAlgorithm": "string",

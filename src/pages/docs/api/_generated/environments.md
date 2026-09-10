@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-09-03
+modDate: 2026-09-04
 title: Environments
 ---
 
@@ -37,7 +37,8 @@ Lists all of the environments in the supplied Octopus Deploy Space. The results 
 
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`AllowDynamicInfrastructure`** :span[boolean]{.type-label}  
     If set to true, deployments to this environment will be allowed to contain steps that manage infrastructure. This relies on DeploymentActionResource being set to allow managing resource for a step.
@@ -77,7 +78,7 @@ Lists all of the environments in the supplied Octopus Deploy Space. The results 
 ```json
 {
   "Id": "string",
-  "ItemType": "string",
+  "ItemType": "Environment",
   "Items": [
     {
       "AllowDynamicInfrastructure": false,
@@ -92,9 +93,7 @@ Lists all of the environments in the supplied Octopus Deploy Space. The results 
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Name": "string",
       "Slug": "string",
@@ -103,17 +102,15 @@ Lists all of the environments in the supplied Octopus Deploy Space. The results 
       "UseGuidedFailure": false
     }
   ],
-  "ItemsPerPage": 0,
+  "ItemsPerPage": 30,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "LastPageNumber": 0,
+  "LastPageNumber": 1,
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -214,9 +211,7 @@ Also reachable at `/api/environments`, `/api/spaces/{spaceIdentifier}/environmen
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "Slug": "string",
@@ -298,9 +293,7 @@ Lists the name and ID of all of the environments in the supplied Space. The resu
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     },
     "Name": "string",
     "Slug": "string",
@@ -380,9 +373,7 @@ Lists the name and ID of all of the environments in the supplied Space. The resu
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Name": "string",
       "Slug": "string",
@@ -504,7 +495,9 @@ Also reachable at `/api/environments/summary`, `/api/spaces/{spaceIdentifier}/en
         "Id": "string",
         "LastModifiedBy": "string",
         "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-        "Links": {},
+        "Links": {
+          "Self": "/api/..."
+        },
         "Name": "string",
         "Slug": "string",
         "SortOrder": 0,
@@ -587,22 +580,36 @@ Also reachable at `/api/spaces/{spaceIdentifier}/environments/summary/v2`.
 
 **Query Parameters**
 
-- **`commStyles`** :span[array of string]{.type-label}
-- **`deploymentTargetTypes`** :span[array of string]{.type-label}
-- **`environmentTags`** :span[array of string]{.type-label}
-- **`healthStatuses`** :span[array of string]{.type-label}
-- **`hideEmptyEnvironments`** :span[boolean]{.type-label}
-- **`ids`** :span[array of string]{.type-label}
-- **`isDisabled`** :span[boolean]{.type-label}
-- **`machinePartialName`** :span[string]{.type-label}
-- **`partialName`** :span[string]{.type-label}
-- **`roles`** :span[array of string]{.type-label}
-- **`shellNames`** :span[array of string]{.type-label}
-- **`targetTags`** :span[array of string]{.type-label}
-- **`tenantIds`** :span[array of string]{.type-label}
-- **`tenantTags`** :span[array of string]{.type-label}
+- **`commStyles`** :span[array of string]{.type-label}  
+  Filters deployment targets by communication style.
+- **`deploymentTargetTypes`** :span[array of string]{.type-label}  
+  Filters deployment targets by endpoint type ID.
+- **`environmentTags`** :span[array of string]{.type-label}  
+  Filters environment summaries by environment tag.
+- **`healthStatuses`** :span[array of string]{.type-label}  
+  Filters deployment targets by health status.
+- **`hideEmptyEnvironments`** :span[boolean]{.type-label}  
+  Excludes environments with no matching deployment targets.
+- **`ids`** :span[array of string]{.type-label}  
+  Filters environment summaries by environment ID.
+- **`isDisabled`** :span[boolean]{.type-label}  
+  Filters deployment targets by whether they are disabled.
+- **`machinePartialName`** :span[string]{.type-label}  
+  Filters deployment targets by a partial name.
+- **`partialName`** :span[string]{.type-label}  
+  Filters environment summaries by a partial environment name.
+- **`roles`** :span[array of string]{.type-label}  
+  Filters deployment targets by role.
+- **`shellNames`** :span[array of string]{.type-label}  
+  Filters deployment targets by shell name.
+- **`targetTags`** :span[array of string]{.type-label}  
+  Filters deployment targets by target tag.
+- **`tenantIds`** :span[array of string]{.type-label}  
+  Filters deployment targets by tenant ID.
+- **`tenantTags`** :span[array of string]{.type-label}  
+  Filters deployment targets by tenant tag.
 - **`type`** :span[array of string]{.type-label}  
-  Filters the environment summaries using the specified environment EnvironmentType.
+  Filters environment summaries by EnvironmentType.
 
 **Response**
 
@@ -750,7 +757,8 @@ Lists all of the environments in the supplied Octopus Deploy Space. The results 
 - **`Environments`** :span[object]{.type-label}
   - **`Id`** :span[string]{.type-label}  
     Gets or sets a unique identifier for this resource.
-  - **`ItemType`** :span[string]{.type-label}
+  - **`ItemType`** :span[string]{.type-label}  
+    The type of item in this list.
   - **`Items`** :span[array of object]{.type-label}
   - **`ItemsPerPage`** :span[integer]{.type-label}
   - **`LastModifiedBy`** :span[string]{.type-label}  
@@ -768,7 +776,7 @@ Lists all of the environments in the supplied Octopus Deploy Space. The results 
 {
   "Environments": {
     "Id": "string",
-    "ItemType": "string",
+    "ItemType": "Environment",
     "Items": [
       {
         "AllowDynamicInfrastructure": false,
@@ -782,7 +790,9 @@ Lists all of the environments in the supplied Octopus Deploy Space. The results 
         "Id": "string",
         "LastModifiedBy": "string",
         "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-        "Links": {},
+        "Links": {
+          "Self": "/api/..."
+        },
         "Name": "string",
         "Slug": "string",
         "SortOrder": 0,
@@ -790,17 +800,15 @@ Lists all of the environments in the supplied Octopus Deploy Space. The results 
         "UseGuidedFailure": false
       }
     ],
-    "ItemsPerPage": 0,
+    "ItemsPerPage": 30,
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-    "LastPageNumber": 0,
+    "LastPageNumber": 1,
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     },
-    "NumberOfPages": 0,
-    "TotalResults": 0
+    "NumberOfPages": 2,
+    "TotalResults": 42
   }
 }
 ```
@@ -838,7 +846,8 @@ List Static, Parent and Ephemeral Environments in the supplied Octopus Deploy Sp
 
 `200` — Success
 
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`Description`** :span[string]{.type-label}  
     Gets or sets a short description of this environment that can be used to explain the purpose of the environment to other users. This field may contain markdown.
@@ -859,7 +868,7 @@ List Static, Parent and Ephemeral Environments in the supplied Octopus Deploy Sp
 :::api-example{label="Response"}
 ```json
 {
-  "ItemType": "string",
+  "ItemType": "BaseEnvironmentV2",
   "Items": [
     {
       "Description": "string",
@@ -873,10 +882,10 @@ List Static, Parent and Ephemeral Environments in the supplied Octopus Deploy Sp
       "Type": "string"
     }
   ],
-  "ItemsPerPage": 0,
-  "LastPageNumber": 0,
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "ItemsPerPage": 30,
+  "LastPageNumber": 1,
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -980,9 +989,7 @@ Also reachable at `/api/environments/{environmentId}`, `/api/spaces/{spaceIdenti
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "Slug": "string",
@@ -1136,9 +1143,7 @@ Also reachable at `/api/environments/{id}`, `/api/spaces/{spaceIdentifier}/envir
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "Slug": "string",
@@ -1202,7 +1207,8 @@ Also reachable at `/api/environments/{id}/machines`, `/api/spaces/{spaceIdentifi
 
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`Architecture`** :span[string]{.type-label}
   - **`Endpoint`** :span[object]{.type-label}
@@ -1252,7 +1258,7 @@ Also reachable at `/api/environments/{id}/machines`, `/api/spaces/{spaceIdentifi
 ```json
 {
   "Id": "string",
-  "ItemType": "string",
+  "ItemType": "Machine",
   "Items": [
     {
       "Architecture": "string",
@@ -1261,7 +1267,9 @@ Also reachable at `/api/environments/{id}/machines`, `/api/spaces/{spaceIdentifi
         "Id": "string",
         "LastModifiedBy": "string",
         "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-        "Links": {}
+        "Links": {
+          "Self": "/api/..."
+        }
       },
       "EnvironmentIds": [
         "Environments-1",
@@ -1275,9 +1283,7 @@ Also reachable at `/api/environments/{id}/machines`, `/api/spaces/{spaceIdentifi
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "MachinePolicyId": "string",
       "Name": "string",
@@ -1304,17 +1310,15 @@ Also reachable at `/api/environments/{id}/machines`, `/api/spaces/{spaceIdentifi
       "Uri": "string"
     }
   ],
-  "ItemsPerPage": 0,
+  "ItemsPerPage": 30,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "LastPageNumber": 0,
+  "LastPageNumber": 1,
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -1386,13 +1390,14 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environmen
 - **`take`** :span[integer]{.type-label} *(required)*  
   Number of items to take. Defaults to 30. Minimum `0`.
 - **`type`** :span[array of string]{.type-label}  
-  Filters the environments by EnvironmentType.
+  Filters environments by EnvironmentType.
 
 **Response**
 
 `200` — Success
 
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`Description`** :span[string]{.type-label}  
     Gets or sets a short description of this environment that can be used to explain the purpose of the environment to other users. This field may contain markdown.
@@ -1413,7 +1418,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environmen
 :::api-example{label="Response"}
 ```json
 {
-  "ItemType": "string",
+  "ItemType": "BaseEnvironmentV2",
   "Items": [
     {
       "Description": "string",
@@ -1427,10 +1432,10 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environmen
       "Type": "string"
     }
   ],
-  "ItemsPerPage": 0,
-  "LastPageNumber": 0,
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "ItemsPerPage": 30,
+  "LastPageNumber": 1,
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::

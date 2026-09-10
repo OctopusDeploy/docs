@@ -62,6 +62,35 @@ The cleanest way to do this is to delete and re-install your Kubernetes agent en
 If deleting your Kubernetes agent is not an option for your use case, you can also delete the Kubernetes monitor's authentication secret and restart the Kubernetes monitor pod to trigger re-registration.
 The authentication secret lives in the same namespace that your Kubernetes agent was installed in and has a name similar to `<agent name>-kubernetesmonitor-authentication`.
 
+### Kubernetes Monitor connection drops at regular intervals (load balancer idle timeout) \{#kubernetes-monitor-load-balancer-timeout}
+
+Behavior:
+
+- The Kubernetes monitor installs and connects successfully, but loses its connection to Octopus Server after every quiet period of the same length (e.g. 60 seconds without activity)
+- The "connectivity" tab of the Kubernetes agent intermittently shows "Offline" for the Kubernetes monitor component, depending on when the last health check ran
+- The Kubernetes monitor pod logs show stream errors followed by an immediate reconnection
+- If the load balancer drops connections silently instead of closing them, the logs show failing health checks (`Health check failed - cancelling subscribers` with `DeadlineExceeded` errors) and the Kubernetes monitor pod restart count climbs at a regular cadence
+
+Cause:
+
+- A load balancer or proxy between the Kubernetes monitor and Octopus Server closes connections it considers idle
+- The Kubernetes monitor sends a health check to Octopus Server every 30 seconds by default to hold the connection open. If the load balancer's idle timeout is shorter than the health check interval (or health checks are disabled), the connection is terminated before the next health check is sent
+
+Resolution:
+
+- Increase the idle timeout on your load balancer so it comfortably exceeds the health check interval (`kubernetesMonitor.monitor.healthCheck.interval`, default 30 seconds)
+- Alternatively, reduce the health check interval below the load balancer's idle timeout:
+
+```bash
+helm upgrade --atomic \
+  --version "2.*.*" \
+  --namespace "octopus-agent-$AGENT_NAME" \
+  --reuse-values \
+  --set kubernetesMonitor.monitor.healthCheck.interval="15s" \
+  $HELM_RELEASE \
+  oci://registry-1.docker.io/octopusdeploy/kubernetes-agent
+```
+
 ## Unexpected object statuses
 
 ### Out of date or slow to update object statuses

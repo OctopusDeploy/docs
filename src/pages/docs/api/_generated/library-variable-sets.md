@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-09-03
+modDate: 2026-09-04
 title: Library Variable Sets
 ---
 
@@ -36,7 +36,8 @@ List all the library variable sets in the supplied Octopus Deploy Space. The res
 
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`ContentType`** :span[enum]{.type-label}  
     Describes the purpose of the variable set. Clients can use this to offer an editing experience appropriately.  
@@ -75,7 +76,7 @@ List all the library variable sets in the supplied Octopus Deploy Space. The res
 ```json
 {
   "Id": "string",
-  "ItemType": "string",
+  "ItemType": "LibraryVariableSet",
   "Items": [
     {
       "ContentType": "Variables",
@@ -84,9 +85,7 @@ List all the library variable sets in the supplied Octopus Deploy Space. The res
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Name": "string",
       "SpaceId": "Spaces-1",
@@ -97,17 +96,15 @@ List all the library variable sets in the supplied Octopus Deploy Space. The res
       "Version": 0
     }
   ],
-  "ItemsPerPage": 0,
+  "ItemsPerPage": 30,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "LastPageNumber": 0,
+  "LastPageNumber": 1,
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -212,9 +209,7 @@ Also reachable at `/api/libraryvariablesets`, `/api/spaces/{spaceIdentifier}/lib
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "SpaceId": "Spaces-1",
@@ -305,9 +300,7 @@ Lists all the Library Variable Sets in the supplied Space. The results will be s
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     },
     "Name": "string",
     "SpaceId": "Spaces-1",
@@ -387,9 +380,7 @@ Lists all the Library Variable Sets in the supplied Space. The results will be s
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Name": "string",
       "SpaceId": "Spaces-1",
@@ -461,9 +452,7 @@ Lists all the Library Variable Sets in the supplied Space. The results will be s
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Name": "string",
       "SpaceId": "Spaces-1",
@@ -537,9 +526,7 @@ Lists all the Library Variable Sets in the supplied Space. The results will be s
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Name": "string",
       "SpaceId": "Spaces-1",
@@ -608,9 +595,7 @@ Also reachable at `/api/libraryvariablesets/{id}`, `/api/spaces/{spaceIdentifier
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "SpaceId": "Spaces-1",
@@ -739,9 +724,7 @@ Also reachable at `/api/libraryvariablesets/{id}`, `/api/spaces/{spaceIdentifier
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "SpaceId": "Spaces-1",

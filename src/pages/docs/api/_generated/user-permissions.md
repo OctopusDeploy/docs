@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-25
+modDate: 2026-09-04
 title: User Permissions
 ---
 
@@ -200,9 +200,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/users/{id}/permissions`, `/api/
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "SpacePermissions": {
     "AccountCreate": [
@@ -3203,9 +3201,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/users/{id}/permissions/configur
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "SpacePermissions": {
     "AccountCreate": [
