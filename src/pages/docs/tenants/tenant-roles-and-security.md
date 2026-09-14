@@ -22,16 +22,12 @@ Toby is a member of the sales team for [Vet Clinic](https://samples.octopus.app/
 - Manages the details/variables of particular tenants and keeps them up to date.
 - Works with customers to deploy releases to their environments on their behalf.
 
-Two built-in roles cover this between them, so there is no custom role to build or maintain:
+Toby needs two built-in roles:
 
 | Built-in role | What it gives Toby |
 | --- | --- |
 | [Deployment Creator](/docs/security/users-and-teams/default-permissions#DefaultPermissions-DeploymentCreator) | Deploy existing releases and run runbooks, and view the projects, releases, lifecycles and tasks involved. It cannot create releases or edit the deployment process. |
 | [Tenant Manager](/docs/security/users-and-teams/default-permissions#DefaultPermissions-TenantManager) | View and edit tenant details, variables and tags. |
-
-:::div{.success}
-**Prefer built-in roles over custom ones wherever they fit.** When Octopus adds a new permission, our upgrade scripts add it to the built-in roles. Custom roles are deliberately skipped, so we never widen access you didn't ask for. The trade-off is that a hand-built permission list is a snapshot: it keeps working, but it stops keeping up. Only build a custom role when no combination of built-in roles expresses what you need.
-:::
 
 ### Step 1: Configure the account managers team {#step-1-configure-account-managers-team}
 
@@ -58,7 +54,7 @@ Two built-in roles cover this between them, so there is no custom role to build 
 5. Navigate to **Members ➜ Add member** and add any user accounts that will form part of this team.
 
 :::div{.warning}
-**Scope each role as you include it.** If you add a role first and narrow it afterwards, the team holds that role over *every* tenant in the space until you go back and scope it — including the ability to edit tenant variables. The **Define scope** button on the **Include User Role** screen closes that window entirely.
+**Scope each role as you include it.** Until a role is scoped, the team holds it over every tenant in the space, including the ability to edit tenant variables. Use **Define scope** on the **Include User Role** screen rather than adding the role and narrowing it afterwards.
 :::
 
 To change the scope of a role already on a team, click the overflow menu (`...`) next to it and select **Edit**.
@@ -73,36 +69,26 @@ Select the tenants and click **Apply**.
 ![A user role scoped to the selected tenants](/docs/img/tenants/images/scope-tenant-user-role.png)
 :::
 
-### Step 2: Understand what tenant scoping does and doesn't limit {#step-2-what-scoping-limits}
-
-Scoping a role to a tenant only constrains the permissions that support a tenant restriction. Anything else in the role stays space-wide no matter what scope you set.
-
-For **Deployment Creator** and **Tenant Manager**, 13 of the 18 permissions can be scoped to tenants — including everything that matters operationally: `DeploymentCreate`, `TenantView`, `TenantEdit`, `TenantDelete`, `ProjectView`, `ReleaseView`, `DeploymentView`, `ProcessView`, `TaskView` and the runbook run permissions.
-
-Five stay space-wide: `EnvironmentView`, `LifecycleView`, `TargetTagView`, `InsightsReportView` and `TenantCreate`. The first four are read-only. The last one is not.
-
 :::div{.warning}
-**Tenant Manager creates and deletes tenants, it doesn't only edit them.** The role is `TenantCreate`, `TenantEdit`, `TenantDelete` and `TenantView`.
+**Tenant Manager can create and delete tenants, not only edit them.** Scoping the role limits which tenants Toby can edit and delete, but `TenantCreate` cannot be scoped to tenants — anyone with Tenant Manager can create tenants in the space.
 
-`TenantEdit` and `TenantDelete` can both be scoped to tenants, so scoping the team limits which customers Toby can change or remove. `TenantCreate` cannot be scoped at all — a tenant doesn't exist yet when it's being created, so there is nothing to scope against. Anyone with Tenant Manager can create tenants in the space regardless of the scope you set.
-
-If the ability to create and delete tenants is more than an account manager should have, this is a good reason to build a custom role instead: one containing only `TenantView` and `TenantEdit`, scoped the same way.
+To let Toby edit tenants without creating or deleting them, create a custom role containing `TenantView` and `TenantEdit`, and include that in place of Tenant Manager.
 :::
 
 :::div{.hint}
-**Deployment Creator can't respond to a manual intervention or cancel a running task.** If Toby's deployments include manual intervention steps, or he needs to stop a deployment he started, add a small custom role with `InterruptionView`, `InterruptionViewSubmitResponsible` and `TaskCancel`. All three can be scoped to tenants, so the custom role scopes alongside the built-in ones. Add `VariableView` as well if he needs to inspect project variables on the deployment screen.
+Deployment Creator does not include the permissions to respond to a manual intervention or cancel a running task. If Toby needs those, create a custom role containing `InterruptionView`, `InterruptionViewSubmitResponsible` and `TaskCancel`, and scope it to the same tenants. Add `VariableView` if he also needs to see project variables on the deployment screen.
 :::
 
 ## Infrastructure manager {#infrastructure-manager}
 
 Bob is a member of the IT infrastructure team for [Car Rental](https://samples.octopus.app/app#/Spaces-682/projects/car-rental/deployments), and he manages all the virtual servers for the different regions in the cloud. His only interaction with tenants is to associate them with the appropriate [deployment targets](/docs/infrastructure/) and [environments](/docs/infrastructure/environments). He should have read-only access to the tenant details he needs, and the ability to manage deployment targets and accounts.
 
-Built-in roles cover this as well:
+Bob needs two built-in roles:
 
 | Built-in role | What it gives Bob |
 | --- | --- |
 | [Environment Manager](/docs/security/users-and-teams/default-permissions#DefaultPermissions-EnvironmentManager) | View and edit infrastructure: environments, machines, workers, proxies and accounts. |
-| [Project Viewer](/docs/security/users-and-teams/default-permissions#DefaultPermissions-ProjectViewer) | Read-only access across projects — and, relevant here, `TenantView`. |
+| [Project Viewer](/docs/security/users-and-teams/default-permissions#DefaultPermissions-ProjectViewer) | Read-only access across projects, including viewing tenants. |
 
 ### Step 1: Configure the tenant environment managers team {#step-1-configure-environment-managers-team}
 
@@ -115,15 +101,13 @@ Built-in roles cover this as well:
 4. Add any specific members.
 
 :::div{.hint}
-**Project Viewer is broader than the one permission Bob strictly needs.** Octopus ships a Tenant *Manager* role but no tenant *viewer* role, so `TenantView` on its own has no built-in equivalent.
-
-Project Viewer is entirely read-only, and it keeps up with new view permissions automatically, which is usually the better trade. If you want Bob to hold exactly `TenantView` and nothing else, a single-permission custom role is the right call — this is one of the few places on this page where a custom role beats a built-in one.
+To give Bob visibility of tenants without the rest of the read-only project access, create a custom role containing `TenantView` and include it in place of Project Viewer.
 :::
 
 :::div{.warning}
-**Scoping this team to tenants does not limit Bob's infrastructure access.** Most of what Environment Manager grants — `EnvironmentCreate`, `EnvironmentEdit`, `EnvironmentDelete`, the `MachinePolicy` and `Proxy` permissions, `TargetTagAdminister` — cannot be restricted by tenant, because the resources they govern aren't tenant-specific.
+**Scoping this team to tenants does not limit Bob's infrastructure access.** `EnvironmentCreate`, `EnvironmentEdit`, `EnvironmentDelete`, the `MachinePolicy` and `Proxy` permissions, and `TargetTagAdminister` cannot be scoped to tenants, because the resources they govern are not tenant-specific.
 
-Tenant scoping limits which tenants Bob can *see*. It does not limit what he can change about the infrastructure those tenants deploy to. That is normally what you want from an infrastructure manager — just don't read the tenant scope as a boundary on his infrastructure permissions.
+Tenant scoping limits which tenants Bob can see. It does not limit what he can change about the infrastructure those tenants deploy to.
 :::
 
 ## Self-service {#self-service}
