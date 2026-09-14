@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-08-29
+modDate: 2026-09-14
 title: Manually fail a task
 description: How to manually fail a running or canceling task when tasks hang or get stuck.
 icon: fa-solid fa-circle-stop
@@ -17,3 +17,5 @@ When a task is queued, you'll see a list of tasks that it is waiting on in the t
 :::
 
 You can navigate to any of these tasks, and then click the Cancel button in the top right corner on the executing/waiting/queued task (you may need to click it twice). This will mark the blocked task as Failed and then allow your new task to proceed.
+
+If a deployment or runbook run stays in the **Cancelling** state and cancelling it again doesn't clear it, you can [abandon the task](/docs/tasks/abandoning-stuck-tasks) once it has been cancelling for more than 10 minutes.
