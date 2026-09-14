@@ -34,8 +34,11 @@ Project templates are in Public Preview. The following features are not yet supp
 We'll update this page as the feature evolves.
 
 :::div{.info}
-- Support for configuring Platform Hub External Feeds is available from Octopus v2026.4.1770
-- Support for configuring project triggers and runbook scheduled triggers for templated projects on the consumer side is available from Octopus v2026.4.1770
+
+Support for configuring Platform Hub External Feeds is available from Octopus v2026.4.1770
+
+Support for configuring project triggers and runbook scheduled triggers for templated projects on the consumer side is available from Octopus v2026.4.1770
+
 :::
 
 ## Cloud target discovery
