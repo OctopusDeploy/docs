@@ -54,7 +54,7 @@ To use these accounts inside a process template, you must create a parameter tha
 
 ## External Feeds in Platform Hub
 
-You can create and manage external feeds in Platform Hub by visiting the **External Feeds** area in Platform Hub navigation menu. To configure, find the feed type you are creating and follow the same steps as [configuring a Package Repository in a space](/docs/packaging-applications/package-repositories/index.md). The following external feed types can be configured in Platform Hub.
+You can create and manage external feeds in Platform Hub by visiting the **External Feeds** area in Platform Hub navigation menu. To configure, find the feed type you are creating and follow the same steps as [configuring a Package Repository in a space](/docs/packaging-applications/package-repositories). The following external feed types can be configured in Platform Hub.
 
 - Docker feeds
 - GitHub feeds
