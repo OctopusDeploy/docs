@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-03-05
-modDate: 2026-05-28
+modDate: 2026-09-14
 title: Troubleshooting
 subtitle: Known issues and limitations for project templates
 icon: fa-solid fa-layer-group
@@ -26,14 +26,17 @@ Project templates are in Public Preview. The following features are not yet supp
 - Cloud target discovery on steps (see below)
 - Cloning a project template through the Octopus UI
 - Creating and managing project templates through the REST API, CLI, or Terraform provider
-- Feeds
 - Project settings, except for Multi-tenant Deployments and Project Persistence
 - Runbooks
-- Triggers
 - Import and export of templated projects
 - Inline variable configuration within the deployment process editor
 
 We'll update this page as the feature evolves.
+
+:::div{.info}
+- Support for configuring Platform Hub External Feeds is available from Octopus v2026.4.1770
+- Support for configuring project triggers and runbook scheduled triggers for templated projects on the consumer side is available from Octopus v2026.4.1770
+:::
 
 ## Cloud target discovery
 
