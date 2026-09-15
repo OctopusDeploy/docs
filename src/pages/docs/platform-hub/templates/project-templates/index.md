@@ -35,7 +35,12 @@ After creating your template, Octopus adds the template's [folder and OCL files]
 ![The Project Templates overview page](/docs/img/platform-hub/project-templates/project-templates-list.png)
 :::
 
-You can now define the deployment process, parameters, and variables for the template.
+You can now configure your template. For each template, you can define:
+- A [deployment process](/docs/projects/deployment-process)
+- [Parameters](/docs/platform-hub/templates/parameters)
+- [Variables](/docs/projects/variables/)
+- [Channels](/docs/releases/channels)
+- [Lifecycles](/docs/releases/lifecycles)
 
 ## Deployment process
 
@@ -55,6 +60,28 @@ Some steps behave differently inside the project template editor. Instead of let
 
 :::div{.hint}
 If your deployment process includes a process template configured to auto-update on patch or minor versions, those updates flow through to templated projects automatically, even without you publishing a new version of the project template.
+:::
+
+## Channels
+
+[Channels](/docs/releases/channels) in project templates function the same as they do in projects. You can define channels based on the intended release strategies for projects that use this template. Every project template comes with a default channel.
+
+:::div{.warning}
+Ephemeral Environment channels aren't yet supported in Project Templates.
+:::
+
+In a project template, channels reference lifecycles that reside within the project template itself.
+
+Once a project template is being used by projects in Spaces, deleting a channel or changing its filename is an operation that can have significant impacts. Unlike a regular project, channels in a project template can be modified or removed when projects using the template have releases or triggers referencing the given channel. Modifying a channel in this way will require a major version to be published, as this will prevent existing releases and triggers from being usable for affected templated projects until their channel references are re-mapped. If you change a channel in this way, we strongly recommend having another valid channel which projects can re-map their releases and triggers to *before* deleting or renaming the channel.
+
+## Lifecycles
+
+Unlike [lifecycles](/docs/releases/lifecycles) in Spaces, lifecycles in Platform Hub are defined within each project template. Project template lifecycles follow the same conventions as lifecycles in Spaces. Instead of specifying environments in phases, you select from the available environment parameters in the template. This allows you to establish a standardized configuration for all templated projects to follow. For example, creating a phase which uses an environment parameter labelled "Production Environment" conveys to teams using the template that the given phase is designated for Production deployments. In their project, they can then set the value of this parameter to the production environment(s) in their respective Space.
+
+Every project template comes with a default lifecycle. This uses the same conventions as the default lifecycle in Spaces which will automatically include all environment parameters in the order they're defined in the template.
+
+:::div{.warning}
+While retention policies can be configured in project template lifecycles, these aren't yet fully supported.
 :::
 
 ## Parameters
@@ -92,9 +119,12 @@ Project template variables support the following types:
 
 You can scope a project template variable to any combination of the following:
 
-- Specific steps in the deployment process.
-- Process template usages, when the template's deployment process includes one or more.
-- Environment parameters, target tag parameters, or tenant tag parameters defined on the template. Whatever the project's parameter value resolves to determines the scope.
+- Specific steps in the deployment process
+- Process template usages, when the template's deployment process includes one or more
+- Channels
+- Environment parameters
+- Target tag parameters
+- Tenant tag parameters
 
 Scoping is fixed at the template level. The same scoping rules apply to every project created from the template.
 
@@ -106,29 +136,31 @@ Scoping is fixed at the template level. The same scoping rules apply to every pr
 
 Project templates let you set a few project-level defaults that flow through to every project created from the template. Configure these in **Settings** on the project template.
 
+- **Lifecycle**: The default Lifecycle for the template
 - **Multi-tenant Deployments**: Whether projects created from the template require tenants, allow tenants, or run untenanted
 - **Project Persistence**: The preferred storage for projects created from the template, either in Octopus or backed by Git. The project creation flow defaults to your recommendation and lets users pick a different option if they need to
 
-:::div{.hint}
-We're planning to add more template-level settings, including default lifecycle and channel configuration, once those features are available in project templates.
-:::
 
 ## Git repository structure
 
-Octopus stores each project template as a folder in the Platform Hub Git repository. The folder name is a slug derived from the template name. Each folder contains four [OCL](/docs/projects/version-control) files:
+Octopus stores each project template as a folder in the Platform Hub Git repository. The folder name is a slug derived from the template name. Each project template is structured as follows:
 
 ```text
 project-templates/<template-slug>/
+    channels/
+    lifecycles/
     deployment_process.ocl
     parameters.ocl
     template.ocl
     variables.ocl
 ```
 
-- **`template.ocl`** contains the template settings
-- **`deployment_process.ocl`** contains the deployment process steps
-- **`parameters.ocl`** contains the parameters defined for the template
-- **`variables.ocl`** contains the variables defined for the template
+- `channels/` contains the configuration files for each channel
+- `lifecycles/` contains the configuration files for each lifecycle
+- `template.ocl` contains the template settings
+- `deployment_process.ocl` contains the deployment process steps
+- `parameters.ocl` contains the parameters defined for the template
+- `variables.ocl` contains the variables defined for the template
 
 Octopus stores published versions, sensitive variables, and space sharing configurations in the database, not in the Git repository.
 

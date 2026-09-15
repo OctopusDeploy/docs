@@ -19,9 +19,6 @@ Project templates are in Public Preview. The feature is still evolving and stand
 
 Project templates are in Public Preview. The following features are not yet supported and are planned for future releases:
 
-- Channels
-- Lifecycles
-- Environments
 - Ephemeral environments
 - Cloud target discovery on steps (see below)
 - Cloning a project template through the Octopus UI

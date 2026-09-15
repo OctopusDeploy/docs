@@ -22,7 +22,7 @@ Templates can manage the following as parameters:
 - AWS Account
 - Azure Account
 - Certificate
-- Channels
+- Channels (process templates only)
 - Checkbox
 - Container Feed
 - Dropdown
