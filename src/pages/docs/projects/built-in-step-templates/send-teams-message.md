@@ -24,9 +24,9 @@ Each step targets one or more channels via incoming webhooks. You'll need a webh
 3. Give the step a name.
 4. Add one or more channels. For each, enter a display name and the incoming webhook URL. You can use an [Octopus variable](/docs/projects/variables/variable-substitutions) for the URL if you want to vary it per environment or tenant.
 
-:::div{.hint}
-Webhook URLs are sensitive. For version-controlled projects, store the URL in a [sensitive variable](/docs/projects/variables/sensitive-variables) and reference it here rather than entering it directly.
-:::
+    :::div{.hint}
+    Webhook URLs are sensitive. For version-controlled projects, store the URL in a [sensitive variable](/docs/projects/variables/sensitive-variables) and reference it here rather than entering it directly.
+    :::
 5. Enter the message to post.
 6. Set conditions to control when the step runs.
 7. Save the deployment process.
