@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-11-21
+modDate: 2026-09-15
 title: GitHub Actions
 description: Integrating Octopus Deploy into your GitHub Action workflows
 icon: fa-brands fa-github
@@ -79,8 +79,8 @@ jobs:
       with:
         project: 'MyProject'
         release_number: '1.0.0'
-        git_ref: ${{ github.ref }}
-        git_commit: ${{ github.sha }}
+        git_ref: ${{ github.head_ref || github.ref }}
+        git_commit: ${{ github.event.pull_request.head.sha || github.sha }}
     
     # Action to Deploy a Release
     - name: Deploy a release in Octopus Deploy 🐙
@@ -95,6 +95,10 @@ jobs:
             Flip: Bling
             Fizz: Buzz
 ```
+
+:::div{.hint}
+On a pull request, `github.ref` is `refs/pull/<number>/merge` and `github.sha` is the merge commit that GitHub creates for the pull request. That commit does not exist on any branch, so a release pinned to it can fail to deploy later. Use `github.head_ref` and `github.event.pull_request.head.sha` instead, as shown above. Both fall back to the push values on every other event.
+:::
 
 ### ✍️ Environment variables
 
@@ -112,8 +116,8 @@ jobs:
 | `release_number`      | The number for the new Release. If omitted, Octopus Deploy will generate a Release number.                                                                                                                                                                                                                                                                     |
 | `environments`        | A list of Environments in Octopus Deploy in which to run (i.e. Dev, Test, Prod). Add each environment on a new line.                                                                                                                                                                                                                                           |
 | `variables`           | A list of Variables to use in the Deployment in `key: value` format. Add each variable on a new line.                                                                                                                                                                                                                                                          |
-| `git_ref`             | The Git branch from which to source the project code. Required for Projects using version control in Octopus. The example above sources this value from the workflow's [contextual information.](https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/accessing-contextual-information-about-workflow-runs#github-context)    |
-| `git_commit`          | The Git commit from which to source the project code. Required for Projects using version control in Octopus. The example above sources this value from the workflow's [contextual information.](https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/accessing-contextual-information-about-workflow-runs#github-context)    |
+| `git_ref`             | The Git branch from which to source the project code. Required for Projects using version control in Octopus. The example above sources this value from the workflow's [contextual information](https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/accessing-contextual-information-about-workflow-runs#github-context), using `github.head_ref` on pull requests so the release tracks the branch rather than the pull request merge ref.    |
+| `git_commit`          | The Git commit from which to source the project code. Required for Projects using version control in Octopus. The example above sources this value from the workflow's [contextual information](https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/accessing-contextual-information-about-workflow-runs#github-context), using `github.event.pull_request.head.sha` on pull requests so the release tracks the branch head rather than the merge commit.    |
 | `server`              | The base URL hosting Octopus Deploy (i.e. `https://octopus.example.app`). It is strongly recommended that this value be retrieved from a [GitHub secret](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions).                                                                                      |
 | `service_account_id`  | The id of the OIDC service account you wish to login as. Service accounts can be viewed and created on the Octopus app under 'Users' on the configuration menu.                                                                                                                                                                                                |
 
@@ -183,8 +187,8 @@ jobs:
         with:
           project: 'MyProject'
           release_number: '1.0.0'
-          git_ref: ${{ github.ref }}
-          git_commit: ${{ github.sha }}
+          git_ref: ${{ github.head_ref || github.ref }}
+          git_commit: ${{ github.event.pull_request.head.sha || github.sha }}
           packages: |
             HelloPackage:1.0.0
 ```
@@ -267,8 +271,8 @@ jobs:
         with:
           project: 'MyProject'
           release_number: '1.0.0'
-          git_ref: ${{ github.ref }}
-          git_commit: ${{ github.sha }}
+          git_ref: ${{ github.head_ref || github.ref }}
+          git_commit: ${{ github.event.pull_request.head.sha || github.sha }}
           packages: |
             HelloPackage:1.0.0
 ```
