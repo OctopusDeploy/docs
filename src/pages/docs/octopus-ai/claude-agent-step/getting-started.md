@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-07-07
-modDate: 2026-07-09
+modDate: 2026-09-15
 title: Getting started with the Claude Agent Step
 navTitle: Getting Started
 navSection: Claude Agent Step
@@ -86,7 +86,7 @@ When the task finishes, the step's log ends with its usage lines and `Claude Cod
 
 ## Run outputs
 
-Every completed run leaves the following outputs on the task page.
+Every completed run leaves the following outputs. The first four appear on the task page; the last is an [output variable](/docs/projects/variables/output-variables) that later steps can read.
 
 | Output | Where it appears | What it contains |
 | --- | --- | --- |
@@ -94,10 +94,23 @@ Every completed run leaves the following outputs on the task page.
 | Claude Usage Summary | A panel on the task page | Each Claude step with its model, token count, cost, and any budget cap, plus a total. Use it to keep an eye on what a run costs. |
 | Artifacts | The task's artifacts | Files the agent attached using the built-in `octopus-artifacts` skill, ready to download. See [Built-in skills](/docs/octopus-ai/claude-agent-step/tools#built-in-skills). |
 | Transcript | Stored on the Octopus Server, gated behind a dedicated permission | The full, verbose session, recorded for auditing. See [Security & Compliance](/docs/octopus-ai/claude-agent-step/security-and-compliance) for who can read it and how. |
+| Response | An output variable set on the step | Everything the agent said, as plain text, for a later step to read. See [Use the response in a later step](#use-the-response-in-a-later-step). |
 
 :::figure
 ![The Claude Usage Summary panel on the task page](/docs/img/octopus-ai/claude-agent-step/claude-usage-summary.png)
 :::
+
+### Use the response in a later step
+
+When the step finishes, it sets the agent's response as an output variable named `Octopus.Action.Claude.Response`. Octopus scopes output variables to the step that set them, so a later step refers to it by the step's name together with the variable's full name:
+
+```text
+#{Octopus.Action[Run Claude Agent].Output.Octopus.Action.Claude.Response}
+```
+
+Replace `Run Claude Agent` with the name of your agent step. `Octopus.Action.Claude.` appears twice because it belongs to the variable's name, not to the `Output.` prefix.
+
+The variable holds everything the agent said, across every turn. Its thinking and its tool calls are not included, and stay in the verbose task log and the [transcript](/docs/octopus-ai/claude-agent-step/security-and-compliance).
 
 ## Investigate a failed deployment
 
