@@ -143,10 +143,6 @@ We do not currently support creating or managing process templates through the C
 
 See [CreateProcessTemplateUsageStep](https://github.com/OctopusDeploy/OctopusDeploy-Api/blob/master/Octopus.Client/Csharp/DeploymentProcesses/CreateProcessTemplateUsageStep.cs) for an example of how to configure a process template on a deployment process using [Octopus.Client](/docs/api/octopus.client).
 
-### GitHub Connections
-
-GitHub Connections is supported in Platform Hub, but it can only be used to configure Platform Hub version control. It can't be used on steps in templates.
-
 ### Losing access to an Octopus Enterprise license
 
 Process templates and all Platform Hub features are restricted to customers who have an Enterprise Tier license. When you no longer have an Enterprise license, process templates will work differently.

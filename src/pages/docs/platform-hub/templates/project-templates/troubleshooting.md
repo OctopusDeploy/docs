@@ -12,7 +12,7 @@ navOrder: 173
 ---
 
 :::div{.warning}
-Project templates are in Public Preview. The feature is still evolving and standard SLAs don't apply. We don't recommend it for production workloads yet. It's available to Enterprise customers on Cloud and to self-hosted customers running Octopus 2026.2. We'd love your feedback as we work towards General Availability.
+Project templates are in Public Preview. The feature is still evolving and standard SLAs don't apply. We don't recommend it for production workloads yet. It's available to Enterprise customers on Cloud and to self-hosted customers running Octopus 2026.2+. We'd love your feedback as we work towards General Availability.
 :::
 
 ## Public Preview limitations
@@ -35,25 +35,15 @@ We'll update this page as the feature evolves.
 
 :::div{.info}
 
-Support for configuring Platform Hub External Feeds is available from Octopus v2026.4.1770
+Support for configuring Platform Hub External Feeds is available from Octopus 2026.4.1770
 
-Support for configuring project triggers and runbook scheduled triggers for templated projects on the consumer side is available from Octopus v2026.4.1770
+Support for configuring project triggers and runbook scheduled triggers for templated projects on the consumer side is available from Octopus 2026.4.1770
 
 :::
 
 ## Cloud target discovery
 
 Project templates can't supply the account that cloud target discovery uses on a step. To use cloud target discovery in a templated project, configure it on the templated project itself. See [cloud target discovery](/docs/infrastructure/deployment-targets/cloud-target-discovery) for more information.
-
-## Step support
-
-Project templates support most Octopus steps. The following steps are not supported:
-
-- Deploy a Bicep Template
-- AWS S3 Create Bucket
-- AWS ECS
-
-These steps will be supported in the future.
 
 ## Cloning project templates
 
@@ -68,7 +58,7 @@ You can't clone a project template through the Octopus UI. To clone a template:
 
 ## Public API
 
-The Alpha release doesn't support creating and managing project templates through the REST API. We're planning REST API support for a future release.
+The Public Preview release doesn't support creating and managing project templates through the REST API. We're planning REST API support for a future release.
 
 ## Losing access to an Octopus Enterprise license
 

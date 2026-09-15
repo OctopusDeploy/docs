@@ -76,10 +76,6 @@ You cannot set a default value for these parameters, they must be set inside a p
 
 Some parameter behavior differs between template types.
 
-:::div{.hint}
 **Process templates** support sensitive parameter defaults and account parameter scoping. For more information, see [Process template parameters](/docs/platform-hub/templates/process-templates#parameters).
-:::
 
-:::div{.hint}
-**Project templates** don't yet support parameter scoping or sensitive parameter values. For more information, see [Project template parameters](/docs/platform-hub/templates/project-templates#parameters).
-:::
+**Project templates** don't yet support parameter scoping or sensitive parameter defaults. For more information, see [Project template parameters](/docs/platform-hub/templates/project-templates#parameters).
