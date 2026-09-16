@@ -35,11 +35,16 @@ After creating your template, Octopus adds the template's [folder and OCL files]
 ![The Project Templates overview page](/docs/img/platform-hub/project-templates/project-templates-list.png)
 :::
 
-You can now define the deployment process, parameters, and variables for the template.
+You can now configure your template. For each template, you can define:
+- A [deployment process](/docs/projects/deployment-process)
+- [Parameters](/docs/platform-hub/templates/parameters)
+- [Variables](/docs/projects/variables/)
+- [Channels](/docs/releases/channels)
+- [Lifecycles](/docs/releases/lifecycles)
 
 ## Deployment process
 
-The deployment process defines the steps Octopus orchestrates when deploying a project created from this template. Each project template has a single deployment process, and you can use Octopus's built-in steps, step templates, community step templates, and process templates to define it.
+The [deployment process](/docs/projects/deployment-process) defines the steps Octopus orchestrates when deploying a project created from this template. Each project template has a single deployment process, and you can use Octopus's built-in steps, step templates, community step templates, and process templates to define it.
 
 :::div{.hint}
 Unlike standard projects, project templates validate the deployment process when you publish, not when you commit. You can save an incomplete process and continue configuring parameters and variables before publishing. This will change once we add inline variable configuration to the deployment process editor.
@@ -81,13 +86,11 @@ While retention policies can be configured in project template lifecycles, these
 
 ## Parameters
 
-Parameters let you define the inputs a user must supply when they create a project from the template. They're the mechanism for making a template flexible. Rather than hardcoding values that differ between teams or spaces, you expose them as parameters.
+[Parameters](/docs/platform-hub/templates/parameters) let you define the inputs a user must supply when they create a project from the template. They're the mechanism for making a template flexible. Rather than hardcoding values that differ between teams or spaces, you expose them as parameters.
 
 :::div{.warning}
 Project templates don't yet support parameter scoping or sensitive parameter default values. We're still shaping how parameters, variables, and scoping work together and expect this area to evolve. We'd love your [feedback](#feedback).
 :::
-
-For a full reference of supported parameter types and default values, see [Template parameters](/docs/platform-hub/templates/parameters).
 
 To create a parameter, navigate to **Parameters** on your project template and add a new parameter.
 

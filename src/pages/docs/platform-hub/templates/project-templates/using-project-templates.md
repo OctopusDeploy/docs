@@ -15,7 +15,7 @@ navOrder: 171
 Project templates are in Public Preview. The feature is still evolving and standard SLAs don't apply. We don't recommend it for production workloads yet. It's available to Enterprise customers on Cloud and to self-hosted customers running Octopus 2026.2+. We'd love your feedback as we work towards General Availability.
 :::
 
-A **templated project** is a project created from a project template. It inherits the template's deployment process and variables, which you can't modify. You customize the project by supplying values for the parameters defined in the template.
+A **templated project** is a project created from a project template. It inherits the template's deployment process, channels, and variables, which you can't modify. You customize the project by supplying values for the parameters defined in the template.
 
 ## Create a project from a template
 
@@ -74,16 +74,18 @@ After you've provided the required values, you can create a release as usual.
 You can't modify the deployment process in a templated project. You can't add, remove, reorder, or disable steps. If you need to change the process, contact the template owner.
 :::
 
+## Channels
+
+[Channels](/docs/releases/channels) in templated projects are inherited from the project template. You can view the channels in a templated project like any other project, but these cannot be modified. The [lifecycles](/docs/releases/lifecycles) used by each channel are also inherited from the project template. The available environments for a channel in a templated project are determined by the environment parameter values set in your templated project. You can view the lifecycle configuration used by a channel once you've set all required environment parameter values.
+
+// todo image
+
 ## Template updates
 
 When a new version of the template is published, you'll receive the update. How and when it's applied depends on the versioning preferences you've set:
 
 - **Patch and minor updates**: Octopus applies these automatically if you chose to accept them.
 - **Major updates**: You must manually apply these manually, regardless of your preferences.
-
-## Future direction
-
-We're still shaping what project templates can do. [Share your feedback](https://oc.to/feedback) to help guide where we go next.
 
 ## Limitations
 
