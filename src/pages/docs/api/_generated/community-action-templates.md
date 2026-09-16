@@ -245,6 +245,8 @@ Also reachable at `/api/communityactiontemplates/{id}/actiontemplate`.
 - **`CommunityActionTemplateId`** :span[string]{.type-label}
 - **`Description`** :span[string]{.type-label}
 - **`GitDependencies`** :span[array of object]{.type-label}
+  - **`AcquisitionLocation`** :span[string]{.type-label}  
+    Describes how the files for this dependency are made available to the action. Server is the default and clones the repository. NotAcquired skips the clone and is only valid for named dependencies. May also be a variable-expression.
   - **`DefaultBranch`** :span[string]{.type-label}  
     Minimum length 1.
   - **`FilePathFilters`** :span[array of string]{.type-label}
@@ -300,6 +302,7 @@ Also reachable at `/api/communityactiontemplates/{id}/actiontemplate`.
   "Description": "string",
   "GitDependencies": [
     {
+      "AcquisitionLocation": "string",
       "DefaultBranch": "string",
       "FilePathFilters": [
         "string"
@@ -410,6 +413,8 @@ Also reachable at `/api/communityactiontemplates/{id}/installation`.
 - **`CommunityActionTemplateId`** :span[string]{.type-label}
 - **`Description`** :span[string]{.type-label}
 - **`GitDependencies`** :span[array of object]{.type-label}
+  - **`AcquisitionLocation`** :span[string]{.type-label}  
+    Describes how the files for this dependency are made available to the action. Server is the default and clones the repository. NotAcquired skips the clone and is only valid for named dependencies. May also be a variable-expression.
   - **`DefaultBranch`** :span[string]{.type-label}  
     Minimum length 1.
   - **`FilePathFilters`** :span[array of string]{.type-label}
@@ -465,6 +470,7 @@ Also reachable at `/api/communityactiontemplates/{id}/installation`.
   "Description": "string",
   "GitDependencies": [
     {
+      "AcquisitionLocation": "string",
       "DefaultBranch": "string",
       "FilePathFilters": [
         "string"
@@ -575,6 +581,8 @@ Also reachable at `/api/communityactiontemplates/{id}/installation`.
 - **`CommunityActionTemplateId`** :span[string]{.type-label}
 - **`Description`** :span[string]{.type-label}
 - **`GitDependencies`** :span[array of object]{.type-label}
+  - **`AcquisitionLocation`** :span[string]{.type-label}  
+    Describes how the files for this dependency are made available to the action. Server is the default and clones the repository. NotAcquired skips the clone and is only valid for named dependencies. May also be a variable-expression.
   - **`DefaultBranch`** :span[string]{.type-label}  
     Minimum length 1.
   - **`FilePathFilters`** :span[array of string]{.type-label}
@@ -630,6 +638,7 @@ Also reachable at `/api/communityactiontemplates/{id}/installation`.
   "Description": "string",
   "GitDependencies": [
     {
+      "AcquisitionLocation": "string",
       "DefaultBranch": "string",
       "FilePathFilters": [
         "string"
