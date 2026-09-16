@@ -44,10 +44,6 @@ Some steps look different inside a process template. They ask for a parameter ra
 ![The run a script step asks for a worker pool parameter instead of a worker pool](/docs/img/platform-hub/process-template-step-example.png)
 :::
 
-:::div{.warning}
-Our initial release of Process Templates does not include support for a few built-in steps.
-:::
-
 Once you have set up a deployment process, you can use it in any space for a deployment or runbook.
 
 ## Parameters
