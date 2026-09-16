@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-11-21
+modDate: 2026-09-15
 title: GitHub Actions
 description: Integrating Octopus Deploy into your GitHub Action workflows
 icon: fa-brands fa-github
@@ -79,8 +79,8 @@ jobs:
       with:
         project: 'MyProject'
         release_number: '1.0.0'
-        git_ref: ${{ github.ref }}
-        git_commit: ${{ github.sha }}
+        git_ref: ${{ github.head_ref || github.ref }}
+        git_commit: ${{ github.event.pull_request.head.sha || github.sha }}
     
     # Action to Deploy a Release
     - name: Deploy a release in Octopus Deploy 🐙
@@ -95,6 +95,10 @@ jobs:
             Flip: Bling
             Fizz: Buzz
 ```
+
+:::div{.hint}
+On a pull request, `github.ref` is `refs/pull/<number>/merge` and `github.sha` is the merge commit that GitHub creates for the pull request. That commit does not exist on any branch, so a release pinned to it can fail to deploy later. Use `github.head_ref` and `github.event.pull_request.head.sha` instead, as shown above. Both fall back to the push values on every other event.
+:::
 
 ### ✍️ Environment variables
 
@@ -183,8 +187,8 @@ jobs:
         with:
           project: 'MyProject'
           release_number: '1.0.0'
-          git_ref: ${{ github.ref }}
-          git_commit: ${{ github.sha }}
+          git_ref: ${{ github.head_ref || github.ref }}
+          git_commit: ${{ github.event.pull_request.head.sha || github.sha }}
           packages: |
             HelloPackage:1.0.0
 ```
@@ -267,8 +271,8 @@ jobs:
         with:
           project: 'MyProject'
           release_number: '1.0.0'
-          git_ref: ${{ github.ref }}
-          git_commit: ${{ github.sha }}
+          git_ref: ${{ github.head_ref || github.ref }}
+          git_commit: ${{ github.event.pull_request.head.sha || github.sha }}
           packages: |
             HelloPackage:1.0.0
 ```
