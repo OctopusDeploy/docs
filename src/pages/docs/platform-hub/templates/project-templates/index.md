@@ -57,6 +57,28 @@ Some steps behave differently inside the project template editor. Instead of let
 If your deployment process includes a process template configured to auto-update on patch or minor versions, those updates flow through to templated projects automatically, even without you publishing a new version of the project template.
 :::
 
+## Channels
+
+[Channels](/docs/releases/channels) in project templates function the same as they do in projects. You can define channels based on the intended release strategies for projects that use this template. Every project template comes with a default channel.
+
+:::div{.warning}
+Ephemeral Environment channels aren't yet supported in Project Templates.
+:::
+
+In a project template, channels reference lifecycles that reside within the project template itself.
+
+Once a project template is being used by projects in Spaces, deleting a channel or changing its filename is an operation that can have significant impacts. Unlike a regular project, channels in a project template can be modified or removed when projects using the template have releases or triggers referencing the given channel. Modifying a channel in this way will require a major version to be published, as this will prevent existing releases and triggers from being usable for affected templated projects until their channel references are re-mapped. If you change a channel in this way, we strongly recommend having another valid channel which projects can re-map their releases and triggers to *before* deleting or renaming the channel.
+
+## Lifecycles
+
+Unlike [lifecycles](/docs/releases/lifecycles) in Spaces, lifecycles in Platform Hub are defined within each project template. Project template lifecycles follow the same conventions as lifecycles in Spaces. Instead of specifying environments in phases, you select from the available environment parameters in the template. This allows you to establish a standardized configuration for all templated projects to follow. For example, creating a phase which uses an environment parameter labelled "Production Environment" conveys to teams using the template that the given phase is designated for Production deployments. In their project, they can then set the value of this parameter to the production environment(s) in their respective Space.
+
+Every project template comes with a default lifecycle. This uses the same conventions as the default lifecycle in Spaces which will automatically include all environment parameters in the order they're defined in the template.
+
+:::div{.warning}
+While retention policies can be configured in project template lifecycles, these aren't yet fully supported.
+:::
+
 ## Parameters
 
 Parameters let you define the inputs a user must supply when they create a project from the template. They're the mechanism for making a template flexible. Rather than hardcoding values that differ between teams or spaces, you expose them as parameters.
