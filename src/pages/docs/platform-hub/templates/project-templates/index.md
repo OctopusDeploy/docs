@@ -39,7 +39,7 @@ You can now define the deployment process, parameters, and variables for the tem
 
 ## Deployment process
 
-The deployment process defines the steps Octopus orchestrates when deploying a project created from this template. Each project template has a single deployment process, and you can use Octopus's built-in steps, step templates, community step templates, and process templates to define it.
+The [deployment process](/docs/projects/deployment-process) defines the steps Octopus orchestrates when deploying a project created from this template. Each project template has a single deployment process, and you can use Octopus's built-in steps, step templates, community step templates, and process templates to define it.
 
 :::div{.hint}
 Unlike standard projects, project templates validate the deployment process when you publish, not when you commit. You can save an incomplete process and continue configuring parameters and variables before publishing. This will change once we add inline variable configuration to the deployment process editor.
@@ -59,13 +59,11 @@ If your deployment process includes a process template configured to auto-update
 
 ## Parameters
 
-Parameters let you define the inputs a user must supply when they create a project from the template. They're the mechanism for making a template flexible. Rather than hardcoding values that differ between teams or spaces, you expose them as parameters.
+[Parameters](/docs/platform-hub/templates/parameters) let you define the inputs a user must supply when they create a project from the template. They're the mechanism for making a template flexible. Rather than hardcoding values that differ between teams or spaces, you expose them as parameters.
 
 :::div{.warning}
 Project templates don't yet support parameter scoping or sensitive parameter default values. We're still shaping how parameters, variables, and scoping work together and expect this area to evolve. We'd love your [feedback](#feedback).
 :::
-
-For a full reference of supported parameter types and default values, see [Template parameters](/docs/platform-hub/templates/parameters).
 
 To create a parameter, navigate to **Parameters** on your project template and add a new parameter.
 
