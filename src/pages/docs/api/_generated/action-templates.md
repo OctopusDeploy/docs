@@ -179,6 +179,8 @@ Also reachable at `/api/actiontemplates`, `/api/spaces/{spaceIdentifier}/actiont
 - **`Description`** :span[string]{.type-label}  
   The description of the Action Template.
 - **`GitDependencies`** :span[array of object]{.type-label}
+  - **`AcquisitionLocation`** :span[string]{.type-label}  
+    Describes how the files for this dependency are made available to the action. Server is the default and clones the repository. NotAcquired skips the clone and is only valid for named dependencies. May also be a variable-expression.
   - **`DefaultBranch`** :span[string]{.type-label} *(required)*  
     Minimum length 1.
   - **`FilePathFilters`** :span[array of string]{.type-label}
@@ -235,6 +237,7 @@ Also reachable at `/api/actiontemplates`, `/api/spaces/{spaceIdentifier}/actiont
   "Description": "string",
   "GitDependencies": [
     {
+      "AcquisitionLocation": "string",
       "DefaultBranch": "string",
       "FilePathFilters": [
         "string"
@@ -330,6 +333,8 @@ Also reachable at `/api/actiontemplates`, `/api/spaces/{spaceIdentifier}/actiont
 - **`CommunityActionTemplateId`** :span[string]{.type-label}
 - **`Description`** :span[string]{.type-label}
 - **`GitDependencies`** :span[array of object]{.type-label}
+  - **`AcquisitionLocation`** :span[string]{.type-label}  
+    Describes how the files for this dependency are made available to the action. Server is the default and clones the repository. NotAcquired skips the clone and is only valid for named dependencies. May also be a variable-expression.
   - **`DefaultBranch`** :span[string]{.type-label}  
     Minimum length 1.
   - **`FilePathFilters`** :span[array of string]{.type-label}
@@ -385,6 +390,7 @@ Also reachable at `/api/actiontemplates`, `/api/spaces/{spaceIdentifier}/actiont
   "Description": "string",
   "GitDependencies": [
     {
+      "AcquisitionLocation": "string",
       "DefaultBranch": "string",
       "FilePathFilters": [
         "string"
@@ -495,6 +501,8 @@ Lists the all of the action templates in the supplied Octopus Deploy Space. The 
 - **`CommunityActionTemplateId`** :span[string]{.type-label}
 - **`Description`** :span[string]{.type-label}
 - **`GitDependencies`** :span[array of object]{.type-label}
+  - **`AcquisitionLocation`** :span[string]{.type-label}  
+    Describes how the files for this dependency are made available to the action. Server is the default and clones the repository. NotAcquired skips the clone and is only valid for named dependencies. May also be a variable-expression.
   - **`DefaultBranch`** :span[string]{.type-label}  
     Minimum length 1.
   - **`FilePathFilters`** :span[array of string]{.type-label}
@@ -551,6 +559,7 @@ Lists the all of the action templates in the supplied Octopus Deploy Space. The 
     "Description": "string",
     "GitDependencies": [
       {
+        "AcquisitionLocation": "string",
         "DefaultBranch": "string",
         "FilePathFilters": [
           "string"
@@ -750,6 +759,8 @@ Also reachable at `/api/actiontemplates/{id}`, `/api/spaces/{spaceIdentifier}/ac
 - **`CommunityActionTemplateId`** :span[string]{.type-label}
 - **`Description`** :span[string]{.type-label}
 - **`GitDependencies`** :span[array of object]{.type-label}
+  - **`AcquisitionLocation`** :span[string]{.type-label}  
+    Describes how the files for this dependency are made available to the action. Server is the default and clones the repository. NotAcquired skips the clone and is only valid for named dependencies. May also be a variable-expression.
   - **`DefaultBranch`** :span[string]{.type-label}  
     Minimum length 1.
   - **`FilePathFilters`** :span[array of string]{.type-label}
@@ -805,6 +816,7 @@ Also reachable at `/api/actiontemplates/{id}`, `/api/spaces/{spaceIdentifier}/ac
   "Description": "string",
   "GitDependencies": [
     {
+      "AcquisitionLocation": "string",
       "DefaultBranch": "string",
       "FilePathFilters": [
         "string"
@@ -911,6 +923,8 @@ Also reachable at `/api/actiontemplates/{id}`, `/api/spaces/{spaceIdentifier}/ac
 - **`Description`** :span[string]{.type-label}  
   The description of the Action Template.
 - **`GitDependencies`** :span[array of object]{.type-label}
+  - **`AcquisitionLocation`** :span[string]{.type-label}  
+    Describes how the files for this dependency are made available to the action. Server is the default and clones the repository. NotAcquired skips the clone and is only valid for named dependencies. May also be a variable-expression.
   - **`DefaultBranch`** :span[string]{.type-label} *(required)*  
     Minimum length 1.
   - **`FilePathFilters`** :span[array of string]{.type-label}
@@ -961,6 +975,7 @@ Also reachable at `/api/actiontemplates/{id}`, `/api/spaces/{spaceIdentifier}/ac
   "Description": "string",
   "GitDependencies": [
     {
+      "AcquisitionLocation": "string",
       "DefaultBranch": "string",
       "FilePathFilters": [
         "string"
@@ -1056,6 +1071,8 @@ Also reachable at `/api/actiontemplates/{id}`, `/api/spaces/{spaceIdentifier}/ac
 - **`CommunityActionTemplateId`** :span[string]{.type-label}
 - **`Description`** :span[string]{.type-label}
 - **`GitDependencies`** :span[array of object]{.type-label}
+  - **`AcquisitionLocation`** :span[string]{.type-label}  
+    Describes how the files for this dependency are made available to the action. Server is the default and clones the repository. NotAcquired skips the clone and is only valid for named dependencies. May also be a variable-expression.
   - **`DefaultBranch`** :span[string]{.type-label}  
     Minimum length 1.
   - **`FilePathFilters`** :span[array of string]{.type-label}
@@ -1111,6 +1128,7 @@ Also reachable at `/api/actiontemplates/{id}`, `/api/spaces/{spaceIdentifier}/ac
   "Description": "string",
   "GitDependencies": [
     {
+      "AcquisitionLocation": "string",
       "DefaultBranch": "string",
       "FilePathFilters": [
         "string"
@@ -1800,6 +1818,7 @@ Also reachable at `/api/actiontemplates/{id}/v1`, `/api/spaces/{spaceIdentifier}
     "Description": "string",
     "GitDependencies": [
       {
+        "AcquisitionLocation": "string",
         "DefaultBranch": "string",
         "FilePathFilters": [
           "string"
@@ -1887,6 +1906,8 @@ Also reachable at `/api/actiontemplates/{id}/versions`, `/api/spaces/{spaceIdent
 - **`CommunityActionTemplateId`** :span[string]{.type-label}
 - **`Description`** :span[string]{.type-label}
 - **`GitDependencies`** :span[array of object]{.type-label}
+  - **`AcquisitionLocation`** :span[string]{.type-label}  
+    Describes how the files for this dependency are made available to the action. Server is the default and clones the repository. NotAcquired skips the clone and is only valid for named dependencies. May also be a variable-expression.
   - **`DefaultBranch`** :span[string]{.type-label}  
     Minimum length 1.
   - **`FilePathFilters`** :span[array of string]{.type-label}
@@ -1943,6 +1964,7 @@ Also reachable at `/api/actiontemplates/{id}/versions`, `/api/spaces/{spaceIdent
     "Description": "string",
     "GitDependencies": [
       {
+        "AcquisitionLocation": "string",
         "DefaultBranch": "string",
         "FilePathFilters": [
           "string"
@@ -2032,6 +2054,8 @@ Also reachable at `/api/actiontemplates/{id}/versions/{version}`, `/api/spaces/{
 - **`CommunityActionTemplateId`** :span[string]{.type-label}
 - **`Description`** :span[string]{.type-label}
 - **`GitDependencies`** :span[array of object]{.type-label}
+  - **`AcquisitionLocation`** :span[string]{.type-label}  
+    Describes how the files for this dependency are made available to the action. Server is the default and clones the repository. NotAcquired skips the clone and is only valid for named dependencies. May also be a variable-expression.
   - **`DefaultBranch`** :span[string]{.type-label}  
     Minimum length 1.
   - **`FilePathFilters`** :span[array of string]{.type-label}
@@ -2087,6 +2111,7 @@ Also reachable at `/api/actiontemplates/{id}/versions/{version}`, `/api/spaces/{
   "Description": "string",
   "GitDependencies": [
     {
+      "AcquisitionLocation": "string",
       "DefaultBranch": "string",
       "FilePathFilters": [
         "string"
