@@ -523,6 +523,9 @@ sfproj
 shiki
 showcerts
 Showplan
+sideload
+sideloaded
+sideloads
 SIEM
 signingkeys
 Signup
