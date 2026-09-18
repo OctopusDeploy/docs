@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2026-08-10
+modDate: 2026-09-21
 title: Deprecations
 description: Upcoming and past deprecations by version for Octopus Server
 navOrder: 300
@@ -28,6 +28,10 @@ If you have questions or need help assessing the impact of a deprecation on your
 :::
 
 ## Planned Deprecations
+
+## Windows Tentacle Docker container {#windows-tentacle-docker-deprecation}
+
+Support for the Windows Tentacle Docker container is discontinued. The last version to support it is `12.1.4445`. A Linux Tentacle Docker container remains available.
 
 ## VHD Deployments {#vhd-deprecation}
 
