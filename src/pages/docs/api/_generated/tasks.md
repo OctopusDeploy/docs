@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-09-15
+modDate: 2026-09-18
 title: Tasks
 ---
 
@@ -1250,6 +1250,11 @@ Useful when the log needs to be rendered to a console or sent as an email attach
   The ID of the task.
 - **`spaceId`** :span[string]{.type-label} *(required)*  
   The ID of the space containing the resource(s).
+
+**Query Parameters**
+
+- **`timestamps`** :span[string]{.type-label}  
+  Whether to show server timestamps (`Server`) or remote machine timestamps (`Remote`) in the log. Defaults to Server.
 
 **Response**
 

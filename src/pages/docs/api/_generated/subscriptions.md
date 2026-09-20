@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-09-09
+modDate: 2026-09-15
 title: Subscriptions
 ---
 
@@ -238,8 +238,12 @@ Also reachable at `/api/spaces/{spaceIdentifier}/subscriptions`, `/api/subscript
     "SlackFrequencyPeriod": "string",
     "TeamsChannels": [
       {
+        "ChannelId": "string",
         "Id": "string",
         "Name": "string",
+        "TeamId": "string",
+        "TeamName": "string",
+        "Type": "string",
         "WebhookUrl": {}
       }
     ],
@@ -379,8 +383,12 @@ Also reachable at `/api/spaces/{spaceIdentifier}/subscriptions`, `/api/subscript
     "SlackFrequencyPeriod": "string",
     "TeamsChannels": [
       {
+        "ChannelId": "string",
         "Id": "string",
         "Name": "string",
+        "TeamId": "string",
+        "TeamName": "string",
+        "Type": "string",
         "WebhookUrl": {}
       }
     ],
@@ -695,8 +703,12 @@ Also reachable at `/api/spaces/{spaceIdentifier}/subscriptions/{id}`, `/api/subs
     "SlackFrequencyPeriod": "string",
     "TeamsChannels": [
       {
+        "ChannelId": "string",
         "Id": "string",
         "Name": "string",
+        "TeamId": "string",
+        "TeamName": "string",
+        "Type": "string",
         "WebhookUrl": {}
       }
     ],
@@ -850,8 +862,12 @@ Also reachable at `/api/spaces/{spaceIdentifier}/subscriptions/{id}`, `/api/subs
     "SlackFrequencyPeriod": "string",
     "TeamsChannels": [
       {
+        "ChannelId": "string",
         "Id": "string",
         "Name": "string",
+        "TeamId": "string",
+        "TeamName": "string",
+        "Type": "string",
         "WebhookUrl": {}
       }
     ],
@@ -993,8 +1009,12 @@ Also reachable at `/api/spaces/{spaceIdentifier}/subscriptions/{id}`, `/api/subs
     "SlackFrequencyPeriod": "string",
     "TeamsChannels": [
       {
+        "ChannelId": "string",
         "Id": "string",
         "Name": "string",
+        "TeamId": "string",
+        "TeamName": "string",
+        "Type": "string",
         "WebhookUrl": {}
       }
     ],
