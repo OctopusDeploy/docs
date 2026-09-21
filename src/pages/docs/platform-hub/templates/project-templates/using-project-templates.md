@@ -30,7 +30,7 @@ To use a project template, you create a new project based on it.
 ![Selecting a project template when creating a new project](/docs/img/platform-hub/project-templates/project-template-selection.png)
 :::
 
-1. Give the project a **Name**.
+3. Give the project a **Name**.
 
 :::figure
 ![Naming a templated project and choosing storage settings](/docs/img/platform-hub/project-templates/templated-project-creation.png)
