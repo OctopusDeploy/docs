@@ -103,3 +103,7 @@ To allow this:
 4. Restart the Tentacle process to ensure that it has access to this new variable.
 
 The next time a deployment is run, Octopus Server will ignore the embedded Calamari version and instead use the one available on the Tentacle. Warnings will continue to be logged to provide a clear signal that this limited support is considered a temporary stop-gap, as we are likely to drop support entirely for this workaround from `2026.3`.
+
+### RHEL 7 Limited Support
+
+Similar to the limited Windows Server 2008 support above, a linux version is available for this older version of Octopus that will work on RHEL 7 using the above manual extraction method. Download this version from [here](https://download.octopusdeploy.com/calamari/Calamari.Legacy.Linux.2026.1.44-dotnet6.zip) ([md5](https://download.octopusdeploy.com/calamari/Calamari.Legacy.Linux.2026.1.44-dotnet6.md5), [sha256](https://download.octopusdeploy.com/calamari/Calamari.Legacy.Linux.2026.1.44-dotnet6.sha256)). Note that this capability will also likely be dropped as a workaround from a future `2026.3` release.
