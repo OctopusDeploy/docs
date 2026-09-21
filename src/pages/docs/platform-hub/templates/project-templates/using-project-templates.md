@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-03-16
-modDate: 2026-05-28
+modDate: 2026-09-21
 title: Templated projects
 subtitle: How to create and manage projects from a project template
 icon: fa-solid fa-layer-group
@@ -76,9 +76,13 @@ You can't modify the deployment process in a templated project. You can't add, r
 
 ## Channels
 
-[Channels](/docs/releases/channels) in templated projects are inherited from the project template. You can view the channels in a templated project like any other project, but these cannot be modified. The [lifecycles](/docs/releases/lifecycles) used by each channel are also inherited from the project template. The available environments for a channel in a templated project are determined by the environment parameter values set in your templated project. You can view the lifecycle configuration used by a channel once you've set all required environment parameter values.
+A templated project inherits its [channels](/docs/releases/channels) from the project template, along with the [lifecycles](/docs/releases/lifecycles) each channel uses. You can view the channels like you would in any other project, but you can't modify them.
 
-// todo image
+The environments a channel can deploy to depend on the environment parameter values you set in your templated project. You can view the lifecycle configuration used by a channel after you've set all required environment parameter values.
+
+:::figure
+![Channels in Templated Projects](/docs/img/platform-hub/project-templates/templated-project-channel.png)
+:::
 
 ## Template updates
 

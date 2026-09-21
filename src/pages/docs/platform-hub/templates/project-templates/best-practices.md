@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-03-05
-modDate: 2026-05-28
+modDate: 2026-09-21
 title: Project template best practices
 subtitle: Best practices for creating project templates in Platform Hub
 icon: fa-solid fa-layer-group
@@ -42,7 +42,7 @@ Project template versioning provides hints:
 
 Without a shared definition of breaking vs. non-breaking, teams will interpret these differently. A starting point for a versioning policy:
 
-- **Major**: The change fundamentally alters how the template works. Parameters have been added or removed. Consumers need to review and test the update before accepting it.
+- **Major**: The change fundamentally alters how the template works. Parameters have been added or removed, or a channel has been renamed or deleted. Consumers need to review and test the update before accepting it.
 - **Minor**: Parameters may have been added or adjusted, which could require a change in the consuming project, but the core behavior is preserved.
 - **Patch**: No parameters were added or removed. Bug fixes only. Consuming projects can accept the update without a deployment process change.
 - **Pre-release**: Use for changes that aren't ready for general use. Share with a specific space to test before promoting.

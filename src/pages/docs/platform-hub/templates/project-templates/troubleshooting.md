@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-03-05
-modDate: 2026-09-14
+modDate: 2026-09-21
 title: Troubleshooting
 subtitle: Known issues and limitations for project templates
 icon: fa-solid fa-layer-group
@@ -19,14 +19,16 @@ Project templates are in Public Preview. The feature is still evolving and stand
 
 Project templates are in Public Preview. The following features are not yet supported and are planned for future releases:
 
-- Ephemeral environments
+- Ephemeral environments, including ephemeral environment channels
+- Retention policies on templated project releases (you can configure them, but they have no effect)
 - Cloud target discovery on steps (see below)
 - Cloning a project template through the Octopus UI
 - Creating and managing project templates through the REST API, CLI, or Terraform provider
-- Project settings, except for Multi-tenant Deployments and Project Persistence
 - Runbooks
 - Import and export of templated projects
 - Inline variable configuration within the deployment process editor
+- Scoping Insights reports to channels in a templated project (you can still scope a report to the templated project itself)
+- Templated projects in compliance reports
 
 We'll update this page as the feature evolves.
 
@@ -37,6 +39,14 @@ Support for configuring Platform Hub External Feeds is available from Octopus 20
 Support for configuring project triggers and runbook scheduled triggers for templated projects on the consumer side is available from Octopus 2026.4.1770
 
 :::
+
+## Deployment freezes
+
+The environment filter on deployment freezes doesn't list templated projects.
+
+## Projects Dashboard
+
+The dashboard will not display deployments for templated projects.
 
 ## Cloud target discovery
 

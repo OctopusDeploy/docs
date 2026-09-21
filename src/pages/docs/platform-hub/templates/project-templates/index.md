@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-03-05
-modDate: 2026-05-28
+modDate: 2026-09-21
 title: Project templates
 subtitle: An overview of project templates
 icon: fa-solid fa-layer-group
@@ -21,12 +21,29 @@ Project templates are reusable project blueprints that can be shared across mult
 
 To create or manage your project templates, navigate to Platform Hub. If you haven't set up your [Git repository](/docs/platform-hub#git-credentials-in-platform-hub), you must do so before creating a project template.
 
-1. Navigate to **Project Templates** in Platform Hub.
-2. Give the project template a **Name** and an optional **Description**.
-3. Create your project template.
+1. In Platform Hub, go to **Project Templates**.
+2. Click **Create Project Template**.
 
 :::figure
-![Creating a project template with a name and description](/docs/img/platform-hub/project-templates/project-templates-onboarding.png)
+![Project templates page](/docs/img/platform-hub/project-templates/project-templates-onboarding.png)
+:::
+
+3. Give the template a **Name** and an optional **Description**.
+
+:::figure
+![Creating a project template with a name and description](/docs/img/platform-hub/project-templates/project-templates-creation.png)
+:::
+
+4. Create the template.
+5. Add an environment parameter for each environment the template deploys to.
+6. Click **Create Parameters**.
+
+:::figure
+![Creating a project template with environment parameters](/docs/img/platform-hub/project-templates/project-templates-create-env-params.png)
+:::
+
+:::div{.hint}
+You'll need at least one environment parameter before you can publish the template.
 :::
 
 After creating your template, Octopus adds the template's [folder and OCL files](#git-repository-structure) to your Git repository. If you've already created templates or are joining an existing team, you'll see the existing templates on the overview page.
@@ -36,6 +53,7 @@ After creating your template, Octopus adds the template's [folder and OCL files]
 :::
 
 You can now configure your template. For each template, you can define:
+
 - A [deployment process](/docs/projects/deployment-process)
 - [Parameters](/docs/platform-hub/templates/parameters)
 - [Variables](/docs/projects/variables/)
@@ -67,18 +85,26 @@ If your deployment process includes a process template configured to auto-update
 [Channels](/docs/releases/channels) in project templates function the same as they do in projects. You can define channels based on the intended release strategies for projects that use this template. Every project template comes with a default channel.
 
 :::div{.warning}
-Ephemeral Environment channels aren't yet supported in Project Templates.
+Ephemeral Environment channels aren't yet supported in project templates.
 :::
 
 In a project template, channels reference lifecycles that reside within the project template itself.
 
-Once a project template is being used by projects in Spaces, deleting a channel or changing its filename is an operation that can have significant impacts. Unlike a regular project, channels in a project template can be modified or removed when projects using the template have releases or triggers referencing the given channel. Modifying a channel in this way will require a major version to be published, as this will prevent existing releases and triggers from being usable for affected templated projects until their channel references are re-mapped. If you change a channel in this way, we strongly recommend having another valid channel which projects can re-map their releases and triggers to *before* deleting or renaming the channel.
+When a project template is being used by projects in Spaces, deleting a channel or changing its filename is an operation that can have significant impacts. Unlike a regular project, channels in a project template can be modified or removed when projects using the template have releases or triggers referencing the given channel. Modifying a channel in this way will require a major version to be published, as this will prevent existing releases and triggers from being usable for affected templated projects until their channel references are re-mapped. If you change a channel in this way, we strongly recommend having another valid channel which projects can re-map their releases and triggers to *before* deleting or renaming the channel.
+
+:::figure
+![Channels in project templates](/docs/img/platform-hub/project-templates/project-templates-channels.png)
+:::
 
 ## Lifecycles
 
-Unlike [lifecycles](/docs/releases/lifecycles) in Spaces, lifecycles in Platform Hub are defined within each project template. Project template lifecycles follow the same conventions as lifecycles in Spaces. Instead of specifying environments in phases, you select from the available environment parameters in the template. This allows you to establish a standardized configuration for all templated projects to follow. For example, creating a phase which uses an environment parameter labelled "Production Environment" conveys to teams using the template that the given phase is designated for Production deployments. In their project, they can then set the value of this parameter to the production environment(s) in their respective Space.
+Unlike [lifecycles](/docs/releases/lifecycles) in Spaces, lifecycles in Platform Hub are defined within each project template. Project template lifecycles follow the same conventions as lifecycles in Spaces. Instead of specifying environments in phases, you select from the available environment parameters in the template. This lets you establish a standardized configuration for all templated projects to follow. For example, creating a phase which uses an environment parameter labeled "Production Environment" conveys to teams using the template that the given phase is designated for Production deployments. In their project, they can then set the value of this parameter to the production environment(s) in their respective Space.
 
 Every project template comes with a default lifecycle. This uses the same conventions as the default lifecycle in Spaces which will automatically include all environment parameters in the order they're defined in the template.
+
+:::figure
+![Lifecycles in project templates](/docs/img/platform-hub/project-templates/project-templates-lifecycles.png)
+:::
 
 :::div{.warning}
 While retention policies can be configured in project template lifecycles, these aren't yet fully supported.
@@ -96,6 +122,10 @@ To create a parameter, navigate to **Parameters** on your project template and a
 
 :::figure
 ![The Parameters tab in a project template](/docs/img/platform-hub/project-templates/project-templates-parameters.png)
+:::
+
+:::div{.hint}
+Each project template needs at least one environment parameter before you can publish. [Lifecycles](#lifecycles) build their phases from environment parameters, so a template without one has no environments to deploy to.
 :::
 
 ## Variables
@@ -136,10 +166,9 @@ Scoping is fixed at the template level. The same scoping rules apply to every pr
 
 Project templates let you set a few project-level defaults that flow through to every project created from the template. Configure these in **Settings** on the project template.
 
-- **Lifecycle**: The default Lifecycle for the template
-- **Multi-tenant Deployments**: Whether projects created from the template require tenants, allow tenants, or run untenanted
-- **Project Persistence**: The preferred storage for projects created from the template, either in Octopus or backed by Git. The project creation flow defaults to your recommendation and lets users pick a different option if they need to
-
+- **Lifecycle**: The lifecycle projects created from the template use by default.
+- **Multi-tenant Deployments**: Whether projects created from the template require tenants, allow tenants, or run untenanted.
+- **Project Persistence**: The preferred storage for projects created from the template, either in Octopus or backed by Git. The project creation flow defaults to your recommendation and lets users pick a different option if they need to.
 
 ## Git repository structure
 
