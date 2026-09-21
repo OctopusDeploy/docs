@@ -81,7 +81,7 @@ A templated project inherits its [channels](/docs/releases/channels) from the pr
 The environments a channel can deploy to depend on the environment parameter values you set in your templated project. You can view the lifecycle configuration used by a channel after you've set all required environment parameter values.
 
 :::figure
-![Channels in Templated Projects](/docs/img/platform-hub/project-templates/templated-project-channel.png)
+![Channels in a templated project](/docs/img/platform-hub/project-templates/templated-project-channel.png)
 :::
 
 ## Template updates

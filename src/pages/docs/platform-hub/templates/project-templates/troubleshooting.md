@@ -44,9 +44,9 @@ Support for configuring project triggers and runbook scheduled triggers for temp
 
 The environment filter on deployment freezes doesn't list templated projects.
 
-## Projects Dashboard
+## Projects dashboard
 
-The dashboard will not display deployments for templated projects.
+The dashboard doesn't display deployments for templated projects.
 
 ## Cloud target discovery
 
