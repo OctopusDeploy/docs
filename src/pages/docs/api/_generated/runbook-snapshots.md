@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-09-04
+modDate: 2026-09-22
 title: Runbook Snapshots
 ---
 
@@ -691,6 +691,8 @@ Also reachable at `/api/projects/{projectId}/runbookSnapshots/{id}/runbookRuns`,
     Format `date-time`.
   - **`DebugMode`** :span[string]{.type-label}
   - **`DeployedBy`** :span[string]{.type-label}
+  - **`DeployedByActorType`** :span[enum]{.type-label}  
+    Allowed values: `Unknown`, `System`, `User`, `Agent`, `ServiceAccount`.
   - **`DeployedById`** :span[string]{.type-label}
   - **`DeployedToMachineIds`** :span[array of string]{.type-label}
   - **`EnvironmentId`** :span[string]{.type-label}
@@ -761,6 +763,7 @@ Also reachable at `/api/projects/{projectId}/runbookSnapshots/{id}/runbookRuns`,
       "Created": "2020-01-01T00:00:00.000Z",
       "DebugMode": "string",
       "DeployedBy": "string",
+      "DeployedByActorType": "Unknown",
       "DeployedById": "string",
       "DeployedToMachineIds": [
         "string"
@@ -2280,6 +2283,8 @@ Also reachable at `/api/runbookSnapshots/{id}/runbookRuns`, `/api/spaces/{spaceI
     Format `date-time`.
   - **`DebugMode`** :span[string]{.type-label}
   - **`DeployedBy`** :span[string]{.type-label}
+  - **`DeployedByActorType`** :span[enum]{.type-label}  
+    Allowed values: `Unknown`, `System`, `User`, `Agent`, `ServiceAccount`.
   - **`DeployedById`** :span[string]{.type-label}
   - **`DeployedToMachineIds`** :span[array of string]{.type-label}
   - **`EnvironmentId`** :span[string]{.type-label}
@@ -2350,6 +2355,7 @@ Also reachable at `/api/runbookSnapshots/{id}/runbookRuns`, `/api/spaces/{spaceI
       "Created": "2020-01-01T00:00:00.000Z",
       "DebugMode": "string",
       "DeployedBy": "string",
+      "DeployedByActorType": "Unknown",
       "DeployedById": "string",
       "DeployedToMachineIds": [
         "string"

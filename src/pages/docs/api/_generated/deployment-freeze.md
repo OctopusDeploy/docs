@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-09-04
+modDate: 2026-09-22
 title: Deployment Freeze
 ---
 
@@ -467,6 +467,8 @@ Also reachable at `/api/deployments/override`, `/api/spaces/{spaceIdentifier}/de
     Format `date-time`.
   - **`DebugMode`** :span[string]{.type-label}
   - **`DeployedBy`** :span[string]{.type-label}
+  - **`DeployedByActorType`** :span[enum]{.type-label}  
+    Allowed values: `Unknown`, `System`, `User`, `Agent`, `ServiceAccount`.
   - **`DeployedById`** :span[string]{.type-label}
   - **`DeployedToMachineIds`** :span[array of string]{.type-label}
   - **`DeploymentProcessId`** :span[string]{.type-label}
@@ -544,6 +546,7 @@ Also reachable at `/api/deployments/override`, `/api/spaces/{spaceIdentifier}/de
     "Created": "2020-01-01T00:00:00.000Z",
     "DebugMode": "string",
     "DeployedBy": "string",
+    "DeployedByActorType": "Unknown",
     "DeployedById": "string",
     "DeployedToMachineIds": [
       "string"
@@ -626,6 +629,8 @@ Also reachable at `/api/deployments/override`, `/api/spaces/{spaceIdentifier}/de
     Format `date-time`.
   - **`DebugMode`** :span[string]{.type-label}
   - **`DeployedBy`** :span[string]{.type-label}
+  - **`DeployedByActorType`** :span[enum]{.type-label}  
+    Allowed values: `Unknown`, `System`, `User`, `Agent`, `ServiceAccount`.
   - **`DeployedById`** :span[string]{.type-label}
   - **`DeployedToMachineIds`** :span[array of string]{.type-label}
   - **`DeploymentProcessId`** :span[string]{.type-label}
@@ -699,6 +704,7 @@ Also reachable at `/api/deployments/override`, `/api/spaces/{spaceIdentifier}/de
     "Created": "2020-01-01T00:00:00.000Z",
     "DebugMode": "string",
     "DeployedBy": "string",
+    "DeployedByActorType": "Unknown",
     "DeployedById": "string",
     "DeployedToMachineIds": [
       "string"
