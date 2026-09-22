@@ -78,7 +78,7 @@ If your deployment process includes a process template configured to auto-update
 
 ## Channels
 
-[Channels](/docs/releases/channels) in project templates function the same as they do in projects. You can define channels based on the intended release strategies for projects that use this template. Every project template comes with a default channel.
+[Channels](/docs/releases/channels) in project templates are configured much like channels in projects. The main difference is that tenants are specified using tenant tag parameters. You can define channels based on the intended release strategies for projects that use this template. Every project template comes with a default channel.
 
 :::div{.warning}
 Ephemeral environment channels aren't yet supported in project templates.
@@ -86,12 +86,12 @@ Ephemeral environment channels aren't yet supported in project templates.
 
 In a project template, channels reference lifecycles that reside within the project template itself.
 
-Unlike a regular project, a project template lets you delete a channel or change its filename even when projects using the template have releases or triggers that reference it. Doing so has consequences for every project using the template:
+Unlike a regular project, a project template lets you delete a channel or change its filename even when projects using the template have releases or triggers that reference it. Publishing a new version of the project template with these changes will have consequences for projects that accept the new version:
 
 - Existing releases that reference the channel stop working until someone re-maps them to another channel.
 - Existing triggers that reference the channel stop working until someone re-maps them to another channel.
 
-When making such changes publish a major version, so consumers can review and apply the change deliberately.
+Major versioning is enforced for these changes so consumers can review and adopt the updates deliberately.
 
 :::div{.hint}
 Before you delete or rename a channel, add another valid channel that projects can re-map their releases and triggers to.
