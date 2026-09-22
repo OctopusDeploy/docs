@@ -163,30 +163,30 @@ The *StartsWith*, *EndsWith* and *Contains* filters compare the input to a given
 
 These filters provide a mechanism to convert a value from one form to another.
 
-| Name             | Purpose                                          | Example input    | Example output                   |
-|------------------|--------------------------------------------------|------------------|----------------------------------|
-| `FromBase64`     | Converts values from Base64 (using UTF encoding) | `QmF6`           | `Bar`                            |
-| `ToBase64`       | Converts values to Base64 (using UTF encoding)   | `Bar`            | `QmF6`                           |
-| `MarkdownToHTML` | Converts Markdown to HTML                        | `This \_rocks\_` | `\<p>This \<em>rocks\</em>\</p>` |
-| [`HashBucket`](#hashbucket) | Maps a value to a stable bucket index  | `Octopus Deploy` | `7`                              |
+| Name                        | Purpose                                          | Example input    | Example output                   |
+|-----------------------------|--------------------------------------------------|------------------|----------------------------------|
+| `FromBase64`                | Converts values from Base64 (using UTF encoding) | `QmF6`           | `Bar`                            |
+| `ToBase64`                  | Converts values to Base64 (using UTF encoding)   | `Bar`            | `QmF6`                           |
+| `MarkdownToHTML`            | Converts Markdown to HTML                        | `This \_rocks\_` | `\<p>This \<em>rocks\</em>\</p>` |
+| [`HashBucket`](#hashbucket) | Maps a value to a stable bucket index            | `Octopus Deploy` | `7`                              |
 
 ### HashBucket
 
 The *HashBucket* filter maps a variable's value to a stable bucket index, given a required bucket count. It's useful for spreading tenants, machines, or deployment targets evenly over a fixed set of pools without maintaining an explicit mapping. The mapping is stable across platforms and Octopus Server processes, and a bucket index is never negative. Balance between buckets is statistical, not exact.
 
-| MyVar Value      | Filter Expression                    | Output |
-| ---------------- | ------------------------------------- | ------ |
-| `Octopus Deploy` | `#{MyVar \| HashBucket 8}`            | `7`    |
-| (empty or unset) | `#{MyVar \| HashBucket 8}`            | (empty string) |
-| `Octopus Deploy` | `#{MyVar \| HashBucket 4 \| Prepend "pool-"}` | `pool-3` |
+| MyVar Value      | Filter Expression                             | Output         |
+|------------------|-----------------------------------------------|----------------|
+| `Octopus Deploy` | `#{MyVar \| HashBucket 8}`                    | `7`            |
+| (empty or unset) | `#{MyVar \| HashBucket 8}`                    | (empty string) |
+| `Octopus Deploy` | `#{MyVar \| HashBucket 4 \| Prepend "pool-"}` | `pool-3`       |
 
 An invalid bucket count returns an embedded error instead of echoing the template unreplaced, so a typo is visible rather than silently producing a plausible-looking result:
 
-| Filter Expression                  | Output                                                    |
-| ----------------------------------- | ---------------------------------------------------------- |
-| `#{MyVar \| HashBucket}`            | `[HashBucket error: expected a single bucket count]`        |
-| `#{MyVar \| HashBucket 0}`          | `[HashBucket error: bucket count '0' is not a positive integer]` |
-| `#{MyVar \| HashBucket bar}`        | `[HashBucket error: bucket count 'bar' is not a positive integer]` |
+| Filter Expression            | Output                                                             |
+|------------------------------|--------------------------------------------------------------------|
+| `#{MyVar \| HashBucket}`     | `[HashBucket error: expected a single bucket count]`               |
+| `#{MyVar \| HashBucket 0}`   | `[HashBucket error: bucket count '0' is not a positive integer]`   |
+| `#{MyVar \| HashBucket bar}` | `[HashBucket error: bucket count 'bar' is not a positive integer]` |
 
 ## Date filters {#date-filters}
 
