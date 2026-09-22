@@ -35,7 +35,7 @@ Output from a remote machine doesn't reach Octopus Server the instant a script w
 
 ## Downloading the raw log
 
-The raw task log uses server timestamps by default. To get remote timestamps instead, add the `timestamps` query parameter to the [raw task log endpoint](/docs/api/tasks) 
+The raw task log uses server timestamps by default. To get remote timestamps instead, add the `timestamps` query parameter to the [raw task log endpoint](/docs/api/tasks).
 
 > `GET /api/{spaceId}/tasks/{id}/raw?timestamps=Remote`
 
