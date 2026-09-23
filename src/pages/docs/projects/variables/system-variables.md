@@ -315,7 +315,7 @@ These variables are available during Azure deployment actions.
 
 ## Output variables
 
-Output variables are collected while a step runs and made available to later steps.
+Output variables are collected while a step runs and made available to later steps. For output variables from steps in a process template, see [Output Variables](/docs/platform-hub/templates/process-templates/troubleshooting#output-variables).
 
 | Variable | Description | Example |
 | --- | --- | --- |
@@ -346,6 +346,15 @@ You can also read these variables for a different step using indexed notation, f
 | `Octopus.Step.Status.ErrorDetail` | A full description of the error, if the step failed. | `System.Net.SocketException: The server could not be contacted` |
 
 The status codes returned by `Octopus.Step.Status.Code` are `Pending`, `Skipped`, `Abandoned`, `Canceled`, `Running`, `Succeeded`, and `Failed`.
+
+## Process template variables
+
+Process template-level variables are available in all steps within a process template.
+
+| Variable | Description | Example |
+| --- | --- | --- |
+| `Octopus.ProcessTemplate.Slug` | The slug of the process template. | `configure-infrastructure-template` |
+| `Octopus.ProcessTemplate.Version` | The version of the process template used. | `1.2.3` |
 
 ## Tracking deployment status {#tracking-deployment-status}
 
