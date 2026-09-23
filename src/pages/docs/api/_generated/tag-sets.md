@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-09-04
+modDate: 2026-09-22
 title: Tag Sets
 ---
 
@@ -26,7 +26,7 @@ Lists all of the Tag Sets in the supplied Octopus Deploy Space. The results will
 - **`partialName`** :span[string]{.type-label}  
   A partial or complete name to search on. This will perform a \"contains\" style match against the supplied name or name-fragment.
 - **`scopes`** :span[array of string]{.type-label}  
-  Limits results to tag sets that apply to any of these resource types. Valid values: 'Tenant', 'Environment', 'Project', 'Target', 'Runbook', 'Feature Toggle'.
+  Limits results to tag sets that apply to any of these resource types. Valid values: 'Tenant', 'Environment', 'Project', 'Target', 'Runbook', 'Feature Flag'.
 - **`skip`** :span[integer]{.type-label}  
   Number of items to skip. Defaults to zero. Minimum `0`.
 - **`take`** :span[integer]{.type-label}  
@@ -134,7 +134,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tagsets`, `/api/tagsets`.
 - **`Name`** :span[string]{.type-label} *(required)*  
   Sets the name of this tag set. Minimum length 1.
 - **`Scopes`** :span[array of string]{.type-label}  
-  The resource types the tag set applies to. Valid values: 'Tenant', 'Environment', 'Project', 'Target', 'Runbook', 'Feature Toggle'. Defaults to ['Tenant'] when omitted.
+  The resource types the tag set applies to. Valid values: 'Tenant', 'Environment', 'Project', 'Target', 'Runbook', 'Feature Flag'. Defaults to ['Tenant'] when omitted.
 - **`SortOrder`** :span[integer]{.type-label}  
   Sets the sort order of this tag set.
 - **`SpaceId`** :span[string]{.type-label} *(required)*
@@ -467,7 +467,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tagsets/{id}`, `/api/tagsets/{i
 - **`Name`** :span[string]{.type-label} *(required)*  
   Sets the name of this tag set. Minimum length 1.
 - **`Scopes`** :span[array of string]{.type-label}  
-  The complete set of resource types the tag set applies to; a scope omitted here is removed (rejected if tags are in use for it). Valid values: 'Tenant', 'Environment', 'Project', 'Target', 'Runbook', 'Feature Toggle'. Defaults to ['Tenant'] when omitted.
+  The complete set of resource types the tag set applies to; a scope omitted here is removed (rejected if tags are in use for it). Valid values: 'Tenant', 'Environment', 'Project', 'Target', 'Runbook', 'Feature Flag'. Defaults to ['Tenant'] when omitted.
 - **`SortOrder`** :span[integer]{.type-label}  
   Sets the sort order of this tag set.
 - **`SpaceId`** :span[string]{.type-label} *(required)*
