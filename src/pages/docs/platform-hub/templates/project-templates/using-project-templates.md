@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-03-16
-modDate: 2026-05-28
+modDate: 2026-09-21
 title: Templated projects
 subtitle: How to create and manage projects from a project template
 icon: fa-solid fa-layer-group
@@ -15,7 +15,7 @@ navOrder: 171
 Project templates are in Public Preview. The feature is still evolving and standard SLAs don't apply. We don't recommend it for production workloads yet. It's available to Enterprise customers on Cloud and to self-hosted customers running Octopus 2026.2+. We'd love your feedback as we work towards General Availability.
 :::
 
-A **templated project** is a project created from a project template. It inherits the template's deployment process and variables, which you can't modify. You customize the project by supplying values for the parameters defined in the template.
+A **templated project** is a project created from a project template. It inherits the template's deployment process, channels, and variables, which you can't modify. You customize the project by supplying values for the parameters defined in the template.
 
 ## Create a project from a template
 
@@ -74,16 +74,22 @@ After you've provided the required values, you can create a release as usual.
 You can't modify the deployment process in a templated project. You can't add, remove, reorder, or disable steps. If you need to change the process, contact the template owner.
 :::
 
+## Channels
+
+A templated project inherits its [channels](/docs/releases/channels) from the project template, along with the [lifecycles](/docs/releases/lifecycles) each channel uses. You can view the channels like you would in any other project, but you can't modify them.
+
+The environments a channel can deploy to depend on the environment parameter values you set in your templated project. You can view the lifecycle configuration used by a channel after you've set all required environment parameter values.
+
+:::figure
+![Channels in a templated project](/docs/img/platform-hub/project-templates/templated-project-channel.png)
+:::
+
 ## Template updates
 
 When a new version of the template is published, you'll receive the update. How and when it's applied depends on the versioning preferences you've set:
 
 - **Patch and minor updates**: Octopus applies these automatically if you chose to accept them.
 - **Major updates**: You must manually apply these manually, regardless of your preferences.
-
-## Future direction
-
-We're still shaping what project templates can do. [Share your feedback](https://oc.to/feedback) to help guide where we go next.
 
 ## Limitations
 

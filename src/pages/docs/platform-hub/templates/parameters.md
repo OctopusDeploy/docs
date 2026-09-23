@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-03-05
-modDate: 2026-05-28
+modDate: 2026-09-21
 title: Template parameters
 subtitle: A reference for parameters in Platform Hub templates
 icon: fa-solid fa-layer-group
@@ -22,7 +22,7 @@ Templates can manage the following as parameters:
 - AWS Account
 - Azure Account
 - Certificate
-- Channels
+- Channels (process templates only)
 - Checkbox
 - Container Feed
 - Dropdown
