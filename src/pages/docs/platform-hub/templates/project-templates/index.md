@@ -209,3 +209,7 @@ After you publish and share a template, users in a space can create a new projec
 ## Feedback
 
 Project templates are in Public Preview and we're actively shaping how the feature works. If you run into something unexpected or have thoughts on how parameters, variables, scoping, or anything else should work, we'd love to hear from you. [Share your feedback](https://oc.to/feedback) to help us build this the right way.
+
+## Version notes
+
+- [Channels](#channels) and [Lifecycles](#lifecycles) in Project Templates are available from Octopus Server version `2026.4.4005`.
