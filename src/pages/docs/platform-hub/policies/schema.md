@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-09-11
-modDate: 2026-06-19
+modDate: 2026-09-23
 title: Schema for policies
 subtitle: A reference for the input schema passed to the policy engine, including field descriptions, conditional fields, and example patterns.
 icon: fa-solid fa-lock
@@ -35,6 +35,8 @@ The table below summarizes every top-level field available to your policies.
 | [SkippedSteps](#steps-and-skippedsteps) | array | Yes | IDs of any steps excluded from this deployment |
 | [Execution](#execution) | array | Yes | Execution order and parallelism settings for each step |
 | [RequiresApproval](#requiresapproval) | boolean | Yes | Whether the execution requires an [approval](/docs/approvals) |
+| [Actor](#actor) | object | Yes | Who or what initiated the deployment or runbook run |
+| [CreatedAt](#createdat) | string | Yes | The timestamp the deployment or runbook run was created |
 | [Tenant](#tenant) | object | **No** | Present only for tenanted deployments |
 | [Release](#release) | object | **No** | Present only for deployments (not runbook runs) |
 | [Runbook](#runbook) | object | **No** | Present only for runbook runs (not deployments) |
@@ -115,6 +117,60 @@ default result := { "allowed": false }
 result := {
     "allowed": input.RequiresApproval,
     "reason": "No ITSM change request was found attached to this deployment or runbook run. Attach an approved change request, and try again.",
+}
+```
+
+### Actor
+
+Who or what initiated the deployment or runbook run.
+
+Available in Octopus server versions:
+
+- 2026.4.TODO+
+
+| Property | Type | Description |
+| :--- | :--- | :--- |
+| Id | string | The unique identifier of the actor |
+| Name | string | The username of the actor |
+| Type | string | The kind of actor. Valid values: `"User"`, `"Agent"`, `"System"`, `"ServiceAccount"`, `"Unknown"` |
+
+`Type` is deliberately coarse: `"User"` covers both a person clicking buttons and a script running under their credentials, since these are indistinguishable from the credential alone. `"Unknown"` is used when the actor type couldn't be determined, including for executions recorded before this field was introduced.
+
+`Name` is the actor's username, not necessarily a display name. Its exact format depends on how the actor authenticated. A built-in Octopus account might use a plain login handle. An Active Directory or Azure AD account typically uses a UPN, such as `jane@example.com`. An OpenID Connect account uses whatever claim your identity provider is configured to supply as the username, which your administrator can change.
+
+**Example usage:**
+
+```ruby
+# Require approval when an AI agent starts a deployment, unless one is already configured
+package require_approval_for_agents
+
+default result := {"allowed": true}
+
+result := {
+    "allowed": false,
+    "reason": sprintf("Deployment triggered by %s (%s) requires approval", [input.Actor.Name, input.Actor.Type]),
+    "action": "block"
+} if {
+    input.Actor.Type == "Agent"
+    not input.RequiresApproval
+}
+```
+
+### CreatedAt
+
+The timestamp the deployment or runbook run was created, in RFC 3339 format.
+
+Available in Octopus server versions:
+
+- 2026.4.TODO+
+
+**Example usage:**
+
+```ruby
+# Block deployments created outside business hours
+result := {"allowed": false, "reason": "Deployments are only permitted during business hours."} if {
+    hour := time.clock(time.parse_rfc3339_ns(input.CreatedAt))[0]
+    hour < 9
 }
 ```
 
@@ -556,7 +612,17 @@ The complete JSON schema for the policy input object is provided below for use w
         "required": ["StartTrigger", "Steps"]
       }
     },
-    "RequiresApproval": { "type": "boolean" }
+    "RequiresApproval": { "type": "boolean" },
+    "Actor": {
+      "type": "object",
+      "properties": {
+        "Id": { "type": "string" },
+        "Name": { "type": "string" },
+        "Type": { "type": "string" }
+      },
+      "required": ["Id", "Name", "Type"]
+    },
+    "CreatedAt": { "type": "string" }
   },
   "required": [
     "Environment",
@@ -566,7 +632,9 @@ The complete JSON schema for the policy input object is provided below for use w
     "Steps",
     "ProjectGroup",
     "Execution",
-    "RequiresApproval"
+    "RequiresApproval",
+    "Actor",
+    "CreatedAt"
   ]
 }
 ```
