@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-08-28
+modDate: 2026-09-21
 title: Variable filters
 icon: fa-solid fa-filter
 description: Octopus variable substitutions support *filters* to correctly encode values for a variety of target file types.
@@ -163,11 +163,22 @@ The *StartsWith*, *EndsWith* and *Contains* filters compare the input to a given
 
 These filters provide a mechanism to convert a value from one form to another.
 
-| Name             | Purpose                                          | Example input    | Example output                   |
-|------------------|--------------------------------------------------|------------------|----------------------------------|
-| `FromBase64`     | Converts values from Base64 (using UTF encoding) | `QmF6`           | `Bar`                            |
-| `ToBase64`       | Converts values to Base64 (using UTF encoding)   | `Bar`            | `QmF6`                           |
-| `MarkdownToHTML` | Converts Markdown to HTML                        | `This \_rocks\_` | `\<p>This \<em>rocks\</em>\</p>` |
+| Name                        | Purpose                                          | Example input    | Example output                   |
+|-----------------------------|--------------------------------------------------|------------------|----------------------------------|
+| `FromBase64`                | Converts values from Base64 (using UTF encoding) | `QmF6`           | `Bar`                            |
+| `ToBase64`                  | Converts values to Base64 (using UTF encoding)   | `Bar`            | `QmF6`                           |
+| `MarkdownToHTML`            | Converts Markdown to HTML                        | `This \_rocks\_` | `\<p>This \<em>rocks\</em>\</p>` |
+| [`HashBucket`](#hashbucket) | Maps a value to a stable bucket index            | `Octopus Deploy` | `7`                              |
+
+### HashBucket
+
+The *HashBucket* filter maps a variable's value to a stable bucket index, given a required bucket count. The mapping is stable across platforms and Octopus Server processes, and a bucket index is never negative. Balance between buckets is statistical, not exact.
+
+| MyVar Value      | Filter Expression                             | Output         |
+|------------------|-----------------------------------------------|----------------|
+| `Octopus Deploy` | `#{MyVar \| HashBucket 8}`                    | `7`            |
+| (empty or unset) | `#{MyVar \| HashBucket 8}`                    | (empty string) |
+| `Octopus Deploy` | `#{MyVar \| HashBucket 4 \| Prepend "pool-"}` | `pool-3`       |
 
 ## Date filters {#date-filters}
 
@@ -379,6 +390,7 @@ Dog: 17.5
 
 ## Older versions
 
+- The `modulo` operator is available from Octopus Server 2026.4.
 - Comparison filters are available from Octopus Deploy **2021.2** onwards.
 - `VersionMajor`, `VersionMinor`, `VersionPatch`, `VersionRevision`, `VersionPreRelease`, `VersionPreReleasePrefix`, `VersionPreReleaseCounter` and `VersionMetadata` extraction filters are available from Octopus Deploy **2020.5** onwards.
 - `PropertiesKeyEscape`, `PropertiesValueEscape`, `YamlDoubleQuoteEscape` and `YamlSingleQuoteEscape` escape filters are available from Octopus Deploy **2020.4** onwards.
