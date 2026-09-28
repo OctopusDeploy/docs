@@ -1,13 +1,21 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-09-28
 title: Slack Integration
 ---
 
 ## GET /api/integrations/slack/channels
 
 :endpoint{method="GET" path="/api/integrations/slack/channels"}
+
+**Response**
+
+`200` — OK
+
+## POST /api/integrations/slack/channels/cache
+
+:endpoint{method="POST" path="/api/integrations/slack/channels/cache"}
 
 **Response**
 
