@@ -54,12 +54,26 @@ Every request to the endpoint must be authenticated. Each webhook trigger uses o
 
 With **Shared secret**, callers send a secret that only the trigger knows in the `X-Octopus-Webhook-Secret` header:
 
+<details data-group="webhook-example">
+<summary>Bash</summary>
 ```bash
 curl -X POST https://your-octopus-url/api/Spaces-1/webhook/{trigger-guid} \
   -H "X-Octopus-Webhook-Secret: your-secret" \
   -H "Content-Type: application/json" \
   -d '{ "reason": "Disk usage above threshold" }'
 ```
+</details>
+
+<details data-group="webhook-example">
+<summary>Powershell</summary>
+```powershell
+Invoke-WebRequest -Uri "https://your-octopus-url/api/Spaces-1/webhook/{trigger-guid}" `
+  -Method Post `
+  -Headers @{ "X-Octopus-Webhook-Secret" = "your-secret" } `
+  -ContentType "application/json" `
+  -Body '{ "reason": "Disk usage above threshold" }'
+```
+</details>
 
 Requests with a missing or incorrect secret are rejected with `401 Unauthorized`, and Octopus records an audit event including the caller's IP address.
 
