@@ -29,7 +29,18 @@ Where [<options>] is any of:
                                is not running. This directory should not be
                                shared between nodes.
       --clusterShared=VALUE  Set the root path where shared files will be
-                               stored for Octopus clusters
+                               stored for Octopus clusters. Set to blank to
+                               clear it, so that relative paths resolve under
+                               the Home directory again.
+      --executionsClusterShared=VALUE
+                             Set the root path where transient execution
+                               files will be stored for Octopus clusters.
+                               When configured, Octopus stores transient
+                               execution data (DataStreams, PackageCache, and
+                               DataBus) here instead of in the Cluster Shared
+                               directory. As with Cluster Shared, this path
+                               must be on a shared volume accessible to all
+                               nodes in the cluster. Set to blank to clear it.
       --nugetRepository=VALUE
                              Set the package path for the built-in package
                                repository
@@ -68,4 +79,16 @@ octopus.server path --nugetRepository \\Octoshared\OctopusData\Packages
 octopus.server path --imports \\Octoshared\OctopusData\Imports
 octopus.server path --eventExports \\Octoshared\OctopusData\EventExports
 octopus.server path --telemetry \\Octoshared\OctopusData\Telemetry
+```
+
+This example stores transient execution data, such as data streams for [multi-node support for Polling Tentacles](/docs/administration/high-availability/multi-node-polling-tentacles), on separate shared storage:
+
+```text
+octopus.server path --executionsClusterShared \\OctoFastShared\OctopusExecutions
+```
+
+This example clears the executions cluster shared directory, so transient execution data is stored in the cluster shared directory again:
+
+```text
+octopus.server path --executionsClusterShared=
 ```
