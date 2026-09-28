@@ -37,6 +37,8 @@ To use multi-node support for Polling Tentacles, you need:
 
 ### Redis requirements \{#redis-requirements}
 
+We've tested multi-node support for Polling Tentacles with Redis 8.0.3, and recommend Redis 8.0 or later. Earlier versions may work, but we haven't tested them.
+
 Octopus uses Redis as a short-lived queue, not a database. Redis must hold data in memory only:
 
 - **Turn off persistence.** Don't use RDB snapshots or AOF.
