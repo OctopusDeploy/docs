@@ -54,18 +54,21 @@ Every request to the endpoint must be authenticated. Each webhook trigger uses o
 
 With **Shared secret**, callers send a secret that only the trigger knows in the `X-Octopus-Webhook-Secret` header:
 
-<details data-group="webhook-example">
+<details data-group="webhook-secret-example">
 <summary>Bash</summary>
+
 ```bash
 curl -X POST https://your-octopus-url/api/Spaces-1/webhook/{trigger-guid} \
   -H "X-Octopus-Webhook-Secret: your-secret" \
   -H "Content-Type: application/json" \
   -d '{ "reason": "Disk usage above threshold" }'
 ```
+
 </details>
 
-<details data-group="webhook-example">
+<details data-group="webhook-secret-example">
 <summary>Powershell</summary>
+
 ```powershell
 Invoke-WebRequest -Uri "https://your-octopus-url/api/Spaces-1/webhook/{trigger-guid}" `
   -Method Post `
@@ -73,6 +76,7 @@ Invoke-WebRequest -Uri "https://your-octopus-url/api/Spaces-1/webhook/{trigger-g
   -ContentType "application/json" `
   -Body '{ "reason": "Disk usage above threshold" }'
 ```
+
 </details>
 
 Requests with a missing or incorrect secret are rejected with `401 Unauthorized`, and Octopus records an audit event including the caller's IP address.
@@ -83,12 +87,31 @@ Runbook runs created this way are not attributed to an Octopus user, so no permi
 
 With **Octopus API key**, callers authenticate as an Octopus user by sending an [API key](/docs/api/authentication/create-an-api-key) in the `X-Octopus-ApiKey` header:
 
+<details data-group="webhook-apikey-example">
+<summary>Bash</summary>
+
 ```bash
-curl -X POST https://your-octopus-url/api/Spaces-1/webhook/00000000-0000-0000-0000-000000000000 \
+curl -X POST https://your-octopus-url/api/Spaces-1/webhook/{trigger-guid} \
   -H "X-Octopus-ApiKey: API-YOUR-KEY" \
   -H "Content-Type: application/json" \
   -d '{ "reason": "Disk usage above threshold" }'
 ```
+
+</details>
+
+<details data-group="webhook-apikey-example">
+<summary>Powershell</summary>
+
+```powershell
+Invoke-WebRequest -Uri "https://your-octopus-url/api/Spaces-1/webhook/{trigger-guid}" `
+  -Method Post `
+  -Headers @{ "X-Octopus-ApiKey" = "API-YOUR-KEY" } `
+  -ContentType "application/json" `
+  -Body '{ "reason": "Disk usage above threshold" }'
+```
+
+</details>
+
 
 The runbook run is created as the owner of the API key, which means:
 
