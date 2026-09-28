@@ -92,7 +92,7 @@ The value is a [StackExchange.Redis connection string](https://stackexchange.git
 your-redis-host:6380,password=your-secret-password,ssl=true
 ```
 
-You can set the connection string in any of these ways. If more than one is set, the environment variable takes precedence over the configuration file.
+You can set the connection string in any of the following ways. If more than one is set, the environment variable takes precedence over the configuration file.
 
 | Method | Name |
 | --- | --- |
@@ -157,6 +157,8 @@ octopus:
     redis:
       connectionString: "your-redis-host:6380,password=your-secret-password,ssl=true"
 ```
+
+This setting is under `octopus.multiNodePollingTentacles`, not the top-level `redis` key, which only controls the in-cluster Redis. Leave `redis.enabled` set to `false`.
 
 When the feature is on, the chart creates a `LoadBalancer` service named `<release name>-octopus-deploy-polling-tentacles`, which passes Tentacle traffic through to any node. Point your Polling Tentacles at this service's address.
 
