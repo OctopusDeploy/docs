@@ -9,7 +9,7 @@ navOrder: 20
 
 The Send a Slack Message step posts a message to one or more Slack channels during a deployment or runbook run. You can use it to notify your team when a deployment succeeds or fails, or at any point in your deployment process.
 
-The Send a Slack Message step is available from Octopus Server version `2026.3.5228`.
+The Send a Slack Message step is available from Octopus Server version `2026.3.5228`. The title and Block Kit messages are available from `2026.4.4115`.
 
 You can add this step to a process at any time. If a Slack workspace isn't connected yet, the step editor shows a prompt to set one up. See [Slack integration](/docs/administration/managing-infrastructure/slack-integration) for instructions.
 
