@@ -321,15 +321,3 @@ This example changes the TCP port that the communications service listens on to 
 ```text
 octopus.server configure --instance="OctopusServer" --commsListenPort="10953"
 ```
-
-This example turns on [multi-node support for Polling Tentacles](/docs/administration/high-availability/multi-node-polling-tentacles) for instance `OctopusServer`. Run it on every node with the same value, then restart each node:
-
-```text
-octopus.server configure --instance="OctopusServer" --multiNodePollingTentaclesRedisConnectionString="your-redis-host:6380,password=your-secret-password,ssl=true"
-```
-
-This example turns off multi-node support for Polling Tentacles for instance `OctopusServer` by clearing the connection string:
-
-```text
-octopus.server configure --instance="OctopusServer" --multiNodePollingTentaclesRedisConnectionString=
-```

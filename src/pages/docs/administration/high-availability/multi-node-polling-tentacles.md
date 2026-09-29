@@ -69,7 +69,13 @@ Set the cluster shared directory with the [path command](/docs/administration/oc
 Octopus.Server.exe path --instance="OctopusServer" --clusterShared \\OctoShared\OctopusData
 ```
 
-To keep data that's only needed while tasks run on separate storage, such as faster storage that doesn't need to be backed up, use `--executionsClusterShared` instead of, or as well as, `--clusterShared`. Both must point to storage every node can read and write.
+Octopus stores transient execution data, which is only needed while tasks run, in these folders in the cluster shared directory:
+
+- `DataStreams`, for data streams sent to Polling Tentacles
+- `DataBus`
+- `SharedPackageCache`, for the package cache
+
+To keep transient execution data on separate storage, such as faster storage that doesn't need to be backed up, use `--executionsClusterShared` instead of, or as well as, `--clusterShared`. Octopus then uses the same folders in the executions cluster shared directory. Both must point to storage every node can read and write.
 
 If you're running the [Octopus Server Linux container](#linux-container) or the [Helm chart](#helm-chart), configure this with the settings in those sections instead.
 
@@ -121,9 +127,9 @@ Set these environment variables on every Octopus Server container:
 | Name | Value |
 | --- | --- |
 | `OCTOPUS_MULTI_NODE_POLLING_TENTACLES_REDIS_CONNECTION_STRING` | Your Redis connection string. |
-| `CLUSTER_SHARED_CONFIG` | `SEPARATE_VOLUMES_WITH_CLUSTER_SHARED` or `CLUSTER_SHARED`. |
+| `CLUSTER_SHARED_CONFIG` | `CLUSTER_SHARED` for a new installation, or `SEPARATE_VOLUMES_WITH_CLUSTER_SHARED` to keep the existing `/repository`, `/artifacts`, `/taskLogs`, and `/eventExports` volumes of an existing installation. |
 
-Then mount `/clusterShared` on storage every node can read and write. See [cluster shared configuration](/docs/installation/octopus-server-linux-container#cluster-shared-configuration) for what each `CLUSTER_SHARED_CONFIG` value does.
+Then mount `/clusterShared` on storage every node can read and write. Octopus writes data streams to `/clusterShared/DataStreams`, or to `/executionsClusterShared/DataStreams` if `USE_EXECUTIONS_CLUSTER_SHARED` is `True`. See [cluster shared configuration](/docs/installation/octopus-server-linux-container#cluster-shared-configuration) for what each `CLUSTER_SHARED_CONFIG` value does.
 
 The container checks these settings when it starts:
 
@@ -143,6 +149,8 @@ octopus:
 redis:
   enabled: true
 ```
+
+This example uses `SEPARATE_VOLUMES_WITH_CLUSTER_SHARED`, which keeps the existing volumes of an installation you're moving to multiple nodes. For a new installation, we recommend `CLUSTER_SHARED`, which stores everything in a single cluster shared volume. See [cluster shared configuration](/docs/installation/octopus-server-linux-container#cluster-shared-configuration).
 
 The in-cluster Redis is a single pod. Requests that are in flight when it restarts fail, and new requests work again once it's back.
 
