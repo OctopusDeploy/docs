@@ -196,7 +196,33 @@ Then restart the Tentacle:
 tentacle service --restart
 ```
 
-To point an existing Polling Tentacle at the load balancer, add it with the [poll-server](/docs/administration/tentacle.exe-command-line/poll-server) command and `--server-comms-address`, then restart the Tentacle. [VERIFY: how customers remove the per-node server entries from an existing Tentacle, and whether a Tentacle that polls the load balancer and the individual nodes at the same time is supported — needs: confirmation from the feature team].
+To point an existing Polling Tentacle at the load balancer:
+
+1. Add the load balancer with the [poll-server](/docs/administration/tentacle.exe-command-line/poll-server) command:
+
+   ```bash
+   tentacle poll-server --server="https://your-octopus-url" --apiKey="API-YOUR-KEY" --server-comms-address="https://your-polling-load-balancer:10943"
+   ```
+
+   The Tentacle reuses the subscription ID it already has for your Octopus Server, so Octopus still sees it as the same Tentacle.
+
+1. Remove the per-node entries with the `clear-trusted-servers` command, keeping the load balancer:
+
+   ```bash
+   tentacle clear-trusted-servers --keep="https://your-polling-load-balancer:10943"
+   ```
+
+   This removes every trusted server whose address isn't listed in `--keep`. If the Tentacle also trusts another Octopus Server, add that server's address to `--keep` as a comma-separated list.
+
+1. Restart the Tentacle:
+
+   ```bash
+   tentacle service --restart
+   ```
+
+Don't use `configure --reset-trust` for this. It removes the load balancer entry and the Tentacle's subscription ID as well, so you'd need to register the Tentacle again.
+
+You can run the first step on its own and remove the per-node entries later. A Tentacle that polls the load balancer and the individual nodes at the same time works, because each request is collected by only one connection. The extra connections add traffic but don't change how tasks run.
 
 Tentacles that still poll every node individually keep working while multi-node support for Polling Tentacles is on, so you can move them to the load balancer at your own pace.
 
