@@ -107,13 +107,15 @@ Other Octopus URLs (projects, runbooks, tasks) are not expanded.
 
 The card displays the project name and release version as a heading, then one row per lifecycle phase showing the phase name and deployment status:
 
-| Emoji | Meaning |
-| ----- | ------- |
+| Icon | Meaning |
+| ---- | ------- |
 | ✅ | Deployment succeeded |
 | ❌ | Deployment failed |
 | ⏳ | Deployment is executing |
-| 🚫 | Deployment was canceled |
-| ⏸️ | Phase has no deployment yet |
+| 🕓 | Deployment is queued |
+| 🚫 | Deployment was canceled or timed out |
+| ➡️ | Phase is active but has no deployment yet |
+| ⬜ | Phase is pending |
 
 The card footer shows when the status snapshot was taken. Paste the URL again to get a fresh card.
 
