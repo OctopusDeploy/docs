@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-09-28
-modDate: 2026-09-28
+modDate: 2026-09-29
 title: Multi-node support for Polling Tentacles
 description: Use Redis to let Polling Tentacles connect to any node in an Octopus High Availability cluster through a single load-balanced address.
 navOrder: 55
@@ -21,7 +21,7 @@ When multi-node support for Polling Tentacles is turned on:
 
 - Each node stores the requests it queues for Polling Tentacles in Redis, instead of in its own memory. When a Tentacle polls a node, that node collects the next request for the Tentacle from Redis, sends it, and returns the response to the node that queued it.
 - Requests stored in Redis are compressed and encrypted with your [Master Key](/docs/security/data-encryption).
-- Large data, such as packages being sent to a Tentacle, is written to a `DataStreams` directory in the [cluster shared directory](#cluster-shared-storage) so every node can read it.
+- Small data streams travel inside the encrypted request in Redis. Larger data streams are written to a `DataStreams` directory in the [cluster shared directory](#cluster-shared-storage) so every node can read them. Packages that are already on shared storage, such as the shared package cache, are read from where they are and aren't copied.
 - Tentacle communication logs, shown on the deployment target's **Connectivity** page, are collected from every active node, not only the node you're connected to.
 
 Listening Tentacles aren't affected.
@@ -45,7 +45,7 @@ Octopus uses Redis as a short-lived queue, not a database. Redis must hold data 
 - **Don't use replication or automatic failover.** Replication is asynchronous, so a promoted replica can bring back requests that a node has already collected, and they'd be sent to the Tentacle again.
 - **Set the eviction policy to `noeviction`.** Evicting keys would silently drop requests.
 
-Octopus detects when Redis loses all of its data, for example when it restarts. It fails the requests that were in flight at the time and then decides whether to retry them. New requests work again as soon as Redis is back. Octopus can't detect a partial restore, which is why persistence and replication must be off.
+Octopus detects when Redis loses all of its data, for example when it restarts. Each node checks for this every minute, so it can take up to a minute to notice. It fails the requests that were in flight at the time and then decides whether to retry them. New requests work again as soon as Redis is back. Octopus can't detect a partial restore, which is why persistence and replication must be off.
 
 A single Redis node started with these options meets the requirements:
 
@@ -134,7 +134,9 @@ Then mount `/clusterShared` on storage every node can read and write. Octopus wr
 The container checks these settings when it starts:
 
 - If the Redis connection string is set and `CLUSTER_SHARED_CONFIG` is `SEPARATE_VOLUMES`, the container stops with an error.
-- If the Redis connection string is set and `CLUSTER_SHARED_CONFIG` isn't set, the container logs a warning. Octopus Server then fails to start unless a cluster shared directory was already configured.
+- If the Redis connection string is set and `CLUSTER_SHARED_CONFIG` isn't set, the container logs a warning. Octopus Server then fails to start unless a cluster shared or executions cluster shared directory was already configured.
+
+These checks only look at the `OCTOPUS_MULTI_NODE_POLLING_TENTACLES_REDIS_CONNECTION_STRING` environment variable.
 
 ### Helm chart \{#helm-chart}
 
@@ -154,6 +156,8 @@ This example uses `SEPARATE_VOLUMES_WITH_CLUSTER_SHARED`, which keeps the existi
 
 The in-cluster Redis is a single pod. Requests that are in flight when it restarts fail, and new requests work again once it's back.
 
+By default, the in-cluster Redis has no memory limit, so the `noeviction` policy never applies and Redis can grow until the pod runs out of memory and restarts. Set `redis.maxMemory`, for example to `200mb`. When Redis reaches it, new requests are rejected instead of queued requests being evicted. If you also set a memory limit in `redis.resources`, set `redis.maxMemory` below it.
+
 To use your own Redis instead, provide the connection string:
 
 ```yaml
@@ -166,18 +170,20 @@ octopus:
       connectionString: "your-redis-host:6380,password=your-secret-password,ssl=true"
 ```
 
-This setting is under `octopus.multiNodePollingTentacles`, not the top-level `redis` key, which only controls the in-cluster Redis. Leave `redis.enabled` set to `false`.
+This setting is under `octopus.multiNodePollingTentacles`, not the top-level `redis` key, which only controls the in-cluster Redis. Leave `redis.enabled` set to `false`. If it's `true`, the chart ignores your connection string and uses the in-cluster Redis.
 
-When the feature is on, the chart creates a `LoadBalancer` service named `<release name>-octopus-deploy-polling-tentacles`, which passes Tentacle traffic through to any node. Point your Polling Tentacles at this service's address.
+The chart won't render if multi-node support for Polling Tentacles is on but `octopus.clusterShared.mode` isn't set, or if there's neither an in-cluster Redis nor a connection string.
 
-The chart's per-node services are still created, so existing Tentacles that poll every node keep working. For all the chart's settings, including load balancer annotations and supplying the connection string from your own secret, see the [chart's README](https://github.com/OctopusDeploy/helm-charts/tree/main/charts/octopus-deploy#multi-node-polling-tentacles).
+When the feature is on, the chart creates a `LoadBalancer` service, named `<release name>-octopus-deploy-polling-tentacles` by default, which passes Tentacle traffic through to any node. Point your Polling Tentacles at this service's address.
+
+The chart's per-node services and ingresses are still created, so existing Tentacles that poll every node keep working. For all the chart's settings, including load balancer annotations and supplying the connection string from your own secret, see the [chart's README](https://github.com/OctopusDeploy/helm-charts/tree/main/charts/octopus-deploy#multi-node-polling-tentacles).
 
 ## Check the connection to Redis \{#check-redis}
 
-After the nodes restart, send a `GET` request to `/api/serverstatus/redis` on each node:
+After the nodes restart, send a `GET` request to `/api/serverstatus/redis` on each node. The endpoint doesn't need an API key:
 
 ```bash
-curl -H "X-Octopus-ApiKey: API-YOUR-KEY" https://your-octopus-url/api/serverstatus/redis
+curl https://your-octopus-url/api/serverstatus/redis
 ```
 
 The response tells you whether that node can use Redis:
@@ -220,7 +226,9 @@ To point an existing Polling Tentacle at the load balancer:
    tentacle clear-trusted-servers --keep="https://your-polling-load-balancer:10943"
    ```
 
-   This removes every trusted server whose address isn't listed in `--keep`. If the Tentacle also trusts another Octopus Server, add that server's address to `--keep` as a comma-separated list.
+   This removes every trusted server whose address isn't listed in `--keep`. Each address must match the stored address exactly, so use the same scheme, host, and port you passed to `--server-comms-address`. For example, `https://your-polling-load-balancer` doesn't match `https://your-polling-load-balancer:10943`. If the Tentacle also trusts another Octopus Server, add that server's address to `--keep` as a comma-separated list.
+
+   The `clear-trusted-servers` command needs Tentacle 8.1.1713 or later. On an older Tentacle, upgrade it first.
 
 1. Restart the Tentacle:
 

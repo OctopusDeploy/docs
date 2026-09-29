@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2026-09-29
 title: Configure
 description: Configure this Octopus instance
 navOrder: 31

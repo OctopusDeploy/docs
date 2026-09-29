@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2026-09-29
 title: Path
 description: Set the file paths that Octopus will use for storage
 navOrder: 160
@@ -35,12 +35,33 @@ Where [<options>] is any of:
       --executionsClusterShared=VALUE
                              Set the root path where transient execution
                                files will be stored for Octopus clusters.
+
                                When configured, Octopus stores transient
-                               execution data (the DataStreams, DataBus, and
-                               SharedPackageCache folders) here instead of in
-                               the Cluster Shared directory. As with Cluster Shared, this path
-                               must be on a shared volume accessible to all
-                               nodes in the cluster. Set to blank to clear it.
+                               execution data (DataStreams, PackageCache, and
+                               DataBus) here instead of in the Cluster Shared
+                               directory. This data is generated during tasks
+                               like deployments and runbooks and is not long-
+                               lived. As with Cluster Shared, this path must
+                               be on a shared volume accessible to all nodes
+                               in the cluster.
+
+                               Configuration is typically not required, as
+                               Octopus automatically falls back to the
+                               Cluster Shared directory or the Home directory
+                               if no path is specified.
+
+                               Note: Before changing this setting, ensure
+                               that no tasks are running on the Octopus
+                               Servers. Additionally, the previously used
+                               directories (DataBus, DataStreams,
+                               PackageCache) in the ClusterShared directory or
+                               the Home directory will no longer be used and
+                               can be manually deleted since they will not be
+                               cleaned up automatically.
+
+                               Set to blank to clear it, so that transient
+                               execution data falls back to the Cluster
+                               Shared or Home directory.
       --nugetRepository=VALUE
                              Set the package path for the built-in package
                                repository
