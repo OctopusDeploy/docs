@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-09-04
-modDate: 2026-09-17
+modDate: 2026-09-29
 title: Send a Microsoft Teams Message step
 description: Send a Microsoft Teams Message steps let you post messages to Microsoft Teams channels as part of a deployment or runbook process.
 navOrder: 21
@@ -46,6 +46,8 @@ The step posts either a plain text **Message** or an **Adaptive Card**. Both sup
 ```
 
 For an Adaptive Card, paste card JSON from the [Adaptive Card Designer](https://adaptivecards.io/designer) and pipe any variable that can contain quotes or newlines through `JsonEscape`, or the card won't be valid JSON when the deployment runs. Octopus sets the card's schema version to `1.4`, so design against that version. Buttons must be `Action.OpenUrl`, because the Octopus app never receives anything back from Teams.
+
+You can paste either a whole card or just the array of elements for its `body`. Teams rejects payloads over 28 KB, so if the card is larger than that once Octopus wraps it, the step fails rather than truncating the card.
 
 :::div{.hint}
 See [system variables](/docs/projects/variables/system-variables) for the full list of variables available during a deployment.

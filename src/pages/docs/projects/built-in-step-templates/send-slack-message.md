@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-07-03
-modDate: 2026-07-06
+modDate: 2026-09-29
 title: Send a Slack Message step
 description: Send a Slack Message steps let you post messages to Slack channels as part of a deployment or runbook process.
 navOrder: 20
@@ -23,13 +23,14 @@ You can add this step to a process at any time. If a Slack workspace isn't conne
 2. Search for and select **Send a Slack Message**.
 3. Give the step a short memorable name.
 4. Select one or more **Channels** to post to. For more information on what channels the Slack app can post to, see [public and private channels](/docs/administration/managing-infrastructure/slack-integration#slack-integration-channels).
-5. Enter the **Message** to post.
-6. Set conditions to determine when the step runs.
-7. Save the deployment process.
+5. Optionally, enter a **Title** to show as a heading above the message.
+6. Choose a **Message format** and enter the message to post. See [message formatting](#send-slack-message-formatting) and [Block Kit messages](#send-slack-message-block-kit).
+7. Set conditions to determine when the step runs.
+8. Save the deployment process.
 
 ## Message formatting {#send-slack-message-formatting}
 
-The message field supports [Slack markdown formatting](https://api.slack.com/reference/surfaces/formatting) and [Octopus variable substitution](/docs/projects/variables/variable-substitutions).
+With the **Plain text** message format, the message field supports [Slack markdown formatting](https://api.slack.com/reference/surfaces/formatting) and [Octopus variable substitution](/docs/projects/variables/variable-substitutions).
 
 ### Example
 
@@ -40,3 +41,39 @@ The message field supports [Slack markdown formatting](https://api.slack.com/ref
 :::div{.hint}
 See [system variables](/docs/projects/variables/system-variables) for the full list of variables available during a deployment.
 :::
+
+## Block Kit messages {#send-slack-message-block-kit}
+
+Select the **Block Kit** message format to post a message built from [Slack Block Kit](https://api.slack.com/block-kit) blocks, such as sections, buttons, and dividers.
+
+Enter the `blocks` array only. If you design your message in [Block Kit Builder](https://app.slack.com/block-kit-builder), copy the value of the `blocks` property, not the whole message.
+
+The payload must be a non-empty JSON array, every block needs a string `type`, and Slack allows at most 50 blocks per message. Octopus checks this when you save the deployment process.
+
+If you enter a **Title**, Octopus adds it as a header block above your blocks, so it counts towards the 50-block limit. Titles are plain text and are truncated at 150 characters.
+
+The payload supports [Octopus variable substitution](/docs/projects/variables/variable-substitutions). Variables that can contain quotes or newlines, such as release notes, should use the [`JsonEscape` filter](/docs/projects/variables/variable-filters) so they don't break the JSON. When the payload contains a variable, Octopus can't validate it until the deployment runs, so problems are reported then.
+
+### Example
+
+```json
+[
+  {
+    "type": "section",
+    "text": {
+      "type": "mrkdwn",
+      "text": "*#{Octopus.Project.Name}* #{Octopus.Release.Number} to #{Octopus.Environment.Name} has #{if Octopus.Deployment.Error}failed#{else}completed successfully#{/if}."
+    }
+  },
+  {
+    "type": "actions",
+    "elements": [
+      {
+        "type": "button",
+        "text": { "type": "plain_text", "text": "View deployment" },
+        "url": "#{Octopus.Web.ServerUri}#{Octopus.Web.DeploymentLink}"
+      }
+    ]
+  }
+]
+```
