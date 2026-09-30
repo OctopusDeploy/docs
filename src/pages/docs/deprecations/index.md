@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2026-09-21
+modDate: 2026-09-30
 title: Deprecations
 description: Upcoming and past deprecations by version for Octopus Server
 navOrder: 300
@@ -51,11 +51,24 @@ Closer to the release date, we will have guidance for existing customers who are
 
 You can read more about this in the pinned [issue in the GitHub repository](https://github.com/OctopusDeploy/helm-charts/issues/554)
 
-## Octopus Tentacle TLS specification deprecation
+## Deprecations for 2026.1
 
-From **9.0.0 onwards**, Octopus Tentacle will no longer explicitly specify supported TLS versions. Instead, TLS version selection will be delegated to the host operating system. This only applies to network connections between Octopus Tentacle and Octopus Server, both Cloud and self-hosted.
+### TLS 1.0 and 1.1 support removed from Octopus Cloud {#tls-1-0-1-1-deprecation}
 
-Currently, Tentacle specifies supported TLS versions within Halibut, Octopus’s custom RPC library. This behavior will change so that TLS version is fully controlled by the operating system by default. A feature flag will be available to restore the previous behavior temporarily, but it will be removed in a future release.
+To improve security, Octopus Cloud no longer supports TLS 1.0 and 1.1. We began disabling these versions in mid-November 2025 and completed their removal in January 2026. All connections to Octopus Cloud must now use TLS 1.2 or later.
+
+Self-hosted customers control which TLS versions are available through their operating system configuration:
+
+- **Self-hosted Windows**: TLS versions are controlled by the Windows Server configuration. Your setup continues to work as before.
+- **Self-hosted Docker**: The official Linux Docker image is based on Debian 12, which disables TLS 1.0 and 1.1 by default. You can re-enable them by adjusting the container's OpenSSL configuration, but we don't recommend it.
+
+Most customers won't be affected since TLS 1.2+ support is already widely adopted. For background and migration guidance, see our blog post: [Deprecating support for TLS 1.0 and 1.1](https://octopus.com/blog/deprecating-tls-1-0-and-1-1).
+
+### Octopus Tentacle TLS version selection delegated to the operating system {#tentacle-tls-specification-deprecation}
+
+From **9.0.0 onwards**, Octopus Tentacle no longer explicitly specifies supported TLS versions. Instead, TLS version selection is delegated to the host operating system. This only applies to network connections between Octopus Tentacle and Octopus Server, both Cloud and self-hosted.
+
+Previously, Tentacle specified supported TLS versions within Halibut, Octopus's custom RPC library. TLS version is now fully controlled by the operating system by default. A feature flag is available to restore the previous behavior temporarily, but it will be removed in a future release.
 
 Potential impacts include:
 
@@ -63,18 +76,6 @@ Potential impacts include:
 - Older Tentacle host operating systems may not connect to Octopus Server if newer TLS versions are not enabled
 
 We expect minimal impact from this change due to the stability and long lifespan of TLS versions.
-
-## TLS 1.0-1.1 Support Deprecation
-
-We're removing support for TLS 1.0 and 1.1 to improve security. This affects both Octopus Cloud and self-hosted customers using our official Linux Docker image.
-
-- **Octopus Cloud**: We'll disable TLS 1.0/1.1 from mid-November 2025, with complete removal by January 2026
-- **Self-hosted Docker**: You'll see changes when we upgrade the official image to Debian 12 in January 2026  
-- **Self-hosted Windows**: Your setup will continue to work as before
-
-Most customers won't be affected since TLS 1.2+ support is already widely adopted. For detailed information, timeline, and migration guidance, see our blog post: [Deprecating support for TLS 1.0 and 1.1](https://octopus.com/blog/deprecating-tls-1-0-and-1-1)
-
-## Deprecations for 2026.1
 
 ### Dropping capability for Windows Server 2008 Workers and Targets in 2026.1
 
