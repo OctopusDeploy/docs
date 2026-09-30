@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-09-17
-modDate: 2026-09-30
+modDate: 2026-10-01
 title: Microsoft Teams integration
 description: Connect Microsoft Teams to Octopus Deploy so deployments and runbooks can post to Teams channels through the Octopus app, and so Octopus release URLs unfurl into status cards in conversations.
 navOrder: 1710
