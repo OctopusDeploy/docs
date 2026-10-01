@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2026-09-29
 title: Configure
 description: Configure this Octopus instance
 navOrder: 31
@@ -56,6 +56,15 @@ Where [<options>] is any of:
                                'https://+:443/OctopusComms'); set to blank to
                                disable websockets. Refer to https://o-
                                c.to/WebSocketComms.
+      --multiNodePollingTentaclesRedisConnectionString=VALUE
+                             Sets the Redis connection string used by
+                               multi-node support for polling tentacles,
+                               which allows polling tentacles to connect to
+                               any node in cluster (e.g. via a load
+                               balancer). Setting a value enables the
+                               feature; set to blank to disable it. Every
+                               node in the cluster must be configured with
+                               the same value.
       --webListenPrefixes=VALUE
                              Comma-separated list of HTTP.sys listen prefixes
                                (e.g., 'http://localhost/octopus')
