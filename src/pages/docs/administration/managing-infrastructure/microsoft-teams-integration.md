@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-09-17
-modDate: 2026-09-22
+modDate: 2026-10-01
 title: Microsoft Teams integration
 description: Connect Microsoft Teams to Octopus Deploy so deployments and runbooks can post to Teams channels through the Octopus app, and so Octopus release URLs unfurl into status cards in conversations.
 navOrder: 1710
@@ -140,9 +140,25 @@ The card displays the project name and release version as a heading, then one ro
 | ➡️ | Phase is active but has no deployment yet |
 | ⬜ | Phase is pending |
 
-The footer of the card has a **Status as of {time} UTC** to show when the snapshot was taken. Octopus opts out of Teams' unfurl caching, paste the URL again to get a fresh card.
+The footer of the card has a **Status as of {time} UTC** to show when Octopus last looked up the release. See [card refresh](#teams-integration-card-refresh) for how the card stays current.
 
 If Octopus cannot find the space, project, or release (for example, because it was deleted by a retention policy, or because Octopus lacks permission to read it), the card shows a short explanation instead of the status rows.
+
+### Card refresh {#teams-integration-card-refresh}
+
+A card refreshes while its release is in progress, so people following a channel can watch deployments progress without pasting the link again.
+
+A card refreshes automatically when you open or return to the channel it was pasted in. Only cards on screen refresh, so a card further up the conversation will refresh when you scroll to it.
+
+Each person's Teams refreshes their own view of the card, so two people looking at the same card can see different **Status as of** times. You can also refresh a card manually from its **...** menu using **Refresh**. This refreshes your view of the card.
+
+A card doesn't refresh automatically:
+
+- **In chats and channels with more than 60 members.** Teams limits automatic refresh in larger conversations. Use the manual **Refresh** instead.
+- **Once its release is finished**, meaning every phase is complete and no deployment is running. Manual **Refresh** still works. A release that stopped partway through its lifecycle isn't finished, so its card keeps refreshing.
+- **When a finished release is redeployed.** Use manual **Refresh** once to pick up the redeployment, and the card refreshes automatically again until it finishes.
+
+A card can be up to a minute behind the release page in Octopus.
 
 ### Permissions
 
