@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-09-04
+modDate: 2026-09-23
 title: Features Configuration
 ---
 
@@ -29,7 +29,6 @@ Gets the features configuration of the current instance
 - **`IsHelpSidebarEnabled`** :span[boolean]{.type-label}
 - **`IsKubernetesCloudTargetDiscoveryEnabled`** :span[boolean]{.type-label}
 - **`IsProjectsPageOnboardingEnabled`** :span[boolean]{.type-label}
-- **`IsProjectsPageOptimizationEnabled`** :span[boolean]{.type-label}
 - **`IsWebhookTriggerEnabled`** :span[boolean]{.type-label}
 - **`LastModifiedBy`** :span[string]{.type-label}  
   Gets or sets the username of the user who last modified this resource.
@@ -54,7 +53,6 @@ Gets the features configuration of the current instance
   "IsHelpSidebarEnabled": false,
   "IsKubernetesCloudTargetDiscoveryEnabled": false,
   "IsProjectsPageOnboardingEnabled": false,
-  "IsProjectsPageOptimizationEnabled": false,
   "IsWebhookTriggerEnabled": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
@@ -101,8 +99,6 @@ Updates the features configuration of the current instance
   Enable navigation visual uplift feature.
 - **`IsProjectsPageOnboardingEnabled`** :span[boolean]{.type-label}  
   Enable projects page onboarding experience.
-- **`IsProjectsPageOptimizationEnabled`** :span[boolean]{.type-label}  
-  Enable new project page bff datasource.
 - **`IsWebhookTriggerEnabled`** :span[boolean]{.type-label}  
   Enable the webhook triggers feature.
 
@@ -123,7 +119,6 @@ Updates the features configuration of the current instance
   "IsKubernetesCloudTargetDiscoveryEnabled": false,
   "IsNavigationVisualUpliftEnabled": false,
   "IsProjectsPageOnboardingEnabled": false,
-  "IsProjectsPageOptimizationEnabled": false,
   "IsWebhookTriggerEnabled": false
 }
 ```
@@ -147,7 +142,6 @@ Updates the features configuration of the current instance
 - **`IsHelpSidebarEnabled`** :span[boolean]{.type-label}
 - **`IsKubernetesCloudTargetDiscoveryEnabled`** :span[boolean]{.type-label}
 - **`IsProjectsPageOnboardingEnabled`** :span[boolean]{.type-label}
-- **`IsProjectsPageOptimizationEnabled`** :span[boolean]{.type-label}
 - **`IsWebhookTriggerEnabled`** :span[boolean]{.type-label}
 - **`LastModifiedBy`** :span[string]{.type-label}  
   Gets or sets the username of the user who last modified this resource.
@@ -172,7 +166,6 @@ Updates the features configuration of the current instance
   "IsHelpSidebarEnabled": false,
   "IsKubernetesCloudTargetDiscoveryEnabled": false,
   "IsProjectsPageOnboardingEnabled": false,
-  "IsProjectsPageOptimizationEnabled": false,
   "IsWebhookTriggerEnabled": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
