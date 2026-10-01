@@ -214,10 +214,6 @@ This also means [execution containers](/docs/projects/steps/execution-containers
 
 You can't use the [Script Console](/docs/administration/managing-infrastructure/script-console) to run scripts on the Octopus Server itself. You can still use it to run scripts on deployment targets and external workers.
 
-### Let's Encrypt
-
-[Let's Encrypt integration](/docs/security/exposing-octopus/lets-encrypt-integration) isn't supported for Octopus Server running in any container, including the hardened image. Supply your own certificate with `SSL_CERTIFICATE_FILE`, or terminate TLS at a load balancer or reverse proxy.
-
 ## Switch between the standard and hardened images
 
 You can switch an existing Octopus Server from the standard Linux image to the hardened image, and back, using the same database, volumes, and master key.
