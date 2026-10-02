@@ -46,9 +46,7 @@ Octopus Remote MCP initially supports a selected set of core Octopus features. W
 Set the `OCTOPUS_API_KEY` environment variable to your Agent API key, then run:
 
 ```bash
-claude mcp add --transport http \
-  --header "X-Octopus-ApiKey:${OCTOPUS_API_KEY}" \
-  octopus-deploy https://your-octopus-instance.com/mcp
+claude mcp add --transport http octopus-deploy https://your-octopus-instance.com/mcp --header 'X-Octopus-ApiKey: ${OCTOPUS_API_KEY}'
 ```
 
 Or in JSON format:
