@@ -2,22 +2,22 @@
 layout: src/layouts/Cli.astro
 pubDate: 2023-01-01
 modDate: 2026-10-02
-title: octopus runbook snapshot publish
-description: Publish a runbook snapshot
-navOrder: 136
+title: octopus runbook snapshot snapshot-variables
+description: Update the variable snapshot for a runbook snapshot
+navOrder: 137
 ---
 import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
 
-Publish a runbook snapshot in Octopus Deploy
+Update the variable snapshot for a runbook snapshot in Octopus Deploy
 
 ```text
 Usage:
-  octopus runbook snapshot publish [flags]
+  octopus runbook snapshot snapshot-variables [flags]
 
 Flags:
   -p, --project string    Name or ID of the project where the runbook is
-  -r, --runbook string    Name or ID of the runbook to publish an existing snapshot
-      --snapshot string   Name or ID of the snapshot to publish
+  -r, --runbook string    Name or ID of the runbook
+      --snapshot string   Name or ID of the snapshot to update variables for (defaults to the published snapshot)
 
 
 Global Flags:
@@ -33,7 +33,8 @@ Global Flags:
 <SamplesInstance />
 
 ```bash
-octopus runbook snapshot publish --project MyProject --runbook "Rebuild DB Indexes" --snapshot "Snapshot 40C9ENM"
+$ octopus runbook snapshot snapshot-variables --project MyProject --runbook "Rebuild DB Indexes"
+$ octopus runbook snapshot snapshot-variables --project MyProject --runbook "Rebuild DB Indexes" --snapshot "Snapshot 40C9ENM"
 
 
 ```
