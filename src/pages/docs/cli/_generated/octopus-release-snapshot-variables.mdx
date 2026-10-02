@@ -2,23 +2,21 @@
 layout: src/layouts/Cli.astro
 pubDate: 2023-01-01
 modDate: 2026-10-02
-title: octopus worker delete
-description: Delete a worker
-navOrder: 163
+title: octopus release snapshot-variables
+description: Update the variable snapshot for a release
+navOrder: 128
 ---
 import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
 
-Delete a worker in Octopus Deploy
+Update the variable snapshot for a release in Octopus Deploy
 
 ```text
 Usage:
-  octopus worker delete {<name> | <id>} [flags]
-
-Aliases:
-  delete, del, rm, remove
+  octopus release snapshot-variables [flags]
 
 Flags:
-  -y, --confirm   Don't ask for confirmation before deleting the worker.
+  -p, --project string   Name or ID of the project
+  -v, --version string   Release version/number
 
 
 Global Flags:
@@ -34,8 +32,8 @@ Global Flags:
 <SamplesInstance />
 
 ```bash
-octopus worker delete
-octopus worker rm
+$ octopus release snapshot-variables --project MyProject --version 1.2.3
+$ octopus release snapshot-variables -p MyProject -v 1.2.3
 
 
 ```
