@@ -1,0 +1,44 @@
+---
+layout: src/layouts/Cli.astro
+pubDate: 2023-01-01
+modDate: 2026-10-02
+title: octopus release snapshot-variables
+description: Update the variable snapshot for a release
+navOrder: 128
+---
+import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
+
+Update the variable snapshot for a release in Octopus Deploy
+
+```text
+Usage:
+  octopus release snapshot-variables [flags]
+
+Flags:
+  -p, --project string   Name or ID of the project
+  -v, --version string   Release version/number
+
+
+Global Flags:
+  -h, --help                   Show help for a command
+      --no-prompt              Disable prompting in interactive mode
+  -f, --output-format string   Specify the output format for a command ("json", "table", or "basic") (default "table")
+  -s, --space string           Specify the space for operations
+
+```
+
+## Examples
+
+<SamplesInstance />
+
+```bash
+$ octopus release snapshot-variables --project MyProject --version 1.2.3
+$ octopus release snapshot-variables -p MyProject -v 1.2.3
+
+
+```
+
+## Learn more
+
+- [Octopus CLI](/docs/cli)
+- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key)
