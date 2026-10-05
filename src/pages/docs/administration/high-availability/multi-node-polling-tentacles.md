@@ -72,7 +72,7 @@ Octopus.Server.exe path --instance="OctopusServer" --clusterShared \\OctoShared\
 Octopus stores transient execution data, which is only needed while tasks run, in these folders in the cluster shared directory:
 
 - `DataStreams`, for data streams sent to Polling Tentacles
-- `DataBus`
+- `DataBus`, used internally by Octopus Server
 - `SharedPackageCache`, for the package cache
 
 To keep transient execution data on separate storage, such as faster storage that does not need to be backed up, use `--executionsClusterShared` instead of, or as well as, `--clusterShared`. Octopus then uses the same folders in the executions cluster shared directory. Both must point to storage every node can read and write.
