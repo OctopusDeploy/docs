@@ -1,26 +1,22 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2026-10-05
-title: Polling Tentacles with HA
-description: How to connect Polling Tentacles to an Octopus High Availability cluster, using multi-node support with Redis or by polling every node.
-navOrder: 50
+modDate: 2026-10-06
+title: Polling every node
+description: Connect Polling Tentacles to an Octopus High Availability cluster without Redis, by registering every node with every Polling Tentacle.
+navOrder: 20
 ---
 
-Listening Tentacles require no special configuration for Octopus High Availability. Polling Tentacles and Kubernetes agents, however, poll a server at regular intervals to check if there are any tasks waiting for the Tentacle to perform. In a High Availability scenario, a Polling Tentacle needs to be able to collect work queued by any Octopus Server node in your configuration. To configure the Kubernetes agent with Octopus High Availability, see [Kubernetes agent HA Cluster Support](/docs/infrastructure/deployment-targets/kubernetes/kubernetes-agent/ha-cluster-support).
+If you cannot use [multi-node support for Polling Tentacles](/docs/administration/high-availability/polling-tentacles-with-ha/multi-node-polling-tentacles), configure each Polling Tentacle to poll every node in your Octopus High Availability (HA) cluster. Work for a Tentacle is queued in memory on the node that runs the task, and only that node can hand it to the Tentacle, so the Tentacle must be able to reach each node individually.
 
-## Connecting Polling Tentacles
-
-We recommend using [multi-node support for Polling Tentacles](/docs/administration/high-availability/multi-node-polling-tentacles). The nodes share a queue of pending requests in Redis, so any node can hand work to any Tentacle. Each Polling Tentacle only needs to poll a single load-balanced address, and you do not need to update your Tentacles when you add or remove a node.
-
-If you cannot use Redis, configure each Polling Tentacle to poll every node in your cluster instead. There are two ways to do this:
+There are two ways to do this:
 
 - Using a **unique address**, and the same listening port (`10943` by default) for each node.
 - Using the same address and a **unique port** for each node.
 
-With either option, you need to register every node with every Polling Tentacle, and update your Tentacles whenever you add or remove a node. These options are discussed further in the next sections.
+With either option, you need to register every node with every Polling Tentacle, and update your Tentacles whenever you add or remove a node.
 
-### Using a unique address
+## Using a unique address
 
 In this scenario, no load balancer is required. Instead, each Octopus node would be configured to listen on the same port (`10943` by default) for inbound traffic. In addition, each node would be able to be reached directly by your Polling Tentacle on a unique address for the node.
 
@@ -41,7 +37,7 @@ A Polling Tentacle will connect to the Octopus Rest API over ports 80 or 443 whe
 It's important to ensure that any firewalls also allow port 80 or 443 for the initial Tentacle registration.
 :::
 
-### Using a unique port
+## Using a unique port
 
 In this scenario, a type of [Network Address Translation (NAT)](https://en.wikipedia.org/wiki/Network_address_translation) is leveraged by using the same address and **unique ports**, usually routed through a load balancer or other network device. Each Octopus node would be configured to listen on a different port (starting at `10943` by default) for inbound traffic.
 

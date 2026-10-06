@@ -102,7 +102,7 @@ octopus.server path --eventExports \\Octoshared\OctopusData\EventExports
 octopus.server path --telemetry \\Octoshared\OctopusData\Telemetry
 ```
 
-This example stores transient execution data, such as data streams for [multi-node support for Polling Tentacles](/docs/administration/high-availability/multi-node-polling-tentacles), on separate shared storage:
+This example stores transient execution data, such as data streams for [multi-node support for Polling Tentacles](/docs/administration/high-availability/polling-tentacles-with-ha/multi-node-polling-tentacles), on separate shared storage:
 
 ```text
 octopus.server path --executionsClusterShared \\OctoFastShared\OctopusExecutions

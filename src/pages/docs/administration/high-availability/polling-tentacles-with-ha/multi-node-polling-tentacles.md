@@ -1,18 +1,18 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-09-28
-modDate: 2026-09-29
+modDate: 2026-10-06
 title: Multi-node support for Polling Tentacles
 description: Use Redis to let Polling Tentacles connect to any node in an Octopus High Availability cluster through a single load-balanced address.
-navOrder: 55
+navOrder: 10
 ---
 
-In an Octopus High Availability (HA) cluster, a Polling Tentacle normally has to [poll every Octopus Server node](/docs/administration/high-availability/polling-tentacles-with-ha). Work for a Tentacle is queued in memory on the node that runs the task, and only that node can hand it to the Tentacle. So each Tentacle needs a unique address or port for every node, and you need to update every Tentacle when you add or remove a node.
+In an Octopus High Availability (HA) cluster, a Polling Tentacle normally has to [poll every Octopus Server node](/docs/administration/high-availability/polling-tentacles-with-ha/poll-every-node). Work for a Tentacle is queued in memory on the node that runs the task, and only that node can hand it to the Tentacle. So each Tentacle needs a unique address or port for every node, and you need to update every Tentacle when you add or remove a node.
 
 Multi-node support for Polling Tentacles removes that restriction. The nodes share a pending request queue stored in Redis, so a request queued by any node can be collected by whichever node the Tentacle is connected to. Each Tentacle only needs to poll a single address, which a load balancer spreads across all the nodes.
 
 :::div{.hint}
-Multi-node support for Polling Tentacles is available from Octopus Server 2026.4.6192.
+Multi-node support for Polling Tentacles is available from Octopus Server 2026.4.6342.
 :::
 
 ## How it works
@@ -240,6 +240,10 @@ You can run the first step on its own and remove the per-node entries later. A T
 
 Tentacles that still poll every node individually keep working while multi-node support for Polling Tentacles is on, so you can move them to the load balancer at your own pace.
 
+### Kubernetes agents
+
+Kubernetes agents also poll for work, and can use the load balancer the same way. When multi-node support for Polling Tentacles is on, the Kubernetes agent creation wizard asks for a single Communications URL instead of one for each node. To learn how to set this URL, and how to move an existing agent to the load balancer, see [Kubernetes agent HA Cluster Support](/docs/kubernetes/targets/kubernetes-agent/ha-cluster-support#multi-node-support-for-polling-tentacles).
+
 ## Turn off multi-node support for Polling Tentacles
 
 To turn the feature off, clear the connection string on every node and restart them:
@@ -250,7 +254,7 @@ Octopus.Server.exe configure --instance="OctopusServer" --multiNodePollingTentac
 
 If the `OCTOPUS_MULTI_NODE_POLLING_TENTACLES_REDIS_CONNECTION_STRING` environment variable is still set, the feature stays on and the command logs a warning. Remove the environment variable as well.
 
-Before you turn the feature off, make sure every Polling Tentacle polls each node individually, as described in [Polling Tentacles with HA](/docs/administration/high-availability/polling-tentacles-with-ha). Otherwise, tasks run by a node that a Tentacle is not polling will wait for that Tentacle until they time out.
+Before you turn the feature off, make sure every Polling Tentacle and Kubernetes agent polls each node individually, as described in [Polling every node](/docs/administration/high-availability/polling-tentacles-with-ha/poll-every-node). Otherwise, tasks run by a node that a Tentacle is not polling will wait for that Tentacle until they time out.
 
 ## Troubleshooting
 
