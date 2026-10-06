@@ -11,10 +11,11 @@ The pipeline explorer brings a project’s configuration together in one place. 
 
 It's built for anyone who's new to a project: joining a team, inheriting ownership, or exploring an unfamiliar corner of their own instance.
 
-There are three key aspects to the pipeline explorer: 
-- Pipeline visualization
-- Process visualization
-- Configuration issues
+There are three key aspects to the pipeline explorer:
+
+- [Pipeline visualization](#pipeline-visualization)
+- [Process visualization](#process-visualization)
+- [Configuration issues](#configuration-issues)
 
 You'll find it from your project's navigation, under Pipeline Explorer.
 
@@ -52,8 +53,8 @@ The pipeline explorer flags conditions that could affect an upcoming deployment,
 
 An issue here means something in the project's configuration needs attention before it causes a failed or delayed deployment, such as a deployment target that's currently unhealthy, or a credential or certificate that's nearing expiry. These are the kinds of problems that would otherwise surface only when a deployment fails or a certificate lapses unexpectedly. The pipeline explorer surfaces them here so you find out before you start a deployment, not during one.
 
-# What it doesn't do
+## What it doesn't do
 
-The pipeline explorer is a new view built on top of your project's existing configuration. It doesn't replace anything or change how you use it. You can still edit your configuration there exactly as you typically would. 
+The pipeline explorer is a new view built on top of your project's existing configuration. It doesn't replace anything or change how you use it. You can still edit your configuration there exactly as you typically would.
 
-Use the pipeline explorer to understand a project's shape and catch anything that needs attention. 
+Use the pipeline explorer to understand a project's shape and catch anything that needs attention.
