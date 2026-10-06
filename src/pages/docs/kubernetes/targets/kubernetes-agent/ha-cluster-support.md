@@ -23,20 +23,7 @@ When [multi-node support for Polling Tentacles](/docs/administration/high-availa
 
 The Kubernetes agent creation wizard detects that the feature is on, and does not show the extra page that asks for a URL for each node. Instead, it uses a single **Octopus Deploy Server Communications URL**. By default, this is your Octopus Server URL with port `10943`. To use your [Polling Tentacle load balancer](/docs/administration/high-availability/polling-tentacles-with-ha/multi-node-polling-tentacles#load-balancer) instead, select **Advanced Setup** in the wizard and enter its address, for example `https://your-polling-load-balancer:10943/`.
 
-Octopus also stops warning during health checks that the agent is not configured with a Communications URL for every node.
-
-To point an existing agent at the load balancer instead of the individual nodes, run a helm upgrade command with only the load balancer's address. The agent removes the per-node URLs and replaces them with the one you provide:
-
-```bash
-helm upgrade --atomic \
---reuse-values \
---set agent.serverCommsAddresses="{https://<polling-load-balancer-url>:<port>/}" \
---namespace <agent-namespace> \
-<agent-release-name> \
-oci://registry-1.docker.io/octopusdeploy/kubernetes-agent
-```
-
-You do not need to update the agent when you add or remove nodes.
+Because the agent connects through a single URL, you do not need to update it when you add or remove nodes.
 
 :::div{.warning}
 If you turn off multi-node support for Polling Tentacles, configure every agent with a URL for each node first. Otherwise, tasks run by a node the agent is not connected to wait for the agent until they time out.
