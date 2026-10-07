@@ -1,30 +1,21 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-09-28
-modDate: 2026-10-06
+modDate: 2026-10-08
 title: Multi-node support for Polling Tentacles
 description: Use Redis to let Polling Tentacles connect to any node in an Octopus High Availability cluster through a single load-balanced address.
 navOrder: 10
 ---
 
+:::div{.hint}
+Multi-node support for Polling Tentacles is available from Octopus Server 2026.4.6342. On older versions, [poll every node](/docs/administration/high-availability/polling-tentacles-with-ha/poll-every-node) instead.
+:::
+
 In an Octopus High Availability (HA) cluster, a Polling Tentacle normally has to [poll every Octopus Server node](/docs/administration/high-availability/polling-tentacles-with-ha/poll-every-node). Work for a Tentacle is queued in memory on the node that runs the task, and only that node can hand it to the Tentacle. So each Tentacle needs a unique address or port for every node, and you need to update every Tentacle when you add or remove a node.
 
 Multi-node support for Polling Tentacles removes that restriction. The nodes share a pending request queue stored in Redis, so a request queued by any node can be collected by whichever node the Tentacle is connected to. Each Tentacle only needs to poll a single address, which a load balancer spreads across all the nodes.
 
-:::div{.hint}
-Multi-node support for Polling Tentacles is available from Octopus Server 2026.4.6342.
-:::
-
-## How it works
-
-When multi-node support for Polling Tentacles is turned on:
-
-- Each node stores the requests it queues for Polling Tentacles in Redis, instead of in its own memory. When a Tentacle polls a node, that node collects the next request for the Tentacle from Redis, sends it, and returns the response to the node that queued it.
-- Requests stored in Redis are compressed and encrypted with your [Master Key](/docs/security/data-encryption).
-- Small data streams travel inside the encrypted request in Redis. Larger data streams are written to a `DataStreams` directory in the [cluster shared directory](#cluster-shared-storage) so every node can read them. Packages that are already on shared storage, such as the shared package cache, are read from where they are and are not copied.
-- Tentacle communication logs, shown on the deployment target's **Connectivity** page, are collected from every active node, not only the node you are connected to.
-
-Listening Tentacles are not affected.
+![Polling Tentacles connecting through a load balancer to multiple Octopus Server nodes that share a Redis queue](/docs/img/administration/high-availability/polling-tentacles-with-ha/images/multi-node-polling-tentacles.png)
 
 ## Requirements
 
@@ -37,7 +28,7 @@ To use multi-node support for Polling Tentacles, you need:
 
 ### Redis requirements \{#redis-requirements}
 
-We have tested multi-node support for Polling Tentacles with Redis 8.0.3, and recommend Redis 8.0 or later. Earlier versions may work, but we have not tested them.
+We recommend Redis 8.0 or later. Earlier versions may work, but we have not tested them.
 
 Octopus uses Redis as a short-lived queue, not a database. Redis must hold data in memory only:
 
@@ -45,7 +36,9 @@ Octopus uses Redis as a short-lived queue, not a database. Redis must hold data 
 - **Do not use replication or automatic failover.** Replication is asynchronous, so a promoted replica can bring back requests that a node has already collected, and they would be sent to the Tentacle again.
 - **Set the eviction policy to `noeviction`.** Evicting keys would silently drop requests.
 
-Octopus detects when Redis loses all of its data, for example when it restarts. Each node checks for this every minute, so it can take up to a minute to notice. It fails the requests that were in flight at the time and then decides whether to retry them. New requests work again as soon as Redis is back. Octopus cannot detect a partial restore, which is why persistence and replication must be off.
+Partial or historical restores of Redis data can cause repeated requests or undefined behavior. If Redis restarts, Octopus detects it and retries communication with the Tentacle, as set in the [Recover from communication errors with Tentacle](/docs/infrastructure/deployment-targets/machine-policies#recover-from-communication-errors) section of the machine policy. These retries stop deployments from failing when Redis is temporarily unavailable.
+
+#### Running Redis
 
 A single Redis node started with these options meets the requirements:
 
@@ -53,31 +46,17 @@ A single Redis node started with these options meets the requirements:
 redis-server --save "" --appendonly no --maxmemory-policy noeviction --requirepass "your-secret-password"
 ```
 
+You can also use the sample [redis.conf](https://github.com/OctopusDeploy/Halibut/blob/main/redis-conf/redis.conf) used in testing. To run with it in Docker, follow the [Running Redis locally](https://github.com/OctopusDeploy/Halibut/blob/main/docs/RunningRedisLocally.md) guide in the [Halibut](https://github.com/OctopusDeploy/Halibut/tree/main) documentation. For Kubernetes, we recommend the [Helm chart](#helm-chart).
+
 If you use a managed Redis service, choose a tier or configuration without persistence and replicas, and set the eviction policy to `noeviction`.
 
-### Cluster shared storage \{#cluster-shared-storage}
+### Cluster shared directory requirement \{#cluster-shared-storage}
 
-Every node must be able to read the data streams written by the other nodes, so Octopus stores them in the cluster shared directory. If multi-node support for Polling Tentacles is on, but neither a cluster shared directory nor an executions cluster shared directory is configured, Octopus Server fails to start with this error:
+Octopus shares larger files between nodes by writing them to the `DataStreams` folder in the [cluster shared directory](/docs/administration/octopus.server.exe-command-line/path). How you set the cluster shared directory depends on your installation type. See [Turn on multi-node support for Polling Tentacles](#turn-on).
 
-```text
-Multi-node support for polling tentacles is enabled, but no cluster shared directory has been configured.
-```
+To keep this transient data on separate storage, such as faster storage that does not need to be backed up, set an [executions cluster shared directory](#turn-on). Octopus then stores all transient execution data in that directory, including the data sent to Polling Tentacles.
 
-Set the cluster shared directory with the [path command](/docs/administration/octopus.server.exe-command-line/path):
-
-```powershell
-Octopus.Server.exe path --instance="OctopusServer" --clusterShared \\OctoShared\OctopusData
-```
-
-Octopus stores transient execution data, which is only needed while tasks run, in these folders in the cluster shared directory:
-
-- `DataStreams`, for data streams sent to Polling Tentacles
-- `DataBus`, used internally by Octopus Server
-- `SharedPackageCache`, for the package cache
-
-To keep transient execution data on separate storage, such as faster storage that does not need to be backed up, use `--executionsClusterShared` instead of, or as well as, `--clusterShared`. Octopus then uses the same folders in the executions cluster shared directory. Both must point to storage every node can read and write.
-
-If you are running the [Octopus Server Linux container](#linux-container) or the [Helm chart](#helm-chart), configure this with the settings in those sections instead.
+For guidance on what storage to use, see [file storage](/docs/best-practices/self-hosted-octopus/high-availability#file-storage) in our high availability best practices.
 
 ### Load balancer \{#load-balancer}
 
@@ -88,9 +67,9 @@ Put a load balancer in front of the Polling Tentacle port on every node that pro
 
 You do not need session affinity. Any node can serve any Tentacle.
 
-## Turn on multi-node support for Polling Tentacles
+## Turn on multi-node support for Polling Tentacles \{#turn-on}
 
-Multi-node support for Polling Tentacles is turned on when a Redis connection string is configured, and turned off when it is not. Configure **every node** in the cluster with the same connection string.
+Configuring a Redis connection string turns on multi-node support for Polling Tentacles, and removing it turns it off. Configure **every node** in the cluster with the same connection string.
 
 The value is a [StackExchange.Redis connection string](https://stackexchange.github.io/StackExchange.Redis/Configuration.html), for example:
 
@@ -98,18 +77,35 @@ The value is a [StackExchange.Redis connection string](https://stackexchange.git
 your-redis-host:6380,password=your-secret-password,ssl=true
 ```
 
-You can set the connection string in any of the following ways. If more than one is set, the environment variable takes precedence over the configuration file.
-
-| Method | Name |
-| --- | --- |
-| Command line | `Octopus.Server configure --multiNodePollingTentaclesRedisConnectionString="<connection string>"` |
-| Environment variable | `OCTOPUS_MULTI_NODE_POLLING_TENTACLES_REDIS_CONNECTION_STRING` |
-| Server configuration file key | `Octopus.Communications.MultiNodePollingTentaclesRedisConnectionString` |
-
 ### Windows and Linux servers
 
-1. Make sure the [cluster shared directory](#cluster-shared-storage) is configured.
-1. On each node, run the [configure command](/docs/administration/octopus.server.exe-command-line/configure):
+1. Configure the [cluster shared directory](#cluster-shared-storage) with the [path command](/docs/administration/octopus.server.exe-command-line/path):
+
+    ```powershell
+    Octopus.Server.exe path --instance="OctopusServer" --clusterShared \\OctoShared\OctopusData
+    ```
+
+    To store transient data that does not need to be backed up in a different location, also run:
+
+    ```powershell
+    Octopus.Server.exe path --instance="OctopusServer" --executionsClusterShared \\OctoShared\OctopusTransientData
+    ```
+
+    :::div{.hint}
+    If you already set specific paths, such as `TaskLogs` or `Artifacts`, setting the cluster shared directory does not change them.
+    :::
+
+1. On each node, configure the Redis connection string.
+
+    You can set the connection string in any of the following ways. If more than one is set, the environment variable takes precedence over the configuration file.
+
+    | Method | Name |
+    | --- | --- |
+    | Command line | `Octopus.Server configure --multiNodePollingTentaclesRedisConnectionString="<connection string>"` |
+    | Environment variable | `OCTOPUS_MULTI_NODE_POLLING_TENTACLES_REDIS_CONNECTION_STRING` |
+    | Server configuration file key | `Octopus.Communications.MultiNodePollingTentaclesRedisConnectionString` |
+
+    For example, to set the Redis connection string using the command line, run the [configure command](/docs/administration/octopus.server.exe-command-line/configure):
 
     ```powershell
     Octopus.Server.exe configure --instance="OctopusServer" --multiNodePollingTentaclesRedisConnectionString="your-redis-host:6380,password=your-secret-password,ssl=true"
@@ -127,14 +123,11 @@ Set these environment variables on every Octopus Server container:
 | Name | Value |
 | --- | --- |
 | `OCTOPUS_MULTI_NODE_POLLING_TENTACLES_REDIS_CONNECTION_STRING` | Your Redis connection string. |
-| `CLUSTER_SHARED_CONFIG` | `CLUSTER_SHARED` for a new installation, or `SEPARATE_VOLUMES_WITH_CLUSTER_SHARED` to keep the existing `/repository`, `/artifacts`, `/taskLogs`, and `/eventExports` volumes of an existing installation. |
+| `CLUSTER_SHARED_MODE` | **New installation:** `CLUSTER_SHARED`<br />**Existing installation:** `SEPARATE_VOLUMES_WITH_CLUSTER_SHARED`, which keeps your existing volumes. |
 
-Then mount `/clusterShared` on storage every node can read and write. Octopus writes data streams to `/clusterShared/DataStreams`, or to `/executionsClusterShared/DataStreams` if `USE_EXECUTIONS_CLUSTER_SHARED` is `True`. See [cluster shared configuration](/docs/installation/octopus-server-linux-container#cluster-shared-configuration) for what each `CLUSTER_SHARED_CONFIG` value does.
+Then mount `/clusterShared` on storage every node can read and write.
 
-The container checks these settings when it starts:
-
-- If `OCTOPUS_MULTI_NODE_POLLING_TENTACLES_REDIS_CONNECTION_STRING` is set and `CLUSTER_SHARED_CONFIG` is `SEPARATE_VOLUMES`, the container stops with an error.
-- If `OCTOPUS_MULTI_NODE_POLLING_TENTACLES_REDIS_CONNECTION_STRING` is set and `CLUSTER_SHARED_CONFIG` is not set, the container logs a warning. Octopus Server then fails to start unless a cluster shared or executions cluster shared directory was already configured.
+To store transient data that does not need to be backed up in a different location, also set the environment variable `USE_EXECUTIONS_CLUSTER_SHARED` to `True` and mount the `/executionsClusterShared` path as well. See [cluster shared configuration](/docs/installation/octopus-server-linux-container#cluster-shared-configuration) for what each `CLUSTER_SHARED_MODE` value does.
 
 ### Helm chart \{#helm-chart}
 
@@ -143,25 +136,29 @@ The [Octopus Deploy Helm chart](https://github.com/OctopusDeploy/helm-charts/tre
 ```yaml
 octopus:
   clusterShared:
-    mode: SEPARATE_VOLUMES_WITH_CLUSTER_SHARED
+    mode: CLUSTER_SHARED # To let Octopus read existing data, existing installations should use SEPARATE_VOLUMES_WITH_CLUSTER_SHARED.
   multiNodePollingTentacles:
     enabled: true
 redis:
   enabled: true
 ```
 
-This example uses `SEPARATE_VOLUMES_WITH_CLUSTER_SHARED`, which keeps the existing volumes of an installation you are moving to multiple nodes. For a new installation, we recommend `CLUSTER_SHARED`, which stores everything in a single cluster shared volume. See [cluster shared configuration](/docs/installation/octopus-server-linux-container#cluster-shared-configuration).
+This example uses `CLUSTER_SHARED`, which stores everything in a single cluster shared volume. See [cluster shared configuration](/docs/installation/octopus-server-linux-container#cluster-shared-configuration).
 
-The in-cluster Redis is a single pod. Requests that are in flight when it restarts fail, and new requests work again once it is back.
+:::div{.warning}
+If you are upgrading an existing installation that does not already set `octopus.clusterShared.mode`, use `SEPARATE_VOLUMES_WITH_CLUSTER_SHARED` so Octopus keeps using your existing volumes.
+:::
 
-By default, the in-cluster Redis has no memory limit, so the `noeviction` policy never applies and Redis can grow until the pod runs out of memory and restarts. Set `redis.maxMemory`, for example to `200mb`. When Redis reaches it, new requests are rejected instead of queued requests being evicted. If you also set a memory limit in `redis.resources`, set `redis.maxMemory` below it.
+The in-cluster Redis is a single pod. If it restarts, Octopus retries in-flight requests as set in the [machine policy](/docs/infrastructure/deployment-targets/machine-policies#recover-from-communication-errors), and new requests work again once it is back.
+
+By default, the in-cluster Redis has no memory limit, so the `noeviction` policy never applies and Redis can grow until the pod runs out of memory and restarts. Set `redis.maxMemory`, for example to `800mb`. When Redis reaches it, new requests are rejected instead of queued requests being evicted. If you also set a memory limit in `redis.resources`, set `redis.maxMemory` below it.
 
 To use your own Redis instead, provide the connection string:
 
 ```yaml
 octopus:
   clusterShared:
-    mode: SEPARATE_VOLUMES_WITH_CLUSTER_SHARED
+    mode: CLUSTER_SHARED # To let Octopus read existing data, existing installations should use SEPARATE_VOLUMES_WITH_CLUSTER_SHARED.
   multiNodePollingTentacles:
     enabled: true
     redis:
@@ -256,10 +253,24 @@ If the `OCTOPUS_MULTI_NODE_POLLING_TENTACLES_REDIS_CONNECTION_STRING` environmen
 
 Before you turn the feature off, make sure every Polling Tentacle and Kubernetes agent polls each node individually, as described in [Polling every node](/docs/administration/high-availability/polling-tentacles-with-ha/poll-every-node). Otherwise, tasks run by a node that a Tentacle is not polling will wait for that Tentacle until they time out.
 
-## Troubleshooting
+## Data storage
 
-**Octopus Server does not start, and reports that no cluster shared directory has been configured.**
-Configure a [cluster shared directory](#cluster-shared-storage) on storage every node can access, then start the node again.
+When multi-node support for Polling Tentacles is turned on, Octopus temporarily stores data in Redis and the [cluster shared directory](#cluster-shared-storage).
+
+### Data in Redis
+
+- Octopus stores all data under keys prefixed with `OctopusDeploy:HalibutRedis:`.
+- Octopus encrypts data in Redis with your [Master Key](/docs/security/data-encryption).
+- Every key has a time to live (TTL), so Redis eventually removes it.
+  - Octopus sets the TTL after it creates a key. If an Octopus Server node goes offline between those steps, the key can stay in Redis.
+  - You can restart Redis to remove these keys. Octopus treats the restart as a network error and retries the request to the Tentacle (Tentacle 7.0.0 or later), so deployments do not fail.
+
+### Data in the cluster shared directory
+
+- To keep Redis memory usage low, Octopus writes larger files, such as packages, to the [cluster shared directory](#cluster-shared-storage) so every node can read them.
+- Octopus automatically cleans up the data it stores here.
+
+## Troubleshooting
 
 **The configure command reports that the Redis connection string is not valid.**
 Check the value follows the [StackExchange.Redis connection string format](https://stackexchange.github.io/StackExchange.Redis/Configuration.html). Wrap the whole value in quotes so your shell does not split it on commas.
@@ -272,6 +283,18 @@ Check the load balancer passes TCP traffic straight through on the Polling Tenta
 
 **Deployments to Polling Tentacles fail or wait, only on some nodes.**
 Check every node is configured with the same Redis connection string, and that each node's `/api/serverstatus/redis` response is `true` for all three values.
+
+**You need to see where communication with a Tentacle is failing.**
+Open the deployment target or worker and select **Connectivity**. It shows the recent communication logs for that Tentacle from every node.
+
+**Octopus Server fails to start because the cluster shared directory is not set.**
+If multi-node support for Polling Tentacles is on, but the cluster shared directory is not configured, Octopus Server fails to start with this error:
+
+```text
+Multi-node support for polling tentacles is enabled, but no cluster shared directory has been configured.
+```
+
+Configure the [cluster shared directory](#cluster-shared-storage) on storage every node can access, as described in [Turn on multi-node support for Polling Tentacles](#turn-on). Then start the node again.
 
 ## Learn more
 
