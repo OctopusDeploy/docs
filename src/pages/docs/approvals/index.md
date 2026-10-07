@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2026-06-03
+modDate: 2026-10-08
 title: Approvals
 subtitle: Defining your change approval process
 icon: fa-solid fa-square-check
@@ -18,10 +18,6 @@ When CI/CD systems create change requests automatically, you can work towards be
 
 Octopus Deploy includes ITSM integrations for ServiceNow and Jira Service Management that let you balance audit and compliance requirements with team productivity.
 
-:::div{.hint}
-Octopus Approvals is a built-in approval system that works without an external ITSM tool. This feature is currently in Alpha, available to a small set of customers. If you are interested in this feature please register your interest on the [roadmap card](https://roadmap.octopus.com/c/243-approvals-for-deployments) and we'll keep you updated.
-:::
-
 Our support focuses on:
 
 1. **Productive teams** - Automatically create change requests and associate them with Octopus deployments or runbook runs so you can work with the right stakeholders to ensure your changes are compliant and approved. Octopus can also prevent deployments and runbook runs from executing until all approvals are complete.
@@ -29,7 +25,7 @@ Our support focuses on:
 
 ## Built-in change management with Octopus Approvals
 
-Octopus Approvals is a built-in change approval system that lets you gate deployments and runbook runs on approvals from designated users or teams - no external ITSM tool required. When a controlled deployment is created, Octopus automatically creates a change request (formatted as `OCT-{number}`) and pauses execution. Once the minimum number of approvals is reached, Octopus allows the task to proceed. If any approver rejects the request, Octopus terminates the task immediately.
+Octopus Approvals is a built-in change approval system that lets you gate deployments on approvals from designated users or teams - no external ITSM tool required. When a controlled deployment is created, Octopus automatically creates a change request (formatted as `OCT-{number}`) and pauses execution. Once the minimum number of approvals is reached, Octopus allows the task to proceed. If any approver rejects the request, Octopus terminates the task immediately.
 
 What's included in Octopus Approvals?
 
@@ -38,6 +34,8 @@ What's included in Octopus Approvals?
 - Octopus creates change requests automatically at deployment time.
 - Octopus supports change windows — the task waits until an approved time period before Octopus allows execution.
 - Octopus records an audit trail of approvals and rejections in the task log.
+
+Octopus Approvals applies to deployments only. Runbook runs aren't supported.
 
 :::div{.hint}
 Octopus Approvals is currently in Public Preview. It is currently being rolled out to Cloud Customers and will become available to self-hosted installations in Octopus Server 2026.3 behind a feature toggle. If you would like to request this functionality early, please contact [support](https://octopus.com/support).
