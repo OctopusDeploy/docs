@@ -34,7 +34,7 @@ The important thing to remember is that each node should be using a **unique add
 **Tip:**
 A Polling Tentacle will connect to the Octopus Rest API over ports 80 or 443 when it is registering itself with the Octopus Server. After that, it will connect over port `10943` (by default) with the Octopus Server node.
 
-It's important to ensure that any firewalls also allow port 80 or 443 for the initial Tentacle registration.
+It is important to ensure that any firewalls also allow port 80 or 443 for the initial Tentacle registration.
 :::
 
 ## Using a unique port
@@ -42,7 +42,7 @@ It's important to ensure that any firewalls also allow port 80 or 443 for the in
 In this scenario, a type of [Network Address Translation (NAT)](https://en.wikipedia.org/wiki/Network_address_translation) is leveraged by using the same address and **unique ports**, usually routed through a load balancer or other network device. Each Octopus node would be configured to listen on a different port (starting at `10943` by default) for inbound traffic.
 
 :::div{.hint}
-The advantage of using unique ports is that the Polling Tentacle doesn't need to know each node's address, only the port. The address translation is handled by the load balancer. This allows each node to have a private IP address, with no public access from outside your network required.
+The advantage of using unique ports is that the Polling Tentacle does not need to know each node's address, only the port. The address translation is handled by the load balancer. This allows each node to have a private IP address, with no public access from outside your network required.
 :::
 
 Imagine a three-node HA cluster. For each one, we expose a different port to listen on using the [Octopus.Server configure command](/docs/administration/octopus.server.exe-command-line/configure):
@@ -66,7 +66,7 @@ The important thing to remember is that each node should be using the **same add
 
 There are two options to add Octopus Servers to a Polling Tentacle: the command line, or editing the Tentacle.config file directly.
 
-Both methods need the Tentacle service restarted afterwards. A running Tentacle doesn't pick up a new server address until it restarts.
+Both methods need the Tentacle service restarted afterwards. A running Tentacle does not pick up a new server address until it restarts.
 
 **Command line:**
 
@@ -76,7 +76,7 @@ The command line is the preferred option. Run the command once per server; an ex
 C:\Program Files\Octopus Deploy\Tentacle>Tentacle poll-server --server=https://your-octopus-url --apikey=API-YOUR-KEY
 ```
 
-Once you've added every node in your cluster, restart the Tentacle service:
+Once you have added every node in your cluster, restart the Tentacle service:
 
 ```text
 C:\Program Files\Octopus Deploy\Tentacle>Tentacle service --restart
@@ -86,7 +86,7 @@ For more information on these commands, see the [Tentacle poll-server](/docs/adm
 
 **Tentacle.config:**
 
-Alternatively you can edit Tentacle.config directly to add each Octopus Server (this is interpreted as a JSON array of servers). This method isn't recommended, as editing the JSON array by hand is error-prone. Restart the Tentacle service after you've saved your changes.
+Alternatively you can edit Tentacle.config directly to add each Octopus Server (this is interpreted as a JSON array of servers). This method is not recommended, as editing the JSON array by hand is error-prone. Restart the Tentacle service after you have saved your changes.
 
 ```xml
 <set key="Tentacle.Communication.TrustedOctopusServers">
