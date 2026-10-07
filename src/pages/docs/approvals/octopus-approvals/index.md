@@ -1,9 +1,9 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-04-15
-modDate: 2026-04-15
+modDate: 2026-10-08
 title: Octopus Approvals
-description: Octopus Approvals is a built-in change approval system that gates deployments and runbook runs on sign-off from designated users or teams, without requiring an external ITSM tool.
+description: Octopus Approvals is a built-in change approval system that gates deployments on sign-off from designated users or teams, without requiring an external ITSM tool.
 navOrder: 5
 ---
 
@@ -13,9 +13,9 @@ Octopus Approvals is currently in Public Preview. It is currently being rolled o
 
 ## Overview
 
-Octopus Approvals is a built-in change approval system for Octopus Deploy. Octopus blocks deployments and runbook runs until designated approvers sign off directly within Octopus. This means you don't need any external ITSM tools to manage your changes.
+Octopus Approvals is a built-in change approval system for Octopus Deploy. Octopus gates deployments until designated approvers sign off directly within Octopus. This means you don't need any external ITSM tools to manage your changes.
 
-When a controlled deployment or runbook run triggers, Octopus automatically creates a change request (with the format `OCT-{number}`) and pauses execution. Designated users or team members can then approve or reject the request. Once the minimum number of approvals is reached, Octopus allows execution to proceed. If any approver rejects the request, Octopus terminates the task.
+When a deployment to a change controlled environment triggers, Octopus automatically creates a change request and prevents execution. Designated users or team members can then approve or reject the request. Once the minimum number of approvals is reached, Octopus allows execution to proceed. If any approver rejects the request, Octopus terminates the task.
 
 ## Getting started
 
@@ -29,7 +29,7 @@ Navigate to **Deploy ➜ Manage ➜ Approvals ➜ Manage** and select **Add Appr
 
 - **Name**: A short, memorable, unique name for this approval rule.
 - **Description**: An optional description for this approval rule.
-- **Scope**: The projects and environments that this approval rule should apply to. Octopus will require approvals for deployments and runbook runs that match the selected project and environment combination.
+- **Scope**: The projects and environments that this approval rule should apply to. Octopus will require approvals for deployments that match the selected project and environment combination.
 
   You can scope the approval rule by project and environment tags or individual project and environments.
 
@@ -46,7 +46,7 @@ Octopus will generate a change request depending on the configured approval rule
 
 ### Change request creation
 
-When a deployment or runbook run triggers and it is in scope for an approval rule, Octopus automatically creates a change request with a unique reference number in the format `OCT-{number}` (for example, `OCT-42`) if an applicable change request does not already exist. Octopus immediately pauses execution and displays the change request status in the task log.
+When a deployment triggers and it is in scope for an approval rule, Octopus automatically creates a change request with a unique reference number in the format `OCT-{number}` (for example, `OCT-42`) if an applicable change request does not already exist. Octopus immediately pauses execution and displays the change request status in the task log.
 
 Octopus will link the execution to an existing change request if there is a pending or approved change request with the same project, environment, release number and tenant (depending on the multi-tenant approval setting for an approval rule). If the change request is already approved, the execution is allowed to proceed according to the change window.
 
@@ -65,7 +65,9 @@ To create a change window in Octopus select the `Later` option in the `When` sec
 
 ### Rejection
 
-If any designated approver rejects the change request, Octopus immediately terminates the task. You cannot retry a rejected task; you must trigger a deployment of a new release or runbook run, which will create a fresh change request.
+If any designated approver rejects the change request, Octopus immediately terminates the deployment task. You can't retry a rejected task, but you can create a new deployment of the same release. Octopus will create a new change request for that deployment.
+
+The deployment creator can always reject their own change request, even if they're not an approver. This lets them withdraw a deployment they've queued.
 
 ## Reviewing change requests
 
@@ -87,9 +89,9 @@ Navigate to **Tasks** and select the **Needs Approval** tab for a filtered view 
 
 Select **Review** to open the drawer to view the change request details and submit your approval or rejection.
 
-### Deployment or Runbook Run Page
+### Deployment Page
 
-When a deployment or runbook run is blocked on an Octopus Approval, a warning callout appears at the top of the task page:
+When a deployment is blocked on an Octopus Approval, a warning callout appears at the top of the task page:
 
 > **Approval needed to continue this deployment**
 > This deployment is blocked by change request OCT-n and requires approval from N approvers.
@@ -101,3 +103,13 @@ Select **Review** to open the drawer to view the change request details and subm
 When viewing a release, under **Progression** you will see a list of deployments to the environments in your lifecycle and lifecycle phases. If a deployment to an environment is blocked on an Octopus Approval, the environment will have a button to review the change request associated with this task.
 
 Select **Review** to open the drawer to view the change request details and submit your approval or rejection.
+
+## Permissions
+
+To create, edit, or delete approval rules, you need the **ApprovalRuleAdminister** permission. This permission applies to the whole space and can't be scoped to specific projects or environments. The built-in **Space manager** and **Environment manager** roles include it. Anyone can view approval rules.
+
+Approving or rejecting a change request doesn't require a specific permission. The approval rule controls it: only the users and team members listed as **Approvers** on the matching rule can approve or reject.
+
+## Approvals for Runbooks
+
+Approvals aren't available for runbooks at this stage, but they're on the roadmap for future work. If this would be helpful for your organization, please [leave feedback here](https://survey.octopus.com/t/15JLhBiYAZus).
