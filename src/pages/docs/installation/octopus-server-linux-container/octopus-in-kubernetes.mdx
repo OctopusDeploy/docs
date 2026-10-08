@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-04-23
+modDate: 2026-09-29
 title: Run Octopus Server in Kubernetes
 description: Install Octopus Server into a Kubernetes cluster using the official Linux container. Choose a single-node setup or High Availability across multiple pods.
 navOrder: 40
@@ -149,6 +149,10 @@ spec:
 #### Octopus Server Node load balancer \{#octopus-node-load-balancers}
 
 Unlike the Octopus Web Portal, Polling Tentacles must be able to connect to each Octopus node individually to pick up new tasks. Our Octopus HA cluster assumes two nodes, therefore a load balancer is required for each node to allow direct access.
+
+:::div{.hint}
+If you turn on [multi-node support for Polling Tentacles](/docs/administration/high-availability/polling-tentacles-with-ha/multi-node-polling-tentacles), Polling Tentacles can connect to any node through a single TCP load balancer instead, so you do not need to add each node to each Polling Tentacle. The [Helm chart](#helm-chart) can create this load balancer for you.
+:::
 
 The following YAML creates load balancers with separate public IPs for each node. They direct web traffic to each node on port `80`, Polling Tentacle traffic on port `10943`, and gRPC traffic on port `8443`.
 

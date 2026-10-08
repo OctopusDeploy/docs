@@ -1,0 +1,21 @@
+---
+layout: src/layouts/Default.astro
+pubDate: 2023-01-01
+modDate: 2026-10-06
+title: Polling Tentacles with HA
+navTitle: Overview
+navSection: Polling Tentacles with HA
+description: How to connect Polling Tentacles to an Octopus High Availability cluster, using multi-node support with Redis or by polling every node.
+navOrder: 50
+---
+
+Listening Tentacles require no special configuration for Octopus High Availability. Polling Tentacles and Kubernetes agents, however, poll a server at regular intervals to check whether any tasks are waiting for the Tentacle to perform. In a High Availability scenario, a Polling Tentacle needs to be able to collect work queued by any Octopus Server node in your configuration. To configure the Kubernetes agent with Octopus High Availability, see [Kubernetes agent HA Cluster Support](/docs/infrastructure/deployment-targets/kubernetes/kubernetes-agent/ha-cluster-support).
+
+## Connecting Polling Tentacles
+
+There are two ways to connect Polling Tentacles to an HA cluster:
+
+- **[Multi-node support for Polling Tentacles](/docs/administration/high-availability/polling-tentacles-with-ha/multi-node-polling-tentacles)** (recommended). The nodes share a queue of pending requests in Redis, so any node can hand work to any Tentacle. Each Polling Tentacle only needs to poll a single load-balanced address, and you do not need to update your Tentacles when you add or remove a node.
+- **[Polling every node](/docs/administration/high-availability/polling-tentacles-with-ha/poll-every-node)**. Each Polling Tentacle polls every node in your cluster, using a unique address or a unique port for each node. This does not need Redis, but you need to register every node with every Polling Tentacle, and update your Tentacles whenever you add or remove a node.
+
+We recommend multi-node support for Polling Tentacles. Poll every node only if you cannot run Redis, or your Octopus Server version does not support multi-node support for Polling Tentacles.

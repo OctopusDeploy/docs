@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2024-05-14
-modDate: 2026-01-15
+modDate: 2026-10-06
 title: HA Cluster Support
 description: How to install/update the agent when running Octopus in an HA Cluster
 navOrder: 50
@@ -10,11 +10,28 @@ navOrder: 50
 
 ## Octopus Deploy HA Cluster
 
-Similarly to Polling Tentacles, the Kubernetes agent must have a URL for each individual node in the HA Cluster so that it receive commands from all clusters. These URLs must be provided when registering the agent or some deployments may fail depending on which node the tasks are executing.
+Similarly to Polling Tentacles, the Kubernetes agent polls Octopus Server for work, so in an HA Cluster it must be able to receive commands from every node. There are two ways to do this:
+
+- Turn on [multi-node support for Polling Tentacles](/docs/administration/high-availability/polling-tentacles-with-ha/multi-node-polling-tentacles). The agent only needs a single URL, such as a load balancer in front of the nodes. See [Multi-node support for Polling Tentacles](#multi-node-support-for-polling-tentacles).
+- Give the agent a URL for each individual node in the HA Cluster. These URLs must be provided when registering the agent or some deployments may fail depending on which node the tasks are executing.
 
 To read more about selecting the right URL for your nodes, see [Polling Tentacles and Kubernetes agents with HA](/docs/administration/high-availability/polling-tentacles-with-ha).
 
+## Multi-node support for Polling Tentacles
+
+When [multi-node support for Polling Tentacles](/docs/administration/high-availability/polling-tentacles-with-ha/multi-node-polling-tentacles) is turned on, the nodes share pending requests through Redis, so the agent can collect work queued by any node from whichever node it connects to. The agent only needs a single Communications URL.
+
+The Kubernetes agent creation wizard detects that the feature is on, and does not show the extra page that asks for a URL for each node. Instead, it uses a single **Octopus Deploy Server Communications URL**. By default, this is your Octopus Server URL with port `10943`. To use your [Polling Tentacle load balancer](/docs/administration/high-availability/polling-tentacles-with-ha/multi-node-polling-tentacles#load-balancer) instead, select **Advanced Setup** in the wizard and enter its address, for example `https://your-polling-load-balancer:10943/`.
+
+Because the agent connects through a single URL, you do not need to update it when you add or remove nodes.
+
+:::div{.warning}
+If you turn off multi-node support for Polling Tentacles, configure every agent with a URL for each node first. Otherwise, tasks run by a node the agent is not connected to wait for the agent until they time out.
+:::
+
 ## Agent Installation on an HA Cluster
+
+This section is for HA Clusters that do not use multi-node support for Polling Tentacles.
 
 ### Octopus Deploy 2024.3+
 
@@ -48,7 +65,7 @@ The new property name is `agent.serverCommsAddresses`. Note that "Addresses" is 
 
 ## Upgrading the Agent after Adding/Removing Cluster nodes
 
-If you add or remove cluster nodes, you need to update your agent's configuration so that it continues to connect to all nodes in the cluster. To do this, you can simply run a helm upgrade command with the urls of all current cluster nodes. The agent will take remove any old urls and replace them with the provided ones.
+If you are not using multi-node support for Polling Tentacles and you add or remove cluster nodes, you need to update your agent's configuration so that it continues to connect to all nodes in the cluster. To do this, you can simply run a helm upgrade command with the urls of all current cluster nodes. The agent will take remove any old urls and replace them with the provided ones.
 
 ```bash
 helm upgrade --atomic \

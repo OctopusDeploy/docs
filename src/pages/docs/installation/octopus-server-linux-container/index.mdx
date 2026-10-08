@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-07-15
+modDate: 2026-09-29
 title: Octopus Server Linux Container
 description: Run Octopus Deploy in the official Docker Linux container. Pull the image, configure environment variables, connect a SQL Server database, and get started.
 navOrder: 8
@@ -76,12 +76,15 @@ Read the Docker [docs](https://docs.docker.com/engine/reference/commandline/run/
 |--|--|
 |**DB_CONNECTION_STRING**|Connection string to the database to use|
 |**MASTER_KEY**|The Master Key to connect to an existing database. If not supplied, and the database does not exist, it will generate a new one. The Master Key is mandatory if the database exists.|
-|**OCTOPUS_SERVER_BASE64_LICENSE**|Your license key for Octopus Deploy. If left empty, it will try to create a free license key for use|
+|**OCTOPUS_<wbr />SERVER_<wbr />BASE64_<wbr />LICENSE**|Your license key for Octopus Deploy. If left empty, it will try to create a free license key for use|
 |**ADMIN_USERNAME**|The admin user to create for the Octopus Server|
 |**ADMIN_PASSWORD**|The password for the admin user for the Octopus Server|
 |**ADMIN_EMAIL**|The email associated with the admin user account|
 |**TASK_CAP**|Sets the task cap for this node. If not specified, the default is 5.|
 |**DISABLE_DIND**|The Linux image will by default attempt to run Docker-in-Docker to support [execution containers for workers](/docs/projects/steps/execution-containers-for-workers). This requires the image to be launched with [privileged permissions](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities). Setting `DISABLE_DIND` to `Y` prevents Docker-in-Docker from being run when the container is booted.|
+|**CLUSTER_SHARED_MODE**|Sets how Octopus stores the files that every node in a cluster needs to share. Valid values are `CLUSTER_SHARED`, `SEPARATE_VOLUMES_WITH_CLUSTER_SHARED`, and `SEPARATE_VOLUMES`, and they are not case-sensitive. Any other value stops the container with an error. If not set, a new installation uses the `/repository`, `/artifacts`, `/taskLogs`, and `/eventExports` volumes, and an existing installation keeps its current paths. See [cluster shared configuration](#cluster-shared-configuration).|
+|**USE_<wbr />EXECUTIONS_<wbr />CLUSTER_<wbr />SHARED**|Set to `True` to store transient execution data (the `SharedPackageCache`, `DataBus`, and `DataStreams` folders) in the `/executionsClusterShared` volume instead of in `/clusterShared`. The value is not case-sensitive. Only valid when `CLUSTER_SHARED_MODE` is `SEPARATE_VOLUMES_WITH_CLUSTER_SHARED` or `CLUSTER_SHARED`. With any other `CLUSTER_SHARED_MODE` value, including not set, the container stops with an error. See [cluster shared configuration](#cluster-shared-configuration) for why you might use this.|
+|**OCTOPUS_<wbr />MULTI_<wbr />NODE_<wbr />POLLING_<wbr />TENTACLES_<wbr />REDIS_<wbr />CONNECTION_<wbr />STRING**|The Redis connection string that turns on [multi-node support for Polling Tentacles](/docs/administration/high-availability/polling-tentacles-with-ha/multi-node-polling-tentacles). Requires `CLUSTER_SHARED_MODE` to be `SEPARATE_VOLUMES_WITH_CLUSTER_SHARED` or `CLUSTER_SHARED`.|
 
 ### Exposed container ports
 
@@ -106,10 +109,33 @@ Read the Docker [docs](https://docs.docker.com/engine/reference/commandline/run/
 | **/taskLogs** | Path where task logs are stored | Shared storage |
 | **/eventExports** | Path where event audit logs are exported | Shared storage |
 | **/cache** | Path where cached files e.g., signature and delta files (used for package acquisition), are stored | Host filesystem or container |
+| **/clusterShared** | Cluster shared directory. Used when `CLUSTER_SHARED_MODE` is `SEPARATE_VOLUMES_WITH_CLUSTER_SHARED` or `CLUSTER_SHARED` | Shared storage |
+| **/executionsClusterShared** | Transient execution data, in the `SharedPackageCache`, `DataBus`, and `DataStreams` folders. Used when `USE_EXECUTIONS_CLUSTER_SHARED` is `True` | Shared storage |
 
 :::div{.hint}
 **Note:** We recommend using shared storage when mounting the volumes for files that must be shared between multiple octopus container nodes, e.g., artifacts, packages, task logs, and event exports.
 :::
+
+### Cluster shared configuration \{#cluster-shared-configuration}
+
+The `CLUSTER_SHARED_MODE` environment variable sets which volumes Octopus uses for the files that every node needs to share. When it is set, the container applies it each time it starts, not only on first start, so you can change it on an existing installation.
+
+The values are not case-sensitive.
+
+| Value | When to use it | Volumes |
+| --- | --- | --- |
+| `CLUSTER_SHARED` | Recommended for new installations, since it reduces the number of volumes to mount and is future-proofed as new data is stored in cluster shared. | **/clusterShared**<br />**/executionsClusterShared**, if `USE_EXECUTIONS_CLUSTER_SHARED` is `True`<br /> |
+| `SEPARATE_VOLUMES_WITH_CLUSTER_SHARED` | Recommended if you are moving an existing installation to multiple nodes and want to keep your existing volumes, rather than moving their contents into a single volume. | **/artifacts**<br />**/eventExports**<br />**/repository**<br />**/taskLogs**<br /><br />**/clusterShared**<br />**/executionsClusterShared**, if `USE_EXECUTIONS_CLUSTER_SHARED` is `True`<br /><br />Transient execution data is stored in `/clusterShared`, or `/executionsClusterShared` if set, instead of in `/cache` and the Octopus home directory. |
+| `SEPARATE_VOLUMES` | To go back to the layout without a cluster shared directory, for example, if you tried one of the other values and want to undo it. | **/artifacts**<br />**/eventExports**<br />**/repository**<br />**/taskLogs**<br /><br />No cluster shared directory. Any cluster shared or executions cluster shared directory configured previously is removed. Multi-node support for Polling Tentacles cannot be used with this value. |
+| Not set | To keep the current configuration. | New installation:<br />**/artifacts**<br />**/eventExports**<br />**/repository**<br />**/taskLogs**<br /><br />Existing installation: the container does not change any paths, so whatever was configured previously, including any cluster shared directory, is kept. For example, if you used `CLUSTER_SHARED` and then remove the variable, Octopus keeps using `/clusterShared`. |
+
+In every mode, `/cache` remains the node's own cache directory.
+
+Switching an existing installation to `CLUSTER_SHARED` does not move existing packages, artifacts, or logs into `/clusterShared`, so Octopus stops finding them unless you move them yourself. To add a cluster shared directory to an existing installation, use `SEPARATE_VOLUMES_WITH_CLUSTER_SHARED`.
+
+To keep transient execution data on different storage, such as faster storage that does not need to be backed up, set `USE_EXECUTIONS_CLUSTER_SHARED` to `True` and mount `/executionsClusterShared` on storage every node can read and write. Octopus then uses the same `SharedPackageCache`, `DataBus`, and `DataStreams` folders in `/executionsClusterShared`.
+
+[Multi-node support for Polling Tentacles](/docs/administration/high-availability/polling-tentacles-with-ha/multi-node-polling-tentacles) needs a cluster shared directory. If `OCTOPUS_MULTI_NODE_POLLING_TENTACLES_REDIS_CONNECTION_STRING` is set and `CLUSTER_SHARED_MODE` is `SEPARATE_VOLUMES`, the container stops with an error. The container only checks the environment variable, not a connection string set with the `configure` command.
 
 ## Upgrading
 
