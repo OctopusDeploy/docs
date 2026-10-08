@@ -12,7 +12,7 @@ User roles and group permissions play a major part in the Octopus security model
 
 Octopus comes with a set of built-in user roles that are designed to work for most common scenarios.
 
-These core roles cannot be edited:
+These core roles cannot be edited.
 
 | User Role | Description |
 | --- | --- |
@@ -22,11 +22,7 @@ These core roles cannot be edited:
 | Space Viewer | View access to every resource in a space. Can't create, edit, delete, or run anything, or see most system-wide settings. |
 | Read Only | View access to nearly every resource across the system and its spaces. Can't create, edit, delete, or run anything. |
 
-:::div{.success}
-For more information regarding the *system or space level*, please see [system and space permissions](/docs/security/users-and-teams/system-and-space-permissions).
-:::
-
-These additional roles can be edited, but we recommend leaving them as examples and creating your own user roles instead:
+The rest of the built-in user roles can be edited to contain different permissions. However, we recommend keeping them as a reference and [creating a new user role](#UserRoles-CreatingUserRoles) when you need to customize.
 
 | User role | Description |
 | --- | --- |
