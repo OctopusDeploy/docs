@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2026-06-19
+modDate: 2026-10-08
 title: Create an API Key
 description: How to create an API key to interact with Octopus without the need for a username and password.
 navOrder: 10
@@ -11,17 +11,17 @@ API keys allow you to access the Octopus Deploy [REST API](/docs/octopus-rest-ap
 
 See the [Service Accounts docs](/docs/security/users-and-teams/service-accounts) for information about creating service accounts.
 
-## Creating an API Key
-
-[Getting Started - API Keys](https://www.youtube.com/watch?v=f3-vRjpB0cE)
+## Creating an API Key {#creating-an-agent-api-key}
 
 You can create API keys by performing the following steps:
 
 1. Log into the Octopus Web Portal, click your profile image and select **Profile**.
 1. Click **My API Keys**.
-1. Click **New API key**, state the purpose of the API key.
+1. Click **New API key**, then state the name or purpose of the API key.
+1. Choose an expiry date for the key.
+1. Choose whether the key will be used by an AI Agent (such as the [Octopus MCP server](/docs/octopus-ai/mcp)) or another tool. Agent keys are tagged throughout Octopus so you can filter for and audit agent activity separately from human activity.
 1. Choose the level of **Access** to grant (see below).
-1. Click **Generate new**.
+1. Click **Create API Key**.
 1. Copy the new API key to your clipboard.
 
 :::div{.warning}
@@ -29,32 +29,28 @@ You can create API keys by performing the following steps:
 After you generate an API key, it cannot be retrieved from the Octopus Web Portal again, we store only a one-way hash of the API key. If you want to use the API key again, you need to store it in a secure place such as a password manager. Read about [why we hash API keys](https://octopus.com/blog/hashing-api-keys).
 :::
 
-## Creating an agent API key {#creating-an-agent-api-key}
-
-If you're connecting an AI agent to Octopus—such as the [Octopus MCP server](/docs/octopus-ai/mcp)—create a dedicated agent API key rather than a regular one. Agent keys are tagged throughout Octopus so you can filter for and audit agent activity separately from human activity.
-
-You can also create an agent API key directly from the **API Keys** page:
-
-1. Click **New API key for AI Agent** and state the purpose of the key.
-1. Choose the level of **Access** to grant.
-1. Click **Generate new**.
-1. Copy the new API key to your clipboard.
-
 ## Choosing an access level
 
-:::div{.hint}
-
-This feature is currently being rolled out to Octopus Cloud customers and will become available to self-hosted installations in Octopus Server 2026.3.
-
-If you don't see the access option when creating an API key, the API key will be created with full access and have the same permissions as your user account.
-
-:::
-
-Recent versions of Octopus Server add the ability to limit the scope of an API key, to allow only read-only access. Alternatively, you can grant the API key full access to give it the same permissions as your user account. Use the **Preview Permissions** link to see the exact list of permissions that apply to the chosen access level.
+Recent versions of Octopus Server add the ability to limit the scope of an API key, to allow only read-only access, or to define custom access scopes. These features are currently being rolled out, so they may not be available in all Octopus Server instances just yet.
 
 Read-only scopes are useful for tooling that doesn't need to be able to make changes, perform actions or trigger deployments, such as AI agents (like Claude Code) or for external monitoring systems (like release progression dashboards).
 
-Note that it is not possible to create an API key with more permissions than your user account. For these scenarios, you should look at creating an API key under a dedicated [Service Account](/docs/security/users-and-teams/service-accounts) instead. Use this approach for tooling that is not acting on behalf of a particular user.
+Custom scopes are useful for tooling that needs to make changes, but only in specific areas. One or more access scopes can be defined on an API key to allow a specific level of access defined by user roles to spaces, projects and environments. For example, you can grant read-only access to your Production environment, while allowing modifications to be made in Development via a separate access scope. See [Defining custom access scopes](#custom-access-scopes) below.
+
+Alternatively, you can grant the API key full access to give it the same permissions as your user account. Any existing API keys created before the access level options were added to Octopus Server have full access.
+
+:::div{.hint} It is not possible to create an API key with more permissions than your user account. For these scenarios, you should look at creating an API key under a dedicated [Service Account](/docs/security/users-and-teams/service-accounts) instead. Use this approach for tooling that is not acting on behalf of a particular user. :::
+
+## Defining custom access scopes {#custom-access-scopes}
+
+When choosing the `Custom` access level, you can then add one or more access scopes to the API key. An access scope consists of:
+
+- A name, eg: "Read-only access to the corporate website in Development"
+- A selection of whether you want to define Space-scoped or System-level roles. An access scope can only contain roles of the same type, so if you want your API key to have both types of roles, add multiple access scopes.
+- One or more spaces that the user roles should apply to. This does not apply to system-level roles, as they apply across all spaces.
+- Under each space, select the projects and/or environments that API key should be able to access. 
+
+:::div{.warning} API keys cannot be modified after they have been created, so if you need to change the permissions later you'll need to create a new API key :::
 
 ## Setting an expiry date
 
