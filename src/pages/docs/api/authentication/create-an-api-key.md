@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2026-10-08
+modDate: 2026-10-09
 title: Create an API Key
 description: How to create an API key to interact with Octopus without the need for a username and password.
 navOrder: 10
@@ -29,7 +29,11 @@ You can create API keys by performing the following steps:
 After you generate an API key, it cannot be retrieved from the Octopus Web Portal again, we store only a one-way hash of the API key. If you want to use the API key again, you need to store it in a secure place such as a password manager. Read about [why we hash API keys](https://octopus.com/blog/hashing-api-keys).
 :::
 
-## Choosing an access level
+## Choosing an access level {#choosing-an-access-level}
+
+:::figure
+![Access level](/docs/img/api/authentication/api-key-access-level.png)
+:::
 
 Recent versions of Octopus Server add the ability to limit the scope of an API key, to allow only read-only access, or to define custom access scopes. These features are currently being rolled out, so they may not be available in all Octopus Server instances just yet.
 
@@ -39,20 +43,32 @@ Custom scopes are useful for tooling that needs to make changes, but only in spe
 
 Alternatively, you can grant the API key full access to give it the same permissions as your user account. Any existing API keys created before the access level options were added to Octopus Server have full access.
 
-:::div{.hint} It is not possible to create an API key with more permissions than your user account. For these scenarios, you should look at creating an API key under a dedicated [Service Account](/docs/security/users-and-teams/service-accounts) instead. Use this approach for tooling that is not acting on behalf of a particular user. :::
+:::div{.hint}
+It is not possible to create an API key with more permissions than your user account. For these scenarios, you should look at creating an API key under a dedicated [Service Account](/docs/security/users-and-teams/service-accounts) instead. Use this approach for tooling that is not acting on behalf of a particular user.
+:::
 
 ## Defining custom access scopes {#custom-access-scopes}
+
+:::figure
+![Access scopes](/docs/img/api/authentication/api-key-access-scopes.png)
+:::
 
 When choosing the `Custom` access level, you can then add one or more access scopes to the API key. An access scope consists of:
 
 - A name, eg: "Read-only access to the corporate website in Development"
 - A selection of whether you want to define Space-scoped or System-level roles. An access scope can only contain roles of the same type, so if you want your API key to have both types of roles, add multiple access scopes.
-- One or more spaces that the user roles should apply to. This does not apply to system-level roles, as they apply across all spaces.
+- One or more spaces that the user roles should apply to. This does not apply to system-level roles, as they apply across all spaces. Choose `All space permissions` if you want the API key to have the same access to the selected space(s) as the owning user.
 - Under each space, select the projects and/or environments that API key should be able to access. 
 
-:::div{.warning} API keys cannot be modified after they have been created, so if you need to change the permissions later you'll need to create a new API key :::
+:::div{.warning}
+API keys cannot be modified after they have been created, so if you need to change the permissions later you'll need to create a new API key
+:::
 
 ## Setting an expiry date
+
+:::figure
+![API Key Details](/docs/img/api/authentication/api-key-details.png)
+:::
 
 :::div{.hint}
 The ability to set an expiry date on new API keys was added in Octopus Deploy **2020.6**.
