@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-20
+modDate: 2026-10-07
 title: Process Templates
 ---
 
@@ -106,8 +106,8 @@ title: Process Templates
     "GitCommit": "string",
     "GitRef": "string",
     "Icon": {
-      "Color": "string",
-      "Id": "string"
+      "Color": "#3CA4F3",
+      "Id": "rocket"
     },
     "Id": "ProcessTemplateVersion-1",
     "IsPreRelease": false,
@@ -179,8 +179,8 @@ title: Process Templates
     "Description": "string",
     "GitRef": "string",
     "Icon": {
-      "Color": "string",
-      "Id": "string"
+      "Color": "#3CA4F3",
+      "Id": "rocket"
     },
     "Id": "string",
     "Name": "string",
@@ -288,8 +288,8 @@ title: Process Templates
   "Description": "string",
   "GitRef": "string",
   "Icon": {
-    "Color": "string",
-    "Id": "string"
+    "Color": "#3CA4F3",
+    "Id": "rocket"
   },
   "Id": "string",
   "Name": "string",
@@ -385,8 +385,8 @@ title: Process Templates
   "Description": "string",
   "GitRef": "string",
   "Icon": {
-    "Color": "string",
-    "Id": "string"
+    "Color": "#3CA4F3",
+    "Id": "rocket"
   },
   "Id": "string",
   "Name": "string",
@@ -588,8 +588,8 @@ title: Process Templates
   "GitCommit": "string",
   "GitRef": "string",
   "Icon": {
-    "Color": "string",
-    "Id": "string"
+    "Color": "#3CA4F3",
+    "Id": "rocket"
   },
   "Id": "ProcessTemplateVersion-1",
   "IsPreRelease": false,
@@ -689,8 +689,8 @@ title: Process Templates
   "Description": "string",
   "GitRef": "string",
   "Icon": {
-    "Color": "string",
-    "Id": "string"
+    "Color": "#3CA4F3",
+    "Id": "rocket"
   },
   "Name": "string",
   "Parameters": [
@@ -776,8 +776,8 @@ title: Process Templates
   "Description": "string",
   "GitRef": "string",
   "Icon": {
-    "Color": "string",
-    "Id": "string"
+    "Color": "#3CA4F3",
+    "Id": "rocket"
   },
   "Id": "string",
   "Name": "string",
@@ -886,8 +886,8 @@ Also reachable at `/api/spaces/{spaceIdentifier}/processtemplates/{slug}/{versio
     "Description": "string",
     "GitRef": "string",
     "Icon": {
-      "Color": "string",
-      "Id": "string"
+      "Color": "#3CA4F3",
+      "Id": "rocket"
     },
     "Id": "string",
     "Name": "string",
