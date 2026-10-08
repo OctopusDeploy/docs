@@ -8,7 +8,7 @@ navOrder: 10
 ---
 
 :::div{.hint}
-Multi-node support for Polling Tentacles is available from Octopus Server 2026.4.6342. On older versions, [poll every node](/docs/administration/high-availability/polling-tentacles-with-ha/poll-every-node) instead.
+Multi-node support for Polling Tentacles is available from Octopus Server 2026.4.6909. On older versions, [poll every node](/docs/administration/high-availability/polling-tentacles-with-ha/poll-every-node) instead.
 :::
 
 In an Octopus High Availability (HA) cluster, a Polling Tentacle normally has to [poll every Octopus Server node](/docs/administration/high-availability/polling-tentacles-with-ha/poll-every-node). Work for a Tentacle is queued in memory on the node that runs the task, and only that node can hand it to the Tentacle. So each Tentacle needs a unique address or port for every node, and you need to update every Tentacle when you add or remove a node.
@@ -34,7 +34,7 @@ Octopus uses Redis as a short-lived queue, not a database. Redis must hold data 
 
 - **Turn off persistence.** Do not use RDB snapshots or AOF.
 - **Do not use replication or automatic failover.** Replication is asynchronous, so a promoted replica can bring back requests that a node has already collected, and they would be sent to the Tentacle again.
-- **Set the eviction policy to `noeviction`.** Evicting keys would silently drop requests.
+- **Set the eviction policy to `noeviction`**
 
 Partial or historical restores of Redis data can cause repeated requests or undefined behavior. If Redis restarts, Octopus detects it and retries communication with the Tentacle, as set in the [Recover from communication errors with Tentacle](/docs/infrastructure/deployment-targets/machine-policies#recover-from-communication-errors) section of the machine policy. These retries stop deployments from failing when Redis is temporarily unavailable.
 
@@ -233,7 +233,7 @@ To point an existing Polling Tentacle at the load balancer:
 
 Do not use `configure --reset-trust` for this. It removes the load balancer entry and the Tentacle's subscription ID as well, so you would need to register the Tentacle again.
 
-You can run the first step on its own and remove the per-node entries later. A Tentacle that polls the load balancer and the individual nodes simultaneously works because each request is handled by only one connection. The extra connections add traffic but do not change how tasks run.
+You can run the first step on its own and remove the per-node entries later. A Tentacle that polls the load balancer and the individual nodes simultaneously works because each request is still handled only once.
 
 Tentacles that still poll every node individually keep working while multi-node support for Polling Tentacles is on, so that you can move them to the load balancer at your own pace.
 
@@ -243,13 +243,17 @@ Kubernetes agents also poll for work and can use the load balancer the same way.
 
 ## Turn off multi-node support for Polling Tentacles
 
-To turn the feature off, clear the connection string on every node and restart them:
+To turn the feature off, clear the connection string from where it was set.
+
+When set via the command line, unset it using the folling command on every node and restart them:
 
 ```powershell
 Octopus.Server.exe configure --instance="OctopusServer" --multiNodePollingTentaclesRedisConnectionString=
 ```
 
-If the `OCTOPUS_MULTI_NODE_POLLING_TENTACLES_REDIS_CONNECTION_STRING` environment variable is still set, the feature stays on, and the command logs a warning. Remove the environment variable as well.
+If set by an environment variable, unset it and restart.
+
+If set in the Helm chart, unset the connection string and set `redis.enabled` to false.
 
 Before you turn the feature off, make sure every Polling Tentacle and Kubernetes agent polls each node individually, as described in [Polling every node](/docs/administration/high-availability/polling-tentacles-with-ha/poll-every-node). Otherwise, tasks run by a node that a Tentacle is not polling will wait for that Tentacle until they time out.
 
@@ -262,7 +266,7 @@ When multi-node support for Polling Tentacles is enabled, Octopus temporarily st
 - Octopus stores all data under keys prefixed with `OctopusDeploy:HalibutRedis:`.
 - Octopus encrypts data in Redis with your [Master Key](/docs/security/data-encryption).
 - Every key has a time to live (TTL), so Redis eventually removes it.
-  - Octopus sets the TTL after it creates a key. If an Octopus Server node goes offline between those steps, the key can stay in Redis.
+  - For some keys, Redis requires the key to exist before a TTL can be set, so Octopus creates the key first and then sets its TTL. If an Octopus Server node goes offline between those steps, the key can stay in Redis without a TTL.
   - You can restart Redis to remove these keys. Octopus treats the restart as a network error and retries the request to the Tentacle (Tentacle 7.0.0 or later), preventing deployments from failing.
 
 ### Data in the cluster shared directory

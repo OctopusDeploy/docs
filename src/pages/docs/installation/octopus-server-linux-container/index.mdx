@@ -124,10 +124,10 @@ The values are not case-sensitive.
 
 | Value | When to use it | Volumes |
 | --- | --- | --- |
-| `CLUSTER_SHARED` | Recommended for new installations. | **/clusterShared**<br />**/executionsClusterShared**, if `USE_EXECUTIONS_CLUSTER_SHARED` is `True`<br /> |
+| `CLUSTER_SHARED` | Recommended for new installations, since it reduces the number of volumes to mount and is future-proofed as new data is stored in cluster shared. | **/clusterShared**<br />**/executionsClusterShared**, if `USE_EXECUTIONS_CLUSTER_SHARED` is `True`<br /> |
 | `SEPARATE_VOLUMES_WITH_CLUSTER_SHARED` | Recommended if you are moving an existing installation to multiple nodes and want to keep your existing volumes, rather than moving their contents into a single volume. | **/artifacts**<br />**/eventExports**<br />**/repository**<br />**/taskLogs**<br /><br />**/clusterShared**<br />**/executionsClusterShared**, if `USE_EXECUTIONS_CLUSTER_SHARED` is `True`<br /><br />Transient execution data is stored in `/clusterShared`, or `/executionsClusterShared` if set, instead of in `/cache` and the Octopus home directory. |
 | `SEPARATE_VOLUMES` | To go back to the layout without a cluster shared directory, for example, if you tried one of the other values and want to undo it. | **/artifacts**<br />**/eventExports**<br />**/repository**<br />**/taskLogs**<br /><br />No cluster shared directory. Any cluster shared or executions cluster shared directory configured previously is removed. Multi-node support for Polling Tentacles cannot be used with this value. |
-| Not set | To keep the current configuration. | **New installation:** `/repository`, `/artifacts`, `/taskLogs`, and `/eventExports`<br />**Existing installation:** the container does not change any paths, so whatever was configured previously, including any cluster shared directory, is kept. For example, if you used `CLUSTER_SHARED` and then remove the variable, Octopus keeps using `/clusterShared`. |
+| Not set | To keep the current configuration. | New installation:<br />**/artifacts**<br />**/eventExports**<br />**/repository**<br />**/taskLogs**<br /><br />Existing installation: the container does not change any paths, so whatever was configured previously, including any cluster shared directory, is kept. For example, if you used `CLUSTER_SHARED` and then remove the variable, Octopus keeps using `/clusterShared`. |
 
 In every mode, `/cache` remains the node's own cache directory.
 
