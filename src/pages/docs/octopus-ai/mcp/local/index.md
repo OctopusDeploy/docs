@@ -30,7 +30,7 @@ For more information, see the [Octopus REST API](/docs/octopus-rest-api) documen
 
 ## Governance
 
-Use dedicated [Agent API keys](/docs/api/authentication/create-an-api-key#creating-an-agent-api-key) and [Agent Service Accounts](/docs/security/users-and-teams/service-accounts#agent-service-accounts) for agents connecting to your Octopus instance. These make agent actions identifiable and filterable in the audit log.
+Use dedicated [Agent API keys](/docs/api/authentication/create-an-api-key#creating-an-agent-api-key) configured with custom scopes or [Agent Service Accounts](/docs/security/users-and-teams/service-accounts#agent-service-accounts) for agents connecting to your Octopus instance. These make agent actions identifiable and filterable in the audit log.
 
 ## Installation
 
