@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-09-04
+modDate: 2026-10-07
 title: Tenants
 ---
 
@@ -91,8 +91,8 @@ Lists all of the tenants in the supplied Octopus Deploy Space. The results will 
       ],
       "Description": "string",
       "Icon": {
-        "Color": "string",
-        "Id": "string"
+        "Color": "#3CA4F3",
+        "Id": "rocket"
       },
       "Id": "string",
       "IsDisabled": false,
@@ -225,8 +225,8 @@ Creates a new Tenant, optionally cloning an existing tenant if the clone query s
   ],
   "Description": "string",
   "Icon": {
-    "Color": "string",
-    "Id": "string"
+    "Color": "#3CA4F3",
+    "Id": "rocket"
   },
   "Id": "string",
   "IsDisabled": false,
@@ -322,8 +322,8 @@ Lists all of the tenants in the supplied Octopus Deploy Space. The results will 
     ],
     "Description": "string",
     "Icon": {
-      "Color": "string",
-      "Id": "string"
+      "Color": "#3CA4F3",
+      "Id": "rocket"
     },
     "Id": "string",
     "IsDisabled": false,
@@ -556,8 +556,8 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}`, `/api/tenants/{i
   ],
   "Description": "string",
   "Icon": {
-    "Color": "string",
-    "Id": "string"
+    "Color": "#3CA4F3",
+    "Id": "rocket"
   },
   "Id": "string",
   "IsDisabled": false,
@@ -679,8 +679,8 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}`, `/api/tenants/{i
   ],
   "Description": "string",
   "Icon": {
-    "Color": "string",
-    "Id": "string"
+    "Color": "#3CA4F3",
+    "Id": "rocket"
   },
   "Id": "string",
   "IsDisabled": false,

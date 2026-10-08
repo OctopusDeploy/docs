@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-09-04
+modDate: 2026-10-06
 title: Events
 ---
 
@@ -81,6 +81,15 @@ A list of all audit events collected to date, ordered by the date of the event i
 - **`ItemType`** :span[string]{.type-label}  
   The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
+  - **`Actor`** :span[string]{.type-label}  
+    Gets or sets a readable description of the AI tool that created the event, such as Claude. It includes the tool's client ID and redirect URI. To read those values separately, use ActorOAuthClient. Null when the event wasn't created through an OAuth connection.
+  - **`ActorOAuthClient`** :span[object]{.type-label}
+  - **`ActorType`** :span[enum]{.type-label}  
+    Gets or sets whether a user, an AI agent, a service account, or Octopus itself created the event. Use this field to find changes made by AI agents. Null for events created before Octopus recorded this.  
+    Allowed values: `Unknown`, `System`, `User`, `Agent`, `ServiceAccount`.
+  - **`ApiKeyActorType`** :span[enum]{.type-label}  
+    Gets or sets the actor type of the API key used to authenticate the request, if applicable.  
+    Allowed values: `User`, `AiAgent`.
   - **`ApiKeyHint`** :span[string]{.type-label}  
     Gets or sets the obfuscated hint of the API key used to authenticate the request, if applicable.
   - **`ApiKeyId`** :span[string]{.type-label}  
@@ -114,8 +123,13 @@ A list of all audit events collected to date, ordered by the date of the event i
     Gets or sets an array of document ID's and indexes where they are mentioned in the message text.
   - **`Occurred`** :span[string]{.type-label}  
     Gets or sets the date/time that the event took place. Format `date-time`.
+  - **`OnBehalfOf`** :span[string]{.type-label}  
+    Gets or sets the ID of the user an AI agent acted for. If the agent has its own service account, this is that account's ID. Null when an AI agent didn't create the event.
   - **`RelatedDocumentIds`** :span[array of string]{.type-label}  
     Gets or sets a collection of document ID's that this event relates to. Note that the document ID's may no longer exist.
+  - **`ServiceAccountType`** :span[enum]{.type-label}  
+    Gets or sets the type of service account that created the event. Null when the user is not a service account.  
+    Allowed values: `Standard`, `Agent`.
   - **`SpaceId`** :span[string]{.type-label}  
     Gets or sets the SpaceId of the event. This represents the space in which the event was raised.
   - **`UserAgent`** :span[string]{.type-label}  
@@ -142,6 +156,15 @@ A list of all audit events collected to date, ordered by the date of the event i
   "ItemType": "Event",
   "Items": [
     {
+      "Actor": "Claude (client_id: https://claude.ai/oauth/mcp-oauth-client-metadata, redirect_uri: https://claude.ai/api/mcp/auth_callback)",
+      "ActorOAuthClient": {
+        "ClientId": "https://claude.ai/oauth/mcp-oauth-client-metadata",
+        "ClientName": "Claude",
+        "IsLoopbackRedirect": false,
+        "RedirectUri": "https://claude.ai/api/mcp/auth_callback"
+      },
+      "ActorType": "Agent",
+      "ApiKeyActorType": null,
       "ApiKeyHint": null,
       "ApiKeyId": null,
       "Category": "Modified",
@@ -175,9 +198,11 @@ A list of all audit events collected to date, ordered by the date of the event i
         {}
       ],
       "Occurred": "2020-01-01T00:00:00.000Z",
+      "OnBehalfOf": "Users-1",
       "RelatedDocumentIds": [
         "Tenants-1"
       ],
+      "ServiceAccountType": null,
       "SpaceId": "Spaces-1",
       "UserAgent": "OctopusClient-js/2026.3.15581",
       "UserId": "Users-1",
@@ -378,6 +403,23 @@ Also reachable at `/api/events/{id}`, `/api/spaces/{spaceIdentifier}/events/{id}
 
 `200` — The requested event
 
+- **`Actor`** :span[string]{.type-label}  
+  Gets or sets a readable description of the AI tool that created the event, such as Claude. It includes the tool's client ID and redirect URI. To read those values separately, use ActorOAuthClient. Null when the event wasn't created through an OAuth connection.
+- **`ActorOAuthClient`** :span[object]{.type-label}
+  - **`ClientId`** :span[string]{.type-label}  
+    Gets the ID of the OAuth client.
+  - **`ClientName`** :span[string]{.type-label}  
+    Gets the name the OAuth client registered with.
+  - **`IsLoopbackRedirect`** :span[boolean]{.type-label}  
+    Gets whether the redirect URI was a loopback address. This describes where the browser sent the authorization code, not where the token is used.
+  - **`RedirectUri`** :span[string]{.type-label}  
+    Gets the redirect URI the authorization code was sent to.
+- **`ActorType`** :span[enum]{.type-label}  
+  Gets or sets whether a user, an AI agent, a service account, or Octopus itself created the event. Use this field to find changes made by AI agents. Null for events created before Octopus recorded this.  
+  Allowed values: `Unknown`, `System`, `User`, `Agent`, `ServiceAccount`.
+- **`ApiKeyActorType`** :span[enum]{.type-label}  
+  Gets or sets the actor type of the API key used to authenticate the request, if applicable.  
+  Allowed values: `User`, `AiAgent`.
 - **`ApiKeyHint`** :span[string]{.type-label}  
   Gets or sets the obfuscated hint of the API key used to authenticate the request, if applicable.
 - **`ApiKeyId`** :span[string]{.type-label}  
@@ -416,8 +458,13 @@ Also reachable at `/api/events/{id}`, `/api/spaces/{spaceIdentifier}/events/{id}
   - **`StartIndex`** :span[integer]{.type-label}
 - **`Occurred`** :span[string]{.type-label}  
   Gets or sets the date/time that the event took place. Format `date-time`.
+- **`OnBehalfOf`** :span[string]{.type-label}  
+  Gets or sets the ID of the user an AI agent acted for. If the agent has its own service account, this is that account's ID. Null when an AI agent didn't create the event.
 - **`RelatedDocumentIds`** :span[array of string]{.type-label}  
   Gets or sets a collection of document ID's that this event relates to. Note that the document ID's may no longer exist.
+- **`ServiceAccountType`** :span[enum]{.type-label}  
+  Gets or sets the type of service account that created the event. Null when the user is not a service account.  
+  Allowed values: `Standard`, `Agent`.
 - **`SpaceId`** :span[string]{.type-label}  
   Gets or sets the SpaceId of the event. This represents the space in which the event was raised.
 - **`UserAgent`** :span[string]{.type-label}  
@@ -430,6 +477,15 @@ Also reachable at `/api/events/{id}`, `/api/spaces/{spaceIdentifier}/events/{id}
 :::api-example{label="Response"}
 ```json
 {
+  "Actor": "Claude (client_id: https://claude.ai/oauth/mcp-oauth-client-metadata, redirect_uri: https://claude.ai/api/mcp/auth_callback)",
+  "ActorOAuthClient": {
+    "ClientId": "https://claude.ai/oauth/mcp-oauth-client-metadata",
+    "ClientName": "Claude",
+    "IsLoopbackRedirect": false,
+    "RedirectUri": "https://claude.ai/api/mcp/auth_callback"
+  },
+  "ActorType": "Agent",
+  "ApiKeyActorType": null,
   "ApiKeyHint": null,
   "ApiKeyId": null,
   "Category": "Modified",
@@ -467,9 +523,11 @@ Also reachable at `/api/events/{id}`, `/api/spaces/{spaceIdentifier}/events/{id}
     }
   ],
   "Occurred": "2020-01-01T00:00:00.000Z",
+  "OnBehalfOf": "Users-1",
   "RelatedDocumentIds": [
     "Tenants-1"
   ],
+  "ServiceAccountType": null,
   "SpaceId": "Spaces-1",
   "UserAgent": "OctopusClient-js/2026.3.15581",
   "UserId": "Users-1",
