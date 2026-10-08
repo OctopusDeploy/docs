@@ -42,11 +42,11 @@ Support for configuring project triggers and runbook scheduled triggers for temp
 
 ## Deployment freezes
 
-The environment filter on deployment freezes doesn't list templated projects.
+When selecting projects for a global deployment freeze, filtering by environment may not show all templated projects that use the selected environment.
 
-## Projects dashboard
+## Viewing recent deployments
 
-The dashboard doesn't display deployments for templated projects.
+Recent deployments for templated projects are shown on the projects page like other projects. Unlike non-templated projects, the environments shown for templated projects are determined by the latest release in each channel. This means the projects page won't reflect the exact up-to-date environment configuration set in your templated project if you've updated environment parameter values but haven't created a new release.
 
 ## Cloud target discovery
 
