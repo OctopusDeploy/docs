@@ -39,7 +39,7 @@ A project's deployment process depends on resources that live outside its proces
 ![Process visualization](/docs/img/projects/pipeline-explorer/process-visualization.png)
 :::
 
-Each of these is normally configured on its own page: lifecycles define which environments a release can reach and in what order, targets are the machines or services a step deploys to, credentials are the accounts a step authenticates with, and approvals gate progression into specific environments. None of them are visible from a single place unless you already know to look for them.
+Each of these is normally configured on its own page: lifecycles define which environments a release can reach and in what order, targets are the machines or services a step deploys to, credentials are the accounts a step authenticates with, and approvals gate progression into specific environments. None of them are visible from a single place.
 
 The pipeline explorer surfaces each connection against the part of the pipeline or process it affects, so you can see, for example, which credential a step uses or which lifecycle governs a channel's environments, without opening a separate page for each one. This is especially useful when you're getting oriented in a project you didn't build, or inheriting ownership of one from someone else.
 
@@ -58,3 +58,7 @@ An issue here means something in the project's configuration needs attention bef
 The pipeline explorer is a new view built on top of your project's existing configuration. It doesn't replace anything or change how you use it. You can still edit your configuration there exactly as you typically would.
 
 Use the pipeline explorer to understand a project's shape and catch anything that needs attention.
+
+## Availability
+
+The pipeline explorer is available to all cloud and self-hosted customers from version `2026.4`
