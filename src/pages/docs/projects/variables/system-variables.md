@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2026-08-11
+modDate: 2026-10-09
 title: System variables
 sidebarLabel: System variables
 navOrder: 20
@@ -105,6 +105,7 @@ Deployment-level variables are drawn from the project and release being deployed
 | `Octopus.Acquire.DeltaCompressionEnabled` | Whether delta compression is used when sending packages to targets. | `true` |
 | `Octopus.Deployment.Comments` | User-provided comments on the deployment. | Signed off by Alice |
 | `Octopus.Deployment.Created` | The date and time the deployment was created. | Tuesday, September 10, 1:23 PM |
+| `Octopus.Deployment.CreatedBy.ActorType` | The kind of actor that started the deployment or runbook run: `User`, `ServiceAccount`, `Agent` (an AI agent), `System` (for example, a scheduled trigger), or `Unknown`. Project and library variables can't override this value. | `User` |
 | `Octopus.Deployment.CreatedBy.DisplayName` | The full name of the user who started the deployment. | Alice King |
 | `Octopus.Deployment.CreatedBy.EmailAddress` | The email address of the user who started the deployment. | `alice@example.com` |
 | `Octopus.Deployment.CreatedBy.Id` | The ID of the user who started the deployment. | `users-123` |
@@ -469,6 +470,7 @@ Some variables are available only from a specific version of Octopus. This topic
 | `Octopus.Web.ServerUri` | Octopus 2019.4.0 |
 | `Octopus.Deployment.Tenant.Id`, `Octopus.Deployment.Tenant.Name`, `Octopus.Deployment.Tenant.Tags` | Octopus 3.4 |
 | `OctopusShouldFailDeploymentOnSubstitutionFails` | Octopus 2025.1.0 |
+| `Octopus.Deployment.CreatedBy.ActorType` | Octopus 2026.4.6961 |
 
 ## Related links
 
