@@ -59,7 +59,7 @@ When you choose the **Custom** access level, you can add one or more access scop
 
 - A name. For example, "Read-only access to the corporate website in Development".
 - A role type, either **Space** or **System**. System roles apply across all spaces. An access scope can only contain one type of role, so if your API key needs both types, add a separate access scope for each.
-- One or more spaces for the user roles to apply to. Select **All space permissions** to give the API key the same access to the selected spaces as the user who owns it.
+- One or more spaces for the user roles to apply to. Select **All edit permissions** to give the API key the same access to the selected spaces as the user who owns it, or **All view permissions** to give the API key read-only access to the selected spaces.
 - The projects, environments, or both, that the API key can access in each space.
 
 :::div{.warning}
