@@ -42,7 +42,7 @@ Patch update
 - Update of a pinned tools Patch version
 - Any new release, the latest tools will be updated automatically
 
-In short, we recommend using the full version. On Ubuntu, use the `octopusdeploy/worker-tools:Major.Minor.Patch-Distro` tag format (e.g. `octopusdeploy/worker-tools:6.6.5-ubuntu.24.04`). On Windows, use the plain `octopusdeploy/worker-tools:Major.Minor.Patch` tag (e.g. `octopusdeploy/worker-tools:6.6.5`). It contains both the Windows 2022 and Windows 2025 images, and Docker pulls the one that matches the worker's version of Windows. Depending on your use case, the latest releases, `octopusdeploy/worker-tools:ubuntu.24.04` and `octopusdeploy/worker-tools:windows.ltsc2025` respectively or `octopusdeploy/worker-tools:Major-distro`, `octopusdeploy/worker-tools:Major.Minor-Distro` may be suitable for you.
+In short, we recommend the following. On Ubuntu, use the `octopusdeploy/worker-tools:Major.Minor.Patch-Distro` tag format. On Windows, use the plain `octopusdeploy/worker-tools:Major.Minor.Patch` tag. It contains both the Windows 2022 and Windows 2025 images, and Docker pulls the one that matches the worker's version of Windows. 
 
 ## Caching Worker Tools
 
