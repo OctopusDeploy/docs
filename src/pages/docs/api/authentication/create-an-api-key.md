@@ -21,7 +21,7 @@ You can create API keys by performing the following steps:
 1. Click **My API Keys**.
 1. Click **New API key**, then state the name or purpose of the API key.
 1. Choose an expiry date for the key.
-1. Choose whether the key will be used by an AI Agent (such as the [Octopus MCP server](/docs/octopus-ai/mcp)) or another tool. Agent keys are tagged throughout Octopus so you can filter for and audit agent activity separately from human activity.
+1. Choose whether the key will be used by an AI Agent (such as the [Octopus MCP server](/docs/octopus-ai/mcp)) or another tool. Agent keys are tagged throughout Octopus so that you can filter for and audit agent activity separately from human activity.
 1. Choose the level of **Access** to grant (see below).
 1. Click **Create API Key**.
 1. Copy the new API key to your clipboard.
