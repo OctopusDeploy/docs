@@ -356,6 +356,15 @@ Process template-level variables are available in all steps within a process tem
 | `Octopus.ProcessTemplate.Slug` | The slug of the process template. | `configure-infrastructure-template` |
 | `Octopus.ProcessTemplate.Version` | The version of the process template used. | `1.2.3` |
 
+## Project template variables
+
+Project template-level variables are available in all steps within a project template.
+
+| Variable | Description | Example |
+| --- | --- | --- |
+| `Octopus.ProjectTemplate.Slug` | The slug of the project template. | `kubernetes-template` |
+| `Octopus.ProjectTemplate.Version` | The version of the project template used. | `1.2.3` |
+
 ## Tracking deployment status {#tracking-deployment-status}
 
 During a deployment or runbook run, Octopus provides variables describing the status of each step and action, including ones other than the one currently running. This lets you reference another step or action's outcome, for example when writing a [run condition](/docs/projects/steps/conditions).
