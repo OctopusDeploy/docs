@@ -46,7 +46,9 @@ Custom scopes are useful for tooling that needs to make changes, but only in spe
 Alternatively, you can grant the API key full access to give it the same permissions as your user account. Any existing API keys created before the access level options were added to Octopus Server have full access.
 
 :::div{.hint}
+
 You can't create an API key with more permissions than your user account. If your tooling needs more permissions, or doesn't act on behalf of a particular user, create the API key under a dedicated [Service Account](/docs/security/users-and-teams/service-accounts) instead.
+
 :::
 
 ## Defining custom access scopes {#custom-access-scopes}
