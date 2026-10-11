@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2026-10-08
 title: Security and unscoped variables
 description: Rationale behind limited user access to unscope variables if their access is restricted to specific environments.
 navOrder: 1
@@ -25,7 +25,7 @@ This default behavior can be changed by granting an additional permission to the
 
 ## Granting unscoped variable editing permission {#granting-unscoped-variable-editing-permission}
 
-As an administrator, open **Configuration ➜ User Roles**. In the list of user roles shown, either create a new role to assign to the team, or select a built-in role like **Project contributors** to modify.
+As an administrator, open **Configuration ➜ User Roles**. In the list of user roles shown, either create a new role to assign to the team, or select a built-in role like **Project contributor** to modify.
 
 :::figure
 ![The list of user roles under Configuration ➜ User Roles](/docs/img/security/users-and-teams/images/3277947.png)

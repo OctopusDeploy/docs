@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2026-10-08
 title: Teams with mixed environment privileges in Octopus
 navTitle: Teams with mixed environment privileges
 description: This guide describes how to create a teams for a user with mixed environment privileges.
@@ -42,7 +42,7 @@ for this team in any scope.
 
 ### Adding additional roles for a subset of environments
 
-Since our goal is to give members of the Developers team the ability to create and deploy releases *in the Development and Staging environments only*, we can click **Include user role** again, this time adding the **Project lead** role. This role provides all the permissions of the **Project viewer** role as well as allowing a team member to create and deploy releases. This time, we will click on **Define Scope** and choose the environments that we would like to scope the role to, before hitting the **Apply** button.
+Since our goal is to give members of the Developers team the ability to create and deploy releases *in the Development and Staging environments only*, we can click **Include user role** again, this time adding the **Project lead** role. This role provides all the permissions of the **Project viewer** role as well as allowing a team member to create releases. It can't deploy them, so add the **Project deployer** role with the same scope as well. This time, we will click on **Define Scope** and choose the environments that we would like to scope the role to, before hitting the **Apply** button.
 
 :::figure
 ![Defining the environment scope for a user role](/docs/img/security/users-and-teams/images/define-scope-for-user-role.png)
