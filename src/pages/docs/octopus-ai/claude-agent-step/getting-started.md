@@ -63,7 +63,7 @@ To add and configure the step:
 9. Optionally, under **Agent Capabilities**, add **Skills**, connect the **Octopus MCP Server**, or add **Additional MCP Servers**. See [Extending the Claude Agent Step](/docs/octopus-ai/claude-agent-step/tools).
 10. Under **Additional Configuration Options**, set a **Turn Limit** to cap how many turns the agent can take before the step stops. One turn is a single request/response cycle with the model. The default is 10.
 11. Optionally, set a **Maximum Budget** as a spend cap in USD. Leave it blank for no limit.
-12. Leave **Prompt Injection Check** switched on. Before the agent runs, Octopus screens the prompt, deployment variables, MCP configuration, and skills with a fast model (`claude-haiku-4-5` by default) and blocks the step if it detects an injection attempt.
+12. Leave **Prompt Injection Check** switched on. Before the agent runs, Octopus screens the prompt, deployment variables, MCP configuration, and skills with a fast model (`claude-haiku-5-5` by default) and blocks the step if it detects an injection attempt.
 13. Save the step.
 
 The **Run Claude Agent** step appears in your deployment process or runbook, ready to run.
