@@ -115,10 +115,6 @@ Every project template comes with a default lifecycle. This uses the same conven
 
 You can set [release and Tentacle file retention policies](/docs/administration/retention-policies) on each lifecycle and phase in a project template. Octopus applies them to every templated project that uses the template, per channel and lifecycle.
 
-:::div{.warning}
-If you set retention policies on project template lifecycles before Octopus started applying them, the next retention run will apply those policies. Releases and Tentacle files that were previously kept may be deleted, and deleted releases can't be recovered. Review your project template retention policies before upgrading.
-:::
-
 Retention policies in project templates can't exceed [your license's retention limits](/docs/best-practices/octopus-administration/ongoing-maintenance#octopus-cloud). If a policy exceeds the limits, Octopus shows a warning icon on **Lifecycles** and a message on the policy. You can't save or publish the template until you bring the policy within the limits.
 
 If your license changes after you've published a template version, Octopus doesn't rewrite that version. Instead, each retention run uses the lower of the template's policy and your license limit. Deployments aren't affected.
