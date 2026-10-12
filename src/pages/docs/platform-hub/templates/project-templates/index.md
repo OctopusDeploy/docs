@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-03-05
-modDate: 2026-09-21
+modDate: 2026-10-12
 title: Project templates
 subtitle: An overview of project templates
 icon: fa-solid fa-layer-group
@@ -111,9 +111,17 @@ Every project template comes with a default lifecycle. This uses the same conven
 ![Lifecycles in project templates](/docs/img/platform-hub/project-templates/project-templates-lifecycles.png)
 :::
 
+### Retention policies
+
+You can set [release and Tentacle file retention policies](/docs/administration/retention-policies) on each lifecycle and phase in a project template. Octopus applies them to every templated project that uses the template, per channel and lifecycle.
+
 :::div{.warning}
-While retention policies can be configured in project template lifecycles, these aren't yet fully supported.
+If you set retention policies on project template lifecycles before Octopus started applying them, the next retention run will apply those policies. Releases and Tentacle files that were previously kept may be deleted, and deleted releases can't be recovered. Review your project template retention policies before upgrading.
 :::
+
+Retention policies in project templates can't exceed your license's retention limits. [VERIFY: whether a docs page explains license retention limits that this sentence should link to — needs: confirmation from Sea Dragon or the licensing docs owner] If a policy exceeds the limits, Octopus shows a warning icon on **Lifecycles** and a message on the policy. You can't save or publish the template until you bring the policy within the limits.
+
+If your license changes after you've published a template version, Octopus doesn't rewrite that version. Instead, each retention run uses the lower of the template's policy and your license limit. Deployments aren't affected.
 
 ## Parameters
 
@@ -213,3 +221,4 @@ Project templates are in Public Preview and we're actively shaping how the featu
 ## Version notes
 
 - [Channels](#channels) and [Lifecycles](#lifecycles) in Project Templates are available from Octopus Server version `2026.4.4005`.
+- Retention policies in project template lifecycles are applied from Octopus Server version [PLACEHOLDER: exact build number — needs: the release build from Sea Dragon].
