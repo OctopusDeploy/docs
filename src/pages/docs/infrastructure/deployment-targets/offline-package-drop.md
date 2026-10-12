@@ -45,9 +45,13 @@ Configure the drop folder path field with the [UNC path](http://en.wikipedia.org
 
 ### Sensitive-variables encryption password {#sensitive-variables-encryption-password}
 
-As a security measure, any sensitive variables are written to a separate file which is then encrypted.  To perform the encryption/decryption, a password is required.  If your project does not contain any sensitive-variables, this field may be left un-set.  If a project is deployed to an offline package drop target which does not have an encryption password set, the deployment will fail with an indicative error.
+As a security measure, any sensitive variables are written to a separate file which is then encrypted. To perform the encryption/decryption, a password is required. If a project is deployed to an offline package drop target which does not have an encryption password set, the deployment will fail with an indicative error.
 
 Please ensure you store your encryption password in a secure location, as you will require it when executing the batch file to perform the deployment on the target server.
+
+:::div{.info}
+From 2026.4, the Sensitive-variables encryption password is required on all new offline drop targets.
+:::
 
 ### Applications directory {#applications-directory}
 
