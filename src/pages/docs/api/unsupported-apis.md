@@ -39,7 +39,7 @@ BFF APIs are designed for the Octopus Web Portal. The portal often needs data in
 BFF API URLs start with `/bff`. For example:
 
 ```text
-https://<your-octopus-url>/bff/Spaces-1/platformhub/accounts/names
+https://<your-octopus-url>/bff/Spaces-1/{resource}
 ```
 
 If you want to do something the portal does through a BFF API, look for a supported alternative in the [Octopus REST API documentation](/docs/api). If you can't find one, [contact our support team](https://octopus.com/support).
@@ -51,7 +51,7 @@ Experimental APIs usually ship with new features. Keeping a new API experimental
 Some experimental API URLs include `experimental`, but not all of them do. For example:
 
 ```text
-https://<your-octopus-url>/api/Spaces-1/experimental/runbookProcesses/{id}/v2
+https://<your-octopus-url>/api/Spaces-1/experimental/{resource}
 ```
 
 ### Private APIs
