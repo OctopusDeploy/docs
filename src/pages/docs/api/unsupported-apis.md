@@ -56,7 +56,7 @@ https://<your-octopus-url>/api/Spaces-1/experimental/{resource}
 
 ### Private APIs
 
-Private APIs are endpoints we build for Octopus's own internal use. They aren't intended for external use and may never be.
+Private APIs are endpoints we build for Octopus's own internal use. They're never intended to be public.
 
 Some private API URLs include `private`, but not all of them do. For example:
 
