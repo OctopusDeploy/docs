@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-9-24
-modDate: 2026-10-12
+modDate: 2026-10-13
 title: Granular Permissions
 description: Define Kubernetes RBAC for your Kubernetes agent deployment based on Octopus context
 navOrder: 22
@@ -24,12 +24,6 @@ Once you've added your `WorkloadServiceAccounts`, Octopus will handle assigning 
 ## Who should use this feature
 
 Use granular permissions when teams or environments share a cluster but need different levels of access. There is a little more setup: someone needs to maintain the permission definitions as applications and deployment processes change.
-
-### Best practices
-
-- **Keep default script pod permissions minimal.** Deployments with no matching `WorkloadServiceAccount` fall back to these permissions. See [installing on a cluster with existing agents](#installing-on-a-cluster-with-existing-agents).
-- **Grant only the access each deployment needs.** Prefer namespaced permissions and specific resources and verbs over `"*"`. Remember that omitted scope fields match any value, and permissions from all matching definitions are combined.
-- **Review and verify changes.** Keep permission definitions in version control, limit who can edit them, and [check the permissions assigned to a deployment](#validating-assigned-permissions).
 
 ## How do I use it?
 
@@ -61,24 +55,17 @@ oci://registry-1.docker.io/octopusdeploy/octopus-permissions-controller-chart
 
 #### Choosing agent and worker namespaces
 
-These settings select where the controller creates service accounts for agent or worker script pods. Each namespace gets multiple service accounts created in it, corresponding with each defined level of access that is possible given your defined permissions. Because of this, it's important to ensure you only allow the permissions controller to create these service accounts in trusted namespaces that you control. We recommend providing your own namespace list rather than relying on a namespace regex wherever possible.
+The controller creates service accounts for each combination of permissions in your agent and worker namespaces. Only allow it to create these accounts in trusted namespaces you control.
 
-##### How the namespace regex works
+##### Default behavior
 
 By default, the controller finds Deployments labeled `app.kubernetes.io/name: octopus-agent`, then filters their namespaces with `^octopus-(agent|worker)-.*`. This matches names starting with `octopus-agent-` or `octopus-worker-`, such as `octopus-agent-prod`, but not `my-octopus-agent-prod` or `octopus-agent`.
 
-The regex controlling this can be overriden to suit your naming convention by using the `TARGET_NAMESPACE_REGEX` environment variable. It uses [Go regex syntax](https://pkg.go.dev/regexp/syntax). As an example, if you wanted to match on `platform-agent-*` or `platform-worker-*` namespaces, you could use this example values file:
+This matches Kubernetes agents and workers installed with the default namespace settings.
 
-```yaml
-manager:
-  envOverrides:
-    TARGET_NAMESPACES: ""
-    TARGET_NAMESPACE_REGEX: '^platform-(agent|worker)-.+$'
-```
+##### Provide a list of target namespaces (recommended)
 
-##### Providing your own namespace list
-
-For security, it's recommended to simply provide a fixed list of namespaces that you would like the permission controller to create service accounts (and so, control the agents/workers) in. Use a comma-separated string with no spaces:
+For security, we recommend providing a fixed list of agent and worker namespaces where the controller can create service accounts. Use a comma-separated string with no spaces:
 
 ```yaml
 manager:
@@ -87,6 +74,17 @@ manager:
 ```
 
 This list **replaces automatic discovery** and bypasses the regex and Deployment label requirement. Include every agent or worker namespace you want to manage. Set `TARGET_NAMESPACES` back to `""` to restore discovery.
+
+##### Target namespaces with regex
+
+To use automatic discovery with a different naming convention, set `TARGET_NAMESPACE_REGEX`. It uses [Go regex syntax](https://pkg.go.dev/regexp/syntax). For example, this values file matches namespaces such as `platform-agent-prod` and `platform-worker-build`:
+
+```yaml
+manager:
+  envOverrides:
+    TARGET_NAMESPACES: ""
+    TARGET_NAMESPACE_REGEX: '^platform-(agent|worker)-.+$'
+```
 
 Apply either example to the **permissions controller's Helm release**, not the agent or worker release. See the [chart values](https://github.com/OctopusDeploy/octopus-permissions-controller/blob/main/dist/chart/values.yaml) for more settings.
 
