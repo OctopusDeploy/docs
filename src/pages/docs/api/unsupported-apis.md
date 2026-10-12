@@ -79,8 +79,3 @@ A `bff`, `experimental`, or `private` segment in a URL tells you an endpoint is 
 | URL includes `private` | No |
 | Not listed in the Octopus REST API documentation | No |
 
-## Related links
-
-- [Octopus REST API](/docs/api)
-- [Create an API key](/docs/api/authentication/create-an-api-key)
-- [Using OpenID Connect with the Octopus API](/docs/api/authentication/openid-connect)
