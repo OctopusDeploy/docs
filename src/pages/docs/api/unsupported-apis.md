@@ -58,7 +58,11 @@ https://<your-octopus-url>/api/Spaces-1/experimental/runbookProcesses/{id}/v2
 
 Private APIs are endpoints we build for Octopus's own internal use. They aren't intended for external use and may never be.
 
-Some private API URLs include `private`, but not all of them do.
+Some private API URLs include `private`, but not all of them do. For example:
+
+```text
+https://<your-octopus-url>/api/Spaces-1/private/{resource}
+```
 
 ### Identifying unsupported APIs
 
