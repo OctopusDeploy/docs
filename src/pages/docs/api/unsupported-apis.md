@@ -20,7 +20,7 @@ Octopus is built API-first, so you can script almost anything the Octopus Web Po
 
 Supported APIs are the endpoints listed in the [Octopus REST API documentation](/docs/api). Building on them gives your scripts and integrations a stable foundation that won't break without warning.
 
-Supported APIs meet a high bar for quality and stability. We aim not to break or remove them, and when we do need to, we take them through a deprecation process first.
+Supported APIs meet a high bar for quality and stability. We aim not to break or remove them, and when we do need to, we take them through our [deprecation lifecycle](/docs/deprecations) first.
 
 The [Octopus REST API documentation](/docs/api) is the source of truth for what's supported. If an endpoint is listed there, it's supported for external use. If it isn't listed, treat it as unsupported, even if you can see it in your browser's network traffic or call it successfully.
 
