@@ -73,6 +73,7 @@ A `bff`, `experimental`, or `private` segment in a URL tells you an endpoint is 
 | Endpoint | Supported |
 | --- | --- |
 | Listed in the [Octopus REST API documentation](/docs/api) | Yes |
+| Listed in your instance's Swagger UI (`/swaggerui/`) | Yes |
 | URL starts with `/bff` | No |
 | URL includes `experimental` | No |
 | URL includes `private` | No |
