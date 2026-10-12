@@ -61,4 +61,4 @@ Use the pipeline explorer to understand a project's shape and catch anything tha
 
 ## Availability
 
-The pipeline explorer is available to all cloud and self-hosted customers from version `2026.4`
+The pipeline explorer is available to all cloud and self-hosted customers from version `2026.4`.
