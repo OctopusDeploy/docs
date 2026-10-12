@@ -50,7 +50,7 @@ As a security measure, any sensitive variables are written to a separate file wh
 Please ensure you store your encryption password in a secure location, as you will require it when executing the batch file to perform the deployment on the target server.
 
 :::div{.info}
-From 206.4, the Sensitive-variables encryption password is required on all new offline drop targets.
+From 2026.4, the Sensitive-variables encryption password is required on all new offline drop targets.
 :::
 
 ### Applications directory {#applications-directory}
