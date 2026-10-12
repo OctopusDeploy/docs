@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-9-24
-modDate: 2026-08-24
+modDate: 2026-10-12
 title: Granular Permissions
 description: Define Kubernetes RBAC for your Kubernetes agent deployment based on Octopus context
 navOrder: 22
@@ -23,7 +23,13 @@ Once you've added your `WorkloadServiceAccounts`, Octopus will handle assigning 
 
 ## Who should use this feature
 
-Use it if you require principle of least privilege or limited access for your developers. This feature increases friction when creating new applications so we do not recommend it for all circumstances.
+Use granular permissions when teams or environments share a cluster but need different levels of access. There is a little more setup: someone needs to maintain the permission definitions as applications and deployment processes change.
+
+### Best practices
+
+- **Keep default script pod permissions minimal.** Deployments with no matching `WorkloadServiceAccount` fall back to these permissions. See [installing on a cluster with existing agents](#installing-on-a-cluster-with-existing-agents).
+- **Grant only the access each deployment needs.** Prefer namespaced permissions and specific resources and verbs over `"*"`. Remember that omitted scope fields match any value, and permissions from all matching definitions are combined.
+- **Review and verify changes.** Keep permission definitions in version control, limit who can edit them, and [check the permissions assigned to a deployment](#validating-assigned-permissions).
 
 ## How do I use it?
 
@@ -31,11 +37,11 @@ Granular permissions uses a Kubernetes controller and custom resources to config
 
 ### Installing Octopus Permissions Controller
 
-Octopus Permissions Controller is a standalone component that is installed via Helm, much like the Kubernetes agent. The installation includes the controller itself and the `WorkloadServiceAccount` CRD.
+Install Octopus Permissions Controller with Helm, much like the Kubernetes agent. The chart includes the controller and its custom resource definitions (CRDs).
 
-Only a single Octopus Permissions Controller is required per cluster.
+Install one controller per cluster, shared by the agents and workers on that cluster.
 
-The below Helm command will install Octopus Permissions Controller.
+The following command installs the controller with automatic namespace discovery:
 
 ```sh
 helm upgrade --install --atomic \
@@ -52,6 +58,37 @@ oci://registry-1.docker.io/octopusdeploy/octopus-permissions-controller-chart
 - [Cert Manager](https://cert-manager.io)
 
 :::
+
+#### Choosing agent and worker namespaces
+
+These settings select where the controller creates service accounts for agent or worker script pods. Each namespace gets multiple service accounts created in it, corresponding with each defined level of access that is possible given your defined permissions. Because of this, it's important to ensure you only allow the permissions controller to create these service accounts in trusted namespaces that you control. We recommend providing your own namespace list rather than relying on a namespace regex wherever possible.
+
+##### How the namespace regex works
+
+By default, the controller finds Deployments labeled `app.kubernetes.io/name: octopus-agent`, then filters their namespaces with `^octopus-(agent|worker)-.*`. This matches names starting with `octopus-agent-` or `octopus-worker-`, such as `octopus-agent-prod`, but not `my-octopus-agent-prod` or `octopus-agent`.
+
+The regex controlling this can be overriden to suit your naming convention by using the `TARGET_NAMESPACE_REGEX` environment variable. It uses [Go regex syntax](https://pkg.go.dev/regexp/syntax). As an example, if you wanted to match on `platform-agent-*` or `platform-worker-*` namespaces, you could use this example values file:
+
+```yaml
+manager:
+  envOverrides:
+    TARGET_NAMESPACES: ""
+    TARGET_NAMESPACE_REGEX: '^platform-(agent|worker)-.+$'
+```
+
+##### Providing your own namespace list
+
+For security, it's recommended to simply provide a fixed list of namespaces that you would like the permission controller to create service accounts (and so, control the agents/workers) in. Use a comma-separated string with no spaces:
+
+```yaml
+manager:
+  envOverrides:
+    TARGET_NAMESPACES: "team-deploy-agent,shared-build-worker"
+```
+
+This list **replaces automatic discovery** and bypasses the regex and Deployment label requirement. Include every agent or worker namespace you want to manage. Set `TARGET_NAMESPACES` back to `""` to restore discovery.
+
+Apply either example to the **permissions controller's Helm release**, not the agent or worker release. See the [chart values](https://github.com/OctopusDeploy/octopus-permissions-controller/blob/main/dist/chart/values.yaml) for more settings.
 
 ### Workload Service Accounts
 
@@ -142,7 +179,7 @@ When a workload with a particular scope matches multiple `WorkloadServiceAccount
 
 ### Running deployments
 
-With the Octopus Permissions Controller and your `WorkloadServiceAccounts` configured, running deployments is done exactly as before and it will seamlessly apply the appropriate `ServiceAccount` that best matches the scope of the deployment.
+Run deployments as usual. The controller assigns a service account with the combined permissions from all `WorkloadServiceAccounts` whose scopes match the deployment.
 
 If there are no `WorkloadServiceAccounts` that match the deployments scope, the deployment will use the default permissions configured for script pods when you installed the Kubernetes agent.
 
@@ -182,16 +219,16 @@ As we deploy Octopus Permissions Controller as a Helm chart, you can use any met
 
 Octopus Permissions Controller can be installed on a cluster with existing Kubernetes agents and it will immediately start applying permissions from matching `WorkloadServiceAccounts`.
 
-It is highly recommended that you update each of your agents default script pod permissions to be more restrictive. If a matching `WorkloadServiceAccount` is found, it will correctly apply restricted permissions, but any misconfiguration that results in no matching `WorkloadServiceAccount` could result in your deployment having more permissive permissions than intended.
+Review each agent's default script pod permissions before enabling granular permissions. A deployment with no matching `WorkloadServiceAccount` still uses those defaults, so broad defaults can hide a scope mistake.
 
-For basic installations of the Kubernetes agent, this command will remove default permissions.
+For a basic Kubernetes agent installation, the following command disables the default script pod ClusterRole. If you supplied your own service account or role bindings, review those separately; this setting does not remove permissions you granted outside the chart.
 
 ```sh
 helm upgrade --install --atomic \
 --create-namespace --namespace ${agent_namespace} \
 --reset-then-reuse-values \
 --set scriptPods.serviceAccount.clusterRole.enabled="false" \
-${release_name) \
+${release_name} \
 oci://registry-1.docker.io/octopusdeploy/kubernetes-agent
 ```
 
@@ -214,7 +251,7 @@ helm upgrade --install --atomic \
 --reset-then-reuse-values \
 --set scriptPods.serviceAccount.clusterRole.enabled="true" \
 --set scriptPods.serviceAccount.clusterRole.rules=null \
-${release_name) \
+${release_name} \
 oci://registry-1.docker.io/octopusdeploy/kubernetes-agent
 ```
 
