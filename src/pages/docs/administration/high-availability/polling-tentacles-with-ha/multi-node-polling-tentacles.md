@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
-pubDate: 2026-09-28
-modDate: 2026-10-08
+pubDate: 2026-10-13
+modDate: 2026-10-13
 title: Multi-node support for Polling Tentacles
 description: Use Redis to let Polling Tentacles connect to any node in an Octopus High Availability cluster through a single load-balanced address.
 navOrder: 10
