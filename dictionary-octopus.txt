@@ -345,6 +345,7 @@ nlog
 nmap
 noconsolelogging
 nodir
+noeviction
 nologo
 nologs
 noninteractive
