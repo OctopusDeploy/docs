@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2026-10-06
+modDate: 2026-10-13
 title: Polling every node
 description: Connect Polling Tentacles to an Octopus High Availability cluster without Redis, by registering every node with every Polling Tentacle.
 navOrder: 20
