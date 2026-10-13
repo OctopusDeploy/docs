@@ -48,25 +48,25 @@ If you want to do something the portal does through a BFF API, look for a suppor
 
 Experimental APIs usually ship with new features. Keeping a new API experimental for a while lets the team make breaking changes in response to customer feedback before committing to it long term.
 
-Experimental endpoints added in 2026.4.xxx and later include `experimental` in the route, like this:
+Experimental endpoints added in 2026.4.xxx and later have `experimental` in the route:
 
 ```text
 https://<your-octopus-url>/api/Spaces-1/experimental/{resource}
 ```
 
-Older experimental endpoints don't.
+Earlier ones don't, so a route without `experimental` doesn't mean an endpoint is supported.
 
 ### Private APIs
 
 Private APIs are endpoints we build for Octopus's own internal use. They aren't intended for external use and may never be.
 
-Private endpoints added in 2026.4.xxx and later include `private` in the route, like this:
+Private endpoints added in 2026.4.xxx and later have `private` in the route:
 
 ```text
 https://<your-octopus-url>/api/Spaces-1/private/{resource}
 ```
 
-Older private endpoints don't.
+Earlier ones don't, so a route without `private` doesn't mean an endpoint is supported.
 
 ### Identifying unsupported APIs
 
