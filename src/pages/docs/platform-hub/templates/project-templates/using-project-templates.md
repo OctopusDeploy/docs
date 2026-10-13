@@ -86,7 +86,7 @@ The environments a channel can deploy to depend on the environment parameter val
 
 ## Retention policies
 
-A templated project uses the retention policies set on its template's lifecycles. Octopus uses the environment parameter values you set in the project to work out which environments belong to each lifecycle phase.
+A templated project uses the retention policies set on its template's lifecycles. Octopus uses the environment parameter values you set in the project to determine which environments belong to each lifecycle phase.
 
 On Octopus Cloud if the template's policies exceed your license's retention limits, Octopus limits them to match your license and shows a message on the **Channels** page.
 
