@@ -69,6 +69,10 @@ If any designated approver rejects the change request, Octopus immediately termi
 
 The deployment creator can always reject their own change request, even if they're not an approver. This lets them withdraw a deployment they've queued.
 
+### Approvals for Runbooks
+
+Running a runbook against any change controlled environment triggers a change request. At this stage, you can't select individual runbooks to enable approvals for.
+
 ## Reviewing change requests
 
 Octopus surfaces change requests in several places so approvers can act on them without leaving their current context.
@@ -109,7 +113,3 @@ Select **Review** to open the drawer to view the change request details and subm
 To create, edit, or delete approval rules, you need the **ApprovalRuleAdminister** permission. This permission applies to the whole space and can't be scoped to specific projects or environments. The built-in **Space manager** and **Environment manager** roles include it. Anyone can view approval rules.
 
 Approving or rejecting a change request doesn't require a specific permission. The approval rule controls it: only the users and team members listed as **Approvers** on the matching rule can approve or reject.
-
-## Approvals for Runbooks
-
-Running a runbook against any change controlled environment triggers a change request. At this stage, you can't select individual runbooks to enable approvals for. If this would be helpful for your organization, please [leave feedback here](https://survey.octopus.com/t/15JLhBiYAZus).
