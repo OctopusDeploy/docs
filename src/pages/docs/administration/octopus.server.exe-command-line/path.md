@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2026-09-29
+modDate: 2026-10-13
 title: Path
 description: Set the file paths that Octopus will use for storage
 navOrder: 160
