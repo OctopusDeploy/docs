@@ -48,25 +48,33 @@ If you want to do something the portal does through a BFF API, look for a suppor
 
 Experimental APIs usually ship with new features. Keeping a new API experimental for a while lets the team make breaking changes in response to customer feedback before committing to it long term.
 
-Some experimental API URLs include `experimental`, but not all of them do. For example:
+Experimental endpoints added in 2026.4.xxx and later include `experimental` in the route, like this:
 
 ```text
 https://<your-octopus-url>/api/Spaces-1/experimental/{resource}
 ```
 
+Older experimental endpoints don't.
+
 ### Private APIs
 
 Private APIs are endpoints we build for Octopus's own internal use. They aren't intended for external use and may never be.
 
-Some private API URLs include `private`, but not all of them do. For example:
+Private endpoints added in 2026.4.xxx and later include `private` in the route, like this:
 
 ```text
 https://<your-octopus-url>/api/Spaces-1/private/{resource}
 ```
 
+Older private endpoints don't.
+
 ### Identifying unsupported APIs
 
-A `bff`, `experimental`, or `private` segment in a URL tells you an endpoint is unsupported. A URL without one of these segments doesn't tell you an endpoint is supported, because some experimental and private APIs carry no marker. Always check the [Octopus REST API documentation](/docs/api) before you use an endpoint.
+A `bff`, `experimental`, or `private` segment in a URL tells you an endpoint is unsupported. A URL without one of these segments doesn't tell you an endpoint is supported, because not all experimental and private APIs follow this pattern. Always check the [Octopus REST API documentation](/docs/api) before you use an endpoint.
+
+:::div{.hint}
+If an endpoint isn't in the [public documentation](/docs/api), treat it as unsupported.
+:::
 
 ## Endpoint support at a glance
 
@@ -78,4 +86,3 @@ A `bff`, `experimental`, or `private` segment in a URL tells you an endpoint is 
 | URL includes `experimental` | No |
 | URL includes `private` | No |
 | Not listed in the Octopus REST API documentation | No |
-
