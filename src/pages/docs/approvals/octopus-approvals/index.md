@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-04-15
-modDate: 2026-10-08
+modDate: 2026-10-13
 title: Octopus Approvals
 description: Octopus Approvals is a built-in change approval system that gates deployments on sign-off from designated users or teams, without requiring an external ITSM tool.
 navOrder: 5
@@ -112,4 +112,4 @@ Approving or rejecting a change request doesn't require a specific permission. T
 
 ## Approvals for Runbooks
 
-Approvals aren't available for runbooks at this stage, but they're on the roadmap for future work. If this would be helpful for your organization, please [leave feedback here](https://survey.octopus.com/t/15JLhBiYAZus).
+Running a runbook against any change controlled environment triggers a change request. At this stage, you can't select individual runbooks to enable approvals for. If this would be helpful for your organization, please [leave feedback here](https://survey.octopus.com/t/15JLhBiYAZus).
