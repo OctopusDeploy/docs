@@ -71,7 +71,7 @@ The deployment creator can always reject their own change request, even if they'
 
 ### Approvals for Runbooks
 
-Running a runbook against any change controlled environment triggers a change request. At this stage, you can't select individual runbooks to enable approvals for.
+Running a runbook from a change controlled project in a change controlled environment triggers a change request. At this stage, you can't select individual runbooks to enable approvals for.
 
 ## Reviewing change requests
 
