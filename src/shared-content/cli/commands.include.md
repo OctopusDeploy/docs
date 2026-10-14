@@ -126,6 +126,7 @@
 - **[octopus release progression](/docs/cli/octopus-release-progression)**:  Manage progression of a release.
 - **[octopus release progression allow](/docs/cli/octopus-release-progression-allow)**:  Allows a release to progress to the next phase..
 - **[octopus release progression prevent](/docs/cli/octopus-release-progression-prevent)**:  Prevents a release from progression to the next phase.
+- **[octopus release snapshot-variables](/docs/cli/octopus-release-snapshot-variables)**:  Update the variable snapshot for a release.
 - **[octopus runbook](/docs/cli/octopus-runbook)**:  Manage runbooks.
 - **[octopus runbook delete](/docs/cli/octopus-runbook-delete)**:  Delete a runbook.
 - **[octopus runbook list](/docs/cli/octopus-runbook-list)**:  List runbooks.
@@ -134,12 +135,14 @@
 - **[octopus runbook snapshot create](/docs/cli/octopus-runbook-snapshot-create)**:  Create a runbook snapshot.
 - **[octopus runbook snapshot list](/docs/cli/octopus-runbook-snapshot-list)**:  List runbook snapshots.
 - **[octopus runbook snapshot publish](/docs/cli/octopus-runbook-snapshot-publish)**:  Publish a runbook snapshot.
+- **[octopus runbook snapshot snapshot-variables](/docs/cli/octopus-runbook-snapshot-snapshot-variables)**:  Update the variable snapshot for a runbook snapshot.
 - **[octopus space](/docs/cli/octopus-space)**:  Manage spaces.
 - **[octopus space create](/docs/cli/octopus-space-create)**:  Create a space.
 - **[octopus space delete](/docs/cli/octopus-space-delete)**:  Delete a space.
 - **[octopus space list](/docs/cli/octopus-space-list)**:  List spaces.
 - **[octopus space view](/docs/cli/octopus-space-view)**:  View a space.
 - **[octopus task](/docs/cli/octopus-task)**:  Manage tasks.
+- **[octopus task list](/docs/cli/octopus-task-list)**:  List tasks.
 - **[octopus task wait](/docs/cli/octopus-task-wait)**:  Wait for task(s) to finish.
 - **[octopus tenant](/docs/cli/octopus-tenant)**:  Manage tenants.
 - **[octopus tenant clone](/docs/cli/octopus-tenant-clone)**:  Clone a tenant.

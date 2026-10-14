@@ -1,0 +1,51 @@
+---
+layout: src/layouts/Cli.astro
+pubDate: 2023-01-01
+modDate: 2026-10-14
+title: octopus task list
+description: List tasks
+navOrder: 144
+---
+import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
+
+List tasks in Octopus Deploy, optionally filtered by project, environment and state
+
+```text
+Usage:
+  octopus task list [flags]
+
+Aliases:
+  list, ls
+
+Flags:
+  -e, --environment string   Name or ID of the environment to list tasks for, including ephemeral environments
+      --limit int            Maximum number of tasks to list, or 0 to list all matching tasks (default 30)
+  -p, --project string       Name or ID of the project to list tasks for
+      --state strings        Only list tasks in this state (Pending, Queued, Executing, Cancelling, Success, Failed, Canceled, TimedOut). Can be repeated or comma separated
+
+
+Global Flags:
+  -h, --help                   Show help for a command
+      --no-prompt              Disable prompting in interactive mode
+  -f, --output-format string   Specify the output format for a command ("json", "table", or "basic") (default "table")
+  -s, --space string           Specify the space for operations
+
+```
+
+## Examples
+
+<SamplesInstance />
+
+```bash
+octopus task list
+octopus task ls --project "Deploy Web App"
+octopus task list --project "Deploy Web App" --environment Production --state Queued --state Executing
+octopus task list --environment 123-pr --state Queued,Executing,Cancelling --output-format basic
+
+
+```
+
+## Learn more
+
+- [Octopus CLI](/docs/cli)
+- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key)
