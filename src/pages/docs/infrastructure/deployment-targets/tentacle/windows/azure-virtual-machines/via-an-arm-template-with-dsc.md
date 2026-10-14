@@ -8,7 +8,7 @@ description: How to install the Tentacle using Desired State configuration (DSC)
 navOrder: 1
 ---
 
-The following example shows how to install a Tentacle during virtual machine (VM) provisioning with [Desired State Configuration](https://docs.microsoft.com/powershell/scripting/dsc/overview/overview) (DSC).
+The following example shows how to install a Tentacle during virtual machine (VM) provisioning with [Desired State Configuration](https://learn.microsoft.com/en-us/powershell/scripting/dsc/overview) (DSC).
 
 1. Download the latest release of the OctopusDSC from the [OctopusDSC repo](https://github.com/OctopusDeploy/OctopusDSC/releases) and extract it into a new folder.
 
