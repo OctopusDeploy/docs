@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2024-11-24
-modDate: 2025-11-27
+modDate: 2026-10-13
 title: Config as Code runbooks
 description: Details about using configuration as code with runbooks.
 navOrder: 20
@@ -89,7 +89,7 @@ Another exciting thing about CaC Runbooks is that every revision to your runbook
 
 To re-run a previous version of a CaC Runbook, simply enter a commit hash on the branch selector at the top of the **Runbooks** page then run from that commit. If you are using the Octopus built in roles, this will require the Runbook Producer role.
 
-The information that was previously found on the **Snapshot** page is still available on the **Details** tab of each runbook run.
+The information that was previously found on the **Snapshot** page is still available on the **Runbook** tab of each runbook run.
 
 💡 Rather than setting package versions in your runbook snapshots, you can now specify fixed package versions inside your runbook steps and store these in CaC alongside the rest of your runbook process.
 

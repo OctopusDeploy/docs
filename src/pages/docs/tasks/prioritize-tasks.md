@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-10-20
-modDate: 2025-10-08
+modDate: 2026-10-13
 title: Prioritize Tasks
 description: Tasks can be manually prioritized to run before other earlier queued tasks.
 ---
@@ -62,10 +62,6 @@ You can prioritize tasks in two ways:
 :::
 
 - **On the Task details page**: Select **Move to Top**.  
-
-:::figure
-![Release page showing 'Move to top' button.](/docs/img/tasks/images/release-move-to-top.png)
-:::
 
 ## Priority deployments and runbooks
 

@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2024-07-31
-modDate: 2025-03-28
+modDate: 2026-10-13
 title: First Kubernetes deployment
 description: This tutorial will walk you through sourcing YAML files from a Git repository, and deploying them to a Kubernetes cluster. 
 navSection: Tutorials
@@ -290,7 +290,7 @@ Your first deployment may take slightly longer as we download and extract the ne
 
 ### Watch the deployment complete
 
-The **Task Summary** tab will show you in real-time how the deployment steps are progressing. You can also view the status of Kubernetes resources being deployed on the cluster itself.
+The **Task Log** tab will show you in real-time how the deployment steps are progressing. You can also view the status of Kubernetes resources being deployed on the cluster itself.
 
 3. Navigate to the **Object Snapshot** view in the **Kubernetes** tab to see the real-time status of your Kubernetes objects as the deployment progresses.
 
