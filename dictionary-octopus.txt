@@ -521,6 +521,7 @@ serviceaccount
 Sesna
 setspn
 sfproj
+SGID
 shiki
 showcerts
 Showplan
