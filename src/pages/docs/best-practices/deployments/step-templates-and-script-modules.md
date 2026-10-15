@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2026-10-13
 title: Step Templates and Script Modules
 description: Guidelines and recommendations for creating re-usable components in Octopus Deploy.
 navOrder: 70
@@ -40,8 +40,8 @@ We also recommend leveraging the different logging levels as Octopus treats each
 - Verbose: Automatically hidden by default, useful for low-level logging messages you think will only be useful to other developers.
 - Information: Is shown in the task log by default.  Useful for logging status messages to the user.
 - Warning: Messages are highlighted in yellow in the task log. Helpful if something isn't quite right, but the script was able to recover.
-- Error: Messages are highlighted in red in the task log and task summary.  This is for what it says on the tin, error messages.
-- Highlight: Messages are highlighted in blue in the task log and task summary.  Use these for important messages you want to let the user know about.  
+- Error: Messages are highlighted in red in the task log.  This is for what it says on the tin, error messages.
+- Highlight: Messages are highlighted in blue in the task log.  Use these for important messages you want to let the user know about.  
 
 Octopus provides [manual interventions](/docs/projects/built-in-step-templates/manual-intervention-and-approvals/) which pause the deployment and allow people to review the progress made so far.  Putting information needed for approvals in logs can make it difficult for the approvers to find.  If there is information needed for approvals, such as test results or database delta scripts, the recommendation is to create an [artifact](/docs/projects/deployment-process/artifacts).
 

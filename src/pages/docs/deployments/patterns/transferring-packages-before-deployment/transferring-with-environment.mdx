@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-11-05
-modDate: 2025-11-05
+modDate: 2026-10-13
 title: Transferring packages with a separate environment
 description: Transferring packages to environments the main deployment in Octopus with a separate environment.
 navOrder: 85
@@ -41,21 +41,11 @@ You'll now choose versions for the packages used by the transfer steps when the 
 ![Choosing package versions for the transfer steps when creating the release](/docs/img/deployments/patterns/transferring-packages-before-deployment/creating-the-release.png)
 :::
 
-## Acquisition logs from Transfer phase
+## Acquisition logs
 
-We can see that the packages were uploaded to the targets when deploying the release to the `Transfer` phase.
+When you deploy the release to the `Transfer` phase, the **Acquire packages** section of the task log shows each package being uploaded to the targets.
 
-:::figure
-![Acquisition logs showing packages uploaded during the Transfer phase](/docs/img/deployments/patterns/transferring-packages-before-deployment/acquisition-logs-from-transfer-phase.png)
-:::
-
-## Acquisition logs from Production phase
-
-We can see that the packages were found in the cache and not uploaded when deploying the release to the `Production` phase.
-
-:::figure
-![Acquisition logs showing packages found in the cache during the Production phase](/docs/img/deployments/patterns/transferring-packages-before-deployment/acquisition-logs-from-production-phase.png)
-:::
+When you then deploy the same release to the `Production` phase, that section shows each package being found in the targets' package cache instead, so no packages are uploaded during the deployment.
 
 ## Benefits of this approach
 

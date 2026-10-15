@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2026-09-14
+modDate: 2026-10-13
 title: Manually fail a task
 description: How to manually fail a running or canceling task when tasks hang or get stuck.
 icon: fa-solid fa-circle-stop
@@ -10,7 +10,7 @@ navOrder: 21
 
 Octopus implements a queue of running background tasks. Sometimes, a task may hang, or be canceled, but never actually finish canceling. This prevents any new tasks from beginning, and new tasks will eventually appear as Timed Out.
 
-When a task is queued, you'll see a list of tasks that it is waiting on in the task summary:
+When a task is queued, you'll see a list of tasks that it is waiting on in the task log:
 
 :::figure
 ![Cancel a running task](/docs/img/releases/images/cancel-tasks.png)

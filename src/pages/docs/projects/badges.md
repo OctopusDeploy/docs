@@ -3,7 +3,7 @@ layout: src/layouts/Default.astro
 pubDate: 2026-06-19
 title: Release Badges
 description: How to add deployment status badges to your Git repositories and other external tools.
-navOrder: 12
+navOrder: 13
 ---
 
 Release Badges let you display the deployment status of your projects in external tools like Git repository READMEs, wikis, or dashboards. Each badge shows the latest release version for a specific environment, so your team can see deployment status at a glance without opening Octopus.

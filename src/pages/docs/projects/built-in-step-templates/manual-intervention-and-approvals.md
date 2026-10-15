@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2026-05-25
+modDate: 2026-10-13
 title: Manual intervention and approval step
 icon: fa-solid fa-check
 description: Manual intervention and approvals allow a human to review, approve, or sign off on deployments.
@@ -18,7 +18,7 @@ While fully automated deployment is a great goal, there are times when a human n
 The **Manual intervention step** is a step that can be added to deployment processes to pause the deployment to wait for a member of a specified team to either allow the deployment to proceed or to be aborted.
 
 :::div{.hint}
-Manual interventions result in either a success or failure outcome based on the user’s input. Subsequent steps evaluate this outcome according to their run conditions. By default, the run condition is set to "Success: only run when previous steps succeed." This means manual interventions can prevent these steps from executing, causing the deployment to fail.
+Manual interventions result in either a success or failure outcome based on the user's input. Subsequent steps evaluate this outcome according to their run conditions. By default, the run condition is set to "Success: only run when previous steps succeed." This means manual interventions can prevent these steps from executing, causing the deployment to fail.
 
 However, if "Always Run" is selected for subsequent steps, they will proceed regardless of the manual intervention outcome. For steps with the condition "Variable: only run when the variable expression is true," the manual intervention's outcome must be included in the variable expression to determine whether the step should run.
 :::
@@ -71,10 +71,10 @@ When a manual intervention does not pause the deployment task, the task slot rem
 
 ## Assigning manual interventions
 
-When a deployment is executing and a manual step is encountered, the deployment will show a status of **Waiting**. An interruption will appear at the top of the deployment summary.
+When a deployment is executing and a manual step is encountered, the deployment will show a status of **Waiting**. An interruption will appear at the top of the deployment page.
 
 :::figure
-![Waiting Status](/docs/img/projects/built-in-step-templates/images/waiting-status.png)
+![A deployment waiting on a manual intervention, with Assign to me, Show details, and View log in the banner above the task log](/docs/img/projects/built-in-step-templates/images/waiting-status.png)
 :::
 
 You can click **Show details** to view the instructions.
@@ -97,14 +97,14 @@ When a manual step is completed, details of the interruption are saved as variab
 
 *Step Name* below refers to the name given to the manual step. For example "*Ensure traders are aware of the deployment*".
 
-| Variable name | Contains | Example value |
-| --- | --- | --- |
-| `Octopus.Action[Step Name].Output.Manual.Notes` | The contents of the *Notes* field from the interruption form | *Checked with Rick, got the all-clear; Michelle is out at a meeting.* |
-| `Octopus.Action[Step Name].Output.Manual.Approved` | Indicates if the step was approved | *True* |
-| `Octopus.Action[Step Name].Output.Manual.ResponsibleUser.Id` | The user ID of the user who submitted the interruption form | *users-237* |
-| `Octopus.Action[Step Name].Output.Manual.ResponsibleUser.Username` | The username of the user who submitted the interruption form | *j_jones* |
-| `Octopus.Action[Step Name].Output.Manual.ResponsibleUser.DisplayName` | The display name of the user who submitted the interruption form | *Jamie Jones* |
-| `Octopus.Action[Step Name].Output.Manual.ResponsibleUser.EmailAddress` | The email address of the user who submitted the interruption form | *<jamie.jones@example.com>* |
+| Variable name                                                          | Contains                                                          | Example value                                                         |
+| ---------------------------------------------------------------------- | ----------------------------------------------------------------- | --------------------------------------------------------------------- |
+| `Octopus.Action[Step Name].Output.Manual.Notes`                        | The contents of the *Notes* field from the interruption form      | *Checked with Rick, got the all-clear; Michelle is out at a meeting.* |
+| `Octopus.Action[Step Name].Output.Manual.Approved`                     | Indicates if the step was approved                                | *True*                                                                |
+| `Octopus.Action[Step Name].Output.Manual.ResponsibleUser.Id`           | The user ID of the user who submitted the interruption form       | *users-237*                                                           |
+| `Octopus.Action[Step Name].Output.Manual.ResponsibleUser.Username`     | The username of the user who submitted the interruption form      | *j_jones*                                                             |
+| `Octopus.Action[Step Name].Output.Manual.ResponsibleUser.DisplayName`  | The display name of the user who submitted the interruption form  | *Jamie Jones*                                                         |
+| `Octopus.Action[Step Name].Output.Manual.ResponsibleUser.EmailAddress` | The email address of the user who submitted the interruption form | *<jamie.jones@example.com>*                                           |
 
 ## Evaluating manual intervention output in following steps
 

@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2026-09-08
+modDate: 2026-10-08
 title: User roles
 description: User roles are a critical part of the Octopus security model whereby they are assigned to Teams and they dictate what the members of those teams can do in Octopus.
 ---
@@ -10,42 +10,46 @@ User roles and group permissions play a major part in the Octopus security model
 
 ## Built-in user roles {#UserRoles-Built-inUserRoles}
 
-Octopus comes with a set of built-in user roles that are designed to work for most common scenarios:
+Octopus comes with a set of built-in user roles that are designed to work for most common scenarios.
 
-| User role | Description |
-| --- | --- |
-| Build Server | Build servers can publish packages, and create releases, deployments, runbook snapshots and runbook runs. They can't edit a runbook's steps or publish its snapshots. |
-| Certificate Manager | Certificate managers can edit certificates and export private-keys |
-| Deployment Creator | Deployment creators can create new deployments and runbook runs. |
-| Environment Manager | Environment managers can view and edit environments and their machines. |
-| Environment Viewer | Environment viewers can view environments and their machines, but not edit them. |
-| Package Publisher | Permits packages to be pushed to the Octopus Server's built-in NuGet feed. |
-| Project Viewer | Project viewers have read-only access to a project. They can see a project in their dashboard, view releases and deployments. Restrict this role by project to limit it to a subset of projects, and restrict it by environment to limit which environments they can view deployments to. |
-| Project Contributor | All project viewer permissions, plus: editing and viewing variables, editing the deployment steps. Project contributors can't create or deploy releases. |
-| Project Initiator | All project viewer permissions, plus: create new projects. |
-| Project Deployer | All project contributor permissions, plus: deploying releases, but not creating them. |
-| Project Lead | All project contributor permissions, plus: creating releases, but not deploying them. |
-| Release Creator | Release creators can create new releases and runbook snapshots. |
-| Runbook Consumer | Runbook consumers can view and execute runbooks. |
-| Runbook Producer | Runbook producers can edit and execute runbooks. |
-| System Administrator | System administrators can do everything at the system level. |
-| System Manager | System managers can do everything at the system level except certain system-level functions reserved for system administrators. |
-| Tenant Manager | Tenant managers can edit tenants and their tags |
-
-The built-in user roles can be modified to contain more or less roles to suit specific needs. But instead of modifying the built-in ones, we recommend that you leave them as an example and instead create your own user roles.
-
-:::div{.success}
-To view the default permissions for each of the built-in user roles, please see [default permissions](/docs/security/users-and-teams/default-permissions).
-:::
-
-### Additional user roles for spaces
+These core roles cannot be edited.
 
 | User Role | Description |
 | --- | --- |
-| Space Manager | Space managers can do everything within the context of the space they own. |
+| System Administrator | Everything at the system level, including the most sensitive server functions, like configuring web hosting, server nodes, and maintenance mode. |
+| System Manager | Everything at the system level except the functions reserved for System Administrators. |
+| Space Manager | Full control within a space, including projects, environments, tenants, and variables. Can't change settings that apply to the whole instance. |
+| Space Viewer | View access to every resource in a space. Can't create, edit, delete, or run anything, or see most system-wide settings. |
+| Read Only | View access to nearly every resource across the system and its spaces. Can't create, edit, delete, or run anything. |
+
+The rest of the built-in user roles can be edited to contain different permissions. However, we recommend keeping them as a reference and [creating a new user role](#UserRoles-CreatingUserRoles) when you need to customize.
+
+| User role | Description |
+| --- | --- |
+| Build Server | Publish packages and build information. Create releases, deployments, runbook snapshots, and runbook runs. Can't edit a runbook or its steps. |
+| Certificate Manager | Create, edit, and delete certificates, and export their private keys. |
+| Deployment Creator | Deploy existing releases and run runbooks. Can't create releases or edit projects. |
+| Environment Manager | Create, edit, and delete environments, deployment targets, workers, accounts, proxies, and machine policies. |
+| Environment Viewer | View environments, deployment targets, workers, proxies, accounts, and machine policies. Can't edit them. |
+| Feature Toggle Editor | Create, edit, and delete a project's feature toggles. |
+| Insights Report Manager | Create, edit, view, and delete Insights reports. |
+| Package Publisher | Push, download, and administer packages in the built-in feed. Push and administer build information. |
+| Project Viewer | View a project's dashboard, releases, deployments, runbooks, runbook snapshots, and tenants. Restrict this role by project to limit it to a subset of projects, and by environment to limit which environments they can view deployments to. |
+| Project Contributor | All Project Viewer permissions, plus: editing projects, deployment processes, variables, triggers, and runbooks, and creating runbook snapshots. Can't create or deploy releases, or run runbooks. |
+| Project Initiator | All Project Viewer permissions, plus: creating, editing, and deleting projects, and managing their Insights reports. |
+| Project Deployer | All Project Contributor permissions, plus: deploying releases and running runbooks. Can't create releases. |
+| Project Lead | All Project Contributor permissions, plus: creating, editing, and deleting releases. Can't deploy releases or run runbooks. |
+| Release Creator | Create new releases and runbook snapshots. |
+| Runbook Consumer | View and run a project's runbooks. |
+| Runbook Producer | View and run a project's runbooks. Create, edit, and delete projects, runbooks, runbook snapshots, variables, and triggers. |
+| Tenant Manager | Create, edit, and delete tenants and their tags. |
+
+:::div{.warning}
+New versions of Octopus may add new permissions. These are not added to editable built-in user roles or to custom roles, to avoid giving users permissions they are not supposed to have. An administrator must add these new permissions to a user role manually.
+:::
 
 :::div{.success}
-For more information regarding the *system or space level*, please see [system and space permissions](/docs/security/users-and-teams/system-and-space-permissions).
+To view the default permissions for each of the built-in user roles, please see [default permissions](/docs/security/users-and-teams/default-permissions).
 :::
 
 ## Creating user roles {#UserRoles-CreatingUserRoles}
@@ -101,8 +105,4 @@ If a user tries to perform an action without having enough permissions to do it,
 
 :::figure
 ![Error message showing missing permissions](/docs/img/security/users-and-teams/images/errors.png)
-:::
-
-:::div{.warning}
-As further versions of Octopus are released, we might create new roles to improve our security model. These new roles will not be automatically included in any of the built-in user roles, to avoid giving users permissions they are not supposed to have. These new roles will have to be added manually to a User Role by an administrator.
 :::

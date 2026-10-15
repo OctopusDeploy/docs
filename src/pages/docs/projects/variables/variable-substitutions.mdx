@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2026-08-06
+modDate: 2026-09-21
 title: Variable substitution syntax
 sidebarLabel: Variable substitutions
 navOrder: 10
@@ -193,7 +193,7 @@ Last: SV3
 
 ## Calculations
 
-Octopus supports basic arithmetic on variable values using the `calc` statement, so you can derive a value like an IP offset or a scaled count without pre-computing it yourself. Four operators are supported: addition (`+`), subtraction (`-`), multiplication (`*`), and division (`/`).
+Octopus supports basic arithmetic on variable values using the `calc` statement, so you can derive a value like an IP offset or a scaled count without pre-computing it yourself. Five operators are supported: addition (`+`), subtraction (`-`), multiplication (`*`), division (`/`), and modulo (`%`).
 
 Given the variables:
 
@@ -205,9 +205,12 @@ Given the variables:
 
 - `192.168.0.#{calc IPOffset[Primary] + 1}` evaluates to `192.168.0.1`
 - `#{calc 22 * ScaleFactor}` evaluates to `264`
+- `#{calc 22 % ScaleFactor}` evaluates to `10`
 - `#{each i in Numbers}#{calc i + 5}#{/each}` evaluates to `15 25 35 45 55`
 
-When a variable appears on the left-hand side of a divide or subtract operation, enclose its name in braces so the operator symbol isn't parsed as part of the variable name: `#{calc {IPOffset[Primary]} - 4}`.
+When a variable appears on the left-hand side of a divide or subtract operation, enclose its name in braces so the operator symbol isn't parsed as part of the variable name: `#{calc {IPOffset[Primary]} - 4}`. Modulo doesn't need this: `%` can't appear in a variable name, so `#{calc ScaleFactor % 5}` parses unambiguously without braces.
+
+Modulo operates on whole numbers only, unlike the other four operators. If either operand isn't a whole number, or the right-hand operand is `0`, the expression has no result and is left unevaluated, appearing in the output as written — the same as an undefined variable.
 
 ## Conditionals
 
@@ -267,6 +270,7 @@ Filters cover common transformations such as changing case, escaping values for 
 ## Version notes
 
 - The `calc` operator is available from Octopus Server 2023.2.
+- The `modulo` operator is available from Octopus Server 2026.4.
 
 ## Related links
 

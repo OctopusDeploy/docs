@@ -142,6 +142,7 @@
 - **[octopus space list](/docs/cli/octopus-space-list)**:  List spaces.
 - **[octopus space view](/docs/cli/octopus-space-view)**:  View a space.
 - **[octopus task](/docs/cli/octopus-task)**:  Manage tasks.
+- **[octopus task list](/docs/cli/octopus-task-list)**:  List tasks.
 - **[octopus task wait](/docs/cli/octopus-task-wait)**:  Wait for task(s) to finish.
 - **[octopus tenant](/docs/cli/octopus-tenant)**:  Manage tenants.
 - **[octopus tenant clone](/docs/cli/octopus-tenant-clone)**:  Clone a tenant.
