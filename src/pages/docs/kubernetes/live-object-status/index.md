@@ -26,9 +26,7 @@ Using Kubernetes Live Object Status requires the following:
 
 ## How to use Live Status
 
-Once you have the Kubernetes monitor enabled on your [Kubernetes Agent](/docs/kubernetes/targets/kubernetes-agent).
-
-To see live status for one environment, select its card on the project dashboard, or select **Environment Status** on a deployment, to open the [Environment status](/docs/projects/environment-status) page, then select the **Kubernetes Live Status** tab.
+Once the Kubernetes monitor is enabled on your Kubernetes Agent, select an environment's card on the project dashboard, or select **Environment Status** on a deployment, to open the [Environment status](/docs/projects/environment-status) page, then select the **Kubernetes Live Status** tab.
 
 Octopus display individual status at an object level as well as summarized status for an Application.
 
