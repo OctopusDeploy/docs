@@ -22,8 +22,8 @@ The second feature is the `Service`. This feature is used to build a [Service re
 The third feature is the `Ingress`. This feature is used to build a [Ingress resource](https://oc.to/KubernetesIngressResource).
 
 :::figure
-<img class="theme-light-only" src="/docs/img/kubernetes/steps/kubernetes-resources/deploy-container-light.svg" alt="A Kubernetes cluster where an Ingress path routes traffic to a Service on port 80, which forwards it to a Deployment. The Deployment manages a ReplicaSet that runs a Pod with two containers." width="504" height="302">
-<img class="theme-dark-only" src="/docs/img/kubernetes/steps/kubernetes-resources/deploy-container-dark.svg" alt="A Kubernetes cluster where an Ingress path routes traffic to a Service on port 80, which forwards it to a Deployment. The Deployment manages a ReplicaSet that runs a Pod with two containers." width="504" height="302">
+<img class="theme-light-only" src="/docs/img/kubernetes/steps/kubernetes-resources/deploy-container-light.svg" alt="A Kubernetes cluster where an Ingress path routes traffic to a Service on port 80, which forwards it to a Deployment. The Deployment manages a ReplicaSet that runs a Pod with two containers." width="480" height="270">
+<img class="theme-dark-only" src="/docs/img/kubernetes/steps/kubernetes-resources/deploy-container-dark.svg" alt="A Kubernetes cluster where an Ingress path routes traffic to a Service on port 80, which forwards it to a Deployment. The Deployment manages a ReplicaSet that runs a Pod with two containers." width="480" height="270">
 :::
 
 :::div{.hint}
