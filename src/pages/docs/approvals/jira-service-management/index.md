@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2026-06-03
+modDate: 2026-10-13
 title: Jira Service Management Integration
 description: Octopus Deploy can integrate with your Jira Service Management instance for deployment control using Change Requests/Issues
 navOrder: 10
@@ -205,7 +205,7 @@ Once an Issue has been found, the deployment will only proceed if the **State** 
 The only supported states are those defined in the default Issue lifecycle
 :::
 
-The number of the Issue created or found will appear in the Task Summary tab of the executing
+The number of the Issue created or found will appear in the task log of the executing
 Octopus deployment task. Clicking on the CR number in the message will navigate you to the CR in
 JSM.
 

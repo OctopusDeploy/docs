@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-07-09
-modDate: 2025-07-09
+modDate: 2026-10-13
 title: Prompt-based project creation
 description: Learn how to use the Octopus AI Assistant to create deployment projects from text prompts and customize projects for your requirements.
 navOrder: 20
@@ -42,7 +42,7 @@ Each project deployed with our best practices has a step in the process to valid
 5. Click **Deploy to Development**
 6. Click **Deploy**
 
-When the deployment completes, go to the **Task Summary** tab for the release. The important step to check is **Step 1: Validate setup**, and review the output. This step runs a predefined script to check the configuration of your Octopus Deploy environment, and highlights any steps you need to take before you can run a deployment using this project. If we tell you an element hasn't been configured, we also provide you with a link to the documentation on how to configure it.
+When the deployment completes, go to the **Task Log** tab for the deployment. The important step to check is **Step 1: Validate setup**, and review the output. This step runs a predefined script to check the configuration of your Octopus Deploy environment, and highlights any steps you need to take before you can run a deployment using this project. If we tell you an element hasn't been configured, we also provide you with a link to the documentation on how to configure it.
 
 ![Octopus AI Assistant pre-configured project options](/docs/img/octopus-ai-assistant/octopus-ai-assistant-project-create-validate-setup.png)
 

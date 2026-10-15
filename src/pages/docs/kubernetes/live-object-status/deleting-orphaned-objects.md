@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-08-19
-modDate: 2026-08-24
+modDate: 2026-10-13
 navSection: Deleting orphaned objects
 title: Deleting orphaned objects
 navTitle: Deleting orphaned objects
@@ -9,7 +9,7 @@ description: How to review and delete Kubernetes objects that Octopus no longer 
 navOrder: 60
 ---
 
-When a deployment stops including an object that a previous release deployed, Octopus marks that object as **Orphaned** in Kubernetes Live Object Status, and it keeps running in your cluster until someone removes it. Octopus can delete orphaned objects for you, one at a time or in bulk, from the project's Live Status page.
+When a deployment stops including an object that a previous release deployed, Octopus marks that object as **Orphaned** in Kubernetes Live Object Status, and it keeps running in your cluster until someone removes it. Octopus can delete orphaned objects for you, one at a time or in bulk, from the **Kubernetes Live Status** tab of the [Environment status](/docs/projects/environment-status) page.
 
 ## Requirements
 
@@ -21,7 +21,7 @@ To delete orphaned objects you need:
 
 ## Delete orphaned objects
 
-Open your project and select **Live Status** for the environment (and tenant) you want. The table offers a delete action on every orphaned row, and when an application has orphaned objects the page also shows a card counting them. To list only orphaned objects, use the **Sync status** filter and select **Orphaned**.
+Open the [Environment status](/docs/projects/environment-status) page for the environment (and tenant) you want, and select the **Kubernetes Live Status** tab. The table offers a delete action on every orphaned row, and when an application has orphaned objects the tab also shows a message counting them. To list only orphaned objects, use the **Sync status** filter and select **Orphaned**.
 
 :::figure
 ![Live Status table showing orphaned objects](/docs/img/kubernetes/live-object-status/live-status-orphaned-objects.png)
@@ -36,7 +36,7 @@ You can also select the object to open its detail drawer and use the **Delete** 
 
 ### Several objects at once
 
-1. Choose **Review & delete** on the orphaned-objects card to open the **Delete orphaned resources** drawer.
+1. Choose **Review & delete** on the orphaned-objects message to open the **Delete orphaned resources** drawer.
 2. Select the objects to delete. Objects are grouped by deployment target, so you can select a whole target or everything at once.
 3. Choose **Next**.
 4. Review the **Confirm deletion** step, which lists every selected object grouped by deployment target.

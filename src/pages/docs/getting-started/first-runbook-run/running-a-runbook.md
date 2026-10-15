@@ -1,9 +1,9 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2026-04-16
+modDate: 2026-10-13
 title: Run a runbook in Octopus Deploy
-description: Trigger a runbook run in Octopus Deploy. Select the runbook, choose an environment, review the task summary, and verify the run completed successfully.
+description: Trigger a runbook run in Octopus Deploy. Select the runbook, choose an environment, review the task log, and verify the run completed successfully.
 navOrder: 50
 hideInThisSection: true
 ---

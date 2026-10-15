@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-04-30
-modDate: 2026-04-30
+modDate: 2026-10-13
 title: Superseded Tasks
 description: Tasks that are no longer required can be automatically cancelled.
 ---
@@ -38,11 +38,7 @@ When a task completes successfully, Octopus will cancel older tasks that have st
 
 ## Auditing
 
-You can see whether a task was cancelled by system by inspecting the task audit history.
-
-:::figure
-![Cancelled task audit history.](/docs/img/tasks/images/cancel-task-audit.png)
-:::
+You can see whether a task was cancelled by system in the **History** section of the task's **Metadata** tab. The entry reads "Task ... was canceled due to being superseded by ...", with a link to the task that replaced it.
 
 ## Exclusions
 
