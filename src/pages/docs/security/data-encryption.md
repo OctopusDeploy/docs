@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-10-04
+modDate: 2026-10-07
 title: Data encryption
 description: This section describes how Octopus Deploy encrypts sensitive data at rest.
 navOrder: 50
@@ -34,6 +34,10 @@ The practical impact of this is:
 **Warning**
 Without keeping a record of your Master Key, you won't be able to make use of your Octopus database backups, since there is no way to decrypt these sensitive values.
 :::
+
+## Sensitive variables on deployment targets {#sensitive-variables-on-targets}
+
+Octopus sends sensitive variables to a deployment target in encrypted form, and the target stores them encrypted. Octopus passes the password that decrypts them to the Calamari invocation as a process parameter.
 
 ## Your Master Key {#your-master-key}
 
