@@ -247,8 +247,22 @@ figure img {
   cursor: zoom-in;
 }
 
+/* SVG diagrams scale without loss, so fill the column rather than sitting at
+   whatever size the design tool exported them at. */
+figure img[src$='.svg'] {
+  width: 100%;
+}
+
 figure img[data-hidden='true'] {
   visibility: hidden;
+}
+
+/* Diagrams exported in a light and a dark variant. Keyed off data-theme rather
+   than prefers-color-scheme so the swap follows the site's theme toggle, not
+   just the OS setting. */
+html[data-theme='light'] .theme-dark-only,
+html[data-theme='dark'] .theme-light-only {
+  display: none;
 }
 
 .image__caption {

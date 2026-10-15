@@ -12,7 +12,8 @@ function stillFrames() {
 
 /**
  * Where the image lands: its own aspect ratio, centred, never wider than the
- * source really is.
+ * source really is. Vector images have no real source size, so they fill the
+ * room.
  *
  * @param {HTMLImageElement} img
  */
@@ -24,7 +25,10 @@ function targetRect(img) {
   };
 
   const ratio = img.naturalWidth / img.naturalHeight;
-  const native = Number(img.getAttribute('width')) || img.naturalWidth;
+  const vector = new URL(img.src).pathname.endsWith('.svg');
+  const native = vector
+    ? Infinity
+    : Number(img.getAttribute('width')) || img.naturalWidth;
 
   let width = Math.min(room.width, room.height * ratio, native);
   let height = width / ratio;
