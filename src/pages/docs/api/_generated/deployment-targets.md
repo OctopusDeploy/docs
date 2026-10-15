@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-09-04
+modDate: 2026-10-07
 title: Deployment Targets
 ---
 
@@ -740,6 +740,90 @@ Also reachable at `/api/machines/operatingsystem/shells/all`, `/api/spaces/{spac
 [
   "string"
 ]
+```
+:::
+
+## Summarise deployment targets and their health by deployment target type
+
+:endpoint{method="GET" path="/api/\{spaceId\}/machines/summary"}
+
+Also reachable at `/api/spaces/{spaceIdentifier}/machines/summary`.
+
+Counts the deployment targets in the supplied Octopus Deploy Space, grouped by deployment target type, with a breakdown by health status. Accepts the same filters as listing machines.
+
+**Path Parameters**
+
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
+
+**Query Parameters**
+
+- **`commStyles`** :span[array of string]{.type-label}  
+  List of communication styles which if specified, filters the result to only include Deployment Targets with matching communication styles.
+- **`deploymentTargetTypes`** :span[array of string]{.type-label}  
+  List of deployment target types which if specified, filters the result to only include Deployment Targets with matching types.
+- **`environmentIds`** :span[array of string]{.type-label}  
+  List of Environment IDs which if specified, filters the result to only include Deployment Targets with matching Environment IDs.
+- **`healthStatuses`** :span[array of string]{.type-label}  
+  List of health statuses which if specified, filters the result to only include Deployment Targets with matching health statuses.
+- **`ids`** :span[array of string]{.type-label}  
+  List of Deployment Target IDs which if specified, filters the result to only include Deployment Targets with matching IDs.
+- **`isDisabled`** :span[boolean]{.type-label}  
+  A filter to return only disabled/enabled Deployment Targets.
+- **`operatingSystemNames`** :span[array of string]{.type-label}  
+  List of operating system names which if specified, filters the result to only include Deployment Targets with matching operating systems.
+- **`partialName`** :span[string]{.type-label}  
+  A partial or complete name to search on. This will perform a "contains" style match against the supplied name or name-fragment.
+- **`roles`** :span[array of string]{.type-label}  
+  List of roles which if specified, filters the result to only include Deployment Targets with matching roles.
+- **`shellNames`** :span[array of string]{.type-label}  
+  List of shell names which if specified, filters the result to only include Deployment Targets with matching shells.
+- **`targetTags`** :span[array of string]{.type-label}  
+  List of Target Tags which if specified, filters the result to only include Deployment Targets with matching Target Tags.
+- **`tenantIds`** :span[array of string]{.type-label}  
+  List of Tenant IDs which if specified, filters the result to only include Deployment Targets with matching Tenant IDs.
+- **`tenantTags`** :span[array of string]{.type-label}  
+  List of Tenant Tags which if specified, filters the result to only include Deployment Targets with matching Tenant Tags.
+
+**Response**
+
+`200` — Deployment target counts and health, overall and per deployment target type.
+
+- **`DeploymentTargetTypeSummaries`** :span[array of object]{.type-label}  
+  Summaries per deployment target type, ordered by the number of deployment targets, largest first.
+  - **`DeploymentTargetType`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`MachineHealthStatusSummaries`** :span[object]{.type-label}
+  - **`TotalDisabledMachines`** :span[integer]{.type-label}
+  - **`TotalMachines`** :span[integer]{.type-label}
+- **`MachineHealthStatusSummaries`** :span[object]{.type-label}  
+  Count of deployment targets per health status. Disabled targets are only counted in TotalDisabledMachines.
+- **`TotalDisabledMachines`** :span[integer]{.type-label}
+- **`TotalMachines`** :span[integer]{.type-label}
+
+:::api-example{label="Response"}
+```json
+{
+  "DeploymentTargetTypeSummaries": [
+    {
+      "DeploymentTargetType": "string",
+      "MachineHealthStatusSummaries": {
+        "additionalProp1": 0,
+        "additionalProp2": 0,
+        "additionalProp3": 0
+      },
+      "TotalDisabledMachines": 0,
+      "TotalMachines": 0
+    }
+  ],
+  "MachineHealthStatusSummaries": {
+    "additionalProp1": 0,
+    "additionalProp2": 0,
+    "additionalProp3": 0
+  },
+  "TotalDisabledMachines": 0,
+  "TotalMachines": 0
+}
 ```
 :::
 

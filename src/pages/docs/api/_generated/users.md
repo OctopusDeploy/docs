@@ -615,9 +615,6 @@ Unless the first administrator user is being registered, an invitation code must
 - **`DisplayName`** :span[string]{.type-label} *(required)*  
   Minimum length 1.
 - **`EmailAddress`** :span[string]{.type-label}
-- **`Identities`** :span[array of object]{.type-label}
-  - **`Claims`** :span[object]{.type-label}
-  - **`IdentityProviderName`** :span[string]{.type-label}
 - **`InvitationCode`** :span[string]{.type-label} *(required)*  
   Minimum length 1.
 - **`Password`** :span[string]{.type-label} *(required)*  
@@ -630,16 +627,6 @@ Unless the first administrator user is being registered, an invitation code must
 {
   "DisplayName": "string",
   "EmailAddress": "string",
-  "Identities": [
-    {
-      "Claims": {
-        "additionalProp1": {},
-        "additionalProp2": {},
-        "additionalProp3": {}
-      },
-      "IdentityProviderName": "string"
-    }
-  ],
   "InvitationCode": "string",
   "Password": "string",
   "Username": "string"

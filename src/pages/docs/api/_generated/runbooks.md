@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-09-04
+modDate: 2026-10-07
 title: Runbooks
 ---
 
@@ -933,7 +933,8 @@ Also reachable at `/api/projects/{projectId}/runbooks/{id}/environments`, `/api/
   Gets or sets a short description of this environment that can be used to explain the purpose of the environment to other users. This field may contain markdown.
 - **`EnvironmentTags`** :span[array of string]{.type-label}  
   List of tags assigned to this environment.
-- **`ExtensionSettings`** :span[array of object]{.type-label}
+- **`ExtensionSettings`** :span[array of object]{.type-label}  
+  Not intended for general use; You should not alter or add/remove any values it may have.
   - **`ExtensionId`** :span[string]{.type-label}
   - **`Values`** :span[string]{.type-label}
 - **`Id`** :span[string]{.type-label}  
@@ -962,12 +963,7 @@ Also reachable at `/api/projects/{projectId}/runbooks/{id}/environments`, `/api/
     "EnvironmentTags": [
       "string"
     ],
-    "ExtensionSettings": [
-      {
-        "ExtensionId": "string",
-        "Values": "string"
-      }
-    ],
+    "ExtensionSettings": [],
     "Id": "string",
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
@@ -2365,7 +2361,8 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks/{id}/environments
   Gets or sets a short description of this environment that can be used to explain the purpose of the environment to other users. This field may contain markdown.
 - **`EnvironmentTags`** :span[array of string]{.type-label}  
   List of tags assigned to this environment.
-- **`ExtensionSettings`** :span[array of object]{.type-label}
+- **`ExtensionSettings`** :span[array of object]{.type-label}  
+  Not intended for general use; You should not alter or add/remove any values it may have.
   - **`ExtensionId`** :span[string]{.type-label}
   - **`Values`** :span[string]{.type-label}
 - **`Id`** :span[string]{.type-label}  
@@ -2394,12 +2391,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks/{id}/environments
     "EnvironmentTags": [
       "string"
     ],
-    "ExtensionSettings": [
-      {
-        "ExtensionId": "string",
-        "Values": "string"
-      }
-    ],
+    "ExtensionSettings": [],
     "Id": "string",
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
@@ -3832,7 +3824,8 @@ Also reachable at `/api/runbooks/{id}/environments`, `/api/spaces/{spaceIdentifi
   Gets or sets a short description of this environment that can be used to explain the purpose of the environment to other users. This field may contain markdown.
 - **`EnvironmentTags`** :span[array of string]{.type-label}  
   List of tags assigned to this environment.
-- **`ExtensionSettings`** :span[array of object]{.type-label}
+- **`ExtensionSettings`** :span[array of object]{.type-label}  
+  Not intended for general use; You should not alter or add/remove any values it may have.
   - **`ExtensionId`** :span[string]{.type-label}
   - **`Values`** :span[string]{.type-label}
 - **`Id`** :span[string]{.type-label}  
@@ -3861,12 +3854,7 @@ Also reachable at `/api/runbooks/{id}/environments`, `/api/spaces/{spaceIdentifi
     "EnvironmentTags": [
       "string"
     ],
-    "ExtensionSettings": [
-      {
-        "ExtensionId": "string",
-        "Values": "string"
-      }
-    ],
+    "ExtensionSettings": [],
     "Id": "string",
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
