@@ -217,4 +217,4 @@ Project templates are in Public Preview and we're actively shaping how the featu
 ## Version notes
 
 - [Channels](#channels) and [Lifecycles](#lifecycles) in Project Templates are available from Octopus Server version `2026.4.4005`.
-- Retention policies in project template lifecycles are applied from Octopus Server version [PLACEHOLDER: exact build number — needs: the release build from Sea Dragon].
+- Retention policies in project template lifecycles are applied from Octopus Server version `2026.4.7884`.
