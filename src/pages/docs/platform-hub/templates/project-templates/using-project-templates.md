@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-03-16
-modDate: 2026-09-21
+modDate: 2026-10-12
 title: Templated projects
 subtitle: How to create and manage projects from a project template
 icon: fa-solid fa-layer-group
@@ -82,6 +82,16 @@ The environments a channel can deploy to depend on the environment parameter val
 
 :::figure
 ![Channels in a templated project](/docs/img/platform-hub/project-templates/templated-project-channel.png)
+:::
+
+## Retention policies
+
+A templated project uses the retention policies set on its template's lifecycles. Octopus uses the environment parameter values you set in the project to determine which environments belong to each lifecycle phase.
+
+On Octopus Cloud if the template's policies exceed your license's retention limits, Octopus limits them to match your license and shows a message on the **Channels** page.
+
+:::div{.hint}
+For Config as Code projects, Octopus reads environment parameter values from the project's default branch for every release, including releases created from other branches.
 :::
 
 ## Template updates

@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-03-05
-modDate: 2026-09-21
+modDate: 2026-10-12
 title: Troubleshooting
 subtitle: Known issues and limitations for project templates
 icon: fa-solid fa-layer-group
@@ -20,7 +20,6 @@ Project templates are in Public Preview. The feature is still evolving and stand
 Project templates are in Public Preview. The following features are not yet supported and are planned for future releases:
 
 - Ephemeral environments, including ephemeral environment channels
-- Retention policies on templated project releases (you can configure them, but they have no effect)
 - Cloud target discovery on steps (see below)
 - Cloning a project template through the Octopus UI
 - Creating and managing project templates through the REST API, CLI, or Terraform provider
@@ -39,6 +38,16 @@ Support for configuring Platform Hub External Feeds is available from Octopus 20
 Support for configuring project triggers and runbook scheduled triggers for templated projects on the consumer side is available from Octopus 2026.4.1770
 
 :::
+
+## Retention isn't applied to a templated project
+
+Octopus skips retention for a templated project when its environment parameter values don't make a valid lifecycle. This happens when:
+
+- A phase's environment parameter has no environments
+- A phase's environment parameter isn't set to a valid environment
+- The same environment appears in more than one phase
+
+While retention is skipped, Octopus keeps the project's releases and Tentacle files. After you fix the environment parameter values in the templated project, the next retention run applies the policies.
 
 ## Deployment freezes
 
