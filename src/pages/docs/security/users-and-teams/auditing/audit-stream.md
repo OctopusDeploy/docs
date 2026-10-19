@@ -80,14 +80,14 @@ You can change the audit stream configuration by clicking **Stream Audit Log** a
 
 ## Streamed event properties
 
-Every streamed event carries properties describing what happened and who did it. A property with no value is left out of the event; an event raised by a person signed in to the portal therefore carries no API key, service account, or OAuth client properties.
+Streamed events include properties that describe what happened and who performed the action. Properties with no value are omitted. For example, an action taken by someone signed in to the portal has no API key, service account, or OAuth client properties.
 
 | Property | Description |
 | --- | --- |
 | `Username` | The username of the user who raised the event. |
 | `UserId` | The ID of the user who raised the event. |
 | `ActorType` | The kind of actor that raised the event: `User`, `ServiceAccount`, `Agent` (an AI agent), `System`, or `Unknown`. |
-| `Actor` | A human-readable description of what acted. |
+| `Actor` | A human-readable description of the actor. |
 | `OnBehalfOf` | The ID of the user an AI agent acted on behalf of. |
 | `ApiKeyActorType` | Whether the API key used is held by a person or an AI agent: `User` or `AiAgent`. |
 | `ServiceAccountType` | The kind of service account used: `Standard` or `Agent`. |
@@ -102,15 +102,15 @@ Every streamed event carries properties describing what happened and who did it.
 | `ActorOAuthClientIsLoopbackRedirect` | Whether the authorization code went to a loopback redirect. |
 | `Category` | The kind of change, such as `Created` or `Deleted`. |
 | `SpaceId` | The space the event was raised in. |
-| `ProjectId`, `ReleaseId`, `DeploymentId`, `EnvironmentId`, `TenantId` | The documents the event relates to, where the event has them. |
+| `ProjectId`, `ReleaseId`, `DeploymentId`, `EnvironmentId`, `TenantId` | The IDs of related documents, when available. |
 | `Differences` | The changes recorded against the event. |
 
-`ActorType` is deliberately coarse. `User` covers both a person clicking buttons in the portal and a script running under their credentials, because the two are indistinguishable from the credential alone. `Unknown` means the actor type couldn't be determined, including for events recorded before Octopus captured it.
+`User` includes both people using the portal and scripts using their credentials. Octopus can't distinguish between them from the credentials alone. `Unknown` means Octopus couldn't determine the actor type, or the event was recorded before actor types were available.
 
-Use `ActorType` to tell agent activity apart from human activity in your SIEM. When someone uses an [AI agent API key](/docs/api/authentication/create-an-api-key#creating-an-agent-api-key) on their own account, the event still carries their username, and `ActorType` is what distinguishes the agent's action from one they took themselves.
+Use `ActorType` to identify agent activity in your SIEM. When an agent uses an [AI agent API key](/docs/api/authentication/create-an-api-key#creating-an-agent-api-key) from someone's account, the event includes that person's username and an `ActorType` of `Agent`.
 
 :::div{.warning}
-`ActorOAuthClientName` and `ActorOAuthClientRedirectUri` are claims chosen by the OAuth client, not proof of identity. Don't treat them as trusted identifiers in detection rules.
+The OAuth client supplies `ActorOAuthClientName` and `ActorOAuthClientRedirectUri`. These values don't prove the client's identity, so don't use them as trusted identifiers in detection rules.
 :::
 
 ## Version notes
