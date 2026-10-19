@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2026-10-20
 title: Audit Stream
 description: Octopus Deploy can stream audit logs to your chosen SIEM solution
 ---
@@ -77,3 +77,49 @@ You can change the audit stream configuration by clicking **Stream Audit Log** a
 - **Delete**: You can delete the audit stream configuration, which will clear any data relating to the audit stream and prevent any new audit events from being streamed.
 
 ![Update Audit Stream](/docs/img/security/users-and-teams/auditing/images/audit-stream-update.png)
+
+## Streamed event properties
+
+Every streamed event carries properties describing what happened and who did it. A property with no value is left out of the event; an event raised by a person signed in to the portal therefore carries no API key, service account, or OAuth client properties.
+
+| Property | Description |
+| --- | --- |
+| `Username` | The username of the user who raised the event. |
+| `UserId` | The ID of the user who raised the event. |
+| `ActorType` | The kind of actor that raised the event: `User`, `ServiceAccount`, `Agent` (an AI agent), `System`, or `Unknown`. |
+| `Actor` | A human-readable description of what acted. |
+| `OnBehalfOf` | The ID of the user an AI agent acted on behalf of. |
+| `ApiKeyActorType` | Whether the API key used is held by a person or an AI agent: `User` or `AiAgent`. |
+| `ServiceAccountType` | The kind of service account used: `Standard` or `Agent`. |
+| `ApiKeyId` | The ID of the API key used. |
+| `ApiKeyHint` | The first few characters of the API key used. |
+| `IdentityEstablishedWith` | How the user identified themselves, such as `Session cookie` or `OAuth access token`. |
+| `UserAgent` | The user agent header from the request that raised the event. |
+| `IpAddress` | The IP address the request came from. |
+| `ActorOAuthClientId` | The client ID of the OAuth client the access token was issued to. |
+| `ActorOAuthClientName` | The name of the OAuth client. |
+| `ActorOAuthClientRedirectUri` | The redirect URI of the OAuth client. |
+| `ActorOAuthClientIsLoopbackRedirect` | Whether the authorization code went to a loopback redirect. |
+| `Category` | The kind of change, such as `Created` or `Deleted`. |
+| `SpaceId` | The space the event was raised in. |
+| `ProjectId`, `ReleaseId`, `DeploymentId`, `EnvironmentId`, `TenantId` | The documents the event relates to, where the event has them. |
+| `Differences` | The changes recorded against the event. |
+
+`ActorType` is deliberately coarse. `User` covers both a person clicking buttons in the portal and a script running under their credentials, because the two are indistinguishable from the credential alone. `Unknown` means the actor type couldn't be determined, including for events recorded before Octopus captured it.
+
+Use `ActorType` to tell agent activity apart from human activity in your SIEM. When someone uses an [AI agent API key](/docs/api/authentication/create-an-api-key#creating-an-agent-api-key) on their own account, the event still carries their username, and `ActorType` is what distinguishes the agent's action from one they took themselves.
+
+:::div{.warning}
+`ActorOAuthClientName` and `ActorOAuthClientRedirectUri` are claims chosen by the OAuth client, not proof of identity. Don't treat them as trusted identifiers in detection rules.
+:::
+
+## Version notes
+
+- Actor attribution on streamed events (`ActorType`, `Actor`, `OnBehalfOf`, `ApiKeyActorType`, `ServiceAccountType`, `ApiKeyId`, `ApiKeyHint`, `IdentityEstablishedWith`, `UserAgent`, `UserId`, and the `ActorOAuthClient` properties) is available from Octopus Server 2026.4.6658. Before that version, streamed events carried only the username, IP address, space, category, related document IDs, and differences.
+
+## Related links
+
+- [Auditing](/docs/security/users-and-teams/auditing)
+- [Agent governance](/docs/octopus-ai/agent-governance)
+- [Create an API key](/docs/api/authentication/create-an-api-key)
+- [Service accounts](/docs/security/users-and-teams/service-accounts)
