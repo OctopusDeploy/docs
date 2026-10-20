@@ -13,7 +13,7 @@ Connecting a Slack workspace to Octopus lets you send subscription events and de
 - Add a [Send a Slack Message](/docs/projects/built-in-step-templates/send-slack-message) step to your deployment or runbook processes.
 - Optionally enable [link unfurling](#slack-integration-unfurling), so Octopus release URLs expand into deployment status cards when someone pastes them in a Slack channel.
 
-Slack integration is available for cloud customers from Octopus Server version `2026.3.1827`. 
+Slack integration is available for cloud customers from Octopus Server version `2026.3.1827`.
 For self-hosted customers on `2026.3` this can be enabled by setting the `OCTOPUS__FeatureToggles__SlackIntegrationFeatureToggle` environment variable to true. This is available by default from `2026.4.6271`.
 
 ## Prerequisites
