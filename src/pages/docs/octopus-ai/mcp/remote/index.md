@@ -65,8 +65,7 @@ To connect Claude Code:
 2. Run the following command:
 
     ```bash
-    claude mcp add --transport http octopus-deploy https://your-octopus-instance.com/mcp \
-      --header "X-Octopus-ApiKey: ${OCTOPUS_API_KEY}"
+    claude mcp add --transport http octopus-deploy https://your-octopus-instance.com/mcp --header "X-Octopus-ApiKey: ${OCTOPUS_API_KEY}"
     ```
 
 Alternatively, add the following `octopus-deploy` entry to the top-level `mcpServers` object in your `~/.claude.json` file:
