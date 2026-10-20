@@ -58,6 +58,7 @@
     "package-lock.yaml",
     "pnpm-lock.yaml",
     "docs/credits.md",
+    "contributing/standards/**",
     ".octopus/**",
     ".vscode/**",
     ".github/**",

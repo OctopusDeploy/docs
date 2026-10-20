@@ -49,7 +49,7 @@ Trace data is stored in OTLP JSON format, which is compatible with the open sour
 
 ## File location
 
-Trace files are stored under the `Telemetry/OpenTelemetry/traces/` subdirectory of the server's **ClusterSharedDirectory** as `.tar` files. ClusterSharedDirectory is the shared storage location Octopus uses for logs and diagnostics data - its path can be found at [**Configuration ➜ Settings ➜ Server Folders**](/docs/administration/managing-infrastructure/server-configuration-and-file-storage/#server-folders) (or configured via the [`path` command](/docs/octopus-rest-api/octopus.server.exe-command-line/path)), and defaults to the server's Home Directory if not explicitly set.
+Trace files are stored under the `Telemetry/OpenTelemetry/traces/` subdirectory of the server's **ClusterSharedDirectory** as `.tar` files. ClusterSharedDirectory is the shared storage location Octopus uses for logs and diagnostics data - its path can be found at [**Configuration ➜ Settings ➜ Server Folders**](/docs/administration/managing-infrastructure/server-configuration-and-file-storage/#server-folders) (or configured via the [`path` command](/docs/administration/octopus.server.exe-command-line/path)), and defaults to the server's Home Directory if not explicitly set.
 
 In a [High Availability (HA)](/docs/administration/high-availability) cluster, all nodes write to this shared path, so trace files from every node are available in one location.
 

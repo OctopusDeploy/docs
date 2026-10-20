@@ -1,29 +1,10 @@
 ---
-layout: src/layouts/Default.astro
+layout: src/layouts/Redirect.astro
+title: Redirect
+redirect: https://octopus.com/docs/api/examples/runbooks/add-script-step-to-runbook
 pubDate: 2023-01-01
-modDate: 2023-01-01
-title: Add a script step to runbook
-description: An example script that adds a simple PowerShell script to a runbook.
+modDate: 2026-09-01
+navSearch: false
+navSitemap: false
+navMenu: false
 ---
-import AddScriptStepToRunbookScripts from 'src/shared-content/scripts/add-script-step-to-runbook-scripts.include.md';
-
-This script demonstrates how to programmatically add a simple PowerShell script to a runbook.
-
-## Usage
-
-Provide values for the following:
-
-- Octopus URL
-- Octopus API Key
-- Name of the space to use
-- Name of the runbook
-- Source PowerShell script
-- *Optional* Target role to run the script against.
-
-:::div{.hint}
-**Note:** The source script provided to Octopus must be properly escaped.
-:::
-
-## Script
-
-<AddScriptStepToRunbookScripts />

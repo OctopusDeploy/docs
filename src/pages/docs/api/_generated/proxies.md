@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-09-04
 title: Proxies
 ---
 
@@ -34,7 +34,8 @@ Lists all of the Proxies in the supplied Octopus Deploy Space. The results will 
 
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`Host`** :span[string]{.type-label}
   - **`Id`** :span[string]{.type-label}  
@@ -66,7 +67,7 @@ Lists all of the Proxies in the supplied Octopus Deploy Space. The results will 
 ```json
 {
   "Id": "string",
-  "ItemType": "string",
+  "ItemType": "Proxy",
   "Items": [
     {
       "Host": "string",
@@ -74,9 +75,7 @@ Lists all of the Proxies in the supplied Octopus Deploy Space. The results will 
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Name": "string",
       "Password": {
@@ -90,17 +89,15 @@ Lists all of the Proxies in the supplied Octopus Deploy Space. The results will 
       "Username": "string"
     }
   ],
-  "ItemsPerPage": 0,
+  "ItemsPerPage": 30,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "LastPageNumber": 0,
+  "LastPageNumber": 1,
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -183,9 +180,7 @@ Also reachable at `/api/proxies`, `/api/spaces/{spaceIdentifier}/proxies`.
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "Password": {
@@ -246,9 +241,7 @@ Lists the name and ID of all of the Proxies in the supplied Octopus Deploy Space
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     },
     "Name": "string",
     "Password": {
@@ -309,9 +302,7 @@ Also reachable at `/api/proxies/{id}`, `/api/spaces/{spaceIdentifier}/proxies/{i
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "Password": {
@@ -410,9 +401,7 @@ Also reachable at `/api/proxies/{id}`, `/api/spaces/{spaceIdentifier}/proxies/{i
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "Password": {

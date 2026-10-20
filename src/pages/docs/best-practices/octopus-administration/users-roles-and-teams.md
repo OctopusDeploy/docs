@@ -32,7 +32,7 @@ We also recommend creating a unique service account per integration.  For exampl
 
 ## API keys
 
-[API Keys](/docs/octopus-rest-api/how-to-create-an-api-key/) allow you, or the service account, to access the [Octopus Deploy REST API](/docs/octopus-rest-api).  API keys for users should be kept to a minimum, if a key was ever shared, then anyone can impersonate that user.  Only use API keys for service accounts for any external integrations.  
+[API Keys](/docs/api/authentication/create-an-api-key/) allow you, or the service account, to access the [Octopus Deploy REST API](/docs/octopus-rest-api).  API keys for users should be kept to a minimum, if a key was ever shared, then anyone can impersonate that user.  Only use API keys for service accounts for any external integrations.  
 
 **Octopus Deploy 2020.6** introduced the concept of expiring API keys.  Our recommendation is to set up a periodic rotation of API keys following your companies policy on key expiration.  
 

@@ -1,13 +1,10 @@
 ---
-layout: src/layouts/Default.astro
+layout: src/layouts/Redirect.astro
+title: Redirect
+redirect: https://octopus.com/docs/api/examples/lifecycles
 pubDate: 2023-01-01
-modDate: 2023-01-01
-title: Lifecycles
-description: This section includes examples of how to use the REST API to create and manage lifecycles in Octopus.
-navOrder: 110
-hideInThisSectionHeader: true
+modDate: 2026-09-01
+navSearch: false
+navSitemap: false
+navMenu: false
 ---
-
-You can use the REST API to create and manage your [lifecycles](/docs/releases/lifecycles) in Octopus. Typical tasks can include:
-
-- [Create a lifecycle](/docs/octopus-rest-api/examples/lifecycles/create-lifecycle)

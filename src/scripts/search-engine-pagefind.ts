@@ -12,10 +12,12 @@ import {
   type SearchResult,
 } from './search-engine';
 
-// Rows fetched at a time. Pagefind's own UI shows five and offers the rest on
-// demand; thirty, because `byNameThenDepth` reorders within a page and needs
-// enough of the list to have something to reorder.
-const PAGE_SIZE = 30;
+// Rows fetched at a time, and a fragment fetch for each one. Pagefind's own UI
+// shows five and offers the rest on demand; twenty, because `byNameThenDepth`
+// reorders within a page and needs enough of the list to have something to
+// reorder, and because a reader who has scrolled past twenty rows is served
+// better by a narrower query than by row twenty-one.
+const PAGE_SIZE = 20;
 
 // Above this share of the corpus, a query is too general to rank rather than
 // unanswerable, and the overlay says so instead of reporting nothing found.
@@ -84,8 +86,7 @@ type PagefindApi = {
 const MINIMUM_SCORE = 8;
 
 // Sections are their own rows, so they compete with pages for the reader's first
-// screenful. Three headings per page across thirty results made two thirds of
-// the list headings.
+// screenful. Three headings per page made two thirds of the list headings.
 /** Headings shown under one page. */
 const SECTION_LIMIT = 2;
 /** How many of the leading pages get headings at all. */
@@ -281,7 +282,7 @@ export function pagefindEngine(bundlePath: string): SearchEngine {
   let loading: Promise<PagefindApi | null> | null = null;
   // Everything the last search matched, and how much of it has been handed over.
   // A stub is a score and a promise of its fragment, so holding a thousand of
-  // them costs nothing and saves searching again to show row thirty-one.
+  // them costs nothing and saves searching again to show row twenty-one.
   // `promoted` is the page `namedPage` pulled forward, whose own stub is still
   // waiting further down `stubs`.
   let page: {
@@ -358,6 +359,27 @@ export function pagefindEngine(bundlePath: string): SearchEngine {
         const filters =
           facet && facet !== 'all' ? { section: [facet] } : undefined;
 
+        // The shortlist `namedPage` picks a page to promote from.
+        //
+        // With a tab selected, its filter already narrows the shortlist to the
+        // right section, so use it as it is. Without one, exclude the API and
+        // CLI results: `namedPage` reads only the first few and skips reference
+        // pages anyway, so left in they fill every slot and it finds nothing to
+        // promote. Unless the query asks for the reference, which can promote
+        // one.
+        //
+        // Excluding, rather than naming the two sections to keep, because
+        // Pagefind reads a plain array as "all of these at once". Measured for
+        // "deployment targets": section: ['docs', 'integrations'] returns 0,
+        // section: { not: { any: ['api', 'cli'] } } returns 97.
+        const landingFilters =
+          filters === undefined && !ASKS_FOR_REFERENCE.test(query.toLowerCase())
+            ? {
+                landing: ['true'],
+                section: { not: { any: [...REFERENCE_FACETS] } },
+              }
+            : { ...filters, landing: ['true'] };
+
         // Three searches at once, because a second await here would sit in front
         // of every fragment fetch below it. The first supplies the rows; the
         // second says whether the query has any answer at all, and only runs
@@ -367,7 +389,7 @@ export function pagefindEngine(bundlePath: string): SearchEngine {
         const [response, wholeCorpus, landing] = await Promise.all([
           api.search(query, { filters }),
           filters ? api.search(query) : null,
-          api.search(query, { filters: { ...filters, landing: ['true'] } }),
+          api.search(query, { filters: landingFilters }),
         ]);
         const unfiltered = wholeCorpus ?? response;
 

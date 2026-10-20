@@ -4,7 +4,7 @@
     a. The Octopus URL: the hostname or IP address.
     b. Select the authentication mode and enter the details:
         i. The username and password you use to log into Octopus, or:
-        i. Your Octopus API key, see [How to create an API key](/docs/octopus-rest-api/how-to-create-an-api-key).
+        i. Your Octopus API key, see [How to create an API key](/docs/api/authentication/create-an-api-key).
 
     :::div{.hint}
     The Octopus credentials specified here are only used once to configure the Tentacle. All future communication is performed over a [secure TLS connection using certificates](/docs/security/octopus-tentacle-communication/#Octopus-Tentaclecommunication-Scenario:PollingTentacles).

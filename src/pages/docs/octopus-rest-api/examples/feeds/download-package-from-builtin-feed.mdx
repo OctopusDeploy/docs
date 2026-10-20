@@ -1,25 +1,10 @@
 ---
-layout: src/layouts/Default.astro
+layout: src/layouts/Redirect.astro
+title: Redirect
+redirect: https://octopus.com/docs/api/examples/feeds/download-package-from-builtin-feed
 pubDate: 2023-01-01
-modDate: 2023-01-01
-title: Download package from built-in feed
-description: An example script that downloads a package from the built-in feed.
+modDate: 2026-09-01
+navSearch: false
+navSitemap: false
+navMenu: false
 ---
-import DownloadPackageScripts from 'src/shared-content/scripts/download-package-scripts.include.md';
-
-This script demonstrates how to programmatically download a package from the built-in Octopus feed.
-
-## Usage
-
-Provide values for:
-
-- Octopus URL
-- Octopus API Key
-- Name of the space to use
-- Name of the package
-- Version of the package to download
-- The output folder to save the package to
-
-## Script
-
-<DownloadPackageScripts />

@@ -8,7 +8,7 @@ navTitle: Microsoft Entra ID
 navOrder: 10
 ---
 
-Octopus Deploy supports [SCIM](./) 2 as a feature of the Azure AD authentication provider. This allows users and groups created and managed in Entra ID to be synchronized with users and teams in Octopus Deploy, rather than manually provisioning users or provisioning them just-in-time via **Allow Auto User Creation**.
+Octopus Deploy supports [SCIM](./) 2 as a feature of the Entra ID authentication provider. This allows users and groups created and managed in Entra ID to be synchronized with users and teams in Octopus Deploy, rather than manually provisioning users or provisioning them just-in-time via **Allow Auto User Creation**.
 
 This guide has 2 parts, and we recommend confirming each works before moving to the next:
 
@@ -47,7 +47,7 @@ Entra ID authentication matches users by email address. If the addresses don't m
 
 1. Configure [Entra ID authentication](/docs/security/authentication/azure-ad-authentication) in Octopus Deploy, without [external group mappings](/docs/security/authentication/azure-ad-authentication#mapping-microsoft-entra-id-users-into-octopus-teams-optional).
 1. Confirm you can sign in as an Entra ID user, using the **Sign in with Microsoft** button on the Octopus Deploy login page.
-1. Go to **Configuration** ➜ **Settings** ➜ **Azure AD** in Octopus Deploy.
+1. Go to **Configuration** ➜ **Settings** ➜ **Entra ID** in Octopus Deploy.
 1. Uncheck **Allow Auto User Creation**.
 1. Check **Enable SCIM**.
 1. Select **Save**.
@@ -56,7 +56,7 @@ Entra ID now creates and manages users for you, so neither external group mappin
 
     :::div{.hint}
 
-    If you can't see an option for **Enable SCIM** in the **Azure AD** settings, check that you're running a recent version of Octopus Deploy and that you have an Enterprise license.
+    If you can't see an option for **Enable SCIM** in the **Entra ID** settings, check that you're running a recent version of Octopus Deploy and that you have an Enterprise license.
 
     If you have any questions about licensing, reach out to us at [sales@octopus.com](mailto:sales@octopus.com).
 
@@ -85,7 +85,7 @@ Entra ID needs its own Octopus identity to call the SCIM API on your behalf. We 
 ### Create new provisioning configuration
 
 1. Open the **Azure Portal**.
-1. Navigate to the **Enterprise Application** you created for Octopus Deploy when you configured Azure AD authentication for your instance.
+1. Navigate to the **Enterprise Application** you created for Octopus Deploy when you configured Entra ID authentication for your instance.
 
     If you're on the **App Registration Overview** page instead, select **Managed application in local directory** to get to the matching **Enterprise Application**.
 
@@ -98,7 +98,7 @@ Entra ID needs its own Octopus identity to call the SCIM API on your behalf. We 
     :::div{.hint}
 
     If the test is not successful, double-check that:
-    - SCIM is enabled in the Azure AD authentication provider settings, and the changes are saved
+    - SCIM is enabled in the Entra ID authentication provider settings, and the changes are saved
     - the Tenant URL has the `/api/scim/v2/entraid/` suffix
     - the Octopus Deploy instance is reachable from the Entra ID IP addresses
     - the service account API key is valid and has sufficient permissions
@@ -147,7 +147,7 @@ Entra ID needs its own Octopus identity to call the SCIM API on your behalf. We 
 
     :::div{.hint}
 
-    Mapping `externalId` to `objectId` matches the identifier used by the Azure AD authentication provider, so Octopus Deploy can find the same user via either sign-in or SCIM.
+    Mapping `externalId` to `objectId` matches the identifier used by the Entra ID authentication provider, so Octopus Deploy can find the same user via either sign-in or SCIM.
 
     :::
 
@@ -215,5 +215,5 @@ Entra ID will now reach out to Octopus Deploy regularly via the SCIM API wheneve
 ## Known Limitations
 
 - Octopus Deploy does not support nested groups. Any requests from Entra ID to add a group as a member of another group will be ignored.
-- Any groups provisioned by Entra ID will be global teams, rather than space-scoped teams, because Azure AD authentication applies to the whole Octopus Deploy instance. You can still apply space-scoped permissions to these teams, but the teams will be visible to all spaces.
+- Any groups provisioned by Entra ID will be global teams, rather than space-scoped teams, because Entra ID authentication applies to the whole Octopus Deploy instance. You can still apply space-scoped permissions to these teams, but the teams will be visible to all spaces.
 - Octopus Deploy only supports a single email address for each user, whereas Entra ID supports many. Octopus Deploy will ignore any email addresses other than the **Work** email address, ie: `emails[type eq "work"].value`.

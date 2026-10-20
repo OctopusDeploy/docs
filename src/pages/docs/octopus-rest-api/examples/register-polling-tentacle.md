@@ -1,8 +1,9 @@
-﻿---
+---
 layout: src/layouts/Redirect.astro
 title: Redirect
-redirect: https://octopus.com/docs/octopus-rest-api/examples/deployment-targets/register-polling-tentacle
-pubDate:  2023-01-01
+redirect: https://octopus.com/docs/api/examples/deployment-targets/register-polling-tentacle
+pubDate: 2023-01-01
+modDate: 2026-09-01
 navSearch: false
 navSitemap: false
 navMenu: false

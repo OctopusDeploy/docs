@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-09-04
 title: Dashboard
 ---
 
@@ -137,9 +137,7 @@ Also reachable at `/api/dashboard`, `/api/spaces/{spaceIdentifier}/dashboard`.
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Name": "string"
     }
@@ -165,9 +163,7 @@ Also reachable at `/api/dashboard`, `/api/spaces/{spaceIdentifier}/dashboard`.
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "PendingInterruptionTypes": [
         "ManualIntervention"
@@ -188,9 +184,7 @@ Also reachable at `/api/dashboard`, `/api/spaces/{spaceIdentifier}/dashboard`.
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "ProjectGroups": [
     {
@@ -202,9 +196,7 @@ Also reachable at `/api/dashboard`, `/api/spaces/{spaceIdentifier}/dashboard`.
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Name": "string"
     }
@@ -222,9 +214,7 @@ Also reachable at `/api/dashboard`, `/api/spaces/{spaceIdentifier}/dashboard`.
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Name": "string",
       "ProjectGroupId": "string",
@@ -239,9 +229,7 @@ Also reachable at `/api/dashboard`, `/api/spaces/{spaceIdentifier}/dashboard`.
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Name": "string",
       "ProjectEnvironments": {
@@ -393,9 +381,7 @@ Also reachable at `/api/dashboard/dynamic`, `/api/spaces/{spaceIdentifier}/dashb
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Name": "string"
     }
@@ -421,9 +407,7 @@ Also reachable at `/api/dashboard/dynamic`, `/api/spaces/{spaceIdentifier}/dashb
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "PendingInterruptionTypes": [
         "ManualIntervention"
@@ -444,9 +428,7 @@ Also reachable at `/api/dashboard/dynamic`, `/api/spaces/{spaceIdentifier}/dashb
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "ProjectGroups": [
     {
@@ -458,9 +440,7 @@ Also reachable at `/api/dashboard/dynamic`, `/api/spaces/{spaceIdentifier}/dashb
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Name": "string"
     }
@@ -478,9 +458,7 @@ Also reachable at `/api/dashboard/dynamic`, `/api/spaces/{spaceIdentifier}/dashb
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Name": "string",
       "ProjectGroupId": "string",
@@ -495,9 +473,7 @@ Also reachable at `/api/dashboard/dynamic`, `/api/spaces/{spaceIdentifier}/dashb
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Name": "string",
       "ProjectEnvironments": {

@@ -1,14 +1,14 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-09-13
-modDate: 2024-08-26
+modDate: 2026-10-13
 title: Bulk deployment creation
 icon: fa-solid fa-cubes-stacked
 description: Octopus Deploy can use bulk deployment creation when deploying to multiple environments or tenants
 navOrder: 170
 ---
 
-With bulk deployment creation, you will be redirected to a new server task upon deploying a release to multiple environments or tenants through Octopus Portal. There you will find each requested deployment as task summary items, which will display progress and any errors.
+With bulk deployment creation, you will be redirected to a new server task upon deploying a release to multiple environments or tenants through Octopus Portal. There you can select **View all deployments** to see each requested deployment and its progress.
 
 :::figure
 ![A bulk deployment creation server task listing each requested deployment](/docs/img/deployments/bulk-deployment-creation.png)

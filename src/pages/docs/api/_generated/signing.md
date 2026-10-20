@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-09-04
 title: Signing
 ---
 
@@ -34,9 +34,7 @@ title: Signing
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "PublicKeyHostingLocation": "Internal",
   "RevokeAfterDays": 0
@@ -92,9 +90,7 @@ title: Signing
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "PublicKeyHostingLocation": "Internal",
   "RevokeAfterDays": 0
@@ -138,9 +134,11 @@ title: Signing
 ```
 :::
 
-## Validate that the public signing keys are valid and can be used to verify signatures. This is intended to be used as a health check for external key hosting, and will return an error if the keys are invalid or expired
+## Validate public signing keys
 
 :endpoint{method="POST" path="/api/signingkeys/verify/v1"}
+
+Checks that the public signing keys are valid and can be used to verify signatures. This is intended to be used as a health check for external key hosting, and will return an error if the keys are invalid or expired.
 
 **Request Body**
 

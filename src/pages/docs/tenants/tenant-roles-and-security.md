@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-08-30
+modDate: 2026-09-14
 title: Tenant roles and security
 icon: fa-solid fa-people-group
 description: Common approaches to structuring roles and teams to secure a multi-tenant Octopus instance.
@@ -22,46 +22,14 @@ Toby is a member of the sales team for [Vet Clinic](https://samples.octopus.app/
 - Manages the details/variables of particular tenants and keeps them up to date.
 - Works with customers to deploy releases to their environments on their behalf.
 
-### Step 1: Configure the tenant project deployer role {#step-1-configure-tenant-deployer}
+Toby needs two built-in roles:
 
-Firstly we will create a custom role with the permissions required to deploy releases into tenant environments. This role is loosely based on the built-in **Project deployer** role but removing the permissions to edit the project.
+| Built-in role | What it gives Toby |
+| --- | --- |
+| [Deployment Creator](/docs/security/users-and-teams/default-permissions#DefaultPermissions-DeploymentCreator) | Deploy existing releases and run runbooks, and view the projects, releases, lifecycles and tasks involved. It cannot create releases or edit the deployment process. |
+| [Tenant Manager](/docs/security/users-and-teams/default-permissions#DefaultPermissions-TenantManager) | View and edit tenant details, variables and tags. |
 
-:::div{.success}
-It is usually a good idea to build smaller roles that can be composed together into a team to provide easier management of your team permissions. In this example, we are creating a single role to grant all required permissions to keep the example simple. In this case, you could create a **Tenant project viewer** role and a **Tenant project deployer** role and combine them into a single team.
-:::
-
-1. In **Configuration ➜ User Roles** click **Add custom role** and call it **Tenant project deployer**.
-2. Set the description to **Tenant project deployers can deploy releases on behalf of tenants**
-3. Choose the following permissions under [Space Permissions](/docs/security/users-and-teams/system-and-space-permissions):
-   1. AccountView
-   2. ArtifactView
-   3. DeploymentCreate
-   4. DeploymentView
-   5. EnvironmentView
-   6. EventView
-   7. FeedView
-   8. InterruptionView
-   9. InterruptionViewSubmitResponsible
-   10. LibraryVariableSetView
-   11. LifecycleView
-   12. MachinePolicyView
-   13. MachineView
-   14. ProcessView
-   15. ProjectGroupView
-   16. ProjectView
-   17. ReleaseView
-   18. TaskCancel
-   19. TaskCreate
-   20. TaskView
-   21. TeamView
-   22. TenantEdit
-   23. TenantView
-   24. VariableView
-   25. VariableViewUnscoped
-
-### Step 2: Configure the account managers team {#step-2-configure-account-managers-team}
-
-Now we will create a team for all the account managers and add the role we created in the last step.
+### Step 1: Configure the account managers team {#step-1-configure-account-managers-team}
 
 1. In **Configuration ➜ Teams** click **Add team** and call it **Toby's clients**. Be sure to select "Accessible in the X space only" unless you have tenants spread over multiple [Spaces](/docs/administration/spaces) and then click **Save**.
 
@@ -69,61 +37,78 @@ Now we will create a team for all the account managers and add the role we creat
     ![Creating a team called Toby's clients](/docs/img/tenants/images/add-account-manager-team.png)
     :::
 
-2. Navigate to **User Roles** click **Include user role**.
+2. Navigate to **User Roles** and click **Include user role**.
 
     :::figure
     ![The Include user role button on the team's User Roles tab](/docs/img/tenants/images/multi-tenant-include-user-role.png)
     :::
 
-3. From the dropdown, select the **Tenant project deployer** role.
+3. From the dropdown, select **Deployment Creator**. Before saving, click **Define scope** and select the tenants Toby is responsible for: Midland Veterinary and Valley Veterinary Clinic.
 
     :::figure
-    ![Selecting the Tenant project deployer role](/docs/img/tenants/images/multi-tenant-select-user-role.png)
+    ![Selecting a user role to include in the team](/docs/img/tenants/images/multi-tenant-select-user-role.png)
     :::
 
-4. Navigate to **Members ➜ Add member** and add any user accounts that will form part of this team.
+4. Repeat for the **Tenant Manager** role, scoped to the same tenants.
 
-### Step 3: Reduce the scope of the team {#step-3-reduce-team-scope}
+5. Navigate to **Members ➜ Add member** and add any user accounts that will form part of this team.
 
-After adding the **Tenant project deployer** role, we'll see that Toby has access to all tenants. Toby only needs access to the accounts that he's responsible for: Midland Veterinary and Valley Veterinary Clinic. To limit Toby to his accounts, click on the overflow menu (`...`) and select **Edit**
+:::div{.warning}
+**Scope each role as you include it.** Until a role is scoped, the team holds it over every tenant in the space, including the ability to edit tenant variables. Use **Define scope** on the **Include User Role** screen rather than adding the role and narrowing it afterwards.
+:::
+
+To change the scope of a role already on a team, click the overflow menu (`...`) next to it and select **Edit**.
 
 :::figure
 ![Limiting the team's access to specific tenants](/docs/img/tenants/images/edit-tenant-team.png)
 :::
 
-Select the tenants and click **Apply**
+Select the tenants and click **Apply**.
 
 :::figure
 ![A user role scoped to the selected tenants](/docs/img/tenants/images/scope-tenant-user-role.png)
 :::
 
+:::div{.warning}
+**Tenant Manager can create and delete tenants, not only edit them.** Scoping the role limits which tenants Toby can edit and delete, but `TenantCreate` cannot be scoped to tenants — anyone with Tenant Manager can create tenants in the space.
+
+To let Toby edit tenants without creating or deleting them, create a custom role containing `TenantView` and `TenantEdit`, and include that in place of Tenant Manager.
+:::
+
 :::div{.hint}
-The scoping for a User Role can also be defined on the `Include User Role` screen by clicking on the **Define scope** button.
+Deployment Creator does not include the permissions to respond to a manual intervention or cancel a running task. If Toby needs those, create a custom role containing `InterruptionView`, `InterruptionViewSubmitResponsible` and `TaskCancel`, and scope it to the same tenants. Add `VariableView` if he also needs to see project variables on the deployment screen.
 :::
 
 ## Infrastructure manager {#infrastructure-manager}
 
-Bob is a member of the IT infrastructure team for [Car Rental](https://samples.octopus.app/app#/Spaces-682/projects/car-rental/deployments), and he manages all the virtual servers for the different regions in the cloud. His only interaction with tenants is to associate them with the appropriate [deployment targets](/docs/infrastructure/) and [environments](/docs/infrastructure/environments).  He should have read-only access to tenant details required and have the ability to manage deployment targets and accounts. This time we will configure the team using a composition of built-in and custom roles.
+Bob is a member of the IT infrastructure team for [Car Rental](https://samples.octopus.app/app#/Spaces-682/projects/car-rental/deployments), and he manages all the virtual servers for the different regions in the cloud. His only interaction with tenants is to associate them with the appropriate [deployment targets](/docs/infrastructure/) and [environments](/docs/infrastructure/environments). He should have read-only access to the tenant details he needs, and the ability to manage deployment targets and accounts.
 
-### Step 1: Configure the tenant viewer role {#step-1-configure-tenant-viewer}
+Bob needs two built-in roles:
 
-Similarly to the previous example, we will create a custom role with minimum permissions to view tenant details. Later on, we will create a team that combines multiple roles to achieve the desired effect.
+| Built-in role | What it gives Bob |
+| --- | --- |
+| [Environment Manager](/docs/security/users-and-teams/default-permissions#DefaultPermissions-EnvironmentManager) | View and edit infrastructure: environments, machines, workers, proxies and accounts. |
+| [Project Viewer](/docs/security/users-and-teams/default-permissions#DefaultPermissions-ProjectViewer) | Read-only access across projects, including viewing tenants. |
 
-1. Create a role called **Tenant viewer** with the following permissions:
-
-  - TenantView
-
-### Step 2: Configure the tenant environment managers team {#step-2-configure-environment-managers-team}
-
-In this example, we will create a new team and combine multiple roles to achieve the desired result.
+### Step 1: Configure the tenant environment managers team {#step-1-configure-environment-managers-team}
 
 1. Create a new team called **Tenant Environment Managers**.
-2. Add the **Tenant viewer** and **Environment manager** roles to the team:
+2. Include the **Environment Manager** and **Project Viewer** roles.
    :::figure
-   ![A team with the Tenant viewer and Environment manager roles](/docs/img/tenants/images/multi-tenant-environment-managers-team.png)
+   ![A team with tenant and environment management roles](/docs/img/tenants/images/multi-tenant-environment-managers-team.png)
    :::
-3. Add any specific tenant/environment scoping that makes sense.
-4. Add any specific members
+3. Add any specific tenant or environment scoping that makes sense.
+4. Add any specific members.
+
+:::div{.hint}
+To give Bob visibility of tenants without the rest of the read-only project access, create a custom role containing `TenantView` and include it in place of Project Viewer.
+:::
+
+:::div{.warning}
+**Scoping this team to tenants does not limit Bob's infrastructure access.** `EnvironmentCreate`, `EnvironmentEdit`, `EnvironmentDelete`, the `MachinePolicy` and `Proxy` permissions, and `TargetTagAdminister` cannot be scoped to tenants, because the resources they govern are not tenant-specific.
+
+Tenant scoping limits which tenants Bob can see. It does not limit what he can change about the infrastructure those tenants deploy to.
+:::
 
 ## Self-service {#self-service}
 
@@ -134,7 +119,7 @@ In this example, we will create a new team and combine multiple roles to achieve
 Firstly we need to create a team with a scope limited to the single tenant.
 
 1. Create a new team called **Self-Service: <TenantName>** like **Self-Service: Avengers** in our example.
-2. Add any roles you desire. In our example, we're providing the tenant with the **Tenant project deployer** role.
+2. Add any roles you desire. In our example, we're providing the tenant with the **Deployment Creator** role, scoped to their tenant.
 3. Scope the team to a single tenant:
 
 :::figure

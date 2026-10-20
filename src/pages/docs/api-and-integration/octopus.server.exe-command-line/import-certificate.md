@@ -1,7 +1,7 @@
 ﻿---
 layout: src/layouts/Redirect.astro
 title: Redirect
-redirect: https://octopus.com/docs/octopus-rest-api/octopus.server.exe-command-line/import-certificate
+redirect: https://octopus.com/docs/administration/octopus.server.exe-command-line/import-certificate
 pubDate:  2023-01-01
 navSearch: false
 navSitemap: false

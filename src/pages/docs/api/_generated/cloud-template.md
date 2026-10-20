@@ -1,13 +1,15 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-09-03
 title: Cloud Template
 ---
 
-## Request the metadata (ie, parameters and values) for a cloud template (eg, cloudformation, terraform, azure ARM template)
+## Get metadata for a cloud template
 
 :endpoint{method="POST" path="/api/cloudtemplate/\{id\}/metadata"}
+
+Request the metadata (ie, parameters and values) for a cloud template (eg, cloudformation, terraform, azure ARM template)
 
 **Path Parameters**
 

@@ -141,11 +141,7 @@ Process templates can be created and managed through our [public API](/docs/octo
 We do not currently support creating or managing process templates through the CLI or the Terraform provider.
 :::
 
-See [CreateProcessTemplateUsageStep](https://github.com/OctopusDeploy/OctopusDeploy-Api/blob/master/Octopus.Client/Csharp/DeploymentProcesses/CreateProcessTemplateUsageStep.cs) for an example of how to configure a process template on a deployment process using [Octopus.Client](/docs/octopus-rest-api/octopus.client).
-
-### GitHub Connections
-
-GitHub Connections is supported in Platform Hub, but it can only be used to configure Platform Hub version control. It can't be used on steps in templates.
+See [CreateProcessTemplateUsageStep](https://github.com/OctopusDeploy/OctopusDeploy-Api/blob/master/Octopus.Client/Csharp/DeploymentProcesses/CreateProcessTemplateUsageStep.cs) for an example of how to configure a process template on a deployment process using [Octopus.Client](/docs/api/octopus.client).
 
 ### Losing access to an Octopus Enterprise license
 

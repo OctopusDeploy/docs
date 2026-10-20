@@ -1,0 +1,63 @@
+---
+layout: src/layouts/Default.astro
+pubDate: 2023-01-01
+modDate: 2024-06-25
+title: Add Microsoft Entra ID login to users
+description: An example script to add Microsoft Entra ID login details to Octopus user accounts.
+---
+import AddAzureADIdentityToUsersScripts from 'src/shared-content/scripts/add-azure-ad-identity-to-users-scripts.include.md';
+
+Octopus supports a number of external [authentication providers](/docs/security/authentication/), including [Microsoft Entra ID Authentication](/docs/security/authentication/azure-ad-authentication). If you want to use Microsoft Entra ID to authenticate but re-use existing Octopus user accounts, the easiest way is to add an Azure AD login:
+
+:::figure
+![Add an Microsoft Entra ID login to an Octopus user](/docs/img/octopus-rest-api/examples/users-and-teams/images/add-azure-ad-login.png)
+:::
+
+This script will add Microsoft Entra ID login details to Octopus user accounts.
+
+## Usage
+
+Provide values for:
+
+- Octopus URL
+- Octopus API Key
+- A list of users, supplied from either:
+  - The path to a CSV file containing user records
+  - The Octopus Username, Azure email address and (optionally) Azure display name
+- (Optional) whether or not to update the Octopus user's email address
+- (Optional) whether or not to update the Octopus user's display name
+- (Optional) whether or not to continue to the next user if an error occurs
+- (Optional) whether or not to force an update of the Azure AD identity if one already exists
+- (Optional) whether or not to perform a dry run (What If?) and not perform any updates
+- (Optional) whether or not to toggle debug (Verbose) logging
+
+### Add Microsoft Entra ID identities to single user
+
+```powershell Add an identity to a single user
+AddAzureADLogins -OctopusURL "https://your-octopus-url/" -OctopusAPIKey "API-YOUR-KEY" -OctopusUsername "OctoUser" -AzureEmailAddress "octouser@exampledomain.com" -AzureDisplayName "Octo User" -ContinueOnError $False -Force $False -WhatIf $False -DebugLogging $False
+```
+
+### Add Microsoft Entra ID identities for multiple users from CSV file
+
+```powershell Add identities to every user in a CSV file
+AddAzureADLogins -OctopusURL "https://your-octopus-url/" -OctopusAPIKey "API-YOUR-KEY" -Path "/path/to/user_azure_ad_logins.csv" -ContinueOnError $False -Force $False -WhatIf $False -DebugLogging $False
+```
+
+### Example CSV file
+
+An example of the expected CSV file format is shown below:
+
+```text Expected CSV format
+OctopusUsername, AzureEmailAddress, AzureDisplayName
+OctoUser, octouser@exampledomain.com, Octo User 
+```
+
+The first row should be the header row containing the following columns:
+
+- `OctopusUsername`
+- `AzureEmailAddress`
+- `AzureDisplayName`
+
+### Script
+
+<AddAzureADIdentityToUsersScripts />

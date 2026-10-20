@@ -69,8 +69,8 @@ To migrate from Active Directory to LDAP, you will need to:
 
 1. Enable and configure the [LDAP auth provider](/docs/security/authentication/ldap).
 2. Add the LDAP auth provider to each user and group.  We created two scripts to help speed that up:
-   - [Swap Active Directory groups with matching LDAP groups](/docs/octopus-rest-api/examples/users-and-teams/swap-ad-domain-group-with-ldap-group) for Octopus teams.
-   - [Swap Active Directory login records with matching LDAP ones](/docs/octopus-rest-api/examples/users-and-teams/swap-users-ad-domain-to-ldap) for Octopus users.
+   - [Swap Active Directory groups with matching LDAP groups](/docs/api/examples/users-and-teams/swap-ad-domain-group-with-ldap-group) for Octopus teams.
+   - [Swap Active Directory login records with matching LDAP ones](/docs/api/examples/users-and-teams/swap-users-ad-domain-to-ldap) for Octopus users.
 3. Log out with your current user and log back in, ideally with a new test user.
 4. Verify permissions are as expected.
 5. Test a few more users out.
@@ -138,7 +138,7 @@ Linux:
 
 ## Folder paths
 
-The Dockerfile runs the Octopus Server installer each time the Octopus Server Windows Container or Octopus Server Linux Container starts up.  The installer runs a series of commands to configure Octopus Deploy.  The installer will run the [path](/docs/octopus-rest-api/octopus.server.exe-command-line/path) command to update the paths to leverage the different folder structure.
+The Dockerfile runs the Octopus Server installer each time the Octopus Server Windows Container or Octopus Server Linux Container starts up.  The installer runs a series of commands to configure Octopus Deploy.  The installer will run the [path](/docs/administration/octopus.server.exe-command-line/path) command to update the paths to leverage the different folder structure.
 
 For example:
 

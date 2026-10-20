@@ -1,22 +1,10 @@
 ---
-layout: src/layouts/Default.astro
+layout: src/layouts/Redirect.astro
+title: Redirect
+redirect: https://octopus.com/docs/api/examples/deployment-targets/check-for-tentacle-upgrades
 pubDate: 2023-01-01
-modDate: 2023-01-01
-title: Check Tentacles for available upgrades
-description: An example script to check targets and workers for available Tentacle upgrades.
+modDate: 2026-09-01
+navSearch: false
+navSitemap: false
+navMenu: false
 ---
-import CheckForTentacleUpgradesScripts from 'src/shared-content/scripts/check-for-tentacle-upgrades-scripts.include.md';
-
-This script demonstrates how to programmatically check if Tentacles have upgrades available.
-
-## Usage
-
-Provide values for the following:
-
-- Octopus URL
-- Octopus API Key
-- Name of the space to use
-
-## Script
-
-<CheckForTentacleUpgradesScripts />

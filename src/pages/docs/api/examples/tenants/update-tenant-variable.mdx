@@ -1,0 +1,39 @@
+---
+layout: src/layouts/Default.astro
+pubDate: 2023-01-01
+modDate: 2026-01-20
+title: Update tenant variables
+description: Example scripts that update tenant variables for both project variables and common (library) variables in Octopus using the REST API and Octopus.Client.
+---
+import UpdateTenantProjectVariableScripts from 'src/shared-content/scripts/update-tenant-project-variable-scripts.include.md';
+import UpdateTenantCommonVariableScripts from 'src/shared-content/scripts/update-tenant-common-variable-scripts.include.md';
+
+These scripts demonstrate how to programmatically update tenant variables.
+
+## Update project tenant variables
+
+Provide values for:
+
+- Octopus URL
+- Octopus API Key
+- Name of the space to use
+- Name of the tenant
+- Name of the Project template
+- The new variable value
+- Choose whether the new variable value is bound to an Octopus variable value e.g. `#{MyVariable}`
+
+<UpdateTenantProjectVariableScripts />
+
+## Update common tenant variables
+
+Provide values for:
+
+- Octopus URL
+- Octopus API Key
+- Name of the space to use
+- Name of the tenant
+- Name of the Library template
+- The new variable value
+- Choose whether the new variable value is bound to an Octopus variable value e.g. `#{MyVariable}`
+
+<UpdateTenantCommonVariableScripts />

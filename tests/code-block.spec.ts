@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 // A page with two <details data-group> panels, each a lone code block
-const GROUPED = '/docs/octopus-rest-api/octopus.client/using-resources';
+const GROUPED = '/docs/api/octopus.client/using-resources';
 
 // A page whose group panels hold prose as well as code, so they stay tabs
 const TABBED = '/docs/kubernetes/targets/kubernetes-agent/permissions';
@@ -13,7 +13,7 @@ const SINGLE_GROUP =
   '/docs/administration/reporting/report-on-deployments-using-excel';
 
 // A page holding a code block far taller than the collapse threshold
-const LONG = '/docs/octopus-rest-api/octopus.server.exe-command-line/configure';
+const LONG = '/docs/administration/octopus.server.exe-command-line/configure';
 
 // The shell is rendered at build time, so it has to survive without scripting.
 test.describe('code block, no JavaScript', () => {

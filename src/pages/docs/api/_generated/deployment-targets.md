@@ -1,15 +1,17 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-09-04
 title: Deployment Targets
 ---
 
-## List all of the registered machines in the supplied Octopus Deploy Space, from all environments. The results will be sorted alphabetically by name
+## List machines
 
 :endpoint{method="GET" path="/api/\{spaceId\}/machines"}
 
 Also reachable at `/api/machines`, `/api/spaces/{spaceIdentifier}/machines`.
+
+List all the registered machines in the supplied Octopus Deploy Space, from all environments. The results will be sorted alphabetically by name.
 
 **Path Parameters**
 
@@ -57,7 +59,8 @@ Also reachable at `/api/machines`, `/api/spaces/{spaceIdentifier}/machines`.
 
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`Architecture`** :span[string]{.type-label}
   - **`Endpoint`** :span[object]{.type-label}
@@ -107,7 +110,7 @@ Also reachable at `/api/machines`, `/api/spaces/{spaceIdentifier}/machines`.
 ```json
 {
   "Id": "string",
-  "ItemType": "string",
+  "ItemType": "Machine",
   "Items": [
     {
       "Architecture": "string",
@@ -116,7 +119,9 @@ Also reachable at `/api/machines`, `/api/spaces/{spaceIdentifier}/machines`.
         "Id": "string",
         "LastModifiedBy": "string",
         "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-        "Links": {}
+        "Links": {
+          "Self": "/api/..."
+        }
       },
       "EnvironmentIds": [
         "Environments-1",
@@ -130,9 +135,7 @@ Also reachable at `/api/machines`, `/api/spaces/{spaceIdentifier}/machines`.
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "MachinePolicyId": "string",
       "Name": "string",
@@ -159,17 +162,15 @@ Also reachable at `/api/machines`, `/api/spaces/{spaceIdentifier}/machines`.
       "Uri": "string"
     }
   ],
-  "ItemsPerPage": 0,
+  "ItemsPerPage": 30,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "LastPageNumber": 0,
+  "LastPageNumber": 1,
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -225,9 +226,7 @@ Creates a new deployment target.
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     }
   },
   "EnvironmentIds": [
@@ -316,9 +315,7 @@ Creates a new deployment target.
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     }
   },
   "EnvironmentIds": [
@@ -333,9 +330,7 @@ Creates a new deployment target.
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "MachinePolicyId": "string",
   "Name": "string",
@@ -444,9 +439,7 @@ Lists all of the Deployment Targets in the supplied Space. The results will be s
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       }
     },
     "EnvironmentIds": [
@@ -461,9 +454,7 @@ Lists all of the Deployment Targets in the supplied Space. The results will be s
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     },
     "MachinePolicyId": "string",
     "Name": "string",
@@ -563,7 +554,9 @@ Lists all of the Deployment Targets in the supplied Space. The results will be s
         "Id": "string",
         "LastModifiedBy": "string",
         "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-        "Links": {}
+        "Links": {
+          "Self": "/api/..."
+        }
       },
       "EnvironmentIds": [
         "Environments-1",
@@ -577,9 +570,7 @@ Lists all of the Deployment Targets in the supplied Space. The results will be s
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "MachinePolicyId": "string",
       "Name": "string",
@@ -680,9 +671,7 @@ Also reachable at `/api/machines/discover`, `/api/spaces/{spaceIdentifier}/machi
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     }
   },
   "HasLatestCalamari": false,
@@ -693,9 +682,7 @@ Also reachable at `/api/machines/discover`, `/api/spaces/{spaceIdentifier}/machi
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "MachinePolicyId": "string",
   "Name": "string",
@@ -756,11 +743,13 @@ Also reachable at `/api/machines/operatingsystem/shells/all`, `/api/spaces/{spac
 ```
 :::
 
-## List all of the registered machines in the supplied Octopus Deploy Space, from all environments. The results are sorted by health status, healthiest first, then alphabetically by name
+## List machines sorted by health status
 
 :endpoint{method="GET" path="/api/\{spaceId\}/machines/v2"}
 
 Also reachable at `/api/machines/v2`, `/api/spaces/{spaceIdentifier}/machines/v2`.
+
+List all of the registered machines in the supplied Octopus Deploy Space, from all environments. The results are sorted by health status, healthiest first, then alphabetically by name.
 
 **Path Parameters**
 
@@ -807,7 +796,8 @@ Also reachable at `/api/machines/v2`, `/api/spaces/{spaceIdentifier}/machines/v2
 `200` — The list of alphabetically sorted deployment targets that matched the request.
 
 - **`DeploymentTargets`** :span[object]{.type-label}
-  - **`ItemType`** :span[string]{.type-label}
+  - **`ItemType`** :span[string]{.type-label}  
+    The type of item in this list.
   - **`Items`** :span[array of object]{.type-label}
   - **`ItemsPerPage`** :span[integer]{.type-label}
   - **`LastPageNumber`** :span[integer]{.type-label}
@@ -819,7 +809,7 @@ Also reachable at `/api/machines/v2`, `/api/spaces/{spaceIdentifier}/machines/v2
 ```json
 {
   "DeploymentTargets": {
-    "ItemType": "string",
+    "ItemType": "Machine",
     "Items": [
       {
         "Architecture": "string",
@@ -835,7 +825,9 @@ Also reachable at `/api/machines/v2`, `/api/spaces/{spaceIdentifier}/machines/v2
         "IsInProcess": false,
         "LastModifiedBy": "string",
         "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-        "Links": {},
+        "Links": {
+          "Self": "/api/..."
+        },
         "MachinePolicyId": "string",
         "Name": "string",
         "OperatingSystem": "string",
@@ -861,10 +853,10 @@ Also reachable at `/api/machines/v2`, `/api/spaces/{spaceIdentifier}/machines/v2
         "Uri": "string"
       }
     ],
-    "ItemsPerPage": 0,
-    "LastPageNumber": 0,
-    "NumberOfPages": 0,
-    "TotalResults": 0
+    "ItemsPerPage": 30,
+    "LastPageNumber": 1,
+    "NumberOfPages": 2,
+    "TotalResults": 42
   },
   "TargetCountPerHealthStatus": {
     "additionalProp1": 0,
@@ -947,9 +939,7 @@ Also reachable at `/api/machines/{id}`, `/api/spaces/{spaceIdentifier}/machines/
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     }
   },
   "EnvironmentIds": [
@@ -964,9 +954,7 @@ Also reachable at `/api/machines/{id}`, `/api/spaces/{spaceIdentifier}/machines/
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "MachinePolicyId": "string",
   "Name": "string",
@@ -1021,13 +1009,14 @@ Also reachable at `/api/machines/{id}/latestdeployments`, `/api/spaces/{spaceIde
 **Path Parameters**
 
 - **`id`** :span[string]{.type-label} *(required)*  
-  ID of the Deployment Target.
+  The ID of the deployment target.
 - **`spaceId`** :span[string]{.type-label} *(required)*  
   The ID of the space containing the resource(s).
 
 **Query Parameters**
 
-- **`partialName`** :span[string]{.type-label}
+- **`partialName`** :span[string]{.type-label}  
+  Filters deployments by a partial project name.
 - **`skip`** :span[integer]{.type-label}  
   Number of items to skip. Defaults to zero. Minimum `0`.
 - **`take`** :span[integer]{.type-label}  
@@ -1037,7 +1026,8 @@ Also reachable at `/api/machines/{id}/latestdeployments`, `/api/spaces/{spaceIde
 
 `200` — The requested list of latest deployments per project for the Deployment Target
 
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`ProjectId`** :span[string]{.type-label}
   - **`ProjectLogo`** :span[string]{.type-label}  
@@ -1053,7 +1043,7 @@ Also reachable at `/api/machines/{id}/latestdeployments`, `/api/spaces/{spaceIde
 :::api-example{label="Response"}
 ```json
 {
-  "ItemType": "string",
+  "ItemType": "LatestProjectDeployment",
   "Items": [
     {
       "ProjectId": "Projects-1",
@@ -1078,7 +1068,9 @@ Also reachable at `/api/machines/{id}/latestdeployments`, `/api/spaces/{spaceIde
         "LastModifiedBy": "string",
         "LastModifiedOn": "2020-01-01T00:00:00.000Z",
         "LastUpdatedTime": "2020-01-01T00:00:00.000Z",
-        "Links": {},
+        "Links": {
+          "Self": "/api/..."
+        },
         "Name": "string",
         "PendingInterruptionTypes": [
           "ManualIntervention"
@@ -1096,10 +1088,10 @@ Also reachable at `/api/machines/{id}/latestdeployments`, `/api/spaces/{spaceIde
       }
     }
   ],
-  "ItemsPerPage": 0,
-  "LastPageNumber": 0,
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "ItemsPerPage": 30,
+  "LastPageNumber": 1,
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -1115,7 +1107,7 @@ Get a history of related Tasks (ie. Deployments) for a Deployment Target.
 **Path Parameters**
 
 - **`id`** :span[string]{.type-label} *(required)*  
-  ID of the Deployment Target.
+  The ID of the deployment target.
 - **`spaceId`** :span[string]{.type-label} *(required)*  
   The ID of the space containing the resource(s).
 
@@ -1126,7 +1118,7 @@ Get a history of related Tasks (ie. Deployments) for a Deployment Target.
 - **`take`** :span[integer]{.type-label}  
   Number of items to take. Defaults to 30. Minimum `0`.
 - **`type`** :span[enum]{.type-label}  
-  The type of Task to retrieve. If left blank, all Tasks are retrieved.  
+  Filters the tasks by task type.  
   Allowed values: `Deployment`, `RunbookRun`.
 
 **Response**
@@ -1135,7 +1127,8 @@ Get a history of related Tasks (ie. Deployments) for a Deployment Target.
 
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`Arguments`** :span[object]{.type-label}  
     Gets or sets any arguments to the task.
@@ -1210,7 +1203,7 @@ Get a history of related Tasks (ie. Deployments) for a Deployment Target.
 ```json
 {
   "Id": "string",
-  "ItemType": "string",
+  "ItemType": "Task",
   "Items": [
     {
       "Arguments": {
@@ -1236,9 +1229,7 @@ Get a history of related Tasks (ie. Deployments) for a Deployment Target.
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "LastUpdatedTime": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Name": "string",
       "PendingInterruptionTypes": [
@@ -1256,17 +1247,15 @@ Get a history of related Tasks (ie. Deployments) for a Deployment Target.
       "State": "Queued"
     }
   ],
-  "ItemsPerPage": 0,
+  "ItemsPerPage": 30,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "LastPageNumber": 0,
+  "LastPageNumber": 1,
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -1282,7 +1271,7 @@ Get a history of related Tasks (ie. Deployments) for a Deployment Target.
 **Path Parameters**
 
 - **`id`** :span[string]{.type-label} *(required)*  
-  ID of the Deployment Target.
+  The ID of the deployment target.
 - **`spaceId`** :span[string]{.type-label} *(required)*  
   The ID of the space containing the resource(s).
 
@@ -1293,7 +1282,7 @@ Get a history of related Tasks (ie. Deployments) for a Deployment Target.
 - **`take`** :span[integer]{.type-label}  
   Number of items to take. Defaults to 30. Minimum `0`.
 - **`type`** :span[enum]{.type-label}  
-  The type of Task to retrieve. If left blank, all Tasks are retrieved.  
+  Filters the tasks by task type.  
   Allowed values: `Deployment`, `RunbookRun`.
 
 **Response**
@@ -1303,7 +1292,8 @@ Get a history of related Tasks (ie. Deployments) for a Deployment Target.
 - **`ResourceCollection`** :span[object]{.type-label}
   - **`Id`** :span[string]{.type-label}  
     Gets or sets a unique identifier for this resource.
-  - **`ItemType`** :span[string]{.type-label}
+  - **`ItemType`** :span[string]{.type-label}  
+    The type of item in this list.
   - **`Items`** :span[array of object]{.type-label}
   - **`ItemsPerPage`** :span[integer]{.type-label}
   - **`LastModifiedBy`** :span[string]{.type-label}  
@@ -1321,7 +1311,7 @@ Get a history of related Tasks (ie. Deployments) for a Deployment Target.
 {
   "ResourceCollection": {
     "Id": "string",
-    "ItemType": "string",
+    "ItemType": "Task",
     "Items": [
       {
         "Arguments": {},
@@ -1342,7 +1332,9 @@ Get a history of related Tasks (ie. Deployments) for a Deployment Target.
         "LastModifiedBy": "string",
         "LastModifiedOn": "2020-01-01T00:00:00.000Z",
         "LastUpdatedTime": "2020-01-01T00:00:00.000Z",
-        "Links": {},
+        "Links": {
+          "Self": "/api/..."
+        },
         "Name": "string",
         "PendingInterruptionTypes": [
           "ManualIntervention"
@@ -1359,17 +1351,15 @@ Get a history of related Tasks (ie. Deployments) for a Deployment Target.
         "State": "Queued"
       }
     ],
-    "ItemsPerPage": 0,
+    "ItemsPerPage": 30,
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-    "LastPageNumber": 0,
+    "LastPageNumber": 1,
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     },
-    "NumberOfPages": 0,
-    "TotalResults": 0
+    "NumberOfPages": 2,
+    "TotalResults": 42
   }
 }
 ```
@@ -1474,9 +1464,7 @@ Also reachable at `/api/machines/{machineid}`, `/api/spaces/{spaceIdentifier}/ma
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     }
   },
   "EnvironmentIds": [
@@ -1565,9 +1553,7 @@ Also reachable at `/api/machines/{machineid}`, `/api/spaces/{spaceIdentifier}/ma
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     }
   },
   "EnvironmentIds": [
@@ -1582,9 +1568,7 @@ Also reachable at `/api/machines/{machineid}`, `/api/spaces/{spaceIdentifier}/ma
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "MachinePolicyId": "string",
   "Name": "string",

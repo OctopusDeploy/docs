@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-09-04
 title: Git Hub
 ---
 
@@ -492,9 +492,11 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/installations`.
 
 `200` — OK
 
-## Get the GitHub repositories for an installation visible to the current user https://docs.github.com/en/rest/apps/installations?apiVersion=2022-11-28#list-repositories-accessible-to-the-user-access-token
+## Get the GitHub repositories for an installation visible to the current user
 
 :endpoint{method="GET" path="/api/github/installations/\{installationId\}/repositories"}
+
+https://docs.github.com/en/rest/apps/installations?apiVersion=2022-11-28#list-repositories-accessible-to-the-user-access-token
 
 **Path Parameters**
 
@@ -511,7 +513,8 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/installations`.
 
 `200` — Success
 
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`DefaultBranch`** :span[string]{.type-label}
   - **`GitUrl`** :span[string]{.type-label}
@@ -529,7 +532,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/installations`.
 :::api-example{label="Response"}
 ```json
 {
-  "ItemType": "string",
+  "ItemType": "GitHubRepositoryResponse",
   "Items": [
     {
       "DefaultBranch": "string",
@@ -542,17 +545,19 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/installations`.
       "Visibility": "string"
     }
   ],
-  "ItemsPerPage": 0,
-  "LastPageNumber": 0,
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "ItemsPerPage": 30,
+  "LastPageNumber": 1,
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
 
-## Reset the GitHub app registration for this Octopus instance. This is a destructive command and will break all existing GitHub app connections across the instance. This should only be used as a last resort to recover connectivity with GitHub
+## Reset the GitHub app registration for this Octopus instance
 
 :endpoint{method="POST" path="/api/github/reset-registration"}
+
+This is a destructive command and will break all existing GitHub app connections across the instance. This should only be used as a last resort to recover connectivity with GitHub.
 
 **Response**
 
@@ -564,9 +569,11 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/installations`.
 ```
 :::
 
-## Search for GitHub repositories for an account visible to the current user https://docs.github.com/en/rest/search/search?apiVersion=2022-11-28#search-repositories
+## Search for GitHub repositories for an account visible to the current user
 
 :endpoint{method="GET" path="/api/github/search/\{accountName\}/repositories"}
+
+https://docs.github.com/en/rest/search/search?apiVersion=2022-11-28#search-repositories
 
 **Path Parameters**
 
@@ -584,7 +591,8 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/installations`.
 
 `200` — Success
 
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`DefaultBranch`** :span[string]{.type-label}
   - **`GitUrl`** :span[string]{.type-label}
@@ -602,7 +610,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/installations`.
 :::api-example{label="Response"}
 ```json
 {
-  "ItemType": "string",
+  "ItemType": "GitHubRepositoryResponse",
   "Items": [
     {
       "DefaultBranch": "string",
@@ -615,10 +623,10 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/installations`.
       "Visibility": "string"
     }
   ],
-  "ItemsPerPage": 0,
-  "LastPageNumber": 0,
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "ItemsPerPage": 30,
+  "LastPageNumber": 1,
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::

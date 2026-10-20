@@ -1,23 +1,10 @@
 ---
-layout: src/layouts/Default.astro
+layout: src/layouts/Redirect.astro
+title: Redirect
+redirect: https://octopus.com/docs/api/examples/variables/find-projects-using-library-set
 pubDate: 2023-01-01
-modDate: 2023-01-01
-title: Find projects using variable set
-description: An example script that finds all projects using a specific variable set.
+modDate: 2026-09-01
+navSearch: false
+navSitemap: false
+navMenu: false
 ---
-import FindProjectsUsingVariableSetScripts from 'src/shared-content/scripts/find-projects-using-variable-set-scripts.include.md';
-
-This script demonstrates how to programmatically find all projects using a specific variable set.
-
-## Usage
-
-Provide values for the following:
-
-- Octopus URL
-- Octopus API Key
-- Name of the space to search
-- Name of the Variable Set to search for
-
-## Script
-
-<FindProjectsUsingVariableSetScripts />

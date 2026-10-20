@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-03-05
-modDate: 2026-05-28
+modDate: 2026-10-12
 title: Troubleshooting
 subtitle: Known issues and limitations for project templates
 icon: fa-solid fa-layer-group
@@ -12,42 +12,54 @@ navOrder: 173
 ---
 
 :::div{.warning}
-Project templates are in Public Preview. The feature is still evolving and standard SLAs don't apply. We don't recommend it for production workloads yet. It's available to Enterprise customers on Cloud and to self-hosted customers running Octopus 2026.2. We'd love your feedback as we work towards General Availability.
+Project templates are in Public Preview. The feature is still evolving and standard SLAs don't apply. We don't recommend it for production workloads yet. It's available to Enterprise customers on Cloud and to self-hosted customers running Octopus 2026.2+. We'd love your feedback as we work towards General Availability.
 :::
 
 ## Public Preview limitations
 
 Project templates are in Public Preview. The following features are not yet supported and are planned for future releases:
 
-- Channels
-- Lifecycles
-- Environments
-- Ephemeral environments
+- Ephemeral environments, including ephemeral environment channels
 - Cloud target discovery on steps (see below)
 - Cloning a project template through the Octopus UI
 - Creating and managing project templates through the REST API, CLI, or Terraform provider
-- Feeds
-- Project settings, except for Multi-tenant Deployments and Project Persistence
 - Runbooks
-- Triggers
 - Import and export of templated projects
 - Inline variable configuration within the deployment process editor
+- Scoping Insights reports to channels in a templated project (you can still scope a report to the templated project itself)
+- Templated projects in compliance reports
 
 We'll update this page as the feature evolves.
+
+:::div{.info}
+
+Support for configuring Platform Hub External Feeds is available from Octopus 2026.4.1770
+
+Support for configuring project triggers and runbook scheduled triggers for templated projects on the consumer side is available from Octopus 2026.4.1770
+
+:::
+
+## Retention isn't applied to a templated project
+
+Octopus skips retention for a templated project when its environment parameter values don't make a valid lifecycle. This happens when:
+
+- A phase's environment parameter has no environments
+- A phase's environment parameter isn't set to a valid environment
+- The same environment appears in more than one phase
+
+While retention is skipped, Octopus keeps the project's releases and Tentacle files. After you fix the environment parameter values in the templated project, the next retention run applies the policies.
+
+## Deployment freezes
+
+When selecting projects for a global deployment freeze, filtering by environment may not show all templated projects that use the selected environment.
+
+## Viewing recent deployments
+
+Recent deployments for templated projects are shown on the projects page like other projects. Unlike non-templated projects, the environments shown for templated projects are determined by the latest release in each channel. This means the projects page won't reflect the exact up-to-date environment configuration set in your templated project if you've updated environment parameter values but haven't created a new release.
 
 ## Cloud target discovery
 
 Project templates can't supply the account that cloud target discovery uses on a step. To use cloud target discovery in a templated project, configure it on the templated project itself. See [cloud target discovery](/docs/infrastructure/deployment-targets/cloud-target-discovery) for more information.
-
-## Step support
-
-Project templates support most Octopus steps. The following steps are not supported:
-
-- Deploy a Bicep Template
-- AWS S3 Create Bucket
-- AWS ECS
-
-These steps will be supported in the future.
 
 ## Cloning project templates
 
@@ -62,7 +74,7 @@ You can't clone a project template through the Octopus UI. To clone a template:
 
 ## Public API
 
-The Alpha release doesn't support creating and managing project templates through the REST API. We're planning REST API support for a future release.
+The Public Preview release doesn't support creating and managing project templates through the REST API. We're planning REST API support for a future release.
 
 ## Losing access to an Octopus Enterprise license
 

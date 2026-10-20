@@ -1,15 +1,17 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-09-18
 title: Workers
 ---
 
-## List all of the registered worker machines in the supplied Octopus Deploy Space. The results will be sorted alphabetically by name
+## List Workers
 
 :endpoint{method="GET" path="/api/\{spaceId\}/workers"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/workers`, `/api/workers`.
+
+List all of the registered worker machines in the supplied Octopus Deploy Space. The results will be sorted alphabetically by name.
 
 **Path Parameters**
 
@@ -47,7 +49,8 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers`, `/api/workers`.
 
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`Architecture`** :span[string]{.type-label}
   - **`Endpoint`** :span[object]{.type-label}
@@ -92,7 +95,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers`, `/api/workers`.
 ```json
 {
   "Id": "string",
-  "ItemType": "string",
+  "ItemType": "Worker",
   "Items": [
     {
       "Architecture": "string",
@@ -101,7 +104,9 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers`, `/api/workers`.
         "Id": "string",
         "LastModifiedBy": "string",
         "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-        "Links": {}
+        "Links": {
+          "Self": "/api/..."
+        }
       },
       "HasLatestCalamari": false,
       "HealthStatus": "Healthy",
@@ -111,9 +116,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers`, `/api/workers`.
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "MachinePolicyId": "string",
       "Name": "string",
@@ -133,17 +136,15 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers`, `/api/workers`.
       ]
     }
   ],
-  "ItemsPerPage": 0,
+  "ItemsPerPage": 30,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "LastPageNumber": 0,
+  "LastPageNumber": 1,
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -195,9 +196,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers`, `/api/workers`.
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     }
   },
   "IsDisabled": false,
@@ -268,9 +267,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers`, `/api/workers`.
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     }
   },
   "HasLatestCalamari": false,
@@ -281,9 +278,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers`, `/api/workers`.
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "MachinePolicyId": "string",
   "Name": "string",
@@ -380,9 +375,7 @@ Lists all of the Workers in the supplied Space. The results will be sorted alpha
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       }
     },
     "HasLatestCalamari": false,
@@ -393,9 +386,7 @@ Lists all of the Workers in the supplied Space. The results will be sorted alpha
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     },
     "MachinePolicyId": "string",
     "Name": "string",
@@ -495,9 +486,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers/discover`, `/api/worker
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     }
   },
   "HasLatestCalamari": false,
@@ -508,9 +497,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers/discover`, `/api/worker
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "MachinePolicyId": "string",
   "Name": "string",
@@ -576,11 +563,13 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers/operatingsystem/shells/
 ```
 :::
 
-## List all of the registered worker machines in the supplied Octopus Deploy Space. The results will be sorted alphabetically by name
+## List Workers
 
 :endpoint{method="GET" path="/api/\{spaceId\}/workers/v2"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/workers/v2`, `/api/workers/v2`.
+
+List all of the registered worker machines in the supplied Octopus Deploy Space. The results will be sorted alphabetically by name.
 
 **Path Parameters**
 
@@ -617,7 +606,8 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers/v2`, `/api/workers/v2`.
 
 - **`WorkerCountPerHealthStatus`** :span[object]{.type-label}
 - **`Workers`** :span[object]{.type-label}
-  - **`ItemType`** :span[string]{.type-label}
+  - **`ItemType`** :span[string]{.type-label}  
+    The type of item in this list.
   - **`Items`** :span[array of object]{.type-label}
   - **`ItemsPerPage`** :span[integer]{.type-label}
   - **`LastPageNumber`** :span[integer]{.type-label}
@@ -633,7 +623,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers/v2`, `/api/workers/v2`.
     "additionalProp3": 0
   },
   "Workers": {
-    "ItemType": "string",
+    "ItemType": "Worker",
     "Items": [
       {
         "Architecture": "string",
@@ -645,7 +635,9 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers/v2`, `/api/workers/v2`.
         "IsInProcess": false,
         "LastModifiedBy": "string",
         "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-        "Links": {},
+        "Links": {
+          "Self": "/api/..."
+        },
         "MachinePolicyId": "string",
         "Name": "string",
         "OperatingSystem": "string",
@@ -664,10 +656,10 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers/v2`, `/api/workers/v2`.
         ]
       }
     ],
-    "ItemsPerPage": 0,
-    "LastPageNumber": 0,
-    "NumberOfPages": 0,
-    "TotalResults": 0
+    "ItemsPerPage": 30,
+    "LastPageNumber": 1,
+    "NumberOfPages": 2,
+    "TotalResults": 42
   }
 }
 ```
@@ -740,9 +732,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers/{id}`, `/api/workers/{i
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     }
   },
   "HasLatestCalamari": false,
@@ -753,9 +743,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers/{id}`, `/api/workers/{i
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "MachinePolicyId": "string",
   "Name": "string",
@@ -827,9 +815,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers/{id}`, `/api/workers/{i
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     }
   },
   "Id": "Machines-1",
@@ -900,9 +886,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers/{id}`, `/api/workers/{i
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     }
   },
   "HasLatestCalamari": false,
@@ -913,9 +897,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers/{id}`, `/api/workers/{i
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "MachinePolicyId": "string",
   "Name": "string",
@@ -988,8 +970,10 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers/{id}/connection`, `/api
   - **`GapLastNumber`** :span[integer]{.type-label}
   - **`MessageText`** :span[string]{.type-label}
   - **`Number`** :span[integer]{.type-label}
+  - **`ObservedAt`** :span[string]{.type-label}  
+    The time the server received the output. Format `date-time`.
   - **`OccurredAt`** :span[string]{.type-label}  
-    Format `date-time`.
+    The time the output actually occurred, usually from the remote machine. Will be the same as ObservedAt if not available or applicable. Format `date-time`.
 - **`MachineId`** :span[string]{.type-label}
 - **`Status`** :span[string]{.type-label}
 
@@ -1002,9 +986,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers/{id}/connection`, `/api
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Logs": [
     {
@@ -1013,6 +995,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers/{id}/connection`, `/api
       "GapLastNumber": 0,
       "MessageText": "string",
       "Number": 0,
+      "ObservedAt": "2020-01-01T00:00:00.000Z",
       "OccurredAt": "2020-01-01T00:00:00.000Z"
     }
   ],

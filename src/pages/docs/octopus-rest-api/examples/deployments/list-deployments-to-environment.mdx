@@ -1,23 +1,10 @@
 ---
-layout: src/layouts/Default.astro
+layout: src/layouts/Redirect.astro
+title: Redirect
+redirect: https://octopus.com/docs/api/examples/deployments/list-deployments-to-environment
 pubDate: 2023-01-01
-modDate: 2023-01-01
-title: List deployments to environment
-description: An example script to retrieve a list of deployments to an environment
+modDate: 2026-09-01
+navSearch: false
+navSitemap: false
+navMenu: false
 ---
-import ListDeploymentsToEnvironmentScripts from 'src/shared-content/scripts/list-deployments-to-environment-scripts.include.md';
-
-This script demonstrates how to programmatically retrieve a list of deployments to an environment.
-
-## Usage
-
-Provide values for:
-
-- Octopus URL
-- Octopus API Key
-- Space Name
-- Environment Name
-
-## Script
-
-<ListDeploymentsToEnvironmentScripts />

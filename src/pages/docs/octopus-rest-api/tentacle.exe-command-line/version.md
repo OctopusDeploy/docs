@@ -1,38 +1,9 @@
+﻿---
+layout: src/layouts/Redirect.astro
+title: Redirect
+redirect: https://octopus.com/docs/administration/tentacle.exe-command-line/version
+pubDate:  2023-01-01
+navSearch: false
+navSitemap: false
+navMenu: false
 ---
-layout: src/layouts/Default.astro
-pubDate: 2023-01-01
-modDate: 2023-01-01
-title: version
-description: Show the Tentacle version information
----
-
-Show the Tentacle version information.
-
-**version options**
-
-```text
-Usage: tentacle version [<options>]
-
-Where [<options>] is any of:
-
-      --format=VALUE         The format of the output (text,json). Defaults
-                               to text.
-
-Or one of the common options:
-
-      --help                 Show detailed help for this command
-```
-
-## Basic examples
-
-This example displays the Tentacle version in the default text format:
-
-```text
-tentacle version
-```
-
-This example displays the Tentacle version in JSON format:
-
-```text
-tentacle version --format="json"
-```

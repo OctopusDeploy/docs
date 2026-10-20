@@ -1,15 +1,17 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-09-04
 title: Project Groups
 ---
 
-## Get a paginated list of the Project Groups in the supplied Octopus Deploy Space. The results will be sorted alphabetically by name
+## List Project Groups
 
 :endpoint{method="GET" path="/api/\{spaceId\}/projectgroups"}
 
 Also reachable at `/api/projectgroups`, `/api/spaces/{spaceIdentifier}/projectgroups`.
+
+Get a paginated list of the Project Groups in the supplied Octopus Deploy Space. The results will be sorted alphabetically by name.
 
 **Path Parameters**
 
@@ -35,7 +37,8 @@ Also reachable at `/api/projectgroups`, `/api/spaces/{spaceIdentifier}/projectgr
 
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`Description`** :span[string]{.type-label}
   - **`EnvironmentIds`** :span[array of string]{.type-label}  
@@ -69,7 +72,7 @@ Also reachable at `/api/projectgroups`, `/api/spaces/{spaceIdentifier}/projectgr
 ```json
 {
   "Id": "string",
-  "ItemType": "string",
+  "ItemType": "ProjectGroup",
   "Items": [
     {
       "Description": "string",
@@ -80,9 +83,7 @@ Also reachable at `/api/projectgroups`, `/api/spaces/{spaceIdentifier}/projectgr
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Name": "string",
       "RetentionPolicyId": "string",
@@ -90,17 +91,15 @@ Also reachable at `/api/projectgroups`, `/api/spaces/{spaceIdentifier}/projectgr
       "SpaceId": "Spaces-1"
     }
   ],
-  "ItemsPerPage": 0,
+  "ItemsPerPage": 30,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "LastPageNumber": 0,
+  "LastPageNumber": 1,
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -170,9 +169,7 @@ Also reachable at `/api/projectgroups`, `/api/spaces/{spaceIdentifier}/projectgr
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "RetentionPolicyId": "string",
@@ -182,11 +179,13 @@ Also reachable at `/api/projectgroups`, `/api/spaces/{spaceIdentifier}/projectgr
 ```
 :::
 
-## List the name and ID of all of the Project Groups in the supplied Octopus Deploy Space. The results will be sorted alphabetically by name
+## List Project Groups (unpaginated)
 
 :endpoint{method="GET" path="/api/\{spaceId\}/projectgroups/all"}
 
 Also reachable at `/api/projectgroups/all`, `/api/spaces/{spaceIdentifier}/projectgroups/all`.
+
+List the name and ID of all of the Project Groups in the supplied Octopus Deploy Space. The results will be sorted alphabetically by name.
 
 **Path Parameters**
 
@@ -226,9 +225,7 @@ Also reachable at `/api/projectgroups/all`, `/api/spaces/{spaceIdentifier}/proje
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     },
     "Name": "string",
     "RetentionPolicyId": "string",
@@ -285,9 +282,7 @@ Also reachable at `/api/projectgroups/{id}`, `/api/spaces/{spaceIdentifier}/proj
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "RetentionPolicyId": "string",
@@ -367,9 +362,7 @@ Also reachable at `/api/projectgroups/{id}`, `/api/spaces/{spaceIdentifier}/proj
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "RetentionPolicyId": "string",
@@ -422,7 +415,8 @@ Also reachable at `/api/projectgroups/{id}/projects`, `/api/spaces/{spaceIdentif
 
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`AllowIgnoreChannelRules`** :span[boolean]{.type-label}
   - **`AutoCreateRelease`** :span[boolean]{.type-label}
@@ -489,7 +483,7 @@ Also reachable at `/api/projectgroups/{id}/projects`, `/api/spaces/{spaceIdentif
 ```json
 {
   "Id": "string",
-  "ItemType": "string",
+  "ItemType": "Project",
   "Items": [
     {
       "AllowIgnoreChannelRules": false,
@@ -527,9 +521,7 @@ Also reachable at `/api/projectgroups/{id}/projects`, `/api/spaces/{spaceIdentif
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "LifecycleId": "string",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Name": "string",
       "PersistenceSettings": {
@@ -571,17 +563,15 @@ Also reachable at `/api/projectgroups/{id}/projects`, `/api/spaces/{spaceIdentif
       }
     }
   ],
-  "ItemsPerPage": 0,
+  "ItemsPerPage": 30,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "LastPageNumber": 0,
+  "LastPageNumber": 1,
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::

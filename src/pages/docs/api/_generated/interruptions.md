@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-09-04
 title: Interruptions
 ---
 
@@ -34,7 +34,8 @@ Also reachable at `/api/interruptions`, `/api/spaces/{spaceIdentifier}/interrupt
 
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`CanTakeResponsibility`** :span[boolean]{.type-label}  
     Gets or sets a value indicating whether the current user has permissions to take responsibility for this interruption.
@@ -88,7 +89,7 @@ Also reachable at `/api/interruptions`, `/api/spaces/{spaceIdentifier}/interrupt
 ```json
 {
   "Id": "string",
-  "ItemType": "string",
+  "ItemType": "Interruption",
   "Items": [
     {
       "CanTakeResponsibility": false,
@@ -107,9 +108,7 @@ Also reachable at `/api/interruptions`, `/api/spaces/{spaceIdentifier}/interrupt
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "PullRequests": [
         {}
@@ -127,17 +126,15 @@ Also reachable at `/api/interruptions`, `/api/spaces/{spaceIdentifier}/interrupt
       "Type": "ManualIntervention"
     }
   ],
-  "ItemsPerPage": 0,
+  "ItemsPerPage": 30,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "LastPageNumber": 0,
+  "LastPageNumber": 1,
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -236,9 +233,7 @@ Also reachable at `/api/interruptions/{id}`, `/api/spaces/{spaceIdentifier}/inte
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "PullRequests": [
     {
@@ -283,11 +278,13 @@ Also reachable at `/api/interruptions/{id}/responsible`, `/api/spaces/{spaceIden
 
 `200` — OK
 
-## Allow the current user to take responsibility for this interruption. Only users in one of the responsible teams on this interruption can take responsibility for it
+## Allow the current user to take responsibility for this interruption
 
 :endpoint{method="PUT" path="/api/\{spaceId\}/interruptions/\{id\}/responsible"}
 
 Also reachable at `/api/interruptions/{id}/responsible`, `/api/spaces/{spaceIdentifier}/interruptions/{id}/responsible`.
+
+Only users in one of the responsible teams on this interruption can take responsibility for it.
 
 **Path Parameters**
 
@@ -352,9 +349,7 @@ Also reachable at `/api/interruptions/{id}/responsible`, `/api/spaces/{spaceIden
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Password": "string",
   "ServiceAccountType": "Standard",
@@ -363,11 +358,13 @@ Also reachable at `/api/interruptions/{id}/responsible`, `/api/spaces/{spaceIden
 ```
 :::
 
-## Submit a dictionary of form values for the interruption. Only the user with responsibility for this interruption can submit this form
+## Submit a dictionary of form values for the interruption
 
 :endpoint{method="POST" path="/api/\{spaceId\}/interruptions/\{id\}/submit"}
 
 Also reachable at `/api/interruptions/{id}/submit`, `/api/spaces/{spaceIdentifier}/interruptions/{id}/submit`.
+
+Only the user with responsibility for this interruption can submit this form.
 
 **Path Parameters**
 
@@ -485,9 +482,7 @@ Also reachable at `/api/interruptions/{id}/submit`, `/api/spaces/{spaceIdentifie
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "PullRequests": [
     {

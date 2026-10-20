@@ -1,4 +1,4 @@
-import { flattenGeneratedApiPath } from '../../../lib/generatedApiPaths';
+import { flattenGeneratedPath } from '../../../lib/generatedPaths';
 
 export type SharedContentLookup = (absolutePath: string) => string | undefined;
 
@@ -270,7 +270,7 @@ export type NavSortable = {
 
 // Returns null for the docs root index.
 export function pathToSlug(relPath: string): string | null {
-  const flattened = flattenGeneratedApiPath(relPath);
+  const flattened = flattenGeneratedPath(relPath);
   const noExt = flattened.replace(/\.(md|mdx)$/i, '');
   if (noExt === flattened) return null;
   if (noExt === 'index') return null;

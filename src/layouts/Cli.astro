@@ -1,0 +1,139 @@
+---
+import { accelerator } from '@lib/accelerator';
+import { PostFiltering } from 'astro-accelerator-utils';
+import type { Frontmatter as OriginalFrontmatter } from 'astro-accelerator-utils/types/Frontmatter';
+import { SITE } from '@config';
+import type { Crumb } from '@util/breadcrumbs';
+import { buildAreaCrumbs, resolveArea, type Area } from '@lib/areas';
+import { searchIndexAttributes } from '@lib/searchIndexing';
+
+// Theme components
+import Head from '@components/HtmlHead.astro';
+import SkipLinks from '@components/SkipLinks.astro';
+import Breadcrumbs from '@components/Breadcrumbs.astro';
+import Authors from '@components/Authors.astro';
+import Taxonomy from '@components/Taxonomy.astro';
+
+// Custom components
+import AreaNavigation from '../components/AreaNavigation.astro';
+import ArticleHeader from '../components/ArticleHeader.astro';
+import ArticleNav from '../components/ArticleNav.astro';
+import Feedback from '../components/Feedback.astro';
+import TopNav from '../components/TopNav.astro';
+import CopyAsMarkdown from '../components/CopyAsMarkdown.astro';
+import OpenInLlm from '../components/OpenInLlm.astro';
+import Plausible from 'src/components/Plausible.astro';
+import Footer from 'src/components/Footer.astro';
+import DocsSearch from '../components/DocsSearch.astro';
+
+// The layout for the generated CLI reference, the counterpart to Api.astro.
+// Every page under /docs/cli/_generated names it, so the reference can be
+// restyled without touching the hand-written pages beside it.
+//
+// It is laid out as a docs page: the middle column, the area nav and the table
+// of contents beside it. When the reference needs a look of its own, it changes
+// here and all 185 pages pick it up.
+//
+// There is no "Edit on GitHub". These pages are written by gen-docs in
+// OctopusDeploy/cli and land in _generated, so the file the button would open is
+// overwritten by the next sync; correcting one of them means changing the
+// template in that repo. Api.astro leaves it out for the same reason.
+//
+// Copy as markdown stays, because these pages do have a .md version to copy.
+// Api.astro has it turned off only because it does not work there yet.
+
+type Props = {
+  // The nav this page appears in. Optional, and normally left alone: these
+  // pages live under /docs/cli, which is the CLI area already.
+  frontmatter: OriginalFrontmatter & { area?: Area };
+  headings: { depth: number; slug: string; text: string }[];
+  breadcrumbs?: Crumb[] | null;
+};
+const { frontmatter, headings, breadcrumbs } = Astro.props satisfies Props;
+
+const area = resolveArea(frontmatter.area, Astro.url.pathname);
+const crumbs = buildAreaCrumbs(Astro.url, area, breadcrumbs);
+
+const lang = frontmatter.lang ?? SITE.default.lang;
+const textDirection = frontmatter.dir ?? SITE.default.dir;
+
+const title = await accelerator.markdown.getInlineHtmlFrom(
+  frontmatter.title ?? SITE.title
+);
+
+const subtitle = frontmatter.subtitle
+  ? await accelerator.markdown.getInlineHtmlFrom(frontmatter.subtitle)
+  : null;
+
+const site_url = SITE.url;
+const site_features = SITE.featureFlags;
+const search =
+  accelerator.posts.all().filter(PostFiltering.isSearch).shift() ?? null;
+const searchUrl = search && accelerator.urlFormatter.formatAddress(search.url);
+const isSearchPage =
+  accelerator.urlFormatter.formatAddress(Astro.url.pathname) === searchUrl;
+
+// Gates the header's search field only. The overlay below is always rendered:
+// /docs/search has its own field and opens that same overlay.
+const showSearch = !isSearchPage;
+
+// The footer prints this; JSON-LD carries it as dateModified.
+const lastUpdated = frontmatter.modDate ?? frontmatter.pubDate ?? null;
+
+const searchIndex = searchIndexAttributes(Astro.url.pathname, frontmatter);
+---
+
+<html
+  dir={textDirection}
+  lang={lang}
+  class="initial"
+  data-theme="light"
+  data-signed-in="false"
+>
+  <Head
+    frontmatter={frontmatter}
+    headings={headings}
+    lang={lang}
+    crumbs={crumbs}
+  />
+  <body>
+    <SkipLinks frontmatter={frontmatter} headings={headings} lang={lang} />
+    <TopNav lang={lang} showSearch={showSearch} />
+    <div class="content-group">
+      <main id="site-main">
+        <Breadcrumbs lang={lang} crumbs={crumbs} />
+        <article {...searchIndex.article}>
+          <ArticleHeader lang={lang} subtitle={subtitle} title={title} />
+          <div class="page-actions">
+            <CopyAsMarkdown lang={lang} />
+            <OpenInLlm lang={lang} />
+          </div>
+          <div class="page-content anim-show-parent" {...searchIndex.content}>
+            <slot />
+            <Authors frontmatter={frontmatter} lang={lang} />
+            <Taxonomy frontmatter={frontmatter} lang={lang} />
+          </div>
+        </article>
+      </main>
+      {
+        /* The nav belongs to the area, not to this layout. The page's own
+          headings are not passed: the side column below lists them. */
+      }
+      <AreaNavigation area={area} lang={lang} />
+      <div class="side-nav">
+        <ArticleNav headings={headings} lang={lang} />
+        <Feedback frontmatter={frontmatter} lang={lang} />
+      </div>
+      <Footer lang={lang} lastUpdated={lastUpdated} />
+    </div>
+    <DocsSearch />
+    <script define:vars={{ site_url, site_features }}>
+      window.site_url = site_url;
+      window.site_features = site_features;
+    </script>
+    <script>
+      import '../scripts/main.js';
+    </script>
+    <Plausible />
+  </body>
+</html>

@@ -68,15 +68,15 @@ In isolated/air-gapped scenarios without access to the internet, it may prove be
 
 - Octopus Server updates
   - Via the Web Portal: **Configuration ➜ Settings ➜ Updates**
-  - Via the CLI [configure command](/docs/octopus-rest-api/octopus.server.exe-command-line/configure): `Octopus.Server.exe configure --upgradeCheck=false`
+  - Via the CLI [configure command](/docs/administration/octopus.server.exe-command-line/configure): `Octopus.Server.exe configure --upgradeCheck=false`
 - Built-in step template updates
   - Via the Web Portal: **Configuration ➜ Features ➜ Step Template Updates**
 - Community step updates
   - Via the Web Portal: **Configuration ➜ Features ➜ Community Step Templates**
 - Telemetry
   - Via the Web Portal: **Configuration ➜ Telemetry**
-  - Via the CLI [configure command](/docs/octopus-rest-api/octopus.server.exe-command-line/configure): `Octopus.Server.exe configure --sendTelemetry=false`
+  - Via the CLI [configure command](/docs/administration/octopus.server.exe-command-line/configure): `Octopus.Server.exe configure --sendTelemetry=false`
 - Dynamic Extensions
-  - Via the CLI [configure command](/docs/octopus-rest-api/octopus.server.exe-command-line/configure): `Octopus.Server.exe configure --dynamicExtensionsEnabled=false`
+  - Via the CLI [configure command](/docs/administration/octopus.server.exe-command-line/configure): `Octopus.Server.exe configure --dynamicExtensionsEnabled=false`
 - In-App Messaging via Chameleon
-  - Via the CLI [configure command](/docs/octopus-rest-api/octopus.server.exe-command-line/configure): `Octopus.Server.exe configure --experiencesEnabled=false`
+  - Via the CLI [configure command](/docs/administration/octopus.server.exe-command-line/configure): `Octopus.Server.exe configure --experiencesEnabled=false`

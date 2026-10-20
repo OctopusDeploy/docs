@@ -165,7 +165,7 @@ We use the IDs to map references between documents into the correct references f
 
 ### Is there a command-line interface?
 
-Yes! Most features are only available via the command line, so it is the most common way to perform data migration. Use `Octopus.Migrator.exe help` to see the full list of commands available. To see an example of the command syntax, you can use the Wizard in the Octopus Server Manager and click the **Show script** link.
+Yes! Most features are only available via the command line, so it is the most common way to perform data migration. See the [Octopus.Migrator.exe command line reference](/docs/administration/octopus.migrator.exe-command-line), or use `Octopus.Migrator.exe help` to see the full list of commands available. To see an example of the command syntax, you can use the Wizard in the Octopus Server Manager and click the **Show script** link.
 
 :::figure
 ![The Wizard has a show script option so you can use it to understand the command syntax](/docs/img/administration/data/images/import-wizard-show-script.png)

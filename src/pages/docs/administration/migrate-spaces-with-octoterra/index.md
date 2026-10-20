@@ -93,8 +93,8 @@ These are the prerequisites for migrating an Octopus space with the Octoterra Wi
 - [Backup](https://octopus.com/docs/administration/data/backup-and-restore) your Octopus instance again before the migration.
 - Download the Octoterra Wizard from [GitHub](https://github.com/OctopusSolutionsEngineering/OctoterraWizard).
 - Install [Terraform](https://developer.hashicorp.com/terraform/install) on your local workstation.
-- [Create an API key](https://octopus.com/docs/octopus-rest-api/how-to-create-an-api-key) for the source Octopus instance.
-- [Create an API key](https://octopus.com/docs/octopus-rest-api/how-to-create-an-api-key) for the destination Octopus instance.
+- [Create an API key](https://octopus.com/docs/api/authentication/create-an-api-key) for the source Octopus instance.
+- [Create an API key](https://octopus.com/docs/api/authentication/create-an-api-key) for the destination Octopus instance.
 - Create a remote [Terraform backend](https://developer.hashicorp.com/terraform/language/settings/backends/configuration) to maintain the state of the Terraform resources. [AWS S3](https://developer.hashicorp.com/terraform/language/settings/backends/s3) and [Azure Storage Accounts](https://developer.hashicorp.com/terraform/language/settings/backends/azurerm) are supported.
 - Install any required local tools. See the "Local Tools vs Container Images" section for more details.
 
@@ -336,15 +336,15 @@ Any firewall rules relating to the Octopus server must be updated to reflect the
 
 ### Regenerate API keys
 
-Any external scripts and platforms to connect to the destination Octopus server must make use of a new [API key](https://octopus.com/docs/octopus-rest-api/how-to-create-an-api-key).
+Any external scripts and platforms to connect to the destination Octopus server must make use of a new [API key](https://octopus.com/docs/api/authentication/create-an-api-key).
 
 ### Reconfigure polling tentacles
 
 [Polling tentacles](https://octopus.com/docs/infrastructure/deployment-targets/tentacle/tentacle-communication#polling-tentacles) must be configured with the address of the Octopus server they connect to. This means that any polling tentacles must be reconfigured to point to the destination server.
 
-The [poll-server](https://octopus.com/docs/octopus-rest-api/tentacle.exe-command-line/poll-server) command is used to configure a tentacle with a new server.
+The [poll-server](https://octopus.com/docs/administration/tentacle.exe-command-line/poll-server) command is used to configure a tentacle with a new server.
 
-You also need to deregister polling tentacles from the source server. The [deregister-from](https://octopus.com/docs/octopus-rest-api/tentacle.exe-command-line/deregister-from) command is used to deregister a tentacle from a server.
+You also need to deregister polling tentacles from the source server. The [deregister-from](https://octopus.com/docs/administration/tentacle.exe-command-line/deregister-from) command is used to deregister a tentacle from a server.
 
 A polling tentacle can be configured against both the source and destination servers when performing an incremental or continual migration, and deregistered from the source server when the migration is complete.
 
@@ -378,7 +378,7 @@ Listening tentacles are configured to trust a certificate that is unique to each
 
 It is possible to export the certificate from an on-premises Octopus server and import it into another on-premises server using [these instructions](https://octopus.com/docs/security/octopus-tentacle-communication/regenerate-certificates-with-octopus-server-and-tentacle).
 
-It is not possible to change the certificate used by an Octopus cloud instance. Each listening tentacle must be updated to trust the new certificate of the Octopus cloud instance using the [configure](https://octopus.com/docs/octopus-rest-api/tentacle.exe-command-line/configure) command with the `--trust` argument.
+It is not possible to change the certificate used by an Octopus cloud instance. Each listening tentacle must be updated to trust the new certificate of the Octopus cloud instance using the [configure](https://octopus.com/docs/administration/tentacle.exe-command-line/configure) command with the `--trust` argument.
 
 Listening tentacles cen be configured to trust both the source and destination servers when performing an incremental or continual migration, and the trust removed from the source server when the migration is complete.
 

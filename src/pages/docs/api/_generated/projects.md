@@ -1,15 +1,17 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-09-04
 title: Projects
 ---
 
-## List all of the projects in the supplied Octopus Deploy Space, from all project groups. The results will be sorted alphabetically by name
+## List Projects
 
 :endpoint{method="GET" path="/api/\{spaceId\}/projects"}
 
 Also reachable at `/api/projects`, `/api/spaces/{spaceIdentifier}/projects`.
+
+List all the projects in the supplied Octopus Deploy Space, from all project groups. The results will be sorted alphabetically by name.
 
 **Path Parameters**
 
@@ -34,7 +36,8 @@ Also reachable at `/api/projects`, `/api/spaces/{spaceIdentifier}/projects`.
 
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`AllowIgnoreChannelRules`** :span[boolean]{.type-label}
   - **`AutoCreateRelease`** :span[boolean]{.type-label}
@@ -101,7 +104,7 @@ Also reachable at `/api/projects`, `/api/spaces/{spaceIdentifier}/projects`.
 ```json
 {
   "Id": "string",
-  "ItemType": "string",
+  "ItemType": "Project",
   "Items": [
     {
       "AllowIgnoreChannelRules": false,
@@ -139,9 +142,7 @@ Also reachable at `/api/projects`, `/api/spaces/{spaceIdentifier}/projects`.
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "LifecycleId": "string",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Name": "string",
       "PersistenceSettings": {
@@ -183,17 +184,15 @@ Also reachable at `/api/projects`, `/api/spaces/{spaceIdentifier}/projects`.
       }
     }
   ],
-  "ItemsPerPage": 0,
+  "ItemsPerPage": 30,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "LastPageNumber": 0,
+  "LastPageNumber": 1,
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -234,7 +233,8 @@ Also reachable at `/api/projects`, `/api/spaces/{spaceIdentifier}/projects`.
 - **`IncludedLibraryVariableSetIds`** :span[array of string]{.type-label}  
   Library variable sets included in the project. Sets are listed in order of precedence, with earlier items in the list overriding any variables with the same name and scope definition appearing later in the list.
 - **`IsDisabled`** :span[boolean]{.type-label}
-- **`LifecycleId`** :span[string]{.type-label} *(required)*
+- **`LifecycleId`** :span[string]{.type-label}  
+  Required for non-templated projects. Templated projects source their lifecycle from the project template.
 - **`Name`** :span[string]{.type-label} *(required)*  
   Minimum length 1.
 - **`PersistenceSettings`** :span[object]{.type-label}
@@ -248,7 +248,7 @@ Also reachable at `/api/projects`, `/api/spaces/{spaceIdentifier}/projects`.
   - **`TargetRoles`** :span[array of string]{.type-label}
 - **`ProjectGroupId`** :span[string]{.type-label} *(required)*
 - **`ProjectTags`** :span[array of string]{.type-label}  
-  Tags to apply to the project, each written as "TagSet/Tag" using either the names or the IDs of the tag set and tag (for example "Regions/us-east"). Call find_tag_sets to discover which tag sets apply to projects and what tags they contain.
+  Tags to apply to the project, each written as "TagSet/Tag" using either the names or the IDs of the tag set and tag (for example "Regions/us-east"). Find the tag sets first to discover which ones apply to projects and what tags they contain.
 - **`ReleaseCreationStrategy`** :span[object]{.type-label}
   - **`ChannelId`** :span[string]{.type-label}
   - **`ReleaseCreationPackage`** :span[object]{.type-label}
@@ -490,9 +490,7 @@ Also reachable at `/api/projects`, `/api/spaces/{spaceIdentifier}/projects`.
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "LifecycleId": "string",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "PersistenceSettings": {
@@ -557,11 +555,13 @@ Also reachable at `/api/projects`, `/api/spaces/{spaceIdentifier}/projects`.
 ```
 :::
 
-## List all of the projects in the supplied Octopus Deploy Space
+## List Projects (unpaginated)
 
 :endpoint{method="GET" path="/api/\{spaceId\}/projects/all"}
 
 Also reachable at `/api/projects/all`, `/api/spaces/{spaceIdentifier}/projects/all`.
+
+List all of the projects in the supplied Octopus Deploy Space.
 
 **Path Parameters**
 
@@ -704,9 +704,7 @@ Also reachable at `/api/projects/all`, `/api/spaces/{spaceIdentifier}/projects/a
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "LifecycleId": "string",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     },
     "Name": "string",
     "PersistenceSettings": {
@@ -929,9 +927,7 @@ Also reachable at `/api/projects/{projectId}`, `/api/projects/{projectId}/{unuse
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "LifecycleId": "string",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "PersistenceSettings": {
@@ -1027,7 +1023,7 @@ Also reachable at `/api/projects/{projectId}`, `/api/spaces/{spaceIdentifier}/pr
 - **`DefaultToSkipIfAlreadyInstalled`** :span[boolean]{.type-label}
 - **`DeploymentChangesTemplate`** :span[string]{.type-label}
 - **`DeprovisioningRunbookId`** :span[string]{.type-label}  
-  ID of a runbook in this project that tears down an ephemeral environment. Must be an existing runbook of this project; call find_runbooks to look one up. Only relevant to projects using ephemeral environments.
+  ID of a runbook in this project that tears down an ephemeral environment. Must be an existing runbook of this project; find the project's runbooks to look one up. Only relevant to projects using ephemeral environments.
 - **`Description`** :span[string]{.type-label}
 - **`DiscreteChannelRelease`** :span[boolean]{.type-label}  
   Treats releases of different channels to the same environment as a separate deployment dimension. 'False' indicates a "hotfix"-style usage of channels (single release active per environment ignoring channels), whereas `True` indicates "microservice"-style usage (single release per environment per channel).
@@ -1040,7 +1036,8 @@ Also reachable at `/api/projects/{projectId}`, `/api/spaces/{spaceIdentifier}/pr
   Library variable sets included in the project. Sets are listed in order of precedence, with earlier items in the list overriding any variables with the same name and scope definition appearing later in the list.
 - **`IsBadgesEnabled`** :span[boolean]{.type-label}
 - **`IsDisabled`** :span[boolean]{.type-label}
-- **`LifecycleId`** :span[string]{.type-label} *(required)*
+- **`LifecycleId`** :span[string]{.type-label}  
+  Required for non-templated projects. Templated projects source their lifecycle from the project template.
 - **`Name`** :span[string]{.type-label} *(required)*  
   Minimum length 1.
 - **`PersistenceSettings`** :span[object]{.type-label}
@@ -1056,9 +1053,9 @@ Also reachable at `/api/projects/{projectId}`, `/api/spaces/{spaceIdentifier}/pr
 - **`ProjectId`** :span[string]{.type-label} *(required)*  
   ID of the project to modify.
 - **`ProjectTags`** :span[array of string]{.type-label}  
-  The project's complete set of tags, each written as "TagSet/Tag" using either the names or the IDs of the tag set and tag (for example "Regions/us-east"). This replaces the project's current tags, so resubmit the existing ones you want to keep. Call find_tag_sets to discover which tag sets apply to projects.
+  The project's complete set of tags, each written as "TagSet/Tag" using either the names or the IDs of the tag set and tag (for example "Regions/us-east"). This replaces the project's current tags, so resubmit the existing ones you want to keep. Find the tag sets first to discover which ones apply to projects.
 - **`ProvisioningRunbookId`** :span[string]{.type-label}  
-  ID of a runbook in this project that provisions an ephemeral environment. Must be an existing runbook of this project; call find_runbooks to look one up. Only relevant to projects using ephemeral environments.
+  ID of a runbook in this project that provisions an ephemeral environment. Must be an existing runbook of this project; find the project's runbooks to look one up. Only relevant to projects using ephemeral environments.
 - **`ReleaseCreationStrategy`** :span[object]{.type-label}
   - **`ChannelId`** :span[string]{.type-label}
   - **`ReleaseCreationPackage`** :span[object]{.type-label}
@@ -1303,9 +1300,7 @@ Also reachable at `/api/projects/{projectId}`, `/api/spaces/{spaceIdentifier}/pr
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "LifecycleId": "string",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "PersistenceSettings": {
@@ -1862,9 +1857,7 @@ Also reachable at `/api/projects/{projectId}/git/validate`, `/api/spaces/{spaceI
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     },
     "Name": "string"
   }

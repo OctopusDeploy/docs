@@ -17,10 +17,6 @@ While you can already access granular logs via the [Audit](/docs/security/users-
 
 Compliance Reports provide a centralized, audit-ready visibility into your software delivery lifecycle. They are designed to help Governance, Risk, and Compliance (GRC) teams quickly verify security controls and maintain a clear trail of deployment activity across your entire instance.
 
-:::div{.hint}
-Compliance reports are currently in Alpha. If you encounter any issues, please contact our [support team](https://octopus.com/support).
-:::
-
 Our reports focus on answering two critical questions:
 
 1. **Deployment Permissions**: Which users are authorized to deploy specific projects, and to which environments?

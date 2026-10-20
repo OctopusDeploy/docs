@@ -20,7 +20,7 @@ const TEMPLATE_URL = new URL('https://octopus.com/__nav-template__');
 let template: NavPage[] | null = null;
 
 // This is the docs area's tree. Every other area is navigated by its own — the
-// API reference by lib/apiNavigation.ts — so their pages are dropped here
+// API and CLI references by lib/areaMenu.ts — so their pages are dropped here
 // rather than listed in both. Dropping a node drops its children with it, which
 // is what takes a whole section out in one go.
 function withoutOtherAreas(pages: NavPage[]): NavPage[] {

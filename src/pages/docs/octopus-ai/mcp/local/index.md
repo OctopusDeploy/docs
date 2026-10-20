@@ -30,7 +30,7 @@ For more information, see the [Octopus REST API](/docs/octopus-rest-api) documen
 
 ## Governance
 
-Use dedicated [Agent API keys](/docs/octopus-rest-api/how-to-create-an-api-key#creating-an-agent-api-key) and [Agent Service Accounts](/docs/security/users-and-teams/service-accounts#agent-service-accounts) for agents connecting to your Octopus instance. These make agent actions identifiable and filterable in the audit log.
+Use dedicated [Agent API keys](/docs/api/authentication/create-an-api-key#creating-an-agent-api-key) and [Agent Service Accounts](/docs/security/users-and-teams/service-accounts#agent-service-accounts) for agents connecting to your Octopus instance. These make agent actions identifiable and filterable in the audit log.
 
 ## Installation
 
@@ -38,7 +38,7 @@ Use dedicated [Agent API keys](/docs/octopus-rest-api/how-to-create-an-api-key#c
 
 - Node.js 20 or later
 - An Octopus Deploy instance that the MCP server can access over HTTPS
-- An Octopus Deploy API key. We recommend creating a dedicated [Agent Service Account](/docs/security/users-and-teams/service-accounts#agent-service-accounts) and generating an [Agent API key](/docs/octopus-rest-api/how-to-create-an-api-key#creating-an-agent-api-key) for it. This gives the MCP server its own identity, limits its permissions, and identifies its activity in the audit log and on the API Keys page.
+- An Octopus Deploy API key. We recommend creating a dedicated [Agent Service Account](/docs/security/users-and-teams/service-accounts#agent-service-accounts) and generating an [Agent API key](/docs/api/authentication/create-an-api-key#creating-an-agent-api-key) for it. This gives the MCP server its own identity, limits its permissions, and identifies its activity in the audit log and on the API Keys page.
 
 ### Configuration
 

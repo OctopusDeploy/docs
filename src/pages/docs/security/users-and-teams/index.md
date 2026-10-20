@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2026-10-08
 title: Users and teams
 description: Octopus users can be organized in to teams and given various permissions via roles based security.  Teams can be further restricted to specific projects, environments and more.
 navOrder: 60
@@ -22,9 +22,9 @@ You can manage users and teams in the Octopus Web Portal:
 
 ## User and service accounts
 
-**User accounts** are allowed to use both the Octopus Web Portal and the Octopus API, and can authenticate with a username and password, [Active Directory credentials](/docs/security/authentication/active-directory/), or an [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key).
+**User accounts** are allowed to use both the Octopus Web Portal and the Octopus API, and can authenticate with a username and password, [Active Directory credentials](/docs/security/authentication/active-directory/), or an [Octopus API key](/docs/api/authentication/create-an-api-key).
 
-[Service accounts](/docs/security/users-and-teams/service-accounts/) are **API-only accounts** that should be used for automated services that integrate with Octopus Deploy, and can only authenticate with an [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key/). For more information refer to [Service accounts](/docs/security/users-and-teams/service-accounts).
+[Service accounts](/docs/security/users-and-teams/service-accounts/) are **API-only accounts** that should be used for automated services that integrate with Octopus Deploy, and can only authenticate with an [Octopus API key](/docs/api/authentication/create-an-api-key/). For more information refer to [Service accounts](/docs/security/users-and-teams/service-accounts).
 
 :::div{.success}
 You should create a different User account for each person that will use Octopus Deploy. You should create a different [Service account](/docs/security/users-and-teams/service-accounts) for each service that will integrate with Octopus Deploy.
@@ -96,17 +96,17 @@ The following table illustrates the combination of possible permissions when spe
 Team members can be assigned the following roles:
 
 - **Project viewer**:
-  Project viewers have read-only access to a project. They can see the project in their dashboard, view releases and deployments.
+  View a project's dashboard, releases, deployments, runbooks, runbook snapshots, and tenants.
 - **Project contributor**:
-  Project viewer, plus: editing and viewing variables and deployment steps.
+  Project viewer, plus: editing projects, deployment processes, variables, triggers, and runbooks.
 - **Project lead**:
-  Project contributor, plus: create releases (but not deploy them).
+  Project contributor, plus: creating releases (but not deploying them).
 - **Project deployer**:
-  Project contributor, plus: deploying releases (but not creating releases).
+  Project contributor, plus: deploying releases and running runbooks (but not creating releases).
 - **Environment viewer**:
-  View environments and their machines, but not edit them.
+  View environments, deployment targets, workers, proxies, accounts, and machine policies, but not edit them.
 - **Environment manager**:
-  View and edit environments and their machines.
+  Create, edit, and delete environments, deployment targets, workers, accounts, proxies, and machine policies.
 
 Note that project leads can create releases but not deploy them, while project deployers can deploy releases but not create them - this allows you assign these permissions independently. If you need members to be able to both create and deploy releases, you can add both roles.
 

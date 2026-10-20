@@ -16,7 +16,7 @@ The Claude Agent Step is an **alpha** release. The configuration and behavior ma
 :::
 
 :::div{.hint}
-[Easy Mode - Claude Agent Step](https://octopus.com/blog/octo-easy-mode-17-claude-agent-step) provides a practical example of using the Claude Agent Step you can apply to your own Octopus instance.
+[Easy Mode - Claude Agent Step](https://octopus.com/blog/octo-easy-mode-17-claude) provides a practical example of using the Claude Agent Step you can apply to your own Octopus instance.
 :::
 
 ## The Claude Agent Step

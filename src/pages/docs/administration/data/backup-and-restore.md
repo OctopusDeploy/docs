@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-11-04
+modDate: 2026-10-14
 title: Backup and restore
 description: Information on where Octopus data is stored and how to backup and restore an Octopus instance.
 navOrder: 10
@@ -11,9 +11,6 @@ A successful disaster recovery plan for Octopus Deploy requires the ability to r
 
 1. The Octopus [SQL Server Database](/docs/administration/data).
 2. The Octopus [data stored on the file system](/docs/administration/managing-infrastructure/server-configuration-and-file-storage).
-
-**Runbooks**
-[Octopus runbooks](/docs/runbooks) can help you automate your disaster recovery process.
 
 :::div{.problem}
 
@@ -56,7 +53,7 @@ Learn about [Octopus file storage](/docs/administration/managing-infrastructure/
 
 Certain sensitive information in the [Octopus database is encrypted](/docs/security/data-encryption/). This information is encrypted using your Octopus Server "Master Key", a randomly generated string. You'll need this Master Key to restore the database to a new server.
 
-When connecting to an existing database, you will be prompted for this key during the setup process. If you have already set up the server, you can [change the Master Key](/docs/octopus-rest-api/octopus.server.exe-command-line/database) to work with the restored database.
+When connecting to an existing database, you will be prompted for this key during the setup process. If you have already set up the server, you can [change the Master Key](/docs/administration/octopus.server.exe-command-line/database) to work with the restored database.
 
 :::div{.problem}
 

@@ -27,7 +27,7 @@ See the Bash Reference Manual, section [6.2 Bash Startup Files](http://www.gnu.o
 
 ## .NET {#dotnet}
 
-[Calamari](/docs/octopus-rest-api/calamari) is the command-line tool that is invoked to perform the deployment steps on the deployment target. It runs on .NET and is built as a [.NET Core self-contained distributable](https://docs.microsoft.com/en-us/dotnet/core/deploying/#self-contained-deployments-scd).
+[Calamari](/docs/administration/calamari) is the command-line tool that is invoked to perform the deployment steps on the deployment target. It runs on .NET and is built as a [.NET Core self-contained distributable](https://docs.microsoft.com/en-us/dotnet/core/deploying/#self-contained-deployments-scd).
 
 Since it is self-contained, .NET Core does not need to be installed on the target server. However, there are still some [pre-requisite dependencies](https://learn.microsoft.com/en-us/dotnet/core/install/linux-scripted-manual#dependencies) required for .NET Core itself that must be installed.
 

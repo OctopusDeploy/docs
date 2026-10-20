@@ -62,7 +62,7 @@ You can use a wildcard to pick up the dynamically generated package.
 
 Next, go to the **Deployment** page in your project's settings and click **Add deployment** and from the **Deployment providers** select **Octopus Deploy**.
 
-Enter the URL where the Octopus Server can be reached, and add an [API key](/docs/octopus-rest-api/how-to-create-an-api-key).
+Enter the URL where the Octopus Server can be reached, and add an [API key](/docs/api/authentication/create-an-api-key).
 
 :::figure
 ![AppVeyor Deploy](/docs/img/packaging-applications/build-servers/appveyor/images/appveyor_deploy.png)

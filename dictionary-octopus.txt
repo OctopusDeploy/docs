@@ -345,6 +345,7 @@ nlog
 nmap
 noconsolelogging
 nodir
+noeviction
 nologo
 nologs
 noninteractive
@@ -523,6 +524,9 @@ sfproj
 shiki
 showcerts
 Showplan
+sideload
+sideloaded
+sideloads
 SIEM
 signingkeys
 Signup

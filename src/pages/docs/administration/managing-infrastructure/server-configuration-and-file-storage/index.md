@@ -16,11 +16,11 @@ Make sure you have a **current backup** of your Octopus data before proceeding. 
 
 ## Server configuration {#server-configuration}
 
-If you need to re-configure your Octopus Server instance, you can do that using the Octopus Server [configure](/docs/octopus-rest-api/octopus.server.exe-command-line/configure) command.
+If you need to re-configure your Octopus Server instance, you can do that using the Octopus Server [configure](/docs/administration/octopus.server.exe-command-line/configure) command.
 
 ## Server folders {#server-folders}
 
-If you need to move folders other than the Octopus Home folder, you can do that using the Octopus Server [path](/docs/octopus-rest-api/octopus.server.exe-command-line/path) command. Also see [moving Octopus Server folders](/docs/administration/managing-infrastructure/server-configuration-and-file-storage/moving-octopus-server-folders/#move-octopus-home-folder).
+If you need to move folders other than the Octopus Home folder, you can do that using the Octopus Server [path](/docs/administration/octopus.server.exe-command-line/path) command. Also see [moving Octopus Server folders](/docs/administration/managing-infrastructure/server-configuration-and-file-storage/moving-octopus-server-folders/#move-octopus-home-folder).
 
 ## File storage {#file-storage}
 

@@ -1,0 +1,67 @@
+---
+import { accelerator } from '@lib/accelerator';
+import { Translations, Lang } from '@util/Languages';
+import { areaMenu } from '@lib/areaMenu';
+import AreaNavigationItem from './AreaNavigationItem.astro';
+
+const stats = new accelerator.statistics('components/CliNavigation.astro');
+stats.start();
+
+type Props = {
+  lang: string;
+};
+const { lang } = Astro.props satisfies Props;
+
+const _ = Lang(lang);
+
+const currentPath = Astro.url.pathname.replace(/\/$/, '');
+
+// The hand-written pages first — the overview and the deprecated Octo CLI —
+// then the generated command reference, with a rule between them.
+//
+// Unlike the API nav there is no third level: a command page has no endpoints
+// under it, so the rows are handed an empty list and each one renders as a
+// plain link.
+const { authored, generated } = areaMenu('cli');
+
+stats.stop();
+---
+
+<nav
+  class="site-nav"
+  id="site-nav"
+  aria-label={_(Translations.aria.site_navigation)}
+>
+  <h2 class="site-nav-title">{_(Translations.navigation.title)}</h2>
+  <ul class="site-nav__list" data-site-nav-scroll>
+    {
+      authored.map((page) => (
+        <AreaNavigationItem
+          page={page}
+          currentPath={currentPath}
+          endpoints={[]}
+          methodLabels={{}}
+        />
+      ))
+    }
+    {
+      authored.length > 0 && generated.length > 0 && (
+        <li class="site-nav__list-item">
+          {/* The two halves of the nav are written by different hands, and the
+              rule is where one set of pages stops and the other starts. */}
+          <hr class="site-nav__separator" />
+        </li>
+      )
+    }
+    {
+      generated.map((page) => (
+        <AreaNavigationItem
+          page={page}
+          currentPath={currentPath}
+          endpoints={[]}
+          methodLabels={{}}
+        />
+      ))
+    }
+  </ul>
+</nav>

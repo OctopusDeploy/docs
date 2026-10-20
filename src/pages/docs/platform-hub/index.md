@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-09-11
-modDate: 2025-11-20
+modDate: 2026-09-14
 title: Platform Hub
 subtitle: An overview of Platform Hub
 icon: fa-solid fa-landmark
@@ -50,6 +50,28 @@ To use these accounts inside a process template, you must create a parameter tha
 
 :::figure
 ![Accounts in Platform Hub](/docs/img/platform-hub/platform-hub-accounts.png)
+:::
+
+## External Feeds in Platform Hub
+
+You can create and manage external feeds in Platform Hub by visiting the **External Feeds** area in Platform Hub navigation menu. To configure, find the feed type you are creating and follow the same steps as [configuring a Package Repository in a space](/docs/packaging-applications/package-repositories). The following external feed types can be configured in Platform Hub.
+
+- Docker feeds
+- GitHub feeds
+- Maven feeds
+- NPM feeds
+- NuGet feeds
+- Python feeds (PyPI)
+- AWS S3 Bucket feeds
+- Google Cloud Storage feeds
+- Helm feeds
+- AWS ECR feeds
+- OCI-based registry feeds
+
+You can use external feeds inside your templates by selecting them from a dropdown in any step field that requires a package.
+
+:::figure
+![External Feeds in Platform Hub](/docs/img/platform-hub/platform-hub-external-feeds.png)
 :::
 
 ## Git Credentials in Platform Hub

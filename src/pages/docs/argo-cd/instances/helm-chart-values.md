@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-08-27
-modDate: 2026-08-27
+modDate: 2026-09-07
 title: Argo CD Gateway Chart Values
 description: Gateway Helm chart values and their descriptions
 navOrder: 10
@@ -32,8 +32,8 @@ hideInThisSectionHeader: true
 | gateway.octopus.serverThumbprint | `""` | The thumbprint of the Octopus Deploy server the gateway is communicating with. This should only be used if you wish to pin the certificate. |
 | gateway.octopus.plaintext | `false` | Disables TLS on the connection to the Octopus Deploy server This should only be used if your Octopus Server is running without a certificate on its gRPC listener. |
 | gateway.octopus.serverCertificate | `""` | DEPRECATED: use gateway.serverCertificates instead - The base64-encoded public key of the self-signed x509 certificate or root CA certificate used by the target Octopus Server. Must be in the PEM format. |
-| gateway.octopus.keepAlive.intervalSeconds | `30` | Duration between sending a keep alive to the Octopus Deploy server. Set to 0 to disable keep alives. |
-| gateway.octopus.keepAlive.maxConsecutiveFailures | `10` | Maximum number of keep alive consecutive failures before the application will restart |
+| gateway.octopus.healthCheck.interval | `"30s"` | Duration between health checks sent to the Octopus Deploy server, for example 30s or 1m. Set to 0 to disable health checks, which should only be for troubleshooting (error-recovery is limited when health checks are disabled). |
+| gateway.octopus.healthCheck.giveUpAfter | `"5m"` | Exit once the Octopus Deploy server has gone unanswered for this long, so the pod is restarted, for example 5m or 1h. |
 | gateway.argocd.serverGrpcUrl | `""` | The gRPC url (including the port) of the Argo CD instance to communicate with |
 | gateway.argocd.authenticationToken | `""` | The bearer token used to authenticate with the Argo CD instance. If supplied, a Kubernetes secret is created to hold this token. Mutually exclusive with authenticationTokenSecretName/authenticationTokenSecretKey, and with projectAuthentication/projectAuthenticationSecretName. |
 | gateway.argocd.authenticationTokenSecretName | `""` | Required when authenticationToken is not set: name of an existing secret that contains the Argo CD authentication token. When authenticationToken is set, this overrides the default secret name. Mutually exclusive with projectAuthentication/projectAuthenticationSecretName. |

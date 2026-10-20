@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-09-04
 title: Deployment Settings
 ---
 
@@ -72,9 +72,7 @@ Also reachable at `/api/projects/{projectId}/deploymentsettings`, `/api/spaces/{
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "ProjectId": "Projects-1",
   "ReleaseNotesTemplate": "string",
@@ -158,9 +156,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/deploymentsettings`, `/api
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "ProjectId": "Projects-1",
   "ReleaseNotesTemplate": "string",
@@ -319,9 +315,7 @@ Modifies deployment settings for a project.
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "ProjectId": "Projects-1",
   "ReleaseNotesTemplate": "string",
@@ -408,9 +402,7 @@ Also reachable at `/api/deploymentsettings/{id}`, `/api/spaces/{spaceIdentifier}
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "ProjectId": "Projects-1",
   "ReleaseNotesTemplate": "string",
@@ -568,9 +560,7 @@ Modifies deployment settings for a project.
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "ProjectId": "Projects-1",
   "ReleaseNotesTemplate": "string",

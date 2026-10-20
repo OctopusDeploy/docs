@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-03-28
-modDate: 2026-01-21
+modDate: 2026-08-24
 navTitle: Troubleshooting
 title: Troubleshooting
 navSection: Troubleshooting
@@ -19,7 +19,7 @@ Some firewalls may prevent the applications from making outbound connections ove
 
 For customers running a self-hosted instance, ensure that Octopus Server's `grpcListenPort` parameter is configured to be 8443. If using a port other than 8443, ensure the Kubernetes monitor's `server-grpc-url` parameter has been updated to match.
 
-If you haven't enabled Octopus Server's gRPC port before, the port Octopus Server uses can be [changed from the command line](/docs/octopus-rest-api/octopus.server.exe-command-line/configure/) using the `--grpcListenPort` option.
+If you haven't enabled Octopus Server's gRPC port before, the port Octopus Server uses can be [changed from the command line](/docs/administration/octopus.server.exe-command-line/configure/) using the `--grpcListenPort` option.
 
 :::div{.info}
 Support for running the [Kubernetes monitor](/docs/kubernetes/targets/kubernetes-agent/kubernetes-monitor) with high availability Octopus clusters was added in v2025.4
@@ -62,6 +62,35 @@ The cleanest way to do this is to delete and re-install your Kubernetes agent en
 If deleting your Kubernetes agent is not an option for your use case, you can also delete the Kubernetes monitor's authentication secret and restart the Kubernetes monitor pod to trigger re-registration.
 The authentication secret lives in the same namespace that your Kubernetes agent was installed in and has a name similar to `<agent name>-kubernetesmonitor-authentication`.
 
+### Kubernetes Monitor connection drops at regular intervals (load balancer idle timeout) \{#kubernetes-monitor-load-balancer-timeout}
+
+Behavior:
+
+- The Kubernetes monitor installs and connects successfully, but loses its connection to Octopus Server after every quiet period of the same length (e.g. 60 seconds without activity)
+- The "connectivity" tab of the Kubernetes agent intermittently shows "Offline" for the Kubernetes monitor component, depending on when the last health check ran
+- The Kubernetes monitor pod logs show stream errors followed by an immediate reconnection
+- If the load balancer drops connections silently instead of closing them, the logs show failing health checks (`Health check failed - cancelling subscribers` with `DeadlineExceeded` errors) and the Kubernetes monitor pod restart count climbs at a regular cadence
+
+Cause:
+
+- A load balancer or proxy between the Kubernetes monitor and Octopus Server closes connections it considers idle
+- The Kubernetes monitor sends a health check to Octopus Server every 30 seconds by default to hold the connection open. If the load balancer's idle timeout is shorter than the health check interval (or health checks are disabled), the connection is terminated before the next health check is sent
+
+Resolution:
+
+- Increase the idle timeout on your load balancer so it comfortably exceeds the health check interval (`kubernetesMonitor.monitor.healthCheck.interval`, default 30 seconds)
+- Alternatively, reduce the health check interval below the load balancer's idle timeout:
+
+```bash
+helm upgrade --atomic \
+  --version "2.*.*" \
+  --namespace "octopus-agent-$AGENT_NAME" \
+  --reuse-values \
+  --set kubernetesMonitor.monitor.healthCheck.interval="15s" \
+  $HELM_RELEASE \
+  oci://registry-1.docker.io/octopusdeploy/kubernetes-agent
+```
+
 ## Unexpected object statuses
 
 ### Out of date or slow to update object statuses
@@ -86,3 +115,33 @@ If possible, we recommend ensuring that
 
 - Octopus is the only entity to modify your deployments
 - You craft your Kubernetes manifests to ensure that there are no invalid fields
+
+### Why is an object not orphaned after a deployment? \{#object-not-orphaned}
+
+An object is marked [Orphaned](/docs/kubernetes/live-object-status#orphaned-objects) when a deployment succeeds and no longer deploys an object that a previous release deployed. Common causes are renaming an object, removing the object from a manifest, or removing the step that deployed it from the deployment process.
+
+Skipping or disabling a step does not orphan its objects.
+
+If you expected an object to be orphaned and it isn't, check that every Kubernetes monitor referenced by the project is on an agent version that supports orphan tracking, listed in the [version notes](/docs/kubernetes/live-object-status#version-notes). Orphan tracking is all-or-nothing for a given project/environment/tenant combination.
+
+### An object stays orphaned after I re-added the step \{#orphan-persists-after-re-adding-a-step}
+
+Octopus clears the orphan state when a deployment deploys the object again. You must deploy the release after re-adding a step that was removed.
+
+## Deleting orphaned objects \{#deleting-orphaned-objects}
+
+### Octopus says an object was deleted but it's still in my cluster \{#deleted-object-still-present}
+
+Deleting an object deletes its dependents in the background, so a successful deletion returns as soon as the object itself is gone. Kubernetes garbage collects what it owned afterwards, which means deleting a Deployment reports success while its ReplicaSets and Pods are still being removed.
+
+### A deletion failed \{#deletion-failed}
+
+Open the deletion task from the warning icon beside the object. The task log contains detailed error messages to help troubleshooting.
+
+The most common cause is cluster permissions. Deletions run on the Kubernetes agent using the agent's service account, so the agent needs `delete` on that kind and namespace. See [cluster permissions](/docs/kubernetes/live-object-status/deleting-orphaned-objects#cluster-permissions).
+
+### I can't delete an object because its status is stale \{#cannot-delete-stale-object}
+
+Octopus refuses to delete an object whose status information is stale, because it can't confirm what is actually in the cluster. Status goes stale after 10 minutes without an update from the Kubernetes monitor.
+
+Follow [failed to establish connection with Kubernetes monitor](/docs/kubernetes/live-object-status/troubleshooting#failed-to-establish-connection-with-kubernetes-monitor) to get the monitor reporting again, then retry the deletion.

@@ -44,7 +44,7 @@ Make sure that all script files contains valid NuGet references
 
 ### Which SDK version {#csharp-sdk-version}
 
-dotnet-script targets whichever .NET runtime the `dotnet` on the path resolves, so install an SDK at least as new as that runtime. Installing the SDK also installs a matching runtime. Calamari is [self-contained](/docs/octopus-rest-api/calamari) and carries its own runtime, but your C# script runs under the machine's `dotnet`.
+dotnet-script targets whichever .NET runtime the `dotnet` on the path resolves, so install an SDK at least as new as that runtime. Installing the SDK also installs a matching runtime. Calamari is [self-contained](/docs/administration/calamari) and carries its own runtime, but your C# script runs under the machine's `dotnet`.
 
 The [octopusdeploy/worker-tools images](/docs/projects/steps/execution-containers-for-workers/#worker-tools-images) include a .NET SDK, so C# scripts run in an [execution container](/docs/projects/steps/execution-containers-for-workers) without any extra setup.
 

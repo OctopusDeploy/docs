@@ -16,6 +16,6 @@ Deleting individual releases can be done by entering the release page and select
 ![Delete release from release page](/docs/img/releases/images/delete-release-from-release-page.png)
 :::
 
-You can also delete a batch of releases by specifying a release version range in the Octopus CLI. An example can be found in our [Octopus CLI documentation](/docs/octopus-rest-api/octopus-cli/delete-releases).
+You can also delete a batch of releases by specifying a release version range in the Octopus CLI. An example can be found in our [Octopus CLI documentation](/docs/cli/octopus-cli/delete-releases).
 
 Consider automating data clean up by configuring [retention policies](/docs/administration/retention-policies).

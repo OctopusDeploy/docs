@@ -1,15 +1,17 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-09-04
 title: Artifacts
 ---
 
-## List all of the artifacts in the supplied Octopus Deploy Space, from all releases. The results will be sorted by date from most recently to least recently created
+## List artifacts
 
 :endpoint{method="GET" path="/api/\{spaceId\}/artifacts"}
 
 Also reachable at `/api/artifacts`, `/api/spaces/{spaceIdentifier}/artifacts`.
+
+Lists all of the artifacts in the supplied Octopus Deploy Space, from all releases. The results will be sorted by date from most recently to least recently created.
 
 **Path Parameters**
 
@@ -37,7 +39,8 @@ Also reachable at `/api/artifacts`, `/api/spaces/{spaceIdentifier}/artifacts`.
 
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`Created`** :span[string]{.type-label}  
     Gets or sets the time at which the artifact was created. Format `date-time`.
@@ -73,7 +76,7 @@ Also reachable at `/api/artifacts`, `/api/spaces/{spaceIdentifier}/artifacts`.
 ```json
 {
   "Id": "string",
-  "ItemType": "string",
+  "ItemType": "Artifact",
   "Items": [
     {
       "Created": "2020-01-01T00:00:00.000Z",
@@ -82,9 +85,7 @@ Also reachable at `/api/artifacts`, `/api/spaces/{spaceIdentifier}/artifacts`.
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "LogCorrelationId": "0c5a872485ac4b10857939a92d082e67",
       "ServerTaskId": "string",
@@ -92,17 +93,15 @@ Also reachable at `/api/artifacts`, `/api/spaces/{spaceIdentifier}/artifacts`.
       "SpaceId": "Spaces-1"
     }
   ],
-  "ItemsPerPage": 0,
+  "ItemsPerPage": 30,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "LastPageNumber": 0,
+  "LastPageNumber": 1,
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -178,9 +177,7 @@ Creates a new artifact.
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "LogCorrelationId": "0c5a872485ac4b10857939a92d082e67",
   "ServerTaskId": "string",
@@ -236,9 +233,7 @@ Also reachable at `/api/artifacts/{id}`, `/api/spaces/{spaceIdentifier}/artifact
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "LogCorrelationId": "0c5a872485ac4b10857939a92d082e67",
   "ServerTaskId": "string",
@@ -294,9 +289,7 @@ Also reachable at `/api/artifacts/{id}`, `/api/spaces/{spaceIdentifier}/artifact
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "LogCorrelationId": "0c5a872485ac4b10857939a92d082e67",
   "ServerTaskId": "string",
@@ -323,11 +316,13 @@ Also reachable at `/api/artifacts/{id}`, `/api/spaces/{spaceIdentifier}/artifact
 
 `200` — Success
 
-## Get the content associated with an artifact
+## Download artifact content
 
 :endpoint{method="GET" path="/api/\{spaceId\}/artifacts/\{id\}/content"}
 
 Also reachable at `/api/artifacts/{id}/content`, `/api/spaces/{spaceIdentifier}/artifacts/{id}/content`.
+
+Get the content associated with an artifact
 
 **Path Parameters**
 
@@ -346,7 +341,7 @@ Also reachable at `/api/artifacts/{id}/content`, `/api/spaces/{spaceIdentifier}/
 ```
 :::
 
-## PUT /api/{spaceId}/artifacts/{id}/content
+## Upload artifact content
 
 :endpoint{method="PUT" path="/api/\{spaceId\}/artifacts/\{id\}/content"}
 

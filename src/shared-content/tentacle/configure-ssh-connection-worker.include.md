@@ -30,7 +30,7 @@
     ssh-keygen -E md5 -lf /etc/ssh/ssh_host_ed25519_key.pub | awk '{ print $2 }' | cut -d':' -f2-
     ```
 
-9. Specify whether Mono is installed on the SSH target or not to determine which version of [Calamari](/docs/octopus-rest-api/calamari) will be installed.
+9. Specify whether Mono is installed on the SSH target or not to determine which version of [Calamari](/docs/administration/calamari) will be installed.
 
   - Calamari on Mono, built against the full .NET framework.
   - Self-contained version of Calamari, built against .NET Core.

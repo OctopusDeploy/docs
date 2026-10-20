@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-04-23
+modDate: 2026-10-13
 title: Run Octopus Server in Kubernetes
 description: Install Octopus Server into a Kubernetes cluster using the official Linux container. Choose a single-node setup or High Availability across multiple pods.
 navOrder: 40
@@ -149,6 +149,10 @@ spec:
 #### Octopus Server Node load balancer \{#octopus-node-load-balancers}
 
 Unlike the Octopus Web Portal, Polling Tentacles must be able to connect to each Octopus node individually to pick up new tasks. Our Octopus HA cluster assumes two nodes, therefore a load balancer is required for each node to allow direct access.
+
+:::div{.hint}
+If you turn on [multi-node support for Polling Tentacles](/docs/administration/high-availability/polling-tentacles-with-ha/multi-node-polling-tentacles), Polling Tentacles can connect to any node through a single TCP load balancer instead, so you do not need to add each node to each Polling Tentacle. The [Helm chart](#helm-chart) can create this load balancer for you.
+:::
 
 The following YAML creates load balancers with separate public IPs for each node. They direct web traffic to each node on port `80`, Polling Tentacle traffic on port `10943`, and gRPC traffic on port `8443`.
 
@@ -666,7 +670,7 @@ When running Octopus in Kubernetes, it'd be nice to increase the `replicaCount` 
 In order to create UI-only nodes in Kubernetes, you need to perform some additional configuration:
 
 - Create an additional Stateful Set just for the UI-only nodes, for example called `octopus-ui`.
-- Change the [container lifecycle hooks](#container-lifecycle-hooks) for the `octopus-ui` Stateful Set to ensure the nodes don't start drained, and includes the `node` command to [set the task cap](/docs/octopus-rest-api/octopus.server.exe-command-line/node) to `0`.
+- Change the [container lifecycle hooks](#container-lifecycle-hooks) for the `octopus-ui` Stateful Set to ensure the nodes don't start drained, and includes the `node` command to [set the task cap](/docs/administration/octopus.server.exe-command-line/node) to `0`.
 - Update the `octopus-web` Load balancer Service to direct traffic to pods with the label `app:octopus-ui`.
 
 :::div{.hint}

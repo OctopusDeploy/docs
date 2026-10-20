@@ -143,7 +143,7 @@ Prompt injection is when untrusted content the agent reads tries to hijack it: a
 
 **If the check itself can't run.** By default, the step fails if the check errors (for example, the model call fails). You can change this with the **Continue if the check cannot run** option, which lets the run proceed when the check can't complete.
 
-**Defaults and caps.** The check uses `claude-haiku-4-5` by default (you can choose another model), produces at most 1024 tokens for its verdict, and truncates the execution context to 200,000 characters before checking. These caps bound the check's cost and latency.
+**Defaults and caps.** The check uses `claude-haiku-5-5` by default (you can choose another model), produces at most 2048 tokens for its verdict, and truncates the execution context to 200,000 characters before checking. These caps bound the check's cost and latency.
 
 The check adds a model call to every run, and its token usage appears in the task's Claude Usage Summary (though not its cost). A determined injection can be phrased to slip past a screening model, so treat this as the first line of defense.
 

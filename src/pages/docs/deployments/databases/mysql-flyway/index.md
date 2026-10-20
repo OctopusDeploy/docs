@@ -58,7 +58,7 @@ Flyway itself is already compiled, so there's no need to do anything for buildin
 Within a Jenkins project, navigate to **Build Environment**, and in the **Build** section, click **Add Build Step** and choose **Octopus Deploy Package application**.
 
 :::div{.hint}
-The [Octopus Deploy Jenkins plugin](/docs/packaging-applications/build-servers/jenkins/#install-the-octopus-jenkins-plugin) needs to be installed to use these templates.  You also need to download the [Octopus CLI](/docs/octopus-rest-api/octopus-cli) on to the Jenkins build agent(s).
+The [Octopus Deploy Jenkins plugin](/docs/packaging-applications/build-servers/jenkins/#install-the-octopus-jenkins-plugin) needs to be installed to use these templates.  You also need to download the [Octopus CLI](/docs/cli/octopus-cli) on to the Jenkins build agent(s).
 :::
 
 Fill in the inputs:

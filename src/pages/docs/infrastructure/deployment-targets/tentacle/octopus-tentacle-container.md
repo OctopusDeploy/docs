@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-06-27
+modDate: 2026-09-21
 title: Octopus Tentacle in a Container
 description: An Octopus Tentacle instance can be run directly from within a container.
 navOrder: 40
@@ -9,7 +9,11 @@ navOrder: 40
 
 Running an Octopus Tentacle inside a container may be preferable in some environments where installing one directly on the host is not an option.
 
-Octopus publishes both `windows/amd64` and `linux/amd64` Docker images for Tentacle and they are available on [DockerHub](https://hub.docker.com/r/octopusdeploy/tentacle).
+Octopus publishes a `linux/amd64` Docker image for Tentacle, available on [DockerHub](https://hub.docker.com/r/octopusdeploy/tentacle).
+
+:::div{.warning}
+Support for the Windows Tentacle Docker container has been discontinued. The last version to support it is `12.1.4445`.
+:::
 
 The Octopus Tentacle Docker image can be run in either [polling](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication/#polling-tentacles) or [listening](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication/#listening-tentacles-recommend) mode.
 
@@ -18,21 +22,21 @@ The Octopus Tentacle Docker image can be run in either [polling](/docs/infrastru
 Tentacles set up this way will run *inside a container* and script execution will not happen on the host itself. For this reason, Octopus Tentacles inside a container may not be appropriate for many deployment tasks.
 :::
 
-When an Octopus Tentacle container starts up, it will attempt to invoke the [`register-with`](/docs/octopus-rest-api/tentacle.exe-command-line/register-with/) command to connect and add itself as a machine to that server with the provided [target tags](/docs/infrastructure/deployment-targets/target-tags) and environments. This registration will occur on every startup and you may end up with multiple instances if you stop/start a container. Our goal is to update this image to de-register the Tentacle when the container `SIGKILL` signal is passed in. In the meantime you may want to use [machine policies](/docs/infrastructure/deployment-targets/machine-policies) to remove the duplicated targets.
+When an Octopus Tentacle container starts up, it will attempt to invoke the [`register-with`](/docs/administration/tentacle.exe-command-line/register-with/) command to connect and add itself as a machine to that server with the provided [target tags](/docs/infrastructure/deployment-targets/target-tags) and environments. This registration will occur on every startup and you may end up with multiple instances if you stop/start a container. Our goal is to update this image to de-register the Tentacle when the container `SIGKILL` signal is passed in. In the meantime you may want to use [machine policies](/docs/infrastructure/deployment-targets/machine-policies) to remove the duplicated targets.
 
 <details data-group="deployment-targets-tentacle-container">
 <summary>Deployment Target</summary>
 
-```powershell
-docker run --interactive --detach `
- --name OctopusTentacle `
- --publish 10933:10933 `
- --env ACCEPT_EULA="Y" `
- --env ListeningPort="10933" `
- --env ServerApiKey="API-XXXXXXXX" `
- --env TargetEnvironment="Development" `
- --env TargetRole="container-server" `
- --env ServerUrl="http://10.0.0.1:8080" `
+```bash
+docker run --interactive --detach \
+ --name OctopusTentacle \
+ --publish 10933:10933 \
+ --env ACCEPT_EULA="Y" \
+ --env ListeningPort="10933" \
+ --env ServerApiKey="API-XXXXXXXX" \
+ --env TargetEnvironment="Development" \
+ --env TargetRole="container-server" \
+ --env ServerUrl="http://10.0.0.1:8080" \
  octopusdeploy/tentacle
 ```
 
@@ -40,15 +44,15 @@ docker run --interactive --detach `
 <details data-group="deployment-targets-tentacle-container">
 <summary>Worker</summary>
 
-```powershell
-docker run --interactive --detach `
- --name OctopusWorker `
- --publish 10933:10933 `
- --env ACCEPT_EULA="Y" `
- --env ListeningPort="10933" `
- --env ServerApiKey="API-XXXXXXXX" `
- --env TargetWorkerPool="LinuxWorkers" `
- --env ServerUrl="http://10.0.0.1:8080" `
+```bash
+docker run --interactive --detach \
+ --name OctopusWorker \
+ --publish 10933:10933 \
+ --env ACCEPT_EULA="Y" \
+ --env ListeningPort="10933" \
+ --env ServerApiKey="API-XXXXXXXX" \
+ --env TargetWorkerPool="LinuxWorkers" \
+ --env ServerUrl="http://10.0.0.1:8080" \
  octopusdeploy/tentacle
 ```
 
@@ -101,9 +105,9 @@ On Linux containers, prior to version `6.1.1271` the internal listening port was
 
 Read the Docker [docs](https://docs.docker.com/engine/reference/commandline/run/#mount-volume--v---read-only) about mounting volume.
 
-| Name                |                                             |
-| ------------------- | ------------------------------------------- |
-| **C:\Applications** | Default directory to deploy applications to |
+| Name                           |                                             |
+| ------------------------------ | ------------------------------------------- |
+| **/home/Octopus/Applications** | Default directory to deploy applications to |
 
 ### Using execution containers for Workers {#using-execution-containers-dind}
 

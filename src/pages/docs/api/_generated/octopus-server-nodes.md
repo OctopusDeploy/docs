@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-09-04
 title: Octopus Server Nodes
 ---
 
@@ -28,7 +28,8 @@ Lists all of the Octopus Server Nodes participating in the current Octopus Serve
 
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`Id`** :span[string]{.type-label}  
     Gets or sets a unique identifier for this resource.
@@ -56,7 +57,7 @@ Lists all of the Octopus Server Nodes participating in the current Octopus Serve
 ```json
 {
   "Id": "string",
-  "ItemType": "string",
+  "ItemType": "OctopusServerNode",
   "Items": [
     {
       "Id": "string",
@@ -64,25 +65,21 @@ Lists all of the Octopus Server Nodes participating in the current Octopus Serve
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "MaxConcurrentTasks": 0,
       "Name": "string"
     }
   ],
-  "ItemsPerPage": 0,
+  "ItemsPerPage": 30,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "LastPageNumber": 0,
+  "LastPageNumber": 1,
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -118,9 +115,7 @@ Lists the name and ID of all Octopus Server nodes
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     },
     "MaxConcurrentTasks": 0,
     "Name": "string"
@@ -165,9 +160,7 @@ Returns HTTP ImATeapot (418) when the Octopus Server node is draining or offline
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "LastSeen": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "MaxConcurrentTasks": 0,
   "Name": "string",
@@ -226,9 +219,7 @@ Returns HTTP ImATeapot (418) when the Octopus Server node is draining or offline
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "LastSeen": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "MaxConcurrentTasks": 0,
       "MaxSqlConnectionPoolSize": 0,
@@ -275,9 +266,7 @@ Returns HTTP ImATeapot (418) when the Octopus Server node is draining or offline
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "MaxConcurrentTasks": 0,
   "Name": "string"
@@ -339,9 +328,7 @@ Modifies an existing Octopus Server node.
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "MaxConcurrentTasks": 0,
   "Name": "string"
@@ -398,9 +385,7 @@ Modifies an existing Octopus Server node.
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "RunningTasks": 0
 }

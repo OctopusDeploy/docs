@@ -20,7 +20,7 @@ When you contact Octopus Deploy support, sometimes we aren't able to reproduce t
 2. Encrypt your Master Key.
 
 :::div{.hint}
-You can get your Master Key using [Octopus Manager](/docs/security/data-encryption#your-master-key) or by using the `show-master-key` command in [Octopus.Server.exe](/docs/octopus-rest-api/octopus.server.exe-command-line/show-master-key).
+You can get your Master Key using [Octopus Manager](/docs/security/data-encryption#your-master-key) or by using the `show-master-key` command in [Octopus.Server.exe](/docs/administration/octopus.server.exe-command-line/show-master-key).
 :::
 
 We have a PowerShell snippet which will encrypt your Master Key, using Public Key Cryptography so only Octopus can decrypt it. You can use this snippet to encrypt your Master Key, and when we receive it, we will decrypt it and use it to restore the database you have provided to us.

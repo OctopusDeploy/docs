@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2026-08-11
+modDate: 2026-10-13
 title: Artifacts
 icon: fa-solid fa-file-lines
 description: Artifacts in Octopus provide a convenient way to collect files from remote machines during deployments.
@@ -16,11 +16,7 @@ Artifacts in Octopus provide a convenient way to collect files from remote machi
 
 Artifacts can be collected from anywhere Octopus runs scripts - for example, the [Script Console](/docs/administration/managing-infrastructure/script-console/) or [custom scripts](/docs/deployments/custom-scripts) in a deployment.
 
-Artifacts are uploaded to the Octopus Server after a script runs. You can download them from the task output or via the [Octopus API](/docs/octopus-rest-api).
-
-:::figure
-![The Task Summary tab of a deployment, showing collected artifacts listed under each step and in the Artifacts panel](/docs/img/projects/deployment-process/images/artifacts-access.png)
-:::
+Artifacts are uploaded to the Octopus Server after a script runs. You can download them from the task log, where each artifact appears on the line that collected it, from the **Artifacts** section of the task's **Metadata** tab, or via the [Octopus API](/docs/octopus-rest-api).
 
 ## Collecting artifacts using scripts
 

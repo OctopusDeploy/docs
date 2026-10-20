@@ -1,13 +1,10 @@
 ---
-layout: src/layouts/Default.astro
+layout: src/layouts/Redirect.astro
+title: Redirect
+redirect: https://octopus.com/docs/api/examples/events
 pubDate: 2023-01-01
-modDate: 2023-01-01
-title: Events
-description: This section includes examples of how to use the REST API to find events from Octopus.
-navOrder: 90
-hideInThisSectionHeader: true
+modDate: 2026-09-01
+navSearch: false
+navSitemap: false
+navMenu: false
 ---
-
-You can use the REST API to review events on Octopus Deploy. Typical tasks might include:
-
-- [Find events by date](/docs/octopus-rest-api/examples/events/find-events-by-date)
