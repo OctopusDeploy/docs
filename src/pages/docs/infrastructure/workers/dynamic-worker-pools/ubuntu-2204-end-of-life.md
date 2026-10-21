@@ -1,13 +1,17 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-06-18
-modDate: 2026-06-18
+modDate: 2026-10-21
 title: Ubuntu 22.04 End-of-life
 description: Describing the deprecation process of Ubuntu 22.04 Dynamic Workers.
 navOrder: 50
 hideInThisSection: true
 hideInThisSectionHeader: true
 ---
+
+:::div{.warning}
+Ubuntu 24.04 images are no longer available as of 13 October 2026. The details below are provided for historical reference.
+:::
 
 Our Ubuntu Dynamic Workers are being upgraded to use Ubuntu 24.04. This may result in breaking changes for users of community steps or custom scripts.
 
