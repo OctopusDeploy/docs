@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2026-08-17
+modDate: 2026-10-21
 title: Runbooks permissions
 description: Permissions are available to help you manage access to Runbooks.
 navOrder: 20
@@ -24,6 +24,10 @@ Permissions are available to help you manage access to Runbooks, these include:
 | RunbookRunCreate | You can create runbook runs (equivalent of `DeploymentCreate` in the deployment world). |
 
 You can limit your teams ability to create runbooks by disabling these permissions.
+
+:::div{.hint}
+To limit where AI agents can run a runbook, use the runbook's [agent access](/docs/runbooks/runbooks-vs-deployments#agent-access) setting. It works alongside these permissions and only restricts agents.
+:::
 
 There are roles we include out-of-the-box to encapsulate these new permissions:
 
