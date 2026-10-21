@@ -10,7 +10,7 @@ hideInThisSectionHeader: true
 ---
 
 :::div{.warning}
-Ubuntu 24.04 images are no longer available as of 13 October 2026. The details below are provided for historical reference.
+Ubuntu 22.04 images are no longer available as of 13 October 2026. The details below are provided for historical reference.
 :::
 
 Our Ubuntu Dynamic Workers are being upgraded to use Ubuntu 24.04. This may result in breaking changes for users of community steps or custom scripts.
