@@ -91,7 +91,7 @@ When aborting a deployment, it's a good idea to write a reason into the **Notes*
 
 The tasks page, under the "Needs Approval" tab, contains a list of deployments pending manual intervention. In addition to the deployment page, you can **Assign**, **Proceed**, and **Abort** deployments from this list.
 
-## Require a person to respond
+## Prevent AI agents from responding
 
 By default, AI agents can assign and submit manual interventions, the same as the person they act for. To make sure a person responds, turn off **Agent Responses** on the manual intervention step.
 
