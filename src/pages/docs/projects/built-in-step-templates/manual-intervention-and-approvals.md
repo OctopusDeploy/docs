@@ -103,7 +103,7 @@ When agent responses are turned off:
 
 To pause only deployments or runbook runs started by an AI agent, set the step's **Run Condition** to **Variable** with this expression:
 
-```
+```text
 #{if Octopus.Deployment.CreatedBy.ActorType == "Agent"}true#{/if}
 ```
 
