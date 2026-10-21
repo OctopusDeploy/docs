@@ -321,7 +321,7 @@ Use PNG for screenshots and SVG for diagrams, where possible.
 
 The content column is up to 800px wide on desktop, where the side navigation and the "On this page" list sit either side of it. On tablets, where the page drops to a single column, it's up to 1056px wide. On phones it's narrower.
 
-A PNG shows at its pixel width, shrunk to fit the column. The site never enlarges a PNG and doesn't detect high-density images, so a screenshot is only sharp on a high-density display when it has at least twice as many pixels as the space it fills.
+A PNG shows at its pixel width, shrunk to fit the column. The site never enlarges a PNG, so a screenshot is only sharp on a high-density display when it has at least twice as many pixels as the space it fills.
 
 To capture a sharp screenshot:
 
@@ -329,7 +329,15 @@ To capture a sharp screenshot:
 2. Crop the capture. Don't resize it in an image editor, because resampling blurs text.
 3. Choose how to add the image to the page:
     - For a screenshot that should fill the column, crop it to at least 1600px wide and add it with Markdown image syntax.
-    - For a smaller screenshot, such as a dialog or a single field, add it with an HTML `<img>` tag and set `width` and `height` to half its pixel size. A 900 x 600 pixel capture gets `width="450" height="300"`. This shows the image at the size the reader sees in Octopus. Without it, a 2x capture shows at twice that size.
+    - For a smaller screenshot, such as a dialog or a single field, add `@2x` to the end of the file name, such as `deployment-target-dialog@2x.png`, and add it with the `:img` directive. The directive shows an `@2x` image at half its pixel size, so a 900 x 600 pixel capture shows at 450 x 300, the size the reader sees in Octopus. Without the suffix, a 2x capture shows at twice that size.
+
+        ```markdown
+        :::figure
+        :img{src="/docs/img/infrastructure/deployment-target-dialog@2x.png" alt="The Add deployment target dialog"}
+        :::
+        ```
+
+        The directive serves resized copies of a PNG from `public/docs/i/`. `npm run dev` generates them, so commit them with the image.
 4. Compress the PNG with a tool such as [ImageOptim](https://imageoptim.com/) or [TinyPNG](https://tinypng.com/). Keep each file under 250 KB where you can.
 
 An SVG stretches to fill the column and stays sharp at any size, including when a reader zooms into it. Design diagrams in a frame 800px wide, the widest the column gets on desktop, so text shows at the size you set it. Use a font size of at least 14px. Body text on the site is 16px.
@@ -354,12 +362,12 @@ To make an image follow the theme:
     - For a screenshot, capture the same view with Octopus in its light theme and again in its dark theme.
     - For a diagram, export each variant with a solid background in the page color for that theme: `#FFFFFF` for light and `#111A23` for dark. These are the `colorBackgroundPrimaryDefault` design token in each theme, so the diagram blends into the page.
 2. Name the files with a `-light` and `-dark` suffix, such as `load-balancer-light.svg` and `load-balancer-dark.svg`.
-3. Add both images to the `figure` with HTML `<img>` tags, and give each one a theme class:
+3. Add both images to the `figure` with the `:img` directive, and give each one a theme class:
 
     ```markdown
     :::figure
-    <img class="theme-light-only" src="/docs/img/kubernetes/steps/load-balancer-light.svg" alt="Traffic from the internet reaches a cloud load balancer, which sends it to a Node Port on each node in the cluster" width="552" height="539">
-    <img class="theme-dark-only" src="/docs/img/kubernetes/steps/load-balancer-dark.svg" alt="Traffic from the internet reaches a cloud load balancer, which sends it to a Node Port on each node in the cluster" width="552" height="539">
+    :img{.theme-light-only src="/docs/img/kubernetes/steps/load-balancer-light.svg" alt="Traffic from the internet reaches a cloud load balancer, which sends it to a Node Port on each node in the cluster"}
+    :img{.theme-dark-only src="/docs/img/kubernetes/steps/load-balancer-dark.svg" alt="Traffic from the internet reaches a cloud load balancer, which sends it to a Node Port on each node in the cluster"}
     :::
     ```
 
@@ -370,7 +378,7 @@ The site hides `.theme-dark-only` in the light theme and `.theme-light-only` in 
 A few things to keep in mind:
 
 - Give both variants the same alt text, so readers who can't see the image get the same description in either theme.
-- Set `width` and `height` on both tags. For an SVG, use its exported size; it still scales to fill the column. For a 2x PNG, use half its pixel size, as described in [Size images for the content column](#size-images-for-the-content-column).
+- Don't set `width` and `height`. The directive reads them from the image, and halves them for an `@2x` file. Put `@2x` after the theme suffix, such as `dashboard-light@2x.png`.
 - When more than one page uses an image, store it in the nearest shared folder, such as `/docs/img/kubernetes/steps/`, and update every page that references it.
 
 #### Add an image with a single variant
