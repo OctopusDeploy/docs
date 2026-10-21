@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2026-10-13
+modDate: 2026-10-21
 title: Manual intervention and approval step
 icon: fa-solid fa-check
 description: Manual intervention and approvals allow a human to review, approve, or sign off on deployments.
@@ -90,6 +90,26 @@ When the interruption has been assigned to you, you can then perform the action 
 When aborting a deployment, it's a good idea to write a reason into the **Notes** field, so that the rest of the team can see why the deployment was aborted.
 
 The tasks page, under the "Needs Approval" tab, contains a list of deployments pending manual intervention. In addition to the deployment page, you can **Assign**, **Proceed**, and **Abort** deployments from this list.
+
+## Require a person to respond
+
+By default, AI agents can assign and submit manual interventions, the same as the person they act for. To make sure a person responds, turn off **Agent Responses** on the manual intervention step.
+
+When agent responses are turned off:
+
+- AI agents can't assign or submit the manual intervention. They're told a person needs to respond, with a link to the task.
+- The task page shows that AI agents can't respond to the manual intervention.
+- People can always respond.
+
+To pause only deployments or runbook runs started by an AI agent, set the step's **Run Condition** to **Variable** with this expression:
+
+```
+#{if Octopus.Deployment.CreatedBy.ActorType == "Agent"}true#{/if}
+```
+
+:::div{.hint}
+Anyone who can edit the deployment process or runbook can change this setting, including an AI agent with that permission.
+:::
 
 ## Output variables
 
