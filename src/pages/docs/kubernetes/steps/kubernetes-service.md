@@ -38,8 +38,8 @@ A LoadBalancer Service resource provides the same Cluster IP and Node Ports that
 The particular load balancer that is created depends on the environment in which the LoadBalancer Service resource is created. In AWS, an ELB or ALB can be created. Azure or Google Cloud will create their respective load balancers.
 
 :::figure
-<img class="theme-light-only" src="/docs/img/kubernetes/steps/load-balancer-light.svg" alt="Traffic from the internet reaches a cloud load balancer, which sends it to a Node Port on each of two nodes in the Kubernetes cluster. Each Node Port forwards to the Load Balancer Service, which routes requests to the Pods in two Deployments." width="552" height="539">
-<img class="theme-dark-only" src="/docs/img/kubernetes/steps/load-balancer-dark.svg" alt="Traffic from the internet reaches a cloud load balancer, which sends it to a Node Port on each of two nodes in the Kubernetes cluster. Each Node Port forwards to the Load Balancer Service, which routes requests to the Pods in two Deployments." width="552" height="539">
+:img{.theme-light-only src="/docs/img/kubernetes/steps/load-balancer-light.svg" alt="Traffic from the internet reaches a cloud load balancer, which sends it to a Node Port on each of two nodes in the Kubernetes cluster. Each Node Port forwards to the Load Balancer Service, which routes requests to the Pods in two Deployments."}
+:img{.theme-dark-only src="/docs/img/kubernetes/steps/load-balancer-dark.svg" alt="Traffic from the internet reaches a cloud load balancer, which sends it to a Node Port on each of two nodes in the Kubernetes cluster. Each Node Port forwards to the Load Balancer Service, which routes requests to the Pods in two Deployments."}
 :::
 
 ## Cluster IP address
