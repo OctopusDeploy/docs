@@ -40,8 +40,60 @@ export function getDestination(uri, s) {
   return uri.replace(fromRegEx, replacement);
 }
 
+/**
+ * The exported size of an SVG, read off its root element. Prefers the width and
+ * height attributes and falls back to the viewBox. Sizes in units other than px
+ * are ignored, since they don't map onto CSS pixels.
+ */
+export function getSvgSize(src) {
+  try {
+    const file = path.join(workingDirectory, 'public', src);
+    const root = fs.readFileSync(file, 'utf8').match(/<svg\b[^>]*>/)?.[0];
+
+    if (!root) {
+      return null;
+    }
+
+    const attribute = (name) =>
+      root.match(new RegExp(`\\s${name}\\s*=\\s*["']([^"']*)["']`))?.[1];
+    const pixels = (value) => {
+      const match = value?.trim().match(/^(\d+(?:\.\d+)?)(px)?$/);
+      return match ? Math.round(Number(match[1])) : null;
+    };
+
+    const width = pixels(attribute('width'));
+    const height = pixels(attribute('height'));
+
+    if (width && height) {
+      return { width, height };
+    }
+
+    const viewBox = attribute('viewBox')?.trim().split(/[\s,]+/).map(Number);
+
+    if (viewBox?.length === 4 && viewBox[2] > 0 && viewBox[3] > 0) {
+      return { width: Math.round(viewBox[2]), height: Math.round(viewBox[3]) };
+    }
+  } catch (e) {
+    console.warn(e);
+  }
+
+  return null;
+}
+
 export function getImageInfo(src, className, sizes) {
   const info = {};
+  const classes = ((className ?? '') + ' resp-img').trim();
+
+  // img.mjs only generates variants for raster images, so an SVG is served from
+  // where it is. It scales without loss, so it needs no srcset either.
+  if (path.extname(src).toLowerCase() === '.svg') {
+    info.src = src;
+    info.srcset = null;
+    info.sizes = null;
+    info.class = classes;
+    info.metadata = getSvgSize(src);
+    return info;
+  }
 
   let uri = src;
   uri = uri.replace(/.jpg|.jpeg|.png/, '.webp');
@@ -80,7 +132,7 @@ export function getImageInfo(src, className, sizes) {
 
   info.srcset = srcset;
   info.sizes = sizes;
-  info.class = (className ?? '' + ' resp-img').trim();
+  info.class = classes;
 
   if ([imgSmall, imgMedium, imgLarge].includes(src)) {
     info.srcset = null;
@@ -112,8 +164,12 @@ function directiveToHtml(node, ctx) {
     properties.class = info.class;
 
     if (info.metadata) {
-      properties.width = info.metadata.width;
-      properties.height = info.metadata.height;
+      // An `@2x` capture has twice the pixels of the space it fills, so it's
+      // shown at half its pixel size, the size the reader sees in Octopus
+      const scale = /@2x\.[a-z]+$/i.test(node.attributes.src) ? 2 : 1;
+
+      properties.width = Math.round(info.metadata.width / scale);
+      properties.height = Math.round(info.metadata.height / scale);
     }
   }
 
