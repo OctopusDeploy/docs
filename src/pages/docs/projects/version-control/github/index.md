@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2024-03-14
-modDate: 2026-05-22
+modDate: 2026-10-22
 title: GitHub integration 
 description: Octopus Deploy GitHub integration
 icon: fa-brands fa-github
@@ -67,6 +67,8 @@ You will not be able to save the connection unless you have at least 1 repositor
 Each GitHub Connection defines its own set of repositories (this is on top of the list of repositories configured on the installation in GitHub).
 
 GitHub accounts can only have a single GitHub App installation, so this installation is shared by all Octopus instances connected to that account. By requiring repositories are set for each connection as well, you are able to fine-tune the GitHub resources that each connection in each Space can access. If you ever add more repositories to the installation in GitHub, you can be confident that any existing connections cannot access this repository until you explicitly add it to those connections. This does add an extra step every time you want to add a new repository, but we believe this is worth it for the extra security this provides.
+
+A GitHub Connection can have up to 500 repositories. If you need more, create another connection.
 
 #### If you can't see a repository
 
