@@ -114,6 +114,8 @@ To pause only deployments or runbook runs started by an AI agent, set the step's
 
 :::div{.hint}
 Anyone who can edit the deployment process or runbook can change this setting, including an AI agent with that permission.
+
+A project variable named `Octopus.Action.Manual.PreventAgentResponses` overrides this setting. Anyone who can edit project variables can use it to let AI agents respond.
 :::
 
 ## Output variables
