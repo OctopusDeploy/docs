@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2026-10-21
 title: Execution containers for workers
 description: How to set a step in your deployment/runbook process to run inside a container.
 navOrder: 30
@@ -34,7 +34,7 @@ You need Docker installed and running on the [worker](/docs/infrastructure/worke
 - Set the **Execution Location** for your step to **Run on a worker**.
 - In **Container Image** select **Run inside a container on a worker** and then **Pull container from a registry**.
 - Choose the previously added container registry.
-- Enter the name of the image (execution container) you want your step to run in. (e.g. `octopusdeploy/worker-tools:ubuntu.22.04`).
+- Enter the name of the image (execution container) you want your step to run in. (e.g. `octopusdeploy/worker-tools:ubuntu.24.04`).
 - Click **Save**.
 - Click **Create release & deploy**.
 
@@ -75,8 +75,8 @@ We recommend using our `worker-tools` image as a starting point for your own cus
 
 The canonical source for what is contained in the `octopusdeploy/worker-tools` images is the `Dockerfile`'s in the [GitHub repo](https://github.com/OctopusDeploy/WorkerTools). For example:
 
-- The [Ubuntu 22.04 Dockerfile](https://github.com/OctopusDeploy/WorkerTools/blob/master/ubuntu.22.04/Dockerfile)
-- The [Windows 2022 Dockerfile](https://github.com/OctopusDeploy/WorkerTools/blob/master/windows.ltsc2022/Dockerfile)
+- The [Ubuntu 24.04 Dockerfile](https://github.com/OctopusDeploy/WorkerTools/blob/main/ubuntu.24.04/Dockerfile)
+- The [Windows 2025 Dockerfile](https://github.com/OctopusDeploy/WorkerTools/blob/main/windows.ltsc2025/Dockerfile)
 
 Some of the tools included are:
 
@@ -98,10 +98,10 @@ It can be beneficial to build your own custom Docker image when using execution 
 
 #### Supported Windows base images
 
-For Windows images, we recommend using a base image no older than the `ltsc2022` image. Octopus does not support images that are older than `ltsc2022`, and while containers based on these images can still run steps, you may run into unexpected issues.
+For Windows images, we recommend using a base image no older than the `ltsc2025` image. Octopus does not support images that are older than `ltsc2025`, and while containers based on these images can still run steps, you may run into unexpected issues.
 
 :::div{.hint}
-If your containers are based on an earlier image of Windows, we strongly recommend upgrading your workers to Windows 2022 and rebasing your Docker containers to use a 2022 base image.
+If your containers are based on an earlier image of Windows, we strongly recommend upgrading your workers to Windows 2025 and rebasing your Docker containers to use a 2025 base image.
 :::
 
 #### Supported Linux distributions
@@ -118,10 +118,10 @@ You can usually find the base operating system of a Linux Docker image by runnin
 docker run --entrypoint='' [image name] /bin/cat /etc/os-release.
 ```
 
-For example for the `octopusdeploy/worker-tools:5.0.0-ubuntu.22.04` image, you'd run:
+For example for the `octopusdeploy/worker-tools:6.6.5-ubuntu.24.04` image, you'd run:
 
 ```bash
-docker run --entrypoint='' octopusdeploy/worker-tools:5.0.0-ubuntu.22.04 /bin/cat /etc/os-release.
+docker run --entrypoint='' octopusdeploy/worker-tools:6.6.5-ubuntu.24.04 /bin/cat /etc/os-release.
 ```
 
 #### Required OS dependencies

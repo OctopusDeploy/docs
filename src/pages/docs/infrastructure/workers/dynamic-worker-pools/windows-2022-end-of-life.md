@@ -1,13 +1,16 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-07-14
-modDate: 2026-07-14
+modDate: 2026-10-21
 title: Windows 2022 End-of-life
 description: Describing the deprecation process of Windows 2022 Dynamic Workers.
 navOrder: 50
 hideInThisSection: true
 hideInThisSectionHeader: true
 ---
+:::div{.warning}
+Windows Server 2022 images are no longer available as of 13 October 2026. The details below are provided for historical reference.
+:::
 
 Our Windows Server 2022 Dynamic Workers are being upgraded to use Windows Server 2025, this may result in breaking changes for users of community steps or custom scripts.
 

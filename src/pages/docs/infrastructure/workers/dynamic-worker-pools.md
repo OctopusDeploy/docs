@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2026-07-02
+modDate: 2026-10-21
 title: Dynamic Worker pools
 description: Dynamic Worker pools are used in our cloud product to dynamically create and assign workers to running tasks. This page describes how dynamic worker pools work.
 navOrder: 50
@@ -36,12 +36,12 @@ Each dynamic worker pool uses a specific worker image. This is a VM image which 
 
 When you sign up to [Octopus Cloud](/docs/octopus-cloud) (or create a new [space](/docs/administration/spaces)), you automatically receive a worker pool for the `Ubuntu (default)` image, and a worker pool for the `Windows (default)` image.
 
-The full list of available worker images includes both specific operating system versions (e.g., `Ubuntu Linux 22.04`), and also generic "default" options such as `Ubuntu (default)`. Choosing the default option means that your worker will use the latest stable worker image when it is released.
+The full list of available worker images includes both specific operating system versions (e.g., `Ubuntu Linux 24.04`), and also generic "default" options such as `Ubuntu (default)`. Choosing the default option means that your worker will use the latest stable worker image when it is released.
 
 The current default images are:
 
-- `Ubuntu (default)` ➜ `Ubuntu Linux 22.04`
-- `Windows (default)` ➜ `Windows Server Core 2022`
+- `Ubuntu (default)` ➜ `Ubuntu Linux 24.04`
+- `Windows (default)` ➜ `Windows Server Core 2025`
 
 ### Choosing an Image
 
@@ -57,7 +57,7 @@ Alternatively, you can choose a specific worker image, instead of the "default" 
 | Type                                 | Pros                                                                                                                                       | Cons                                                                                                                                                                                              |
 |--------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Default (eg `Ubuntu (default)`)      | Automatically uses the latest image. Deployments will continue to work even when a worker image is marked as deprecated or decommissioned. | The versions of dependencies (e.g. Helm) are not fixed; deployments that rely on specific versions of dependencies or operating system‑specific features may break during upgrades.               |
-| Specific (e.g., `Ubuntu Linux 22.04`)| The version of the operating system and dependencies are fixed and can be relied upon.                                                     | When a worker image is marked as deprecated, warnings will start to appear in your deployment logs; when it is decommissioned, you will need to update your worker pool or deployments will fail. |
+| Specific (e.g., `Ubuntu Linux 24.04`)| The version of the operating system and dependencies are fixed and can be relied upon.                                                     | When a worker image is marked as deprecated, warnings will start to appear in your deployment logs; when it is decommissioned, you will need to update your worker pool or deployments will fail. |
 
 ### Deprecation
 
@@ -81,22 +81,6 @@ Click the overflow menu (`...`) and click **Edit**. You can then select a new wo
 
 Worker images are rebuilt on a regular basis, so that the operating system is up to date with the latest security patches.
 
-### Ubuntu 22.04
-
-This is the default for the Ubuntu operating system, referenced as `Ubuntu (default)`.
-
-Each `Ubuntu Server 22.04` worker is provisioned with a baseline of tools including (but not limited to):
-
-- .NET (8.0, 6.0)
-- Docker (latest)
-- PowerShell Core (latest)
-- Python 3 (latest)
-- GCloud CLI (550.0.0)
-
-:::div{.hint}
-Ubuntu workers are designed to use [execution worker containers](https://octopus.com/blog/execution-containers) for tooling like `kubectl` and `helm`. This makes it much easier to choose the appropriate runtime environment with the tools you need for your use case.
-:::
-
 ### Ubuntu 24.04
 
 Each `Ubuntu Server 24.04` worker is provisioned with a baseline of tools including (but not limited to):
@@ -109,35 +93,6 @@ Each `Ubuntu Server 24.04` worker is provisioned with a baseline of tools includ
 
 :::div{.hint}
 Ubuntu workers are designed to use [execution worker containers](https://octopus.com/blog/execution-containers) for tooling like `kubectl` and `helm`. This makes it much easier to choose the appropriate runtime environment with the tools you need for your use case.
-:::
-
-### Windows Server Core 2022
-
-This is the default for the Windows operating system, referenced as `Windows (default)`.
-
-Each `Windows Server Core 2022` worker is provisioned with a baseline of tools including (but not limited to):
-
-- .NET (8.0, 6.0)
-- .NET Framework 3.5
-- .NET Framework 4.8
-- AWS IAM Authenticator (0.7.10)
-- Chocolatey (latest)
-- Docker (latest)
-- Helm (3.19.4)
-- Kubectl (1.35.1, 1.34.4, 1.33.8, 1.32.12)
-- Microsoft Service Fabric (10.1.2338.9590)
-- Microsoft Service Fabric SDK (7.1.2338)
-- Nuget CLI (latest)
-- Octopus Client (latest)
-- Pip (latest)
-- PowerShell Core (latest)
-- Python (3.14)
-- GCloud CLI (550.0.0)
-
-Windows 2022 workers are capable of running [execution worker containers](/docs/projects/steps/execution-containers-for-workers).
-
-:::div{.hint}
-We recommend execution containers as the preferred option for steps requiring external tools. This allows you to control which version of the tools will be used as your scripts will rely on a specific version that they are compatible with to function correctly.
 :::
 
 ### Windows Server Core 2025
