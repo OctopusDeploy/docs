@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-09-04
+modDate: 2026-10-09
 title: Git Hub
 ---
 
@@ -27,12 +27,14 @@ title: Git Hub
 
 - **`CanUseGitHubApp`** :span[boolean]{.type-label}
 - **`CanUseTrustedFlow`** :span[boolean]{.type-label}
+- **`HasExternalSigningKeys`** :span[boolean]{.type-label}
 
 :::api-example{label="Response"}
 ```json
 {
   "CanUseGitHubApp": false,
-  "CanUseTrustedFlow": false
+  "CanUseTrustedFlow": false,
+  "HasExternalSigningKeys": false
 }
 ```
 :::
