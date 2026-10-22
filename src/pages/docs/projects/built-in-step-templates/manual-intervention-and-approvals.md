@@ -93,14 +93,20 @@ The tasks page, under the "Needs Approval" tab, contains a list of deployments p
 
 ## Prevent AI agents from responding
 
-By default, AI agents can assign and submit manual interventions, the same as the person they act for. To make sure a person responds, turn off **Agent Responses** on the manual intervention step.
+By default, AI agents can assign and submit manual interventions, the same as the person they act for. To make sure a person responds, set **Agent Responses** to **Prevent AI agents from responding** on the manual intervention step.
 
-When agent responses are turned off:
+When AI agents are prevented from responding:
 
 - AI agents can't assign or submit the manual intervention. They're told a person needs to respond, with a link to the task.
 - The task page shows that AI agents can't respond to the manual intervention.
 - People can always respond.
 - Only callers that sign in as an AI agent are blocked, such as with an AI agent API key or through the Octopus MCP server. An agent using a person's API key counts as a person.
+- If a **Deploy a release** step runs a deployment that's waiting on this manual intervention, AI agents can't respond to it from the parent either.
+- AI agents can still cancel the task if they have permission to.
+
+Guided failure interventions aren't affected.
+
+You can bind **Agent Responses** to a variable. If the value isn't `True` or `False`, AI agents are prevented from responding and the task log shows a warning.
 
 To pause only deployments or runbook runs started by an AI agent, set the step's **Run Condition** to **Variable** with this expression:
 
