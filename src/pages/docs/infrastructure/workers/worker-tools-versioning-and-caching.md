@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2026-10-21
+modDate: 2026-10-23
 title: Worker Tools, Versioning and Caching
 description: How Octopus creates, versions, caches, and releases the worker-tools Docker images for use with the execution containers for workers feature.
 navOrder: 50
@@ -44,7 +44,7 @@ In short, we recommend the following. On Ubuntu, use the `octopusdeploy/worker-t
 
 ## Caching Worker Tools
 
-Worker Tools are cached on dynamic workers to help improve the performance of deployments. Windows workers cache the latest two sets of Worker Tools while Ubuntu workers cache the latest three. Each worker only caches the images for its own operating system, so a `windows.ltsc2022` image on a Windows 2025 worker is always downloaded in full.
+Worker Tools are cached on dynamic workers to help improve the performance of deployments. Windows workers cache the latest two sets of Worker Tools while Ubuntu workers cache the latest three. Each worker only caches the images for its own operating system, so for example, a Windows 2022 image on a Windows 2025 worker is always downloaded in full.
 
 To understand this cache, it's important to understand a worker's life cycle. Workers are acquired from a dynamic worker pool and leased to a single cloud instance. They are allocated in a round robin fashion to individual deployment steps, storing packages, Docker images, and other data on disk. Workers are destroyed after either the worker has been idle for 60 minutes or has existed for 72 hours (3 days).
 
