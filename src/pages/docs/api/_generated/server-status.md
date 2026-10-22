@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-09-18
+modDate: 2026-09-29
 title: Server Status
 ---
 
@@ -226,6 +226,47 @@ Provides a super simple interface perfect for checking the general health of you
     "OccurredAt": "2020-01-01T00:00:00.000Z"
   }
 ]
+```
+:::
+
+## Get the status of Redis for multi-node support for polling tentacles
+
+:endpoint{method="GET" path="/api/serverstatus/redis"}
+
+Provides a simple interface for checking if Redis is enabled, configured, and reachable.
+
+**Response**
+
+`200` — Provides information about Redis status for monitoring and diagnostics.
+
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IsConfigured`** :span[boolean]{.type-label}  
+  Indicates whether a valid Redis connection string is configured on this Octopus Server node.
+- **`IsEnabled`** :span[boolean]{.type-label}  
+  Indicates whether multi-node support for polling tentacles is enabled on this Octopus Server node.
+- **`IsReachable`** :span[boolean]{.type-label}  
+  Indicates whether this Octopus Server node can reach Redis and Redis responds to commands.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+
+:::api-example{label="Response"}
+```json
+{
+  "Id": "string",
+  "IsConfigured": false,
+  "IsEnabled": false,
+  "IsReachable": false,
+  "LastModifiedBy": "string",
+  "LastModifiedOn": "2020-01-01T00:00:00.000Z",
+  "Links": {
+    "Self": "/api/..."
+  }
+}
 ```
 :::
 
