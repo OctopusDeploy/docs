@@ -56,7 +56,7 @@ If you don't see an account that you're expecting in this list, the app probably
 
 When you first open the GitHub connection page, you will be in view mode. This will show the connection details and the currently connected repositories. To edit the connection, click the edit button at the top of the screen. This will put the connection in edit mode, and load the GitHub repositories that you are able to connect.
 
-You will not be able to save the connection unless you have at least 1 repository selected. To remove all repositories, disconnect the account completely using the Disconnect button in the overflow menu.
+To save the connection you must have at least one repository connected. Currently a maximum of 500 repositories can be included on a connection. To remove all repositories, disconnect the account completely using the Disconnect button in the overflow menu.
 
 :::figure
 ![Screenshot of Octopus Deploy GitHub Connections screen showing OctopusPetShop connection with overflow menu expanded showing disconnect button](/docs/img/api-and-integration/github/github-connection-disconnect.png)
@@ -67,8 +67,6 @@ You will not be able to save the connection unless you have at least 1 repositor
 Each GitHub Connection defines its own set of repositories (this is on top of the list of repositories configured on the installation in GitHub).
 
 GitHub accounts can only have a single GitHub App installation, so this installation is shared by all Octopus instances connected to that account. By requiring repositories are set for each connection as well, you are able to fine-tune the GitHub resources that each connection in each Space can access. If you ever add more repositories to the installation in GitHub, you can be confident that any existing connections cannot access this repository until you explicitly add it to those connections. This does add an extra step every time you want to add a new repository, but we believe this is worth it for the extra security this provides.
-
-A GitHub Connection can have up to 500 repositories. If you need more, create another connection.
 
 #### If you can't see a repository
 
