@@ -38,6 +38,25 @@ Once the OIDC Issuer URL is set in Octopus's settings, it will be used as the is
 External hosting requires manual key rotation and adds operational overhead. Only use it when your instance is not publicly accessible and internal hosting isn't an option.
 :::
 
+### Network access
+
+Services that check Octopus tokens need to fetch two files from your OIDC Issuer URL:
+
+- The discovery document at `{Issuer URL}/.well-known/openid-configuration`
+- The public key set at the `jwks_uri` listed in the discovery document
+
+Your host must accept anonymous HTTPS GET requests to these files. The Octopus GitHub App fetches them from `172.182.208.68` (see [GitHub Allow List](/docs/projects/version-control/github#github-allow-list)). Cloud providers use their own IP addresses.
+
+Firewalls, WAFs, load balancers, CDNs, and storage access policies can all block these requests.
+
+**To test access from outside your network:**
+
+```bash
+curl -i https://<issuer-url>/.well-known/openid-configuration
+```
+
+This should return a 200 status code. If requests fail, check the logs for whatever sits in front of your host (WAF, load balancer, CDN), not just your web server logs. Requests may be blocked before they reach your web server.
+
 ### Rotating externally hosted keys
 
 Externally hosted keys must be rotated manually. Clicking **Rotate** downloads a new ZIP file with an updated key set. Upload the contents to your hosting provider, then Octopus polls the OIDC Issuer URL for the new keys. Once it confirms the new keys are available, it starts signing tokens with the new key.
