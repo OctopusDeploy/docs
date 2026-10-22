@@ -100,6 +100,7 @@ When agent responses are turned off:
 - AI agents can't assign or submit the manual intervention. They're told a person needs to respond, with a link to the task.
 - The task page shows that AI agents can't respond to the manual intervention.
 - People can always respond.
+- Only callers that sign in as an AI agent are blocked, such as with an AI agent API key or through the Octopus MCP server. An agent using a person's API key counts as a person.
 
 To pause only deployments or runbook runs started by an AI agent, set the step's **Run Condition** to **Variable** with this expression:
 
