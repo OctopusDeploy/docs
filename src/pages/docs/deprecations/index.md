@@ -29,6 +29,13 @@ If you have questions or need help assessing the impact of a deprecation on your
 
 ## Planned Deprecations
 
+## Octopus Deploy for Jira on Atlassian Connect EOL - January 2027
+
+As of January 2027, Atlassian will no longer support the legacy Connect framework.
+In response to this, we have updated the Octopus Deploy for Jira application to support to new Atlassian Forge framework.
+Customers must ensure their Octopus Deploy for Jira installations are up to date in order for the application to continue functioning after January 31 2027.
+Admin approval may be required in order to update the installation.
+
 ## Windows Tentacle Docker container {#windows-tentacle-docker-deprecation}
 
 Support for the Windows Tentacle Docker container is discontinued. The last version to support it is `12.1.4445`. A Linux Tentacle Docker container remains available.
