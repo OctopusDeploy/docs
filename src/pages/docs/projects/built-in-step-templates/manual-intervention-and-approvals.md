@@ -104,8 +104,6 @@ When AI agents are prevented from responding:
 - If a **Deploy a release** step runs a deployment that's waiting on this manual intervention, AI agents can't respond to it from the parent either.
 - AI agents can still cancel the task if they have permission to.
 
-Guided failure interventions aren't affected.
-
 You can bind **Agent Responses** to a variable. If the value isn't `True` or `False`, AI agents are prevented from responding and the task log shows a warning.
 
 To pause only deployments or runbook runs started by an AI agent, set the step's **Run Condition** to **Variable** with this expression:
