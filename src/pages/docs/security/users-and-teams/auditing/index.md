@@ -30,7 +30,7 @@ If you are concerned that Octopus does not capture a specific action of interest
 
 You can view the full audit history by navigating to the **Audit** tab in the **Configuration** area.
 
-To filter the log to actions taken by AI agents only, check **AI Agents** in the filter options. This lets you review agent activity without wading through actions taken by human users.
+To filter the log to actions taken by AI agents only, check **AI Agents** in the filter options. This lets you review agent activity without wading through actions taken by human users. For more about agent identities and policies that control agent activity, see [Agent governance](/docs/octopus-ai/agent-governance).
 
 :::figure
 ![Audit Configuration](/docs/img/security/users-and-teams/auditing/images/audit-configuration.png)

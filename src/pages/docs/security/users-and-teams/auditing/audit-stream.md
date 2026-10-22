@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2026-10-20
 title: Audit Stream
 description: Octopus Deploy can stream audit logs to your chosen SIEM solution
 ---
@@ -77,3 +77,49 @@ You can change the audit stream configuration by clicking **Stream Audit Log** a
 - **Delete**: You can delete the audit stream configuration, which will clear any data relating to the audit stream and prevent any new audit events from being streamed.
 
 ![Update Audit Stream](/docs/img/security/users-and-teams/auditing/images/audit-stream-update.png)
+
+## Streamed event properties
+
+Streamed events include properties that describe what happened and who performed the action. Properties with no value are omitted. For example, an action taken by someone signed in to the portal has no API key, service account, or OAuth client properties.
+
+| Property | Description |
+| --- | --- |
+| `Username` | The username of the user who raised the event. |
+| `UserId` | The ID of the user who raised the event. |
+| `ActorType` | The kind of actor that raised the event: `User`, `ServiceAccount`, `Agent` (an AI agent), `System`, or `Unknown`. |
+| `Actor` | A human-readable description of the actor. |
+| `OnBehalfOf` | The ID of the user an AI agent acted on behalf of. |
+| `ApiKeyActorType` | Whether the API key used is held by a person or an AI agent: `User` or `AiAgent`. |
+| `ServiceAccountType` | The kind of service account used: `Standard` or `Agent`. |
+| `ApiKeyId` | The ID of the API key used. |
+| `ApiKeyHint` | The first few characters of the API key used. |
+| `IdentityEstablishedWith` | How the user identified themselves, such as `Session cookie` or `OAuth access token`. |
+| `UserAgent` | The user agent header from the request that raised the event. |
+| `IpAddress` | The IP address the request came from. |
+| `ActorOAuthClientId` | The client ID of the OAuth client the access token was issued to. |
+| `ActorOAuthClientName` | The name of the OAuth client. |
+| `ActorOAuthClientRedirectUri` | The redirect URI of the OAuth client. |
+| `ActorOAuthClientIsLoopbackRedirect` | Whether the authorization code went to a loopback redirect. |
+| `Category` | The kind of change, such as `Created` or `Deleted`. |
+| `SpaceId` | The space the event was raised in. |
+| `ProjectId`, `ReleaseId`, `DeploymentId`, `EnvironmentId`, `TenantId` | The IDs of related documents, when available. |
+| `Differences` | The changes recorded against the event. |
+
+`User` includes both people using the portal and scripts using their credentials. Octopus can't distinguish between them from the credentials alone. `Unknown` means Octopus couldn't determine the actor type, or the event was recorded before actor types were available.
+
+Use `ActorType` to identify agent activity in your SIEM. When an agent uses an [AI agent API key](/docs/api/authentication/create-an-api-key#creating-an-agent-api-key) from someone's account, the event includes that person's username and an `ActorType` of `Agent`.
+
+:::div{.warning}
+The OAuth client supplies `ActorOAuthClientName` and `ActorOAuthClientRedirectUri`. These values don't prove the client's identity, so don't use them as trusted identifiers in detection rules.
+:::
+
+## Version notes
+
+- Actor attribution on streamed events (`ActorType`, `Actor`, `OnBehalfOf`, `ApiKeyActorType`, `ServiceAccountType`, `ApiKeyId`, `ApiKeyHint`, `IdentityEstablishedWith`, `UserAgent`, `UserId`, and the `ActorOAuthClient` properties) is available from Octopus Server 2026.4.6658. Before that version, streamed events carried only the username, IP address, space, category, related document IDs, and differences.
+
+## Related links
+
+- [Auditing](/docs/security/users-and-teams/auditing)
+- [Agent governance](/docs/octopus-ai/agent-governance)
+- [Create an API key](/docs/api/authentication/create-an-api-key)
+- [Service accounts](/docs/security/users-and-teams/service-accounts)
