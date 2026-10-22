@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-03-28
-modDate: 2026-10-13
+modDate: 2026-10-22
 navSection: Live Object Status
 title: Kubernetes Live Object Status
 navTitle: Overview
@@ -90,7 +90,7 @@ Orphaned objects:
 - keep their existing Health Status, so Octopus continues tracking them while they remain in your cluster
 - have **Orphaned** as their Sync Status
 - are excluded from the rolled-up Application Health Status and Application Sync Status
-- can be deleted directly from Octopus, see [deleting orphaned objects](/docs/kubernetes/live-object-status/deleting-orphaned-objects)
+- can be removed from Octopus monitoring, and optionally deleted from your cluster, see [managing orphaned objects](/docs/kubernetes/live-object-status/orphaned-objects)
 
 Orphans are detected only after a **successful** deployment, so a failed deployment never marks anything as orphaned.
 
@@ -192,7 +192,7 @@ Viewing the data returned from the Kubernetes monitor from within Octopus requir
 
 This data includes the resource and application status, as well as pod logs and events for objects being monitored. This may be a change in security posture that your team should carefully consider.
 
-Deleting an orphaned object additionally requires the `DeployedResourceAdminister` permission, and the Kubernetes agent's own service account must be allowed to delete the object. See [deleting orphaned objects](/docs/kubernetes/live-object-status/deleting-orphaned-objects#permissions).
+Removing an orphaned object additionally requires the `DeployedResourceAdminister` permission. Deleting it from your cluster also requires the Kubernetes agent's own service account to be allowed to delete the object. See [managing orphaned objects](/docs/kubernetes/live-object-status/orphaned-objects#permissions).
 
 ## Secrets
 
@@ -241,5 +241,6 @@ Objects modified by Runbooks are not monitored. Please deploy the objects via a 
 
 ## Version notes
 
-- [Deleting orphaned objects](/docs/kubernetes/live-object-status/deleting-orphaned-objects) is available from Octopus Server 2026.3.13597.
+- Deleting orphaned objects is available from Octopus Server 2026.3.13597. See [managing orphaned objects](/docs/kubernetes/live-object-status/orphaned-objects).
+- Stopping monitoring orphaned objects without deleting them from the cluster is available from Octopus Server 2026.4.8535.
 - Orphan detection requires Octopus Server 2026.3, as well as every Kubernetes monitor in the project/environment/tenant combination to be on agent version 2.38.3 or later (v2) / 3.0.1 or later (v3). If you are on an older version, an object dropped from a deployment is removed from Live Status instead of being marked **Orphaned**.
