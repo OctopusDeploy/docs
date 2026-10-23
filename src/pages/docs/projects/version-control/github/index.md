@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2024-03-14
-modDate: 2026-05-22
+modDate: 2026-10-22
 title: GitHub integration 
 description: Octopus Deploy GitHub integration
 icon: fa-brands fa-github
@@ -56,7 +56,7 @@ If you don't see an account that you're expecting in this list, the app probably
 
 When you first open the GitHub connection page, you will be in view mode. This will show the connection details and the currently connected repositories. To edit the connection, click the edit button at the top of the screen. This will put the connection in edit mode, and load the GitHub repositories that you are able to connect.
 
-You will not be able to save the connection unless you have at least 1 repository selected. To remove all repositories, disconnect the account completely using the Disconnect button in the overflow menu.
+To save the connection you must have at least one repository connected. A maximum of 500 repositories can be included on a connection. To remove all repositories, disconnect the account completely using the Disconnect button in the overflow menu.
 
 :::figure
 ![Screenshot of Octopus Deploy GitHub Connections screen showing OctopusPetShop connection with overflow menu expanded showing disconnect button](/docs/img/api-and-integration/github/github-connection-disconnect.png)
