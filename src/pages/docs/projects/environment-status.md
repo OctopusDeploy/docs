@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-10-13
-modDate: 2026-10-14
+modDate: 2026-10-22
 title: Environment status
 sidebarLabel: Environment status
 navOrder: 12
@@ -69,6 +69,6 @@ The **Live Objects** table lists each object with its health and sync status. Yo
 
 - [Project dashboard](/docs/projects/project-dashboard)
 - [Kubernetes Live Object Status](/docs/kubernetes/live-object-status)
-- [Deleting orphaned objects](/docs/kubernetes/live-object-status/deleting-orphaned-objects)
+- [Managing orphaned objects](/docs/kubernetes/live-object-status/orphaned-objects)
 - [Feature flags](/docs/feature-flags)
 - [Environments](/docs/infrastructure/environments)
