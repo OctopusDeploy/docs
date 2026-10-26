@@ -11,7 +11,7 @@ Connecting Microsoft Teams lets a [Send a Microsoft Teams Message](/docs/project
 
 Connecting is optional. A Teams webhook works on its own, and is the only way to reach a private channel.
 
-Microsoft Teams integration is available from Octopus Server version `2026.4.2390`.
+Microsoft Teams integration is available for cloud customers from Octopus Server version `2026.4.2390`.
 
 ## Prerequisites
 

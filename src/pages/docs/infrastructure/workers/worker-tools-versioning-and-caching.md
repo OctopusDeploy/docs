@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2026-10-16
+modDate: 2026-10-23
 title: Worker Tools, Versioning and Caching
 description: How Octopus creates, versions, caches, and releases the worker-tools Docker images for use with the execution containers for workers feature.
 navOrder: 50
@@ -11,13 +11,11 @@ Worker Tools are a set of Docker images used as [execution containers for worker
 
 ## Versioning Worker Tools
 
-Worker Tool images follow a semantic versioning (SemVer) approach of `Major.Minor.Patch-Distro` for their tag format. When we release a new version of Worker Tools to the [Worker Tools Docker Hub repository](https://hub.docker.com/r/octopusdeploy/worker-tools/tags), we also add the following image tags, distribution (`ubuntu.22.04` or `windows.ltsc2022`), `Major-Distro` (e.g. `3-Distro`) and `Major.Minor-Distro` (`3.3-Distro`). We also publish multi-platform tags without a distribution, `Major.Minor.Patch`, `Major.Minor`, `Major` and `latest`, which contain the images for every distribution. We recommend using the fully qualified SemVer as patch updates of Worker Tools could result in an updated tool dependency introducing a breaking change.
+Worker Tool images follow a semantic versioning (SemVer) approach of `Major.Minor.Patch-Distro` for their tag format. When we release a new version of Worker Tools to the [Worker Tools Docker Hub repository](https://hub.docker.com/r/octopusdeploy/worker-tools/tags), we also add the following image tags, distribution (`ubuntu.24.04` or `windows.ltsc2025`), `Major-Distro` (e.g. `3-Distro`) and `Major.Minor-Distro` (`3.3-Distro`). We also publish multi-platform tags without a distribution, `Major.Minor.Patch`, `Major.Minor`, `Major` and `latest`, which contain the images for every distribution. We recommend using the fully qualified SemVer as patch updates of Worker Tools could result in an updated tool dependency introducing a breaking change.
 
 The Worker Tools Dockerfiles use a combination of tools pinned to specific versions, such as CLI tools and Frameworks, while other tools pull their latest available release. For Ubuntu, these are pulled with apt-get, and for Windows, chocolatey. You can find the full details of these tools in the Docker files for
 
-- [Windows 2022](https://github.com/OctopusDeploy/WorkerTools/blob/main/windows.ltsc2022/Dockerfile)
 - [Windows 2025](https://github.com/OctopusDeploy/WorkerTools/blob/main/windows.ltsc2025/Dockerfile)
-- [Ubuntu 22.04](https://github.com/OctopusDeploy/WorkerTools/blob/main/ubuntu.22.04/Dockerfile)
 - [Ubuntu 24.04](https://github.com/OctopusDeploy/WorkerTools/blob/main/ubuntu.24.04/Dockerfile)
 
 The tools pulling their latest releases for Ubuntu include `wget`, `python3-pip`, `groff`, `unzip`, `apt-utils`, `curl`, `software-properties-common`, `jq`, `yq`, `openssh-client`, `rsync`, `git`, `augeas-tools`, `maven`, `gradle`, `Node 14`, `istioctl`, `linkerd`, `umoci`.
@@ -46,7 +44,7 @@ In short, we recommend the following. On Ubuntu, use the `octopusdeploy/worker-t
 
 ## Caching Worker Tools
 
-Worker Tools are cached on dynamic workers to help improve the performance of deployments. Windows workers cache the latest two sets of Worker Tools while Ubuntu workers cache the latest three. Each worker only caches the images for its own operating system, so a `windows.ltsc2022` image on a Windows 2025 worker is always downloaded in full.
+Worker Tools are cached on dynamic workers to help improve the performance of deployments. Windows workers cache the latest two sets of Worker Tools while Ubuntu workers cache the latest three. Each worker only caches the images for its own operating system version. For example, a `windows.ltsc2022` image on a Windows 2025 worker is always downloaded in full.
 
 To understand this cache, it's important to understand a worker's life cycle. Workers are acquired from a dynamic worker pool and leased to a single cloud instance. They are allocated in a round robin fashion to individual deployment steps, storing packages, Docker images, and other data on disk. Workers are destroyed after either the worker has been idle for 60 minutes or has existed for 72 hours (3 days).
 
