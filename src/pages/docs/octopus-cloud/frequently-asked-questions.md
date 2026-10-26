@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2024-11-08
-modDate: 2026-06-23
+modDate: 2026-10-26
 title: Octopus Cloud Frequently Asked Questions
 navTitle: Octopus Cloud FAQ
 navOrder: 110
@@ -173,7 +173,7 @@ Octopus Cloud is a modern SaaS application that receives frequent updates. New f
 
 ### When are updates performed?
 
-We apply regular maintenance and product updates during your [maintenance window](/docs/octopus-cloud/maintenance-window), typically once or twice weekly. We may need to apply critical security patches outside of this schedule. In this case, our Support team contacts customers in advance.
+We apply regular maintenance and product updates during your [maintenance window](/docs/octopus-cloud/maintenance-window), typically once or twice weekly. We may need to apply critical security patches outside of this schedule. Where appropriate, our Support team will contact you in advance.
 
 ### How do I know what was upgraded?
 
@@ -215,7 +215,9 @@ Our [retention policies](/docs/administration/retention-policies) let you contro
 
 We protect all access with multifactor authentication (MFA), role-based access control (RBAC), and the principle of least privilege (PLP).
 
-In case of issues related to your data or the availability of your Cloud instance, Support Users can be granted temporary access to your Cloud instance, and queries can be run against your Cloud instance database. Only competent, trained, background-checked, and authorized engineers can gain this access. These activities are tightly controlled and have automatic revocation of access mechanisms.
+In case of issues related to your data or the availability of your Cloud instance, queries can be run against your Cloud instance database, and a [Support User](/docs/support/octopus-cloud-support-user) can be created to grant temporary access to your Cloud instance. Although it's standard practice to request explicit approval before accessing a Cloud instance, in limited circumstances, such as an outage or a security incident, we may need access without asking first. Where appropriate, we'll contact you to explain why we needed access and what we did.
+
+Only trained, background-checked, and authorized engineers can gain this access. Access is tightly controlled, audited, and revoked automatically.
 
 Microsoft Azure may have infrastructure access and, as such, would also have access, as controlled by our service agreements with them.
 
@@ -227,7 +229,7 @@ We log all access to Octopus Cloud instance databases and file storage.
 
 ### Is data access actively monitored?
 
-Our SecOps team has monitoring and alerting in place based on patterns of suspicious activity. Monitoring focuses on Support Users being granted temporary access to a Cloud instance and queries being run by our staff against Cloud instance databases. Both of these activities are tightly controlled and logged, and access mechanisms are automatically revoked.
+Our SecOps team has monitoring and alerting in place based on patterns of suspicious activity. Monitoring focuses on [Support Users](/docs/support/octopus-cloud-support-user) being granted temporary access to a Cloud instance and queries being run by our staff against Cloud instance databases. Both of these activities are tightly controlled and logged, and access mechanisms are automatically revoked.
 
 Only authorized, skilled, and trained engineers employed by Octopus Deploy may be granted temporary access.
 
