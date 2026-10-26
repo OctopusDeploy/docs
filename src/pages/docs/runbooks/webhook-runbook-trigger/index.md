@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-08-06
-modDate: 2026-10-21
+modDate: 2026-10-26
 title: Webhook runbook triggers
 description: Webhook runbook triggers let an external system run a runbook by sending an HTTP request to Octopus.
 navOrder: 45
@@ -116,7 +116,7 @@ The runbook run is created as the owner of the API key, which means:
 
 - The key's owner needs the `RunbookRunCreate` [permission](/docs/runbooks/runbook-permissions) for the project, and for every environment and tenant the trigger targets.
 - The run appears in the audit log and task list as being run by that user, rather than by the Octopus system user.
-- If the key is an [agent API key](/docs/api/authentication/create-an-api-key#creating-an-agent-api-key), or belongs to an agent service account, the run is an agent run, and the runbook's [agent access](/docs/runbooks/runbooks-vs-deployments#agent-access) setting applies.
+- If the key is an [agent API key](/docs/api/authentication/create-an-api-key#creating-an-agent-api-key), or belongs to an agent service account, the run is an agent run, and the runbook's [AI agent access](/docs/runbooks/runbooks-vs-deployments#ai-agent-access) setting applies.
 
 We recommend using a [service account](/docs/security/users-and-teams/service-accounts) scoped to only what the runbook needs, rather than a key belonging to a person.
 

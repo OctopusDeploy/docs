@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2024-11-24
-modDate: 2026-10-21
+modDate: 2026-10-26
 title: Config as Code runbooks
 description: Details about using configuration as code with runbooks.
 navOrder: 20
@@ -83,11 +83,11 @@ Assuming your default branch is protected, this means that your old 'published' 
 
 💡 If you are using Octopus's built in roles, keep these permissions in mind when moving your draft runbooks out of the 'migrated-drafts/' folder and consider storing these runbooks on a non-default branch.
 
-## Agent access
+## AI agent access
 
-A runbook's [agent access](/docs/runbooks/runbooks-vs-deployments#agent-access) setting is stored in its OCL file, so it can differ between branches. When an AI agent runs a CaC runbook from a branch, tag, or commit other than the default branch, both versions of the runbook must allow the run: the one the agent asked for, and the one on the default branch. This stops an agent getting around the setting by running from an older commit or an unmerged branch. If the runbook doesn't exist on the default branch yet, only the requested version's setting applies.
+A runbook's [AI agent access](/docs/runbooks/runbooks-vs-deployments#ai-agent-access) setting is stored in its OCL file, so it can differ between branches and commits. Octopus only writes `agent_access` to the file when the runbook blocks agents, so saving a runbook that lets agents run it doesn't change its OCL file.
 
-Protect your default branch so changes to agent access go through your usual review process.
+When an AI agent runs a Config as Code runbook, Octopus checks the setting in the version being run. An agent can still run a blocked runbook from a branch, tag, or commit where the setting lets agents run it. Protect your default branch so changes to the setting go through your usual review process.
 
 ## Snapshots vs commits
 
