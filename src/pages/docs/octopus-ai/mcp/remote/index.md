@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-08-17
-modDate: 2026-10-20
+modDate: 2026-10-26
 title: Octopus Remote MCP
 navTitle: Remote MCP
 navSection: Octopus Remote MCP
@@ -35,7 +35,7 @@ Octopus Remote MCP supports a set of core Octopus features. We'll add more opera
 - An AI assistant that supports remote MCP servers over HTTP with a custom request header
 - Remote MCP enabled in **Configuration > Settings > MCP Controls**
 
-We recommend creating a dedicated [Agent Service Account](/docs/security/users-and-teams/service-accounts#agent-service-accounts) and generating an [Agent API key](/docs/octopus-rest-api/how-to-create-an-api-key#creating-an-agent-api-key) for it. This gives the MCP server its own identity, limits its permissions, and identifies its activity in the audit log and on the API Keys page.
+We recommend using an [Agent API key](/docs/api/authentication/create-an-api-key#creating-an-agent-api-key) configured with custom scopes or a dedicated [Agent Service Account](/docs/security/users-and-teams/service-accounts#agent-service-accounts) for it. This gives the MCP server its own identity, limits its permissions, and identifies its activity in the audit log and on the API Keys page.
 
 ### Connection details
 
