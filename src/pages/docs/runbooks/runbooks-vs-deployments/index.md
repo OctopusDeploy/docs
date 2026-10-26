@@ -71,7 +71,7 @@ When a runbook is blocked, Octopus rejects an agent's run with an error before t
 
 AI agent access adds to [runbook permissions](/docs/runbooks/runbook-permissions) rather than replacing them.
 
-Agents can change the setting to block themselves, but they can't change it back. To let agents run it again, a user or a non-agent service account needs to change the setting. In the API, the setting is the runbook's `AgentAccess` property, set to `Allowed` or `Blocked`. If you leave `AgentAccess` out when you modify a runbook, Octopus keeps its current value. When you clone a runbook, the clone keeps the original runbook's setting.
+Agents can change the setting to block themselves, but they can't change it back. To let agents run it again, a user or a non-agent service account needs to change the setting. In the API, the setting is the runbook's `AgentAccess` property, set to `Allowed` or `Blocked`. If you leave `AgentAccess` out when you modify a runbook, Octopus keeps its current value.
 
 :::div{.warning}
 AI agent access is an advisory control. It stops agents from running a runbook directly, but it isn't a security boundary. Agents can get around it:
