@@ -15,6 +15,8 @@ When using Octopus Deploy it is common to have other automated services control 
 
 It is best to create **Service accounts** for this purpose to provide each service with the least privileges required for the tasks each service will perform.
 
+If you have tooling working on your behalf (such as an AI agent), consider using a [custom-scoped API key](/docs/api/authentication/create-an-api-key#choosing-an-access-level) under your own user account, instead of creating service accounts. Service accounts make the most sense for tooling that isn't used by a single user.
+
 :::div{.hint}
 **Service accounts** are **API-only accounts** that can be assigned permissions in the same way you do for normal accounts, but are prevented from using the Octopus Web Portal.
 
