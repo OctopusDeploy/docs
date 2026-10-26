@@ -345,6 +345,7 @@ nlog
 nmap
 noconsolelogging
 nodir
+noeviction
 nologo
 nologs
 noninteractive
@@ -557,6 +558,7 @@ stepsprodpackages
 sthumb
 storyblok
 strconv
+streamable
 struct
 stylesheet
 subcomponent

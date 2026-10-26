@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-03-28
-modDate: 2026-08-24
+modDate: 2026-10-22
 navSection: Live Object Status
 title: Kubernetes Live Object Status
 navTitle: Overview
@@ -13,7 +13,7 @@ hideInThisSectionHeader: true
 Kubernetes Live Object Status shows the live status of your Kubernetes objects after they have been deployed. This allows you to monitor and safely troubleshoot your Kubernetes application directly from within Octopus Deploy.
 
 :::figure
-![Live status page](/docs/img/kubernetes/live-object-status/live-status-page.png)
+![The Kubernetes Live Status tab for Production, listing each object's kind, namespace, sync status, and health status](/docs/img/projects/environment-status/environment-status-kubernetes-live-status.png)
 :::
 
 ## Where it is available
@@ -26,17 +26,9 @@ Using Kubernetes Live Object Status requires the following:
 
 ## How to use Live Status
 
-Once you have the Kubernetes monitor enabled on your [Kubernetes Agent](/docs/kubernetes/targets/kubernetes-agent), simply toggle the switch on the dashboard to show live status in place of the deployment status.
-
-:::figure
-![A screenshot of the Space dashboard showing live status](/docs/img/kubernetes/live-object-status/live-status-space-dashboard.png)
-:::
+Once the Kubernetes monitor is enabled on your Kubernetes Agent, select an environment's card on the project dashboard, or select **Environment Status** on a deployment, to open the [Environment status](/docs/projects/environment-status) page, then select the **Kubernetes Live Status** tab.
 
 Octopus display individual status at an object level as well as summarized status for an Application.
-
-:::figure
-![Live status page](/docs/img/kubernetes/live-object-status/live-status-page.png)
-:::
 
 ### Application Health Status
 
@@ -61,7 +53,7 @@ Sync Status tracks whether the changes Octopus deployed still matches the resour
 | :---------- | :------------------------------------------------: | :------------------------------------------------------------------------- |
 | In Sync     |      <i class="fa-solid fa-check green"></i>       | The objects on your cluster match what you last deployed                   |
 | Out of Sync |    <i class="fa-solid fa-arrow-up orange"></i>     | The objects on your cluster no longer match what you last deployed         |
-| Unknown     |     <i class="fa-solid fa-question grey"></i>      | We’re having trouble getting sync status updates for this application      |
+| Unknown     |     <i class="fa-solid fa-question grey"></i>      | We're having trouble getting sync status updates for this application      |
 | Unavailable | <i class="fa-solid fa-circle-exclamation red"></i> | Application sync status is unavailable because your last deployment failed |
 | Waiting     |     <i class="fa-solid fa-hourglass blue"></i>     | Application sync status will be available once the deployment completes    |
 
@@ -79,11 +71,11 @@ Sync Status tracks whether the changes Octopus deployed still matches the resour
 
 ### Object Sync Status
 
-| Label       |                                   Status Icon                                  | Description                                                                                      |
+| Label       |                                  Status Icon                                   | Description                                                                                      |
 | :---------- | :----------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------- |
-| In Sync     |                     <i class="fa-solid fa-check green"></i>                    | Object manifest matches what was applied                                                         |
-| Out of Sync |                   <i class="fa-solid fa-arrow-up orange"></i>                  | Object manifest is not the same as what was applied                                              |
-| Unknown     |                    <i class="fa-solid fa-question grey"></i>                   | We don't have information about the live status of this object                                   |
+| In Sync     |                    <i class="fa-solid fa-check green"></i>                     | Object manifest matches what was applied                                                         |
+| Out of Sync |                  <i class="fa-solid fa-arrow-up orange"></i>                   | Object manifest is not the same as what was applied                                              |
+| Unknown     |                   <i class="fa-solid fa-question grey"></i>                    | We don't have information about the live status of this object                                   |
 | Orphaned    | <i class="fa-solid fa-link-slash" style="color: var(--colorIconWarning);"></i> | Object was deployed in a previous release but is no longer part of the latest deployment process |
 | Deleting    |                   <i class="fa-solid fa-hourglass blue"></i>                   | Octopus is deleting this orphaned object. Select the status to open the task doing the work      |
 
@@ -91,14 +83,14 @@ Take a look at our [troubleshooting guide](/docs/kubernetes/live-object-status/t
 
 ### Orphaned objects
 
-When a deployment succeeds and no longer includes an object that was deployed in a previous release (for example, you remove an object from a YAML manifest or remove a step from the deployment process), Octopus marks the dropped object as **Orphaned** in the Live Status table.
+When a deployment succeeds and no longer includes an object that was deployed in a previous release (for example, you remove an object from a YAML manifest or remove a step from the deployment process), Octopus marks the dropped object as **Orphaned** in the Live Objects table.
 
 Orphaned objects:
 
 - keep their existing Health Status, so Octopus continues tracking them while they remain in your cluster
 - have **Orphaned** as their Sync Status
 - are excluded from the rolled-up Application Health Status and Application Sync Status
-- can be deleted directly from Octopus, see [deleting orphaned objects](/docs/kubernetes/live-object-status/deleting-orphaned-objects)
+- can be removed from Octopus monitoring, and optionally deleted from your cluster, see [managing orphaned objects](/docs/kubernetes/live-object-status/orphaned-objects)
 
 Orphans are detected only after a **successful** deployment, so a failed deployment never marks anything as orphaned.
 
@@ -116,17 +108,9 @@ Each object reported back by the Kubernetes monitor can be selected to provide d
 
 Events are fetched on demand from the running object. Octopus reads and presents events in similar way to `kubectl`.
 
-:::figure
-![Object events](/docs/img/kubernetes/live-object-status/live-status-drawer-events.png)
-:::
-
 #### Logs
 
 Logs are fetched on demand from the running object. We do not currently support tailing logs, but it is on the roadmap in the near future.
-
-:::figure
-![Object logs](/docs/img/kubernetes/live-object-status/live-status-drawer-logs.png)
-:::
 
 #### Manifests
 
@@ -134,18 +118,10 @@ The first manifest shown is the live manifest as reported by the cluster back to
 
 When viewing an object that has been applied to your cluster, you are able to view the applied manifest and see any differences between them using the controls at the top of the drawer.
 
-:::figure
-![Object manifest](/docs/img/kubernetes/live-object-status/live-status-drawer-manifest.png)
-:::
-
 ##### Diffs
 
 When the show diff toggle is enabled, we compare the live manifest that we expect to see on the left, with what the cluster is reporting on the right.
 Read about [applied manifest diffs](/docs/kubernetes/deployment-verification/applied-manifests/diffs) for more details on how to interpret the diff viewer.
-
-:::figure
-![Object manifest diffs](/docs/img/kubernetes/live-object-status/live-status-drawer-manifest-diffs.png)
-:::
 
 ## How it works
 
@@ -216,7 +192,7 @@ Viewing the data returned from the Kubernetes monitor from within Octopus requir
 
 This data includes the resource and application status, as well as pod logs and events for objects being monitored. This may be a change in security posture that your team should carefully consider.
 
-Deleting an orphaned object additionally requires the `DeployedResourceAdminister` permission, and the Kubernetes agent's own service account must be allowed to delete the object. See [deleting orphaned objects](/docs/kubernetes/live-object-status/deleting-orphaned-objects#permissions).
+Removing an orphaned object additionally requires the `DeployedResourceAdminister` permission. Deleting it from your cluster also requires the Kubernetes agent's own service account to be allowed to delete the object. See [managing orphaned objects](/docs/kubernetes/live-object-status/orphaned-objects#permissions).
 
 ## Secrets
 
@@ -265,5 +241,6 @@ Objects modified by Runbooks are not monitored. Please deploy the objects via a 
 
 ## Version notes
 
-- [Deleting orphaned objects](/docs/kubernetes/live-object-status/deleting-orphaned-objects) is available from Octopus Server 2026.3.13597.
+- Deleting orphaned objects is available from Octopus Server 2026.3.13597. See [managing orphaned objects](/docs/kubernetes/live-object-status/orphaned-objects).
+- Stopping monitoring orphaned objects without deleting them from the cluster is available from Octopus Server 2026.4.8535.
 - Orphan detection requires Octopus Server 2026.3, as well as every Kubernetes monitor in the project/environment/tenant combination to be on agent version 2.38.3 or later (v2) / 3.0.1 or later (v3). If you are on an older version, an object dropped from a deployment is removed from Live Status instead of being marked **Orphaned**.

@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2026-10-13
 title: Ad-hoc data change scripts
 description: Recommendations on configuring a pipeline to handle ad-hoc data change scripts.
 navOrder: 20
@@ -43,7 +43,7 @@ For the example process, only the database name and script are prompted variable
 ![The prompted variables for the ad-hoc script process](/docs/img/deployments/databases/common-patterns/images/adhoc_scripts_submit.png)
 :::
 
-The auto-approval script leverages the [write highlight](/docs/deployments/custom-scripts/logging-messages-in-scripts) command so important messages are shown on the task summary screen.  The `create table` command was detected, requiring a DBA to approve the script.  The DBA has a choice to accept the script or reject it.  There are some cases when a create table is necessary, for example, creating a temporary table:
+The auto-approval script leverages the [write highlight](/docs/deployments/custom-scripts/logging-messages-in-scripts) command so important messages are highlighted in the task log.  The `create table` command was detected, requiring a DBA to approve the script.  The DBA has a choice to accept the script or reject it.  There are some cases when a create table is necessary, for example, creating a temporary table:
 
 :::figure
 ![Ad hoc script requires approval](/docs/img/deployments/databases/common-patterns/images/adhoc_approval_required.png)

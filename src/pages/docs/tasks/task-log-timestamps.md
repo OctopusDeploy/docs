@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-09-17
-modDate: 2026-09-17
+modDate: 2026-10-13
 title: Task Log Timestamps
 description: Task log lines record both the time Octopus Server observed the output and the time the machine that produced it says it occurred.
 ---
@@ -20,8 +20,6 @@ Every line in a task log is stamped with two times:
 1. Open the deployment, runbook run, or other task, and select the **Task Log** tab.
 2. Open the view settings menu.
 3. Under **Timestamps**, choose **Hide**, **Server**, or **Remote**.
-
-![Remote timestamps options with remote selected and highlighted in the task log](/docs/img/tasks/images/remote-timestamp.png)
 
 In **Remote** mode, lines that carry a time reported by a target are marked **Remote**. The rest fall back to the server time, because that's the only time Octopus has for them. Hover over any timestamp to see the other time for that line.
 

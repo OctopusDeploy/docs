@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-08-21
-modDate: 2023-08-21
+modDate: 2026-10-13
 title: Deploying after the concurrency tag is changed
 icon: fa-solid fa-users-rectangle
 description: Shows the impact of setting the concurrency tag on deployments to the same target
@@ -25,10 +25,6 @@ For example, since this setup only uses 3 of our active tasks, we can add many h
 ![Completed deployments, each taking about 45 seconds](/docs/img/tenants/guides/tenants-sharing-machine-targets/all-groups-sequential-complete.png)
 :::
 
-If we look at the deployment to Group 1 - Tenant E, we see that it no longer had to wait for other tasks, and each of the steps finish quickly. This is important if you need to minimize the times between certain steps running.
-
-:::figure
-![The task log for Group 1 - Tenant E, with each step finishing quickly](/docs/img/tenants/guides/tenants-sharing-machine-targets/deployment-details-sequential.png)
-:::
+The task log for the deployment to Group 1 - Tenant E no longer shows any steps waiting for other tasks, and each step finishes quickly. This is important if you need to minimize the times between certain steps running.
 
 <span><a class="button btn-secondary" href="/docs/tenants/guides/tenants-sharing-machine-targets/setting-the-concurrency-tag">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="button btn-success" href="/docs/tenants/guides/tenants-sharing-machine-targets/summary">Next</a></span>
