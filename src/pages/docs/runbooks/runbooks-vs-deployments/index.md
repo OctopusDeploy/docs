@@ -123,4 +123,4 @@ Similar to releases, the version of any packages that are used in the runbook ar
 
 ## Version notes
 
-- AI agent access for runbooks is available from [PLACEHOLDER: the self-hosted Octopus Server version that ships AI agent access — needs: the release version once PR #49421 merges].
+- AI agent access for runbooks is available from Octopus **2026.4.9164**.
