@@ -1,0 +1,61 @@
+---
+layout: src/layouts/Cli.astro
+pubDate: 2023-01-01
+modDate: 2026-10-27
+title: octopus release promote
+description: Promote a release
+navOrder: 128
+---
+import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
+
+Promote a release to a specific environment
+
+```text
+Usage:
+  octopus release promote [flags]
+
+Flags:
+      --deploy-at string                           Deploy at a later time. Deploy now if omitted. TODO date formats and timezones!
+      --deploy-at-expiry string                    Cancel the deployment if it hasn't started within this time period.
+      --deployment-freeze-name stringArray         Override this deployment freeze (can be specified multiple times)
+      --deployment-freeze-override-reason string   Reason for overriding a deployment freeze
+      --deployment-target stringArray              Deploy to this target (can be specified multiple times)
+      --exclude-deployment-target stringArray      Deploy to targets except for this (can be specified multiple times)
+      --excluded-target-tag stringArray            Deploy to targets except for those matching this tag (can be specified multiple times)
+      --force-package-download                     Force re-download of packages
+      --from string                                Name or ID of the environment to get the current deployment from
+      --guided-failure string                      Enable Guided failure mode (true/false/default)
+      --latest-successful                          Use the latest successful release to promote
+      --priority string                            Jump the task queue ahead of other queued tasks (true/false/default). Requires the Priority Tasks feature, and the TaskPrioritize permission to set true.
+  -p, --project string                             Name or ID of the project
+      --skip stringArray                           Exclude specific steps from the deployment
+      --specific-target-tag stringArray            Deploy to targets matching this tag (can be specified multiple times)
+      --tenant stringArray                         Deploy to this tenant (can be specified multiple times)
+      --tenant-tag stringArray                     Deploy to tenants matching this tag (can be specified multiple times). Format is 'Tag Set Name/Tag Name', such as 'Regions/South'.
+      --to stringArray                             Name or ID of the environment(s) to promote to
+      --update-variables                           Overwrite the release variable snapshot by re-importing variables from the project.
+  -v, --variable stringArray                       Set the value for a prompted variable in the format Label:Value
+
+
+Global Flags:
+  -h, --help                   Show help for a command
+      --no-prompt              Disable prompting in interactive mode
+  -f, --output-format string   Specify the output format for a command ("json", "table", or "basic") (default "table")
+  -s, --space string           Specify the space for operations
+
+```
+
+## Examples
+
+<SamplesInstance />
+
+```bash
+octopus release promote --project MyProject --from "Development" --to "Staging"\
+octopus release promote -p MyProject --from "Staging" --to "Production" --latest-successful\
+
+```
+
+## Learn more
+
+- [Octopus CLI](/docs/cli)
+- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key)
