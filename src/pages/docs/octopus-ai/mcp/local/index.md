@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-04-04
-modDate: 2026-08-17
+modDate: 2026-10-26
 title: Local Octopus MCP server
 navTitle: Overview
 navSection: Local MCP
@@ -30,7 +30,7 @@ For more information, see the [Octopus REST API](/docs/octopus-rest-api) documen
 
 ## Governance
 
-Use dedicated [Agent API keys](/docs/api/authentication/create-an-api-key#creating-an-agent-api-key) and [Agent Service Accounts](/docs/security/users-and-teams/service-accounts#agent-service-accounts) for agents connecting to your Octopus instance. These make agent actions identifiable and filterable in the audit log.
+Use dedicated [Agent API keys](/docs/api/authentication/create-an-api-key#creating-an-agent-api-key) configured with custom scopes or [Agent Service Accounts](/docs/security/users-and-teams/service-accounts#agent-service-accounts) for agents connecting to your Octopus instance. These make agent actions identifiable and filterable in the audit log.
 
 ## Installation
 
