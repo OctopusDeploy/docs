@@ -34,7 +34,7 @@ A [project's variables](/docs/projects/variables) are shared between the deploym
 
 In Octopus 2020.2 and earlier, runbooks could be executed against any environment for which the user had an appropriately scoped `RunbookRunCreate` permission.
 
-From **Octopus 2020.3**, it's also possible to choose which environments a runbook can be run in by selecting this from the *Run settings* in **Runbook ➜ Settings**:
+From **Octopus 2020.3**, it's also possible to choose which environments a runbook can be run in by selecting this from the *Run Settings* in **Runbook ➜ Settings**:
 
 :::figure
 ![Runbook environments choice](/docs/img/runbooks/runbooks-vs-deployments/runbook-runsettings-environments.png)
@@ -54,7 +54,7 @@ In Octopus 2020.2 and earlier, if you need to restrict the environment that a ru
 
 AI agent access controls whether AI agents can run a runbook. Use it to keep agents away from sensitive runbooks, such as ones that change production infrastructure, while still letting them run routine ones.
 
-The setting sits below **Environments** in the *Run settings* of **Runbook ➜ Settings**:
+The setting sits below **Environments** in the *Run Settings* of **Runbook ➜ Settings**:
 
 :::figure
 ![The AI agent access setting on the runbook settings page, with the options AI agents can run this runbook and AI agents can't run this runbook](/docs/img/runbooks/runbooks-vs-deployments/runbook-runsettings-ai-agent-access.png)
@@ -86,7 +86,7 @@ For runbooks you want to protect, don't give agents permission to edit runbooks 
 
 ## Retention policy
 
-Project [Lifecycles](/docs/releases/lifecycles) and their retention policies do not apply to runbooks (only deployments). From **Octopus 2020.3**, it's possible to set a retention policy for a runbook by selecting this from the *Run settings* in **Runbook ➜ Settings**:
+Project [Lifecycles](/docs/releases/lifecycles) and their retention policies do not apply to runbooks (only deployments). From **Octopus 2020.3**, it's possible to set a retention policy for a runbook by selecting this from the *Run Settings* in **Runbook ➜ Settings**:
 
 :::figure
 ![Runbook retention policies](/docs/img/runbooks/runbooks-vs-deployments/runbook-runsettings-retention.png)
