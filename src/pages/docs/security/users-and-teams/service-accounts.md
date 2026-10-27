@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2026-06-19
+modDate: 2026-10-26
 title: Service accounts
 description: Creating Service Accounts to provide individual services with the least privileges required for the tasks they will perform.
 navOrder: 2
@@ -56,7 +56,7 @@ Once you have created an [Octopus API key](/docs/api/authentication/create-an-ap
 
 If you're connecting an AI agent to Octopus—such as the [Octopus MCP server](/docs/octopus-ai/mcp) or any other automated tooling that runs without a human user session—create an **Agent Service Account** rather than a regular service account. Agent service accounts are a dedicated identity type for AI agents, and they're labeled as such across the product, making agent activity easy to identify and audit.
 
-Any API key created under an agent service account is automatically treated as an agent key. This means you can filter for agent activity separately from human activity in the [audit log](/docs/security/users-and-teams/auditing) and on the **API Keys** page.
+Any API key created under an agent service account is automatically treated as an agent key. This means you can filter for agent activity separately from human activity in the [audit log](/docs/security/users-and-teams/auditing) and on the **API Keys** page. It also means a runbook's [AI agent access](/docs/runbooks/runbooks-vs-deployments#ai-agent-access) setting applies to any runbook run the account starts.
 
 To create an agent service account:
 
