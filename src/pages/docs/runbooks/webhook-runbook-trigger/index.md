@@ -124,6 +124,32 @@ We recommend using a [service account](/docs/security/users-and-teams/service-ac
 **Payload signature verification is not supported.** Webhook runbook triggers are generic, and signing schemes are specific to the system sending the request so Octopus ignores signed payload headers.
 :::
 
+## Accessing the payload
+
+The request body sent to the webhook trigger endpoint is available in the runbook as the system variable `Octopus.WebhookTrigger.RequestBody`. Octopus will not parse, validate or modify it.
+
+<details data-group="webhook-body-example">
+<summary>PowerShell</summary>
+
+```powershell
+$body = $OctopusParameters["Octopus.WebhookTrigger.RequestBody"] | ConvertFrom-Json
+Write-Host "Reason: $($body.reason)"
+```
+
+</details>
+
+<details data-group="webhook-body-example">
+<summary>Bash</summary>
+
+```bash
+body=$(get_octopusvariable "Octopus.WebhookTrigger.RequestBody")
+echo "Reason: $(echo "$body" | jq -r '.reason')"
+```
+
+:::div{.warning}
+Treat the request body as untrusted input. Read it at runtime, as shown above, instead of using `#{Octopus.WebhookTrigger.RequestBody}` substitution in script source. Substitution inserts the raw text into your script before it runs.
+:::
+
 ## Rate limiting
 
 The webhook endpoint is rate limited. The limit applies to all webhook triggers on the instance:

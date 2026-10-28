@@ -481,6 +481,14 @@ Some variables are available only from a specific version of Octopus. This topic
 | `OctopusShouldFailDeploymentOnSubstitutionFails` | Octopus 2025.1.0 |
 | `Octopus.Deployment.CreatedBy.ActorType` | Octopus 2026.4.6961 |
 
+## Triggers
+
+This variable is included for a runbook that is triggered by a Webhook Trigger
+
+| Variable | Description | Example |
+| --- | --- | --- |
+| `Octopus.WebhookTrigger.RequestBody` | The raw payload data set to the Webhook trigger endpoint | `{ "reason": "Disk usage above threshold" }` |
+
 ## Related links
 
 - [Variable substitution syntax](/docs/projects/variables/variable-substitutions/)
