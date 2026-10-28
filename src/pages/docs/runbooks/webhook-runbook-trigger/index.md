@@ -146,6 +146,8 @@ body=$(get_octopusvariable "Octopus.WebhookTrigger.RequestBody")
 echo "Reason: $(echo "$body" | jq -r '.reason')"
 ```
 
+</details>
+
 :::div{.warning}
 Treat the request body as untrusted input. Read it at runtime, as shown above, instead of using `#{Octopus.WebhookTrigger.RequestBody}` substitution in script source. Substitution inserts the raw text into your script before it runs.
 :::
