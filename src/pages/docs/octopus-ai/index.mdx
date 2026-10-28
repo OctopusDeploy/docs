@@ -19,30 +19,11 @@ Our AI capabilities span three complementary areas, each designed to address dif
 
 ## Current Capabilities
 
-### Octopus AI Assistant
-
-The Octopus AI Assistant is your intelligent companion to your existing Octopus Deploy instance, providing context-aware guidance and automation directly where you work. Currently in Early Access, this feature offers immediate value through four core capabilities that streamline your deployment workflows.
-
-The AI Assistant excels at providing instant tier-0 support by drawing from comprehensive Octopus Deploy documentation to answer questions in natural language. Whether you're exploring the difference between environments and tenants or learning how to set up automated deployments, the Assistant provides immediate, contextual answers without disrupting your workflow.
-
-Beyond answering questions, the AI Assistant can generate complete deployment projects from simple text descriptions. Describe what you want to deploy - whether it's an Azure Web App or AWS Lambda function - and the Assistant creates fully configured projects following established best practices.
-
-When deployments encounter issues, the Assistant's failure analysis capability examines logs, configurations, and error details to provide specific troubleshooting guidance and actionable resolution steps.
-
-The Assistant also helps monitor your Octopus Deploy instance for optimization opportunities, identifying unused variables, suggesting organizational improvements through tenant tags, and helping maintain healthy configurations that scale with your needs.
-
-[Learn more about Octopus AI Assistant](/docs/octopus-ai/assistant)
-
 ### Octopus MCP Server
 
 The Octopus MCP (Model Context Protocol) server represents a significant leap forward in AI integration capabilities. Built on Anthropic's open standard for connecting AI agents to external data sources and tools, the MCP server will enable AI agents like Claude to interact directly with your Octopus Deploy infrastructure.
 
 With supporting **governance** features like [Agent API keys](/docs/api/authentication/create-an-api-key#creating-an-agent-api-key) and [Agent Service Accounts](/docs/security/users-and-teams/service-accounts#agent-service-accounts), you can also keep agent actions fully auditable in clear, filterable audit logs, so you can meet your compliance requirements.
-
-The Octopus MCP server provides similar capabilities to the Octopus AI Assistant, but provides further benefits:
-
-- You can use it with your client and model of choice.
-- It can work alongside other MCP servers to accomplish more complex orchestrations across Octopus and your other essential software services.
 
 The MCP server provides tools designed to solve key use-cases within change management, troubleshooting, and administration audit & compliance.
 
@@ -80,7 +61,6 @@ Octopus Server's `/llms.txt` endpoint provides a Markdown summary of its API and
 
 Begin your AI-powered DevOps journey today with the Octopus AI Assistant, or the Octopus MCP Server. As an Early Access participant, you'll help shape these features while gaining early access to capabilities that will transform how teams deploy software.
 
-- [Getting Started with Octopus AI Assistant](/docs/octopus-ai/assistant/getting-started)
 - [Getting Started with Octopus MCP Server](https://github.com/OctopusDeploy/mcp-server?tab=readme-ov-file#-installation)
 - [Getting Started with the Claude Agent Step](/docs/octopus-ai/claude-agent-step/getting-started)
 
