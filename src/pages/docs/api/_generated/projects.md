@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-09-04
+modDate: 2026-10-07
 title: Projects
 ---
 
@@ -55,7 +55,8 @@ List all the projects in the supplied Octopus Deploy Space, from all project gro
   - **`DiscreteChannelRelease`** :span[boolean]{.type-label}  
     Treats releases of different channels to the same environment as a seperate deployment dimension. 'False' indicates a "hotfix"-style usage of channels (single release active per environment ignoring channels), whereas `True` indicates "microservice"-style usage (single release per environment per channel).
   - **`ExecuteDeploymentsOnEventBasedPipeline`** :span[boolean]{.type-label}
-  - **`ExtensionSettings`** :span[array of object]{.type-label}
+  - **`ExtensionSettings`** :span[array of object]{.type-label}  
+    Not intended for general use; You should not alter or add/remove any values it may have.
   - **`ForcePackageDownload`** :span[boolean]{.type-label}
   - **`Icon`** :span[object]{.type-label}
   - **`Id`** :span[string]{.type-label}  
@@ -115,25 +116,23 @@ List all the projects in the supplied Octopus Deploy Space, from all project gro
       "ClonedFromProjectId": "Projects-1",
       "CombineHealthAndSyncStatusInDashboardLiveStatus": false,
       "DefaultGuidedFailureMode": "EnvironmentDefault",
-      "DefaultPowerShellEdition": "string",
+      "DefaultPowerShellEdition": null,
       "DefaultToSkipIfAlreadyInstalled": false,
       "DeploymentChangesTemplate": "string",
-      "DeploymentProcessId": "string",
+      "DeploymentProcessId": "deploymentprocess-Projects-1",
       "DeprovisioningRunbookId": "Runbooks-1",
       "Description": "string",
       "DiscreteChannelRelease": false,
       "ExecuteDeploymentsOnEventBasedPipeline": false,
-      "ExtensionSettings": [
-        {}
-      ],
+      "ExtensionSettings": [],
       "ForcePackageDownload": false,
       "Icon": {
-        "Color": "string",
-        "Id": "string"
+        "Color": "#3CA4F3",
+        "Id": "rocket"
       },
       "Id": "string",
       "IncludedLibraryVariableSetIds": [
-        "string"
+        "LibraryVariableSets-1"
       ],
       "IsBadgesEnabled": false,
       "IsDisabled": false,
@@ -156,7 +155,7 @@ List all the projects in the supplied Octopus Deploy Space, from all project gro
           "string"
         ]
       },
-      "ProjectGroupId": "string",
+      "ProjectGroupId": "ProjectGroups-1",
       "ProjectTags": [
         "string"
       ],
@@ -177,7 +176,7 @@ List all the projects in the supplied Octopus Deploy Space, from all project gro
         {}
       ],
       "TenantedDeploymentMode": "Untenanted",
-      "VariableSetId": "string",
+      "VariableSetId": "variableset-Projects-1",
       "VersioningStrategy": {
         "DonorPackage": {},
         "Template": "string"
@@ -226,7 +225,8 @@ Also reachable at `/api/projects`, `/api/spaces/{spaceIdentifier}/projects`.
 - **`DiscreteChannelRelease`** :span[boolean]{.type-label}  
   Treats releases of different channels to the same environment as a seperate deployment dimension. 'False' indicates a "hotfix"-style usage of channels (single release active per environment ignoring channels), whereas `True` indicates "microservice"-style usage (single release per environment per channel).
 - **`ExecuteDeploymentsOnEventBasedPipeline`** :span[boolean]{.type-label}
-- **`ExtensionSettings`** :span[array of object]{.type-label}
+- **`ExtensionSettings`** :span[array of object]{.type-label}  
+  Not intended for general use; You should not alter or add/remove any values it may have.
   - **`ExtensionId`** :span[string]{.type-label}
   - **`Values`** :span[string]{.type-label}
 - **`ForcePackageDownload`** :span[boolean]{.type-label}
@@ -278,8 +278,8 @@ Also reachable at `/api/projects`, `/api/spaces/{spaceIdentifier}/projects`.
   "AutoCreateRelease": false,
   "AutoDeployReleaseOverrides": [
     {
-      "EnvironmentId": "string",
-      "ReleaseId": "string",
+      "EnvironmentId": "Environments-1",
+      "ReleaseId": "Releases-1",
       "TenantId": "Tenants-1"
     }
   ],
@@ -291,12 +291,7 @@ Also reachable at `/api/projects`, `/api/spaces/{spaceIdentifier}/projects`.
   "Description": "string",
   "DiscreteChannelRelease": false,
   "ExecuteDeploymentsOnEventBasedPipeline": false,
-  "ExtensionSettings": [
-    {
-      "ExtensionId": "string",
-      "Values": "string"
-    }
-  ],
+  "ExtensionSettings": [],
   "ForcePackageDownload": false,
   "IncludedLibraryVariableSetIds": [
     "string"
@@ -383,7 +378,8 @@ Also reachable at `/api/projects`, `/api/spaces/{spaceIdentifier}/projects`.
 - **`DiscreteChannelRelease`** :span[boolean]{.type-label}  
   Treats releases of different channels to the same environment as a seperate deployment dimension. 'False' indicates a "hotfix"-style usage of channels (single release active per environment ignoring channels), whereas `True` indicates "microservice"-style usage (single release per environment per channel).
 - **`ExecuteDeploymentsOnEventBasedPipeline`** :span[boolean]{.type-label}
-- **`ExtensionSettings`** :span[array of object]{.type-label}
+- **`ExtensionSettings`** :span[array of object]{.type-label}  
+  Not intended for general use; You should not alter or add/remove any values it may have.
   - **`ExtensionId`** :span[string]{.type-label}
   - **`Values`** :span[string]{.type-label}
 - **`ForcePackageDownload`** :span[boolean]{.type-label}
@@ -452,36 +448,31 @@ Also reachable at `/api/projects`, `/api/spaces/{spaceIdentifier}/projects`.
   "AutoCreateRelease": false,
   "AutoDeployReleaseOverrides": [
     {
-      "EnvironmentId": "string",
-      "ReleaseId": "string",
+      "EnvironmentId": "Environments-1",
+      "ReleaseId": "Releases-1",
       "TenantId": "Tenants-1"
     }
   ],
   "ClonedFromProjectId": "Projects-1",
   "CombineHealthAndSyncStatusInDashboardLiveStatus": false,
   "DefaultGuidedFailureMode": "EnvironmentDefault",
-  "DefaultPowerShellEdition": "string",
+  "DefaultPowerShellEdition": null,
   "DefaultToSkipIfAlreadyInstalled": false,
   "DeploymentChangesTemplate": "string",
-  "DeploymentProcessId": "string",
+  "DeploymentProcessId": "deploymentprocess-Projects-1",
   "DeprovisioningRunbookId": "Runbooks-1",
   "Description": "string",
   "DiscreteChannelRelease": false,
   "ExecuteDeploymentsOnEventBasedPipeline": false,
-  "ExtensionSettings": [
-    {
-      "ExtensionId": "string",
-      "Values": "string"
-    }
-  ],
+  "ExtensionSettings": [],
   "ForcePackageDownload": false,
   "Icon": {
-    "Color": "string",
-    "Id": "string"
+    "Color": "#3CA4F3",
+    "Id": "rocket"
   },
   "Id": "string",
   "IncludedLibraryVariableSetIds": [
-    "string"
+    "LibraryVariableSets-1"
   ],
   "IsBadgesEnabled": false,
   "IsDisabled": false,
@@ -504,7 +495,7 @@ Also reachable at `/api/projects`, `/api/spaces/{spaceIdentifier}/projects`.
       "string"
     ]
   },
-  "ProjectGroupId": "string",
+  "ProjectGroupId": "ProjectGroups-1",
   "ProjectTags": [
     "string"
   ],
@@ -543,7 +534,7 @@ Also reachable at `/api/projects`, `/api/spaces/{spaceIdentifier}/projects`.
     }
   ],
   "TenantedDeploymentMode": "Untenanted",
-  "VariableSetId": "string",
+  "VariableSetId": "variableset-Projects-1",
   "VersioningStrategy": {
     "DonorPackage": {
       "DeploymentAction": "string",
@@ -596,7 +587,8 @@ List all of the projects in the supplied Octopus Deploy Space.
 - **`DiscreteChannelRelease`** :span[boolean]{.type-label}  
   Treats releases of different channels to the same environment as a seperate deployment dimension. 'False' indicates a "hotfix"-style usage of channels (single release active per environment ignoring channels), whereas `True` indicates "microservice"-style usage (single release per environment per channel).
 - **`ExecuteDeploymentsOnEventBasedPipeline`** :span[boolean]{.type-label}
-- **`ExtensionSettings`** :span[array of object]{.type-label}
+- **`ExtensionSettings`** :span[array of object]{.type-label}  
+  Not intended for general use; You should not alter or add/remove any values it may have.
   - **`ExtensionId`** :span[string]{.type-label}
   - **`Values`** :span[string]{.type-label}
 - **`ForcePackageDownload`** :span[boolean]{.type-label}
@@ -666,36 +658,31 @@ List all of the projects in the supplied Octopus Deploy Space.
     "AutoCreateRelease": false,
     "AutoDeployReleaseOverrides": [
       {
-        "EnvironmentId": "string",
-        "ReleaseId": "string",
+        "EnvironmentId": "Environments-1",
+        "ReleaseId": "Releases-1",
         "TenantId": "Tenants-1"
       }
     ],
     "ClonedFromProjectId": "Projects-1",
     "CombineHealthAndSyncStatusInDashboardLiveStatus": false,
     "DefaultGuidedFailureMode": "EnvironmentDefault",
-    "DefaultPowerShellEdition": "string",
+    "DefaultPowerShellEdition": null,
     "DefaultToSkipIfAlreadyInstalled": false,
     "DeploymentChangesTemplate": "string",
-    "DeploymentProcessId": "string",
+    "DeploymentProcessId": "deploymentprocess-Projects-1",
     "DeprovisioningRunbookId": "Runbooks-1",
     "Description": "string",
     "DiscreteChannelRelease": false,
     "ExecuteDeploymentsOnEventBasedPipeline": false,
-    "ExtensionSettings": [
-      {
-        "ExtensionId": "string",
-        "Values": "string"
-      }
-    ],
+    "ExtensionSettings": [],
     "ForcePackageDownload": false,
     "Icon": {
-      "Color": "string",
-      "Id": "string"
+      "Color": "#3CA4F3",
+      "Id": "rocket"
     },
     "Id": "string",
     "IncludedLibraryVariableSetIds": [
-      "string"
+      "LibraryVariableSets-1"
     ],
     "IsBadgesEnabled": false,
     "IsDisabled": false,
@@ -718,7 +705,7 @@ List all of the projects in the supplied Octopus Deploy Space.
         "string"
       ]
     },
-    "ProjectGroupId": "string",
+    "ProjectGroupId": "ProjectGroups-1",
     "ProjectTags": [
       "string"
     ],
@@ -749,7 +736,7 @@ List all of the projects in the supplied Octopus Deploy Space.
       }
     ],
     "TenantedDeploymentMode": "Untenanted",
-    "VariableSetId": "string",
+    "VariableSetId": "variableset-Projects-1",
     "VersioningStrategy": {
       "DonorPackage": {
         "DeploymentAction": "string",
@@ -820,7 +807,8 @@ Also reachable at `/api/projects/{projectId}`, `/api/projects/{projectId}/{unuse
 - **`DiscreteChannelRelease`** :span[boolean]{.type-label}  
   Treats releases of different channels to the same environment as a seperate deployment dimension. 'False' indicates a "hotfix"-style usage of channels (single release active per environment ignoring channels), whereas `True` indicates "microservice"-style usage (single release per environment per channel).
 - **`ExecuteDeploymentsOnEventBasedPipeline`** :span[boolean]{.type-label}
-- **`ExtensionSettings`** :span[array of object]{.type-label}
+- **`ExtensionSettings`** :span[array of object]{.type-label}  
+  Not intended for general use; You should not alter or add/remove any values it may have.
   - **`ExtensionId`** :span[string]{.type-label}
   - **`Values`** :span[string]{.type-label}
 - **`ForcePackageDownload`** :span[boolean]{.type-label}
@@ -889,36 +877,31 @@ Also reachable at `/api/projects/{projectId}`, `/api/projects/{projectId}/{unuse
   "AutoCreateRelease": false,
   "AutoDeployReleaseOverrides": [
     {
-      "EnvironmentId": "string",
-      "ReleaseId": "string",
+      "EnvironmentId": "Environments-1",
+      "ReleaseId": "Releases-1",
       "TenantId": "Tenants-1"
     }
   ],
   "ClonedFromProjectId": "Projects-1",
   "CombineHealthAndSyncStatusInDashboardLiveStatus": false,
   "DefaultGuidedFailureMode": "EnvironmentDefault",
-  "DefaultPowerShellEdition": "string",
+  "DefaultPowerShellEdition": null,
   "DefaultToSkipIfAlreadyInstalled": false,
   "DeploymentChangesTemplate": "string",
-  "DeploymentProcessId": "string",
+  "DeploymentProcessId": "deploymentprocess-Projects-1",
   "DeprovisioningRunbookId": "Runbooks-1",
   "Description": "string",
   "DiscreteChannelRelease": false,
   "ExecuteDeploymentsOnEventBasedPipeline": false,
-  "ExtensionSettings": [
-    {
-      "ExtensionId": "string",
-      "Values": "string"
-    }
-  ],
+  "ExtensionSettings": [],
   "ForcePackageDownload": false,
   "Icon": {
-    "Color": "string",
-    "Id": "string"
+    "Color": "#3CA4F3",
+    "Id": "rocket"
   },
   "Id": "string",
   "IncludedLibraryVariableSetIds": [
-    "string"
+    "LibraryVariableSets-1"
   ],
   "IsBadgesEnabled": false,
   "IsDisabled": false,
@@ -941,7 +924,7 @@ Also reachable at `/api/projects/{projectId}`, `/api/projects/{projectId}/{unuse
       "string"
     ]
   },
-  "ProjectGroupId": "string",
+  "ProjectGroupId": "ProjectGroups-1",
   "ProjectTags": [
     "string"
   ],
@@ -980,7 +963,7 @@ Also reachable at `/api/projects/{projectId}`, `/api/projects/{projectId}/{unuse
     }
   ],
   "TenantedDeploymentMode": "Untenanted",
-  "VariableSetId": "string",
+  "VariableSetId": "variableset-Projects-1",
   "VersioningStrategy": {
     "DonorPackage": {
       "DeploymentAction": "string",
@@ -1028,7 +1011,8 @@ Also reachable at `/api/projects/{projectId}`, `/api/spaces/{spaceIdentifier}/pr
 - **`DiscreteChannelRelease`** :span[boolean]{.type-label}  
   Treats releases of different channels to the same environment as a separate deployment dimension. 'False' indicates a "hotfix"-style usage of channels (single release active per environment ignoring channels), whereas `True` indicates "microservice"-style usage (single release per environment per channel).
 - **`ExecuteDeploymentsOnEventBasedPipeline`** :span[boolean]{.type-label}
-- **`ExtensionSettings`** :span[array of object]{.type-label}
+- **`ExtensionSettings`** :span[array of object]{.type-label}  
+  Not intended for general use; You should not alter or add/remove any values it may have.
   - **`ExtensionId`** :span[string]{.type-label}
   - **`Values`** :span[string]{.type-label}
 - **`ForcePackageDownload`** :span[boolean]{.type-label}
@@ -1083,8 +1067,8 @@ Also reachable at `/api/projects/{projectId}`, `/api/spaces/{spaceIdentifier}/pr
   "AutoCreateRelease": false,
   "AutoDeployReleaseOverrides": [
     {
-      "EnvironmentId": "string",
-      "ReleaseId": "string",
+      "EnvironmentId": "Environments-1",
+      "ReleaseId": "Releases-1",
       "TenantId": "Tenants-1"
     }
   ],
@@ -1099,12 +1083,7 @@ Also reachable at `/api/projects/{projectId}`, `/api/spaces/{spaceIdentifier}/pr
   "Description": "string",
   "DiscreteChannelRelease": false,
   "ExecuteDeploymentsOnEventBasedPipeline": false,
-  "ExtensionSettings": [
-    {
-      "ExtensionId": "string",
-      "Values": "string"
-    }
-  ],
+  "ExtensionSettings": [],
   "ForcePackageDownload": false,
   "IncludedLibraryVariableSetIds": [
     "string"
@@ -1193,7 +1172,8 @@ Also reachable at `/api/projects/{projectId}`, `/api/spaces/{spaceIdentifier}/pr
 - **`DiscreteChannelRelease`** :span[boolean]{.type-label}  
   Treats releases of different channels to the same environment as a seperate deployment dimension. 'False' indicates a "hotfix"-style usage of channels (single release active per environment ignoring channels), whereas `True` indicates "microservice"-style usage (single release per environment per channel).
 - **`ExecuteDeploymentsOnEventBasedPipeline`** :span[boolean]{.type-label}
-- **`ExtensionSettings`** :span[array of object]{.type-label}
+- **`ExtensionSettings`** :span[array of object]{.type-label}  
+  Not intended for general use; You should not alter or add/remove any values it may have.
   - **`ExtensionId`** :span[string]{.type-label}
   - **`Values`** :span[string]{.type-label}
 - **`ForcePackageDownload`** :span[boolean]{.type-label}
@@ -1262,36 +1242,31 @@ Also reachable at `/api/projects/{projectId}`, `/api/spaces/{spaceIdentifier}/pr
   "AutoCreateRelease": false,
   "AutoDeployReleaseOverrides": [
     {
-      "EnvironmentId": "string",
-      "ReleaseId": "string",
+      "EnvironmentId": "Environments-1",
+      "ReleaseId": "Releases-1",
       "TenantId": "Tenants-1"
     }
   ],
   "ClonedFromProjectId": "Projects-1",
   "CombineHealthAndSyncStatusInDashboardLiveStatus": false,
   "DefaultGuidedFailureMode": "EnvironmentDefault",
-  "DefaultPowerShellEdition": "string",
+  "DefaultPowerShellEdition": null,
   "DefaultToSkipIfAlreadyInstalled": false,
   "DeploymentChangesTemplate": "string",
-  "DeploymentProcessId": "string",
+  "DeploymentProcessId": "deploymentprocess-Projects-1",
   "DeprovisioningRunbookId": "Runbooks-1",
   "Description": "string",
   "DiscreteChannelRelease": false,
   "ExecuteDeploymentsOnEventBasedPipeline": false,
-  "ExtensionSettings": [
-    {
-      "ExtensionId": "string",
-      "Values": "string"
-    }
-  ],
+  "ExtensionSettings": [],
   "ForcePackageDownload": false,
   "Icon": {
-    "Color": "string",
-    "Id": "string"
+    "Color": "#3CA4F3",
+    "Id": "rocket"
   },
   "Id": "string",
   "IncludedLibraryVariableSetIds": [
-    "string"
+    "LibraryVariableSets-1"
   ],
   "IsBadgesEnabled": false,
   "IsDisabled": false,
@@ -1314,7 +1289,7 @@ Also reachable at `/api/projects/{projectId}`, `/api/spaces/{spaceIdentifier}/pr
       "string"
     ]
   },
-  "ProjectGroupId": "string",
+  "ProjectGroupId": "ProjectGroups-1",
   "ProjectTags": [
     "string"
   ],
@@ -1353,7 +1328,7 @@ Also reachable at `/api/projects/{projectId}`, `/api/spaces/{spaceIdentifier}/pr
     }
   ],
   "TenantedDeploymentMode": "Untenanted",
-  "VariableSetId": "string",
+  "VariableSetId": "variableset-Projects-1",
   "VersioningStrategy": {
     "DonorPackage": {
       "DeploymentAction": "string",

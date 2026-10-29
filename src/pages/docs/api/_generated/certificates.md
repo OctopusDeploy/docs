@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-09-04
+modDate: 2026-10-26
 title: Certificates
 ---
 
@@ -581,130 +581,54 @@ Also reachable at `/api/certificates/generate`, `/api/spaces/{spaceIdentifier}/c
 
 **Path Parameters**
 
-- **`spaceId`** :span[string]{.type-label} *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space to create the certificate in.
 
 **Request Body**
 
-- **`Archived`** :span[string]{.type-label}  
-  Format `date-time`.
-- **`CertificateChain`** :span[array of object]{.type-label}
-  - **`IssuerDistinguishedName`** :span[string]{.type-label}
-  - **`NotAfter`** :span[string]{.type-label}  
-    Format `date-time`.
-  - **`NotBefore`** :span[string]{.type-label}  
-    Format `date-time`.
-  - **`SerialNumber`** :span[string]{.type-label}
-  - **`SignatureAlgorithmName`** :span[string]{.type-label}
-  - **`SubjectDistinguishedName`** :span[string]{.type-label}
-  - **`Thumbprint`** :span[string]{.type-label}
-  - **`Version`** :span[integer]{.type-label}
-- **`CertificateData`** :span[sensitive value]{.type-label}
-  - **`HasValue`** :span[boolean]{.type-label}
-  - **`Hint`** :span[string]{.type-label}
-  - **`NewValue`** :span[string]{.type-label}
-- **`CertificateDataFormat`** :span[enum]{.type-label}  
-  Allowed values: `Pkcs12`, `Der`, `Pem`, `Unknown`.
-- **`EnvironmentIds`** :span[array of string]{.type-label}
-- **`HasPrivateKey`** :span[boolean]{.type-label}
-- **`Id`** :span[string]{.type-label}  
-  Gets or sets a unique identifier for this resource.
-- **`IsExpired`** :span[boolean]{.type-label}
-- **`IssuerCommonName`** :span[string]{.type-label}
-- **`IssuerDistinguishedName`** :span[string]{.type-label}
-- **`IssuerOrganization`** :span[string]{.type-label}
-- **`LastModifiedBy`** :span[string]{.type-label}  
-  Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** :span[string]{.type-label}  
-  Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** :span[object]{.type-label}  
-  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** :span[string]{.type-label}
-- **`NotAfter`** :span[string]{.type-label}  
-  Format `date-time`.
-- **`NotBefore`** :span[string]{.type-label}  
-  Format `date-time`.
-- **`Notes`** :span[string]{.type-label}
+- **`EnvironmentIds`** :span[array of string]{.type-label}  
+  Environments the certificate should be scoped to. Leave empty to allow use in all environments.
+- **`Name`** :span[string]{.type-label} *(required)*  
+  The name of the certificate. Minimum length 1.
+- **`Notes`** :span[string]{.type-label}  
+  Additional information on the certificate. Maximum length 10240.
 - **`Password`** :span[sensitive value]{.type-label}
   - **`HasValue`** :span[boolean]{.type-label}
   - **`Hint`** :span[string]{.type-label}
   - **`NewValue`** :span[string]{.type-label}
-- **`ReplacedBy`** :span[string]{.type-label}
-- **`SelfSigned`** :span[boolean]{.type-label}
 - **`SelfSignedCertificateCurve`** :span[string]{.type-label}  
   Elliptic curve for the generated key pair: nistP256, nistP384 or nistP521. Defaults to nistP384 when omitted.
-- **`SerialNumber`** :span[string]{.type-label}
-- **`SignatureAlgorithmName`** :span[string]{.type-label}
-- **`SpaceId`** :span[string]{.type-label}
-- **`SubjectAlternativeNames`** :span[array of string]{.type-label}
+- **`SpaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space to create the certificate in.
 - **`SubjectCommonName`** :span[string]{.type-label}  
   The certificate subject's common name (CN). When creating a self-signed certificate this becomes the generated certificate's CN, and at least one of SubjectCommonName or SubjectOrganization must be supplied.
-- **`SubjectDistinguishedName`** :span[string]{.type-label}
 - **`SubjectOrganization`** :span[string]{.type-label}  
   The certificate subject's organization (O). When creating a self-signed certificate, at least one of SubjectCommonName or SubjectOrganization must be supplied.
-- **`TenantIds`** :span[array of string]{.type-label}
-- **`TenantTags`** :span[array of string]{.type-label}
+- **`TenantIds`** :span[array of string]{.type-label}  
+  The tenants the certificate is associated with.
+- **`TenantTags`** :span[array of string]{.type-label}  
+  The canonical tenant tag names the certificate is associated with.
 - **`TenantedDeploymentParticipation`** :span[enum]{.type-label}  
+  Whether the certificate is available to tenanted deployments. Defaults to Tenanted when TenantIds or TenantTags are supplied, otherwise Untenanted.  
   Allowed values: `Untenanted`, `TenantedOrUntenanted`, `Tenanted`.
-- **`Thumbprint`** :span[string]{.type-label}
-- **`Version`** :span[integer]{.type-label}
 
 :::api-example{label="Request"}
 ```json
 {
-  "Archived": "2020-01-01T00:00:00.000Z",
-  "CertificateChain": [
-    {
-      "IssuerDistinguishedName": "string",
-      "NotAfter": "2020-01-01T00:00:00.000Z",
-      "NotBefore": "2020-01-01T00:00:00.000Z",
-      "SerialNumber": "string",
-      "SignatureAlgorithmName": "string",
-      "SubjectDistinguishedName": "string",
-      "Thumbprint": "string",
-      "Version": 0
-    }
-  ],
-  "CertificateData": {
-    "HasValue": false,
-    "Hint": "string",
-    "NewValue": "string"
-  },
-  "CertificateDataFormat": "Pkcs12",
   "EnvironmentIds": [
     "Environments-1",
     "..."
   ],
-  "HasPrivateKey": false,
-  "Id": "string",
-  "IsExpired": false,
-  "IssuerCommonName": "string",
-  "IssuerDistinguishedName": "string",
-  "IssuerOrganization": "string",
-  "LastModifiedBy": "string",
-  "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "Links": {
-    "Self": "/api/..."
-  },
   "Name": "string",
-  "NotAfter": "2020-01-01T00:00:00.000Z",
-  "NotBefore": "2020-01-01T00:00:00.000Z",
   "Notes": "string",
   "Password": {
     "HasValue": false,
     "Hint": "string",
     "NewValue": "string"
   },
-  "ReplacedBy": "string",
-  "SelfSigned": false,
   "SelfSignedCertificateCurve": "string",
-  "SerialNumber": "string",
-  "SignatureAlgorithmName": "string",
   "SpaceId": "Spaces-1",
-  "SubjectAlternativeNames": [
-    "string"
-  ],
   "SubjectCommonName": "string",
-  "SubjectDistinguishedName": "string",
   "SubjectOrganization": "string",
   "TenantIds": [
     "Tenants-1",
@@ -713,9 +637,7 @@ Also reachable at `/api/certificates/generate`, `/api/spaces/{spaceIdentifier}/c
   "TenantTags": [
     "string"
   ],
-  "TenantedDeploymentParticipation": "Untenanted",
-  "Thumbprint": "string",
-  "Version": 0
+  "TenantedDeploymentParticipation": "Untenanted"
 }
 ```
 :::
@@ -1762,7 +1684,8 @@ Also reachable at `/api/certificates/{id}/usages`, `/api/spaces/{spaceIdentifier
   - **`DiscreteChannelRelease`** :span[boolean]{.type-label}  
     Treats releases of different channels to the same environment as a seperate deployment dimension. 'False' indicates a "hotfix"-style usage of channels (single release active per environment ignoring channels), whereas `True` indicates "microservice"-style usage (single release per environment per channel).
   - **`ExecuteDeploymentsOnEventBasedPipeline`** :span[boolean]{.type-label}
-  - **`ExtensionSettings`** :span[array of object]{.type-label}
+  - **`ExtensionSettings`** :span[array of object]{.type-label}  
+    Not intended for general use; You should not alter or add/remove any values it may have.
   - **`ForcePackageDownload`** :span[boolean]{.type-label}
   - **`Icon`** :span[object]{.type-label}
   - **`Id`** :span[string]{.type-label}  
@@ -1906,25 +1829,23 @@ Also reachable at `/api/certificates/{id}/usages`, `/api/spaces/{spaceIdentifier
       "ClonedFromProjectId": "Projects-1",
       "CombineHealthAndSyncStatusInDashboardLiveStatus": false,
       "DefaultGuidedFailureMode": "EnvironmentDefault",
-      "DefaultPowerShellEdition": "string",
+      "DefaultPowerShellEdition": null,
       "DefaultToSkipIfAlreadyInstalled": false,
       "DeploymentChangesTemplate": "string",
-      "DeploymentProcessId": "string",
+      "DeploymentProcessId": "deploymentprocess-Projects-1",
       "DeprovisioningRunbookId": "Runbooks-1",
       "Description": "string",
       "DiscreteChannelRelease": false,
       "ExecuteDeploymentsOnEventBasedPipeline": false,
-      "ExtensionSettings": [
-        {}
-      ],
+      "ExtensionSettings": [],
       "ForcePackageDownload": false,
       "Icon": {
-        "Color": "string",
-        "Id": "string"
+        "Color": "#3CA4F3",
+        "Id": "rocket"
       },
       "Id": "string",
       "IncludedLibraryVariableSetIds": [
-        "string"
+        "LibraryVariableSets-1"
       ],
       "IsBadgesEnabled": false,
       "IsDisabled": false,
@@ -1947,7 +1868,7 @@ Also reachable at `/api/certificates/{id}/usages`, `/api/spaces/{spaceIdentifier
           "string"
         ]
       },
-      "ProjectGroupId": "string",
+      "ProjectGroupId": "ProjectGroups-1",
       "ProjectTags": [
         "string"
       ],
@@ -1968,7 +1889,7 @@ Also reachable at `/api/certificates/{id}/usages`, `/api/spaces/{spaceIdentifier
         {}
       ],
       "TenantedDeploymentMode": "Untenanted",
-      "VariableSetId": "string",
+      "VariableSetId": "variableset-Projects-1",
       "VersioningStrategy": {
         "DonorPackage": {},
         "Template": "string"
@@ -1983,8 +1904,8 @@ Also reachable at `/api/certificates/{id}/usages`, `/api/spaces/{spaceIdentifier
       ],
       "Description": "string",
       "Icon": {
-        "Color": "string",
-        "Id": "string"
+        "Color": "#3CA4F3",
+        "Id": "rocket"
       },
       "Id": "string",
       "IsDisabled": false,

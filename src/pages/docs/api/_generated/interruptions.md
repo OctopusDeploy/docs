@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-09-04
+modDate: 2026-10-22
 title: Interruptions
 ---
 
@@ -37,8 +37,10 @@ Also reachable at `/api/interruptions`, `/api/spaces/{spaceIdentifier}/interrupt
 - **`ItemType`** :span[string]{.type-label}  
   The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
+  - **`AgentResponsesPrevented`** :span[boolean]{.type-label}  
+    Gets or sets a value indicating whether AI agents are prevented from responding to this interruption.
   - **`CanTakeResponsibility`** :span[boolean]{.type-label}  
-    Gets or sets a value indicating whether the current user has permissions to take responsibility for this interruption.
+    Gets or sets a value indicating whether the current user can take responsibility for this interruption. False for AI agents when the interruption prevents agent responses.
   - **`CorrelationId`** :span[string]{.type-label}  
     Gets or sets the correlation ID of the activity in which the interruption was requested, if any.
   - **`Created`** :span[string]{.type-label}  
@@ -64,6 +66,11 @@ Also reachable at `/api/interruptions`, `/api/spaces/{spaceIdentifier}/interrupt
     Gets the ids of documents related to this interruption.
   - **`ResponsibleTeamIds`** :span[array of string]{.type-label}  
     Gets the ids of groups that can take responsibility for this interruption.
+  - **`ResponsibleUserActor`** :span[string]{.type-label}  
+    Gets or sets the agent client (such as an MCP client) the responsible user acted through, typically in the same form as OAuth client. Null for other kinds of credential.
+  - **`ResponsibleUserActorType`** :span[enum]{.type-label}  
+    Gets or sets the kind of actor (user, service account, AI agent) that took responsibility for this interruption. Unknown when nobody has taken responsibility, or for interruptions claimed before this was recorded.  
+    Allowed values: `Unknown`, `System`, `User`, `Agent`, `ServiceAccount`.
   - **`ResponsibleUserId`** :span[string]{.type-label}  
     Gets or sets the.
   - **`SpaceId`** :span[string]{.type-label}
@@ -92,6 +99,7 @@ Also reachable at `/api/interruptions`, `/api/spaces/{spaceIdentifier}/interrupt
   "ItemType": "Interruption",
   "Items": [
     {
+      "AgentResponsesPrevented": false,
       "CanTakeResponsibility": false,
       "CorrelationId": "string",
       "Created": "2020-01-01T00:00:00.000Z",
@@ -119,6 +127,8 @@ Also reachable at `/api/interruptions`, `/api/spaces/{spaceIdentifier}/interrupt
       "ResponsibleTeamIds": [
         "string"
       ],
+      "ResponsibleUserActor": "string",
+      "ResponsibleUserActorType": "Unknown",
       "ResponsibleUserId": "string",
       "SpaceId": "Spaces-1",
       "TaskId": "string",
@@ -156,8 +166,10 @@ Also reachable at `/api/interruptions/{id}`, `/api/spaces/{spaceIdentifier}/inte
 
 `200` — The requested Interruption
 
+- **`AgentResponsesPrevented`** :span[boolean]{.type-label}  
+  Gets or sets a value indicating whether AI agents are prevented from responding to this interruption.
 - **`CanTakeResponsibility`** :span[boolean]{.type-label}  
-  Gets or sets a value indicating whether the current user has permissions to take responsibility for this interruption.
+  Gets or sets a value indicating whether the current user can take responsibility for this interruption. False for AI agents when the interruption prevents agent responses.
 - **`CorrelationId`** :span[string]{.type-label}  
   Gets or sets the correlation ID of the activity in which the interruption was requested, if any.
 - **`Created`** :span[string]{.type-label}  
@@ -195,6 +207,11 @@ Also reachable at `/api/interruptions/{id}`, `/api/spaces/{spaceIdentifier}/inte
   Gets the ids of documents related to this interruption.
 - **`ResponsibleTeamIds`** :span[array of string]{.type-label}  
   Gets the ids of groups that can take responsibility for this interruption.
+- **`ResponsibleUserActor`** :span[string]{.type-label}  
+  Gets or sets the agent client (such as an MCP client) the responsible user acted through, typically in the same form as OAuth client. Null for other kinds of credential.
+- **`ResponsibleUserActorType`** :span[enum]{.type-label}  
+  Gets or sets the kind of actor (user, service account, AI agent) that took responsibility for this interruption. Unknown when nobody has taken responsibility, or for interruptions claimed before this was recorded.  
+  Allowed values: `Unknown`, `System`, `User`, `Agent`, `ServiceAccount`.
 - **`ResponsibleUserId`** :span[string]{.type-label}  
   Gets or sets the.
 - **`SpaceId`** :span[string]{.type-label}
@@ -209,6 +226,7 @@ Also reachable at `/api/interruptions/{id}`, `/api/spaces/{spaceIdentifier}/inte
 :::api-example{label="Response"}
 ```json
 {
+  "AgentResponsesPrevented": false,
   "CanTakeResponsibility": false,
   "CorrelationId": "string",
   "Created": "2020-01-01T00:00:00.000Z",
@@ -252,6 +270,8 @@ Also reachable at `/api/interruptions/{id}`, `/api/spaces/{spaceIdentifier}/inte
   "ResponsibleTeamIds": [
     "string"
   ],
+  "ResponsibleUserActor": "string",
+  "ResponsibleUserActorType": "Unknown",
   "ResponsibleUserId": "string",
   "SpaceId": "Spaces-1",
   "TaskId": "string",
@@ -405,8 +425,10 @@ Only the user with responsibility for this interruption can submit this form.
 
 `200` — Confirms that the Interruption has been submitted successfully, containing the updated Interruption
 
+- **`AgentResponsesPrevented`** :span[boolean]{.type-label}  
+  Gets or sets a value indicating whether AI agents are prevented from responding to this interruption.
 - **`CanTakeResponsibility`** :span[boolean]{.type-label}  
-  Gets or sets a value indicating whether the current user has permissions to take responsibility for this interruption.
+  Gets or sets a value indicating whether the current user can take responsibility for this interruption. False for AI agents when the interruption prevents agent responses.
 - **`CorrelationId`** :span[string]{.type-label}  
   Gets or sets the correlation ID of the activity in which the interruption was requested, if any.
 - **`Created`** :span[string]{.type-label}  
@@ -444,6 +466,11 @@ Only the user with responsibility for this interruption can submit this form.
   Gets the ids of documents related to this interruption.
 - **`ResponsibleTeamIds`** :span[array of string]{.type-label}  
   Gets the ids of groups that can take responsibility for this interruption.
+- **`ResponsibleUserActor`** :span[string]{.type-label}  
+  Gets or sets the agent client (such as an MCP client) the responsible user acted through, typically in the same form as OAuth client. Null for other kinds of credential.
+- **`ResponsibleUserActorType`** :span[enum]{.type-label}  
+  Gets or sets the kind of actor (user, service account, AI agent) that took responsibility for this interruption. Unknown when nobody has taken responsibility, or for interruptions claimed before this was recorded.  
+  Allowed values: `Unknown`, `System`, `User`, `Agent`, `ServiceAccount`.
 - **`ResponsibleUserId`** :span[string]{.type-label}  
   Gets or sets the.
 - **`SpaceId`** :span[string]{.type-label}
@@ -458,6 +485,7 @@ Only the user with responsibility for this interruption can submit this form.
 :::api-example{label="Response"}
 ```json
 {
+  "AgentResponsesPrevented": false,
   "CanTakeResponsibility": false,
   "CorrelationId": "string",
   "Created": "2020-01-01T00:00:00.000Z",
@@ -501,6 +529,8 @@ Only the user with responsibility for this interruption can submit this form.
   "ResponsibleTeamIds": [
     "string"
   ],
+  "ResponsibleUserActor": "string",
+  "ResponsibleUserActorType": "Unknown",
   "ResponsibleUserId": "string",
   "SpaceId": "Spaces-1",
   "TaskId": "string",

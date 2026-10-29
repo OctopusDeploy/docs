@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-09-04
+modDate: 2026-10-14
 title: Environments
 ---
 
@@ -46,7 +46,8 @@ Lists all of the environments in the supplied Octopus Deploy Space. The results 
     Gets or sets a short description of this environment that can be used to explain the purpose of the environment to other users. This field may contain markdown.
   - **`EnvironmentTags`** :span[array of string]{.type-label}  
     List of tags assigned to this environment.
-  - **`ExtensionSettings`** :span[array of object]{.type-label}
+  - **`ExtensionSettings`** :span[array of object]{.type-label}  
+    Not intended for general use; You should not alter or add/remove any values it may have.
   - **`Id`** :span[string]{.type-label}  
     Gets or sets a unique identifier for this resource.
   - **`LastModifiedBy`** :span[string]{.type-label}  
@@ -86,9 +87,7 @@ Lists all of the environments in the supplied Octopus Deploy Space. The results 
       "EnvironmentTags": [
         "string"
       ],
-      "ExtensionSettings": [
-        {}
-      ],
+      "ExtensionSettings": [],
       "Id": "string",
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
@@ -129,14 +128,17 @@ Also reachable at `/api/environments`, `/api/spaces/{spaceIdentifier}/environmen
 
 - **`AllowDynamicInfrastructure`** :span[boolean]{.type-label}
 - **`Description`** :span[string]{.type-label}
-- **`EnvironmentTags`** :span[array of string]{.type-label}
-- **`ExtensionSettings`** :span[array of object]{.type-label}
+- **`EnvironmentTags`** :span[array of string]{.type-label}  
+  Tags to apply to the environment, each written as "TagSet/Tag" using either the names or the IDs of the tag set and tag (for example "Regions/us-east"). Find the tag sets first to discover which ones apply to environments and what tags they contain.
+- **`ExtensionSettings`** :span[array of object]{.type-label}  
+  Not intended for general use; You should not alter or add/remove any values it may have.
   - **`ExtensionId`** :span[string]{.type-label}
   - **`Values`** :span[string]{.type-label}
 - **`Name`** :span[string]{.type-label} *(required)*  
   Minimum length 1. Maximum length 50.
 - **`Slug`** :span[string]{.type-label}
-- **`SortOrder`** :span[integer]{.type-label}
+- **`SortOrder`** :span[integer]{.type-label}  
+  Position of the environment in the space's environment order. When empty, the position is the number of existing environments, which is usually but not always last.
 - **`SpaceId`** :span[string]{.type-label} *(required)*
 - **`UseGuidedFailure`** :span[boolean]{.type-label}
 
@@ -148,12 +150,7 @@ Also reachable at `/api/environments`, `/api/spaces/{spaceIdentifier}/environmen
   "EnvironmentTags": [
     "string"
   ],
-  "ExtensionSettings": [
-    {
-      "ExtensionId": "string",
-      "Values": "string"
-    }
-  ],
+  "ExtensionSettings": [],
   "Name": "string",
   "Slug": "string",
   "SortOrder": 0,
@@ -173,7 +170,8 @@ Also reachable at `/api/environments`, `/api/spaces/{spaceIdentifier}/environmen
   Gets or sets a short description of this environment that can be used to explain the purpose of the environment to other users. This field may contain markdown.
 - **`EnvironmentTags`** :span[array of string]{.type-label}  
   List of tags assigned to this environment.
-- **`ExtensionSettings`** :span[array of object]{.type-label}
+- **`ExtensionSettings`** :span[array of object]{.type-label}  
+  Not intended for general use; You should not alter or add/remove any values it may have.
   - **`ExtensionId`** :span[string]{.type-label}
   - **`Values`** :span[string]{.type-label}
 - **`Id`** :span[string]{.type-label}  
@@ -201,12 +199,7 @@ Also reachable at `/api/environments`, `/api/spaces/{spaceIdentifier}/environmen
   "EnvironmentTags": [
     "string"
   ],
-  "ExtensionSettings": [
-    {
-      "ExtensionId": "string",
-      "Values": "string"
-    }
-  ],
+  "ExtensionSettings": [],
   "Id": "string",
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
@@ -254,7 +247,8 @@ Lists the name and ID of all of the environments in the supplied Space. The resu
   Gets or sets a short description of this environment that can be used to explain the purpose of the environment to other users. This field may contain markdown.
 - **`EnvironmentTags`** :span[array of string]{.type-label}  
   List of tags assigned to this environment.
-- **`ExtensionSettings`** :span[array of object]{.type-label}
+- **`ExtensionSettings`** :span[array of object]{.type-label}  
+  Not intended for general use; You should not alter or add/remove any values it may have.
   - **`ExtensionId`** :span[string]{.type-label}
   - **`Values`** :span[string]{.type-label}
 - **`Id`** :span[string]{.type-label}  
@@ -283,12 +277,7 @@ Lists the name and ID of all of the environments in the supplied Space. The resu
     "EnvironmentTags": [
       "string"
     ],
-    "ExtensionSettings": [
-      {
-        "ExtensionId": "string",
-        "Values": "string"
-      }
-    ],
+    "ExtensionSettings": [],
     "Id": "string",
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
@@ -338,7 +327,8 @@ Lists the name and ID of all of the environments in the supplied Space. The resu
     Gets or sets a short description of this environment that can be used to explain the purpose of the environment to other users. This field may contain markdown.
   - **`EnvironmentTags`** :span[array of string]{.type-label}  
     List of tags assigned to this environment.
-  - **`ExtensionSettings`** :span[array of object]{.type-label}
+  - **`ExtensionSettings`** :span[array of object]{.type-label}  
+    Not intended for general use; You should not alter or add/remove any values it may have.
   - **`Id`** :span[string]{.type-label}  
     Gets or sets a unique identifier for this resource.
   - **`LastModifiedBy`** :span[string]{.type-label}  
@@ -366,9 +356,7 @@ Lists the name and ID of all of the environments in the supplied Space. The resu
       "EnvironmentTags": [
         "string"
       ],
-      "ExtensionSettings": [
-        {}
-      ],
+      "ExtensionSettings": [],
       "Id": "string",
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
@@ -489,9 +477,7 @@ Also reachable at `/api/environments/summary`, `/api/spaces/{spaceIdentifier}/en
         "EnvironmentTags": [
           "string"
         ],
-        "ExtensionSettings": [
-          {}
-        ],
+        "ExtensionSettings": [],
         "Id": "string",
         "LastModifiedBy": "string",
         "LastModifiedOn": "2020-01-01T00:00:00.000Z",
@@ -784,9 +770,7 @@ Lists all of the environments in the supplied Octopus Deploy Space. The results 
         "EnvironmentTags": [
           "string"
         ],
-        "ExtensionSettings": [
-          {}
-        ],
+        "ExtensionSettings": [],
         "Id": "string",
         "LastModifiedBy": "string",
         "LastModifiedOn": "2020-01-01T00:00:00.000Z",
@@ -906,8 +890,10 @@ Also reachable at `/api/environments/{environmentId}`, `/api/spaces/{spaceIdenti
 - **`AllowDynamicInfrastructure`** :span[boolean]{.type-label}
 - **`Description`** :span[string]{.type-label}
 - **`EnvironmentId`** :span[string]{.type-label} *(required)*
-- **`EnvironmentTags`** :span[array of string]{.type-label}
-- **`ExtensionSettings`** :span[array of object]{.type-label}
+- **`EnvironmentTags`** :span[array of string]{.type-label}  
+  The environment's complete set of tags, each written as "TagSet/Tag" using either the names or the IDs of the tag set and tag (for example "Regions/us-east"). This replaces the environment's current tags; resubmit the existing ones you want to keep. Find the tag sets first to discover which ones apply to environments.
+- **`ExtensionSettings`** :span[array of object]{.type-label}  
+  Not intended for general use; You should not alter or add/remove any values it may have.
   - **`ExtensionId`** :span[string]{.type-label}
   - **`Values`** :span[string]{.type-label}
 - **`Name`** :span[string]{.type-label} *(required)*  
@@ -926,12 +912,7 @@ Also reachable at `/api/environments/{environmentId}`, `/api/spaces/{spaceIdenti
   "EnvironmentTags": [
     "string"
   ],
-  "ExtensionSettings": [
-    {
-      "ExtensionId": "string",
-      "Values": "string"
-    }
-  ],
+  "ExtensionSettings": [],
   "Name": "string",
   "Slug": "string",
   "SortOrder": 0,
@@ -951,7 +932,8 @@ Also reachable at `/api/environments/{environmentId}`, `/api/spaces/{spaceIdenti
   Gets or sets a short description of this environment that can be used to explain the purpose of the environment to other users. This field may contain markdown.
 - **`EnvironmentTags`** :span[array of string]{.type-label}  
   List of tags assigned to this environment.
-- **`ExtensionSettings`** :span[array of object]{.type-label}
+- **`ExtensionSettings`** :span[array of object]{.type-label}  
+  Not intended for general use; You should not alter or add/remove any values it may have.
   - **`ExtensionId`** :span[string]{.type-label}
   - **`Values`** :span[string]{.type-label}
 - **`Id`** :span[string]{.type-label}  
@@ -979,12 +961,7 @@ Also reachable at `/api/environments/{environmentId}`, `/api/spaces/{spaceIdenti
   "EnvironmentTags": [
     "string"
   ],
-  "ExtensionSettings": [
-    {
-      "ExtensionId": "string",
-      "Values": "string"
-    }
-  ],
+  "ExtensionSettings": [],
   "Id": "string",
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
@@ -1105,7 +1082,8 @@ Also reachable at `/api/environments/{id}`, `/api/spaces/{spaceIdentifier}/envir
   Gets or sets a short description of this environment that can be used to explain the purpose of the environment to other users. This field may contain markdown.
 - **`EnvironmentTags`** :span[array of string]{.type-label}  
   List of tags assigned to this environment.
-- **`ExtensionSettings`** :span[array of object]{.type-label}
+- **`ExtensionSettings`** :span[array of object]{.type-label}  
+  Not intended for general use; You should not alter or add/remove any values it may have.
   - **`ExtensionId`** :span[string]{.type-label}
   - **`Values`** :span[string]{.type-label}
 - **`Id`** :span[string]{.type-label}  
@@ -1133,12 +1111,7 @@ Also reachable at `/api/environments/{id}`, `/api/spaces/{spaceIdentifier}/envir
   "EnvironmentTags": [
     "string"
   ],
-  "ExtensionSettings": [
-    {
-      "ExtensionId": "string",
-      "Values": "string"
-    }
-  ],
+  "ExtensionSettings": [],
   "Id": "string",
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
