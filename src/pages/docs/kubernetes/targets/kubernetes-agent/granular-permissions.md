@@ -42,8 +42,6 @@ The Kubernetes agent's job is to change objects across your cluster, so access t
 
 - Don't grant pod or workload creation permissions in agent or worker namespaces through a `WorkloadServiceAccount` or `ClusterWorkloadServiceAccount`. A `ClusterWorkloadServiceAccount` that grants these permissions cluster-wide includes the agent namespaces.
 - Don't deploy applications into agent or worker namespaces.
-- Restrict the default script pod permissions. A deployment with no matching `WorkloadServiceAccount` falls back to them, and the cluster-wide defaults include every agent namespace.
-- Give deployment access only to users you trust with the permissions of the scopes the agent serves, if you can't avoid granting these permissions.
 
 ## How do I use it?
 
