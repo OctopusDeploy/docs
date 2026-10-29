@@ -38,7 +38,7 @@ In Kubernetes, anyone who can create a pod in a namespace can run that pod as an
 
 A user who can edit and run a deployment that holds these permissions, for example through a kubectl script or raw YAML step, can then act with the permissions of another project, environment, or tenant. This is standard Kubernetes behavior and applies to any service account in the namespace, not only the ones the controller creates.
 
-The Kubernetes agent's job is to change objects across your cluster, so access to an agent namespace is privileged access. Granular permissions are designed for a cluster admin or ops team that installs the agents, the controller, and the `WorkloadServiceAccounts`, separate from the day-to-day users who build and run deployments. To keep that boundary intact:
+The Kubernetes agent's job is to change objects across your cluster, so access to an agent namespace is privileged access. Granular permissions are designed to be configured by a cluster admin or ops team who have broad access to the Kubernetes agent namespace, and used to restrict the access for day-to-day operations such as deployments made by other users. To keep that boundary intact:
 
 - Don't grant pod or workload creation permissions in agent or worker namespaces through a `WorkloadServiceAccount` or `ClusterWorkloadServiceAccount`. A `ClusterWorkloadServiceAccount` that grants these permissions cluster-wide includes the agent namespaces.
 - Don't deploy applications into agent or worker namespaces.
