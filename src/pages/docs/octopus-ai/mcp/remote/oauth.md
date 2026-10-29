@@ -95,6 +95,11 @@ To approve access in Octopus:
     :::
 
 3. Choose **Read-only** or **Full access**.
+
+    :::div{.hint}
+    You can't change the access level later. To change it, [disconnect the assistant](#disconnect-an-ai-assistant), then connect again.
+    :::
+
 4. Select **Approve**.
 
 To check the connection, ask your assistant to list your Octopus spaces. The connection lasts up to 20 days. After that, your assistant asks you to sign in again.
