@@ -22,7 +22,8 @@ The second feature is the `Service`. This feature is used to build a [Service re
 The third feature is the `Ingress`. This feature is used to build a [Ingress resource](https://oc.to/KubernetesIngressResource).
 
 :::figure
-![Deploy Container Resources](/docs/deployments/kubernetes/deploy-container/deploy-container.svg)
+:img{.theme-light-only src="/docs/img/kubernetes/steps/kubernetes-resources/deploy-container-light.svg" alt="A Kubernetes cluster where an Ingress path routes traffic to a Service on port 80, which forwards it to a Deployment. The Deployment manages a ReplicaSet that runs a Pod with two containers."}
+:img{.theme-dark-only src="/docs/img/kubernetes/steps/kubernetes-resources/deploy-container-dark.svg" alt="A Kubernetes cluster where an Ingress path routes traffic to a Service on port 80, which forwards it to a Deployment. The Deployment manages a ReplicaSet that runs a Pod with two containers."}
 :::
 
 :::div{.hint}
@@ -931,7 +932,8 @@ A Load Balancer Service resource provides the same Cluster IP and Node Ports tha
 The particular load balancer that is created depends on the environment in which the LoadBalancer Service resource is created. In AWS, an ELB or ALB can be created. Azure or Google Cloud will create their respective load balancers.
 
 :::figure
-![Load balancer](/docs/deployments/kubernetes/loadbalancer.svg)
+:img{.theme-light-only src="/docs/img/kubernetes/steps/load-balancer-light.svg" alt="Traffic from the internet reaches a cloud load balancer, which sends it to a Node Port on each of two nodes in the Kubernetes cluster. Each Node Port forwards to the Load Balancer Service, which routes requests to the Pods in two Deployments."}
+:img{.theme-dark-only src="/docs/img/kubernetes/steps/load-balancer-dark.svg" alt="Traffic from the internet reaches a cloud load balancer, which sends it to a Node Port on each of two nodes in the Kubernetes cluster. Each Node Port forwards to the Load Balancer Service, which routes requests to the Pods in two Deployments."}
 :::
 
 #### Cluster IP address
