@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-08-17
-modDate: 2026-10-26
+modDate: 2026-10-29
 title: Octopus Remote MCP
 navTitle: Remote MCP
 navSection: Octopus Remote MCP
@@ -192,6 +192,8 @@ We plan to add OAuth authentication in a future release. Until then, AI assistan
 Octopus Remote MCP uses the same security boundary as the Octopus REST API. Permissions for the user or service account that owns the API key apply in the same way.
 
 To stop agents from running a runbook, use the runbook's [AI agent access](/docs/runbooks/runbooks-vs-deployments#ai-agent-access) setting. The MCP server returns no environments for a blocked runbook, so agents don't try runs that would fail.
+
+To limit what agents can do across Octopus, see [Restricting what AI agents can do](/docs/octopus-ai/restricting-ai-agents).
 
 ## Turn off Remote MCP
 

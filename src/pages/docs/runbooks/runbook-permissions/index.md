@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2026-10-26
+modDate: 2026-10-29
 title: Runbooks permissions
 description: Permissions are available to help you manage access to Runbooks.
 navOrder: 20
@@ -26,7 +26,7 @@ Permissions are available to help you manage access to Runbooks, these include:
 You can limit your teams ability to create runbooks by disabling these permissions.
 
 :::div{.hint}
-To stop AI agents from running a runbook, use the runbook's [AI agent access](/docs/runbooks/runbooks-vs-deployments#ai-agent-access) setting. It works alongside these permissions and only restricts agents.
+To stop AI agents from running a runbook, use the runbook's [AI agent access](/docs/runbooks/runbooks-vs-deployments#ai-agent-access) setting. It works alongside these permissions and only restricts agents. To choose the permissions and controls for an agent, see [Restricting what AI agents can do](/docs/octopus-ai/restricting-ai-agents).
 :::
 
 There are roles we include out-of-the-box to encapsulate these new permissions:
