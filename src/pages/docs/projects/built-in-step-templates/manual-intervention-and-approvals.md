@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2026-10-21
+modDate: 2026-10-29
 title: Manual intervention and approval step
 icon: fa-solid fa-check
 description: Manual intervention and approvals allow a human to review, approve, or sign off on deployments.
@@ -38,23 +38,32 @@ Manual intervention steps are added to deployment processes in the same way as o
 3. Find the **Manual Intervention Required** step and click **Add step**.
 4. Give the step a short memorable name.
 5. Provide instructions for the user to follow. For instance, "*Ensure traders are aware of the deployment.*"
-6. Select which teams are responsible for the step. Note, if you don't specify a team, anybody with permission to deploy the project can perform the manual intervention. Specifying a team makes the step a required step that cannot be skipped.
+6. Select which teams are responsible for the step. Note, if you don't specify a team, anybody with permission to deploy the project can perform the manual intervention.
 7. You can set conditions to determine when the step should run. For instance:
    - Only run the manual intervention for specific environments.
    - Run the manual intervention based on the status (success or failure) of the previous step.
    - Wait for the previous step to complete.
    - Run based on the value of a variable expression.
+   - [Make the step required](#make-the-step-required) so it can't be excluded.
 8. Save the deployment process.
+
+## Make the step required
+
+By default, anyone who creates a deployment or runbook run, including an AI agent, can exclude a manual intervention step in the **Excluded steps** section. The step then doesn't run, so nobody is asked to respond.
+
+To stop the step from being excluded, select **Required** in the step's **Conditions**. Selecting responsible teams also makes the step required.
+
+A required step still doesn't run if its environment, channel, tenant, or run conditions exclude it. Anyone who can edit the deployment process or runbook can also clear the **Required** option. To enforce manual interventions across projects, use a [policy that requires a manual intervention step](/docs/platform-hub/policies/examples#require-a-manual-intervention-step).
 
 ## When the deployment pauses
 
 The point at which a deployment or runbook run pauses depends on how the manual intervention step is positioned in the deployment process:
 
-### As a standalone step**
+### As a standalone step
 
 The deployment pauses after all currently executing parallel steps have completed. Once the intervention is handled, the deployment may need to wait for a task cap slot to become available before it resumes.
 
-### As a child step**
+### As a child step
 
 A manual intervention can be configured as a child step nested inside another step. In this case:
 
@@ -93,7 +102,7 @@ The tasks page, under the "Needs Approval" tab, contains a list of deployments p
 
 ## Prevent AI agents from responding
 
-By default, AI agents can assign and submit manual interventions, the same as the person they act for. To make sure a person responds, set **Agent Responses** to **Prevent AI agents from responding** on the manual intervention step.
+By default, AI agents can assign and submit manual interventions, the same as the person they act for. To make sure a person responds, set **Agent Responses** to **Prevent AI agents from responding** on the manual intervention step. Also [make the step required](#make-the-step-required), so an AI agent can't exclude the step when it starts a deployment or runbook run.
 
 When AI agents are prevented from responding:
 
@@ -113,7 +122,7 @@ To pause only deployments or runbook runs started by an AI agent, set the step's
 ```
 
 :::div{.warning}
-**This setting is advisory, not a security boundary.** Anyone who can edit the deployment process or runbook can turn this setting off or remove the step. This includes an AI agent with that permission.
+**This setting is advisory, not a security boundary.** Anyone who can edit the deployment process or runbook can turn this setting off, clear the **Required** option, or remove the step. This includes an AI agent with that permission.
 
 A project variable named `Octopus.Action.Manual.PreventAgentResponses` overrides this setting. Anyone who can edit project variables can use it to let AI agents respond.
 :::
