@@ -25,6 +25,26 @@ Once you've added your `WorkloadServiceAccounts`, Octopus will handle assigning 
 
 Use granular permissions when teams or environments share a cluster but need different levels of access. There is a little more setup: someone needs to maintain the permission definitions as applications and deployment processes change.
 
+## Security boundaries
+
+Granular permissions limit what a deployment can do based on its Octopus scope. They don't isolate deployments from each other when a deployment can create workloads in an agent or worker namespace.
+
+Octopus Permissions Controller creates a `ServiceAccount` for each permission set in your agent and worker namespaces. These service accounts are not scoped to individual agents or workers, so they are created in the namespaces of each agent and/or worker.
+
+In Kubernetes, anyone who can create a pod in a namespace can run that pod as any service account in the same namespace. Kubernetes describes this in its [RBAC good practices](https://kubernetes.io/docs/concepts/security/rbac-good-practices/#workload-creation). The same applies to any resource that creates pods for you, so the following permissions in an agent or worker namespace are enough to take on the permissions of every other scope that any agent serves:
+
+- `create` on `pods`
+- `create`, `update`, or `patch` on `deployments`, `replicasets`, `statefulsets`, `daemonsets`, `jobs`, `cronjobs`, or `replicationcontrollers`
+
+A user who can edit and run a deployment that holds these permissions, for example through a kubectl script or raw YAML step, can then act with the permissions of another project, environment, or tenant. This is standard Kubernetes behavior and applies to any service account in the namespace, not only the ones the controller creates.
+
+The Kubernetes agent's job is to change objects across your cluster, so access to an agent namespace is privileged access. Granular permissions are designed for a cluster admin or ops team that installs the agents, the controller, and the `WorkloadServiceAccounts`, separate from the day-to-day users who build and run deployments. To keep that boundary intact:
+
+- Don't grant pod or workload creation permissions in agent or worker namespaces through a `WorkloadServiceAccount` or `ClusterWorkloadServiceAccount`. A `ClusterWorkloadServiceAccount` that grants these permissions cluster-wide includes the agent namespaces.
+- Don't deploy applications into agent or worker namespaces.
+- Restrict the default script pod permissions. A deployment with no matching `WorkloadServiceAccount` falls back to them, and the cluster-wide defaults include every agent namespace.
+- Give deployment access only to users you trust with the permissions of the scopes the agent serves, if you can't avoid granting these permissions.
+
 ## How do I use it?
 
 Granular permissions uses a Kubernetes controller and custom resources to configure Kubernetes RBAC per deployment.
