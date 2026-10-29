@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-08-17
-modDate: 2026-10-26
+modDate: 2026-10-29
 title: Octopus Remote MCP
 navTitle: Remote MCP
 navSection: Octopus Remote MCP
@@ -28,11 +28,13 @@ Octopus Remote MCP supports a set of core Octopus features. We'll add more opera
 
 ## Getting started
 
+This page covers connecting an AI assistant with an API key. To sign in with your Octopus account instead, see [Connecting AI assistants with OAuth](/docs/octopus-ai/mcp/remote/oauth).
+
 ### Requirements
 
 - An Octopus Deploy instance reachable over HTTPS
-- An Octopus Deploy API key
-- An AI assistant that supports remote MCP servers over HTTP with a custom request header
+- An Octopus Deploy API key, unless you [connect with OAuth](/docs/octopus-ai/mcp/remote/oauth)
+- An AI assistant that supports remote MCP servers over HTTP with a custom request header, or with OAuth
 - Remote MCP enabled in **Configuration > Settings > MCP Controls**
 
 We recommend creating a dedicated [Agent Service Account](/docs/security/users-and-teams/service-accounts#agent-service-accounts) and generating an [Agent API key](/docs/octopus-rest-api/how-to-create-an-api-key#creating-an-agent-api-key) for it. This gives the MCP server its own identity, limits its permissions, and identifies its activity in the audit log and on the API Keys page.
@@ -183,9 +185,9 @@ Any AI assistant that supports remote MCP servers over HTTP with custom headers 
 
 If your assistant only supports local MCP servers that run as a command on your computer, use the [`mcp-remote`](https://www.npmjs.com/package/mcp-remote) proxy as shown in [Connect Claude Desktop through a local proxy](#connect-claude-desktop-through-a-local-proxy).
 
-### OAuth support
+### Connect with OAuth
 
-We plan to add OAuth authentication in a future release. Until then, AI assistants that only support OAuth for remote MCP servers can't connect to Octopus Remote MCP directly.
+To connect by signing in with your Octopus account instead of an API key, see [Connecting AI assistants with OAuth](/docs/octopus-ai/mcp/remote/oauth). It includes steps for Claude Code, Codex, and other assistants that support OAuth.
 
 ## Security
 
@@ -203,6 +205,7 @@ To turn off Remote MCP, go to **Configuration > Settings > MCP Controls**. Clear
 
 ## Related links
 
+- [Connecting AI assistants with OAuth](/docs/octopus-ai/mcp/remote/oauth)
 - [Octopus Remote MCP use cases](/docs/octopus-ai/mcp/remote/use-cases)
 - [Local MCP](/docs/octopus-ai/mcp/local)
 - [Model Context Protocol](https://modelcontextprotocol.io/introduction)
