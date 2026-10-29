@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-09-04
+modDate: 2026-10-08
 title: Worker Pools
 ---
 
@@ -361,14 +361,21 @@ Lists all worker pools, including a summary of machine information.
 
 **Query Parameters**
 
-- **`commStyles`** :span[array of string]{.type-label}
-- **`healthStatuses`** :span[array of string]{.type-label}
-- **`hideEmptyWorkerPools`** :span[boolean]{.type-label}
+- **`commStyles`** :span[array of string]{.type-label}  
+  Only count workers with one of these communication styles, such as TentaclePassive, TentacleActive or Ssh. Matching is exact and case-sensitive.
+- **`healthStatuses`** :span[array of string]{.type-label}  
+  Only count workers with one of these health statuses: Healthy, HasWarnings, Unhealthy, Unavailable or Unknown.
+- **`hideEmptyWorkerPools`** :span[boolean]{.type-label}  
+  When true, leave out worker pools with no workers matching the filters.
 - **`ids`** :span[array of string]{.type-label}
-- **`isDisabled`** :span[boolean]{.type-label}
-- **`machinePartialName`** :span[string]{.type-label}
-- **`partialName`** :span[string]{.type-label}
-- **`shellNames`** :span[array of string]{.type-label}
+- **`isDisabled`** :span[boolean]{.type-label}  
+  When true, only count disabled workers. When false or not set, both enabled and disabled workers are counted.
+- **`machinePartialName`** :span[string]{.type-label}  
+  A partial or complete worker name. Only workers whose name contains it are counted.
+- **`partialName`** :span[string]{.type-label}  
+  A partial or complete worker pool name to search on, using a case-insensitive "contains" match.
+- **`shellNames`** :span[array of string]{.type-label}  
+  Only count workers using one of these shells, such as PowerShell or Bash. Matching is exact and case-sensitive.
 
 **Response**
 

@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-10-22
 title: Service Account Oidc Identities
 ---
 
@@ -18,6 +18,12 @@ title: Service Account Oidc Identities
 
 - **`Audience`** :span[string]{.type-label}  
   The audience of tokens for the identity.
+- **`ClaimConditions`** :span[array of object]{.type-label}  
+  The conditions a token's claims must pass. Leave empty to accept any token that matches the issuer, subject, and audience.
+  - **`Claim`** :span[string]{.type-label} *(required)*  
+    The name of the token claim to check. Minimum length 1.
+  - **`Values`** :span[array of string]{.type-label} *(required)*  
+    The values the claim can match. Each value can include wildcards.
 - **`Issuer`** :span[string]{.type-label} *(required)*  
   Gets the issuer of tokens for the identity. Minimum length 1.
 - **`Name`** :span[string]{.type-label} *(required)*  
@@ -31,6 +37,14 @@ title: Service Account Oidc Identities
 ```json
 {
   "Audience": "string",
+  "ClaimConditions": [
+    {
+      "Claim": "string",
+      "Values": [
+        "string"
+      ]
+    }
+  ],
   "Issuer": "string",
   "Name": "string",
   "ServiceAccountId": "Users-1",
@@ -80,6 +94,7 @@ Gets a paginated set of ServiceAccountOidcIdentities.
   Minimum length 1.
 - **`OidcIdentities`** :span[array of object]{.type-label}
   - **`Audience`** :span[string]{.type-label}
+  - **`ClaimConditions`** :span[array of object]{.type-label}
   - **`Id`** :span[string]{.type-label}
   - **`Issuer`** :span[string]{.type-label}  
     Minimum length 1.
@@ -99,6 +114,9 @@ Gets a paginated set of ServiceAccountOidcIdentities.
   "OidcIdentities": [
     {
       "Audience": "string",
+      "ClaimConditions": [
+        {}
+      ],
       "Id": "string",
       "Issuer": "string",
       "Name": "string",
@@ -129,6 +147,11 @@ Gets a ServiceAccountOidcIdentity by its id.
 `200` — Response to getting a ServiceAccountOidcIdentity by id
 
 - **`Audience`** :span[string]{.type-label}
+- **`ClaimConditions`** :span[array of object]{.type-label}
+  - **`Claim`** :span[string]{.type-label}  
+    The name of the token claim to check. Minimum length 1.
+  - **`Values`** :span[array of string]{.type-label}  
+    The values the claim can match. Each value can include wildcards.
 - **`Id`** :span[string]{.type-label}
 - **`Issuer`** :span[string]{.type-label}  
   Minimum length 1.
@@ -142,6 +165,14 @@ Gets a ServiceAccountOidcIdentity by its id.
 ```json
 {
   "Audience": "string",
+  "ClaimConditions": [
+    {
+      "Claim": "string",
+      "Values": [
+        "string"
+      ]
+    }
+  ],
   "Id": "string",
   "Issuer": "string",
   "Name": "string",
@@ -166,6 +197,12 @@ Gets a ServiceAccountOidcIdentity by its id.
 
 - **`Audience`** :span[string]{.type-label}  
   The audience of tokens for the OIDC identity.
+- **`ClaimConditions`** :span[array of object]{.type-label}  
+  The conditions a token's claims must pass. Leave this out to keep the existing conditions. Send an empty list to remove them.
+  - **`Claim`** :span[string]{.type-label} *(required)*  
+    The name of the token claim to check. Minimum length 1.
+  - **`Values`** :span[array of string]{.type-label} *(required)*  
+    The values the claim can match. Each value can include wildcards.
 - **`Id`** :span[string]{.type-label} *(required)*  
   The id of the ServiceAccountOidcIdentity.
 - **`Issuer`** :span[string]{.type-label} *(required)*  
@@ -181,6 +218,14 @@ Gets a ServiceAccountOidcIdentity by its id.
 ```json
 {
   "Audience": "string",
+  "ClaimConditions": [
+    {
+      "Claim": "string",
+      "Values": [
+        "string"
+      ]
+    }
+  ],
   "Id": "string",
   "Issuer": "string",
   "Name": "string",

@@ -68,6 +68,8 @@ Return a list of runbook dashboard items, filtered by various criteria including
   - **`QueueTime`** :span[string]{.type-label}  
     Format `date-time`.
   - **`RunBy`** :span[string]{.type-label}
+  - **`RunByActorType`** :span[enum]{.type-label}  
+    Allowed values: `Unknown`, `System`, `User`, `Agent`, `ServiceAccount`.
   - **`RunName`** :span[string]{.type-label}
   - **`RunbookId`** :span[string]{.type-label}
   - **`RunbookSnapshotId`** :span[string]{.type-label}
@@ -125,6 +127,7 @@ Return a list of runbook dashboard items, filtered by various criteria including
       "ProjectId": "Projects-1",
       "QueueTime": "2020-01-01T00:00:00.000Z",
       "RunBy": "string",
+      "RunByActorType": "Unknown",
       "RunName": "string",
       "RunbookId": "string",
       "RunbookSnapshotId": "string",
@@ -222,6 +225,7 @@ Also reachable at `/api/progression/runbooks/{runbookId}`, `/api/spaces/{spaceId
         "ProjectId": "Projects-1",
         "QueueTime": "2020-01-01T00:00:00.000Z",
         "RunBy": "string",
+        "RunByActorType": "Unknown",
         "RunName": "string",
         "RunbookId": "string",
         "RunbookSnapshotId": "string",
@@ -260,6 +264,7 @@ Also reachable at `/api/progression/runbooks/{runbookId}`, `/api/spaces/{spaceId
         "ProjectId": "Projects-1",
         "QueueTime": "2020-01-01T00:00:00.000Z",
         "RunBy": "string",
+        "RunByActorType": "Unknown",
         "RunName": "string",
         "RunbookId": "string",
         "RunbookSnapshotId": "string",
@@ -298,6 +303,7 @@ Also reachable at `/api/progression/runbooks/{runbookId}`, `/api/spaces/{spaceId
         "ProjectId": "Projects-1",
         "QueueTime": "2020-01-01T00:00:00.000Z",
         "RunBy": "string",
+        "RunByActorType": "Unknown",
         "RunName": "string",
         "RunbookId": "string",
         "RunbookSnapshotId": "string",
