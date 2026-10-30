@@ -429,6 +429,48 @@ result := {
 }
 ```
 
+### Require AI agent runbook runs to start with a manual intervention
+
+Flags runbook runs started by an AI agent unless the first step is an enabled manual intervention step that isn't skipped. It also flags runs where the second step starts at the same time as the manual intervention. To make sure a person responds, also [prevent AI agents from responding](/docs/projects/built-in-step-templates/manual-intervention-and-approvals) to the step.
+
+**Scope:**
+
+```ruby
+package agent_runbook_manual_intervention_first
+
+default evaluate := false
+
+evaluate if {
+    input.Runbook
+    input.Actor.Type == "Agent"
+}
+```
+
+**Conditions:**
+
+```ruby
+package agent_runbook_manual_intervention_first
+
+default result := {
+    "allowed": false,
+    "reason": "Runbook runs started by an AI agent must start with a manual intervention step.",
+    "action": "warn"
+}
+
+result := {"allowed": true} if {
+    first := input.Steps[0]
+    first.ActionType == "Octopus.Manual"
+    first.Enabled
+    not first.Id in input.SkippedSteps
+    not second_step_runs_in_parallel
+}
+
+second_step_runs_in_parallel if {
+    count(input.Execution) > 1
+    input.Execution[1].StartTrigger == "StartWithPrevious"
+}
+```
+
 ## Enforce process structure
 
 Use these examples when you want to ensure deployments and runbook runs follow a predictable structure, with steps running in the right sequence, nothing running in parallel, and specific steps appearing at known positions in the process.
