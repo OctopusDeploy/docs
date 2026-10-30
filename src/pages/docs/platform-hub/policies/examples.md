@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-09-11
-modDate: 2026-06-19
+modDate: 2026-10-29
 title: Policy examples
 subtitle: Ready-to-use Rego organized by what you want to enforce
 icon: fa-solid fa-lock
@@ -386,6 +386,90 @@ result := {"allowed": true} if {
 ```
 
 ---
+
+## Control AI agent runs
+
+Use these examples when you want to stop AI agents from running deployments or runbooks. They use the [`Actor`](/docs/platform-hub/policies/schema#actor) input, which records whether an AI agent started the execution. To learn how these policies fit with the other controls for AI agents, see [Restricting what AI agents can do](/docs/octopus-ai/restricting-ai-agents).
+
+:::div{.hint}
+Policies are evaluated when the task starts. An AI agent's request to start a run succeeds, and the task then fails if the policy blocks it. To reject an agent's run of a specific runbook before it's created, use the runbook's [AI agent access](/docs/runbooks/runbooks-vs-deployments#ai-agent-access) setting instead.
+:::
+
+### Block AI agents from running a runbook in production
+
+Blocks runbook runs started by an AI agent for a specific runbook in production. Runs started by people, service accounts, and triggers aren't affected.
+
+**Scope:**
+
+```ruby
+package block_agent_runbook_runs
+
+default evaluate := false
+
+evaluate if {
+    input.Runbook
+    input.Runbook.Id == "<runbook-id>"
+    input.Environment.Slug == "<environment-slug>"
+}
+```
+
+**Conditions:**
+
+```ruby
+package block_agent_runbook_runs
+
+default result := {"allowed": true}
+
+result := {
+    "allowed": false,
+    "reason": "AI agents can't run this runbook in production. Ask a person to run it.",
+    "action": "block"
+} if {
+    input.Actor.Type == "Agent"
+}
+```
+
+### Require AI agent runbook runs to start with a manual intervention
+
+Flags runbook runs started by an AI agent unless the first step is an enabled manual intervention step that isn't skipped. It also flags runs where the second step starts at the same time as the manual intervention. To make sure a person responds, also [prevent AI agents from responding](/docs/projects/built-in-step-templates/manual-intervention-and-approvals) to the step.
+
+**Scope:**
+
+```ruby
+package agent_runbook_manual_intervention_first
+
+default evaluate := false
+
+evaluate if {
+    input.Runbook
+    input.Actor.Type == "Agent"
+}
+```
+
+**Conditions:**
+
+```ruby
+package agent_runbook_manual_intervention_first
+
+default result := {
+    "allowed": false,
+    "reason": "Runbook runs started by an AI agent must start with a manual intervention step.",
+    "action": "warn"
+}
+
+result := {"allowed": true} if {
+    first := input.Steps[0]
+    first.ActionType == "Octopus.Manual"
+    first.Enabled
+    not first.Id in input.SkippedSteps
+    not second_step_runs_in_parallel
+}
+
+second_step_runs_in_parallel if {
+    count(input.Execution) > 1
+    input.Execution[1].StartTrigger == "StartWithPrevious"
+}
+```
 
 ## Enforce process structure
 
