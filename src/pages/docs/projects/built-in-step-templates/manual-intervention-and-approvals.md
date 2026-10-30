@@ -43,7 +43,7 @@ Manual intervention steps are added to deployment processes in the same way as o
    - Only run the manual intervention for specific environments.
    - Run the manual intervention based on the status (success or failure) of the previous step.
    - Wait for the previous step to complete.
-   - Run based on the value of a variable expression.
+   - Run based on the value of a variable expression. For instance, to pause only deployments or runbook runs started by an AI agent, use `#{if Octopus.Deployment.CreatedBy.ActorType == "Agent"}true#{/if}`.
    - [Make the step required](#make-the-step-required) so it can't be excluded.
 8. Save the deployment process.
 
@@ -102,24 +102,16 @@ The tasks page, under the "Needs Approval" tab, contains a list of deployments p
 
 ## Block AI agents
 
-By default, AI agents can assign and submit manual interventions, the same as the person they act for. To make sure a person actions the intervention, set **Block AI agents** to **Prevent AI agents from actioning this intervention** on the manual intervention step. Also [make the step required](#make-the-step-required), so an AI agent can't exclude the step when it starts a deployment or runbook run.
+By default, AI agents can action manual interventions, the same as the person they act for. To make sure a person actions it, set **Block AI agents** to **Prevent AI agents from actioning this intervention**. Also [make the step required](#make-the-step-required), so an AI agent can't exclude the step.
 
 When AI agents are blocked:
 
 - AI agents can't assign or submit the manual intervention. They're told a person needs to action it, with a link to the task.
-- The task page shows that AI agents can't action the manual intervention.
 - People can always action it.
 - Only callers that sign in as an AI agent are blocked, such as with an AI agent API key or through the Octopus MCP server. An agent using a person's API key counts as a person.
-- If a **Deploy a release** step runs a deployment that's waiting on this manual intervention, AI agents can't action it from the parent either.
 - AI agents can still cancel the task if they have permission to.
 
-You can bind **Block AI agents** to a variable. If the value isn't `True` or `False`, AI agents are blocked and the task log shows a warning.
-
-To pause only deployments or runbook runs started by an AI agent, set the step's **Run Condition** to **Variable** with this expression:
-
-```text
-#{if Octopus.Deployment.CreatedBy.ActorType == "Agent"}true#{/if}
-```
+You can set **Block AI agents** from a variable instead of choosing a value. If the variable's value isn't `True` or `False`, Octopus blocks AI agents to be safe and logs a warning.
 
 :::div{.warning}
 **This setting is advisory, not a security boundary.** Anyone who can edit the deployment process or runbook can turn this setting off, clear the **Required** option, or remove the step. This includes an AI agent with that permission.
