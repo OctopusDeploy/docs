@@ -49,7 +49,7 @@ Manual intervention steps are added to deployment processes in the same way as o
 
 ## Make the step required
 
-By default, anyone who creates a deployment or runbook run, including an AI agent, can exclude a manual intervention step in the **Excluded steps** section. The step then doesn't run, so nobody is asked to respond.
+By default, anyone who creates a deployment or runbook run, including an AI agent, can exclude a manual intervention step in the **Excluded steps** section. The step then doesn't run, so nobody is asked to action it.
 
 To stop the step from being excluded, select **Required** in the step's **Conditions**. Selecting responsible teams also makes the step required.
 
@@ -100,20 +100,20 @@ When aborting a deployment, it's a good idea to write a reason into the **Notes*
 
 The tasks page, under the "Needs Approval" tab, contains a list of deployments pending manual intervention. In addition to the deployment page, you can **Assign**, **Proceed**, and **Abort** deployments from this list.
 
-## Prevent AI agents from responding
+## Block AI agents
 
-By default, AI agents can assign and submit manual interventions, the same as the person they act for. To make sure a person responds, set **Agent Responses** to **Prevent AI agents from responding** on the manual intervention step. Also [make the step required](#make-the-step-required), so an AI agent can't exclude the step when it starts a deployment or runbook run.
+By default, AI agents can assign and submit manual interventions, the same as the person they act for. To make sure a person actions the intervention, set **Block AI agents** to **Prevent AI agents from actioning this intervention** on the manual intervention step. Also [make the step required](#make-the-step-required), so an AI agent can't exclude the step when it starts a deployment or runbook run.
 
-When AI agents are prevented from responding:
+When AI agents are blocked:
 
-- AI agents can't assign or submit the manual intervention. They're told a person needs to respond, with a link to the task.
-- The task page shows that AI agents can't respond to the manual intervention.
-- People can always respond.
+- AI agents can't assign or submit the manual intervention. They're told a person needs to action it, with a link to the task.
+- The task page shows that AI agents can't action the manual intervention.
+- People can always action it.
 - Only callers that sign in as an AI agent are blocked, such as with an AI agent API key or through the Octopus MCP server. An agent using a person's API key counts as a person.
-- If a **Deploy a release** step runs a deployment that's waiting on this manual intervention, AI agents can't respond to it from the parent either.
+- If a **Deploy a release** step runs a deployment that's waiting on this manual intervention, AI agents can't action it from the parent either.
 - AI agents can still cancel the task if they have permission to.
 
-You can bind **Agent Responses** to a variable. If the value isn't `True` or `False`, AI agents are prevented from responding and the task log shows a warning.
+You can bind **Block AI agents** to a variable. If the value isn't `True` or `False`, AI agents are blocked and the task log shows a warning.
 
 To pause only deployments or runbook runs started by an AI agent, set the step's **Run Condition** to **Variable** with this expression:
 
@@ -124,7 +124,7 @@ To pause only deployments or runbook runs started by an AI agent, set the step's
 :::div{.warning}
 **This setting is advisory, not a security boundary.** Anyone who can edit the deployment process or runbook can turn this setting off, clear the **Required** option, or remove the step. This includes an AI agent with that permission.
 
-A project variable named `Octopus.Action.Manual.PreventAgentResponses` overrides this setting. Anyone who can edit project variables can use it to let AI agents respond.
+A project variable named `Octopus.Action.Manual.PreventAgentResponses` overrides this setting. Anyone who can edit project variables can use it to let AI agents action manual interventions.
 :::
 
 ## Output variables
