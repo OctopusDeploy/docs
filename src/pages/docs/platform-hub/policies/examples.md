@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-09-11
-modDate: 2026-06-19
+modDate: 2026-10-30
 title: Policy examples
 subtitle: Ready-to-use Rego organized by what you want to enforce
 icon: fa-solid fa-lock
@@ -76,6 +76,29 @@ manual_intervention_skipped if {
     some step in input.Steps
     step.Id in input.SkippedSteps
     step.ActionType == "Octopus.Manual"
+}
+```
+
+### Require a person to action manual interventions in AI agent runs
+
+Blocks runbook runs started by an AI agent unless they include a manual intervention step that [blocks AI agents](/docs/projects/built-in-step-templates/manual-intervention-and-approvals#block-ai-agents). Runs started by people aren't affected.
+
+**Conditions:**
+
+```ruby
+package agent_runs_need_a_person
+
+default result := {"allowed": false, "reason": "AI agent runs need a manual intervention that blocks AI agents"}
+
+result := {"allowed": true} if {
+    input.Actor.Type != "Agent"
+}
+
+result := {"allowed": true} if {
+    some step in input.Steps
+    step.ActionType == "Octopus.Manual"
+    step.BlockAiAgents == true
+    not step.Id in input.SkippedSteps
 }
 ```
 
