@@ -119,6 +119,7 @@ Read-only access stops an agent from running runbooks or deploying releases. Use
 
 - For an agent API key, choose read-only access when you create the key. See [Choosing an access level](/docs/api/authentication/create-an-api-key#choosing-an-access-level).
 - For an OAuth connection, approve the connection as **Read-only**.
+
 :::
 
 :::div{.hint}
@@ -127,6 +128,7 @@ To limit agents that connect to Octopus Remote MCP through OAuth:
 - If the agent needs to run runbooks or deploy releases, give it its own identity instead of a **Full access** connection.
 - Limit which AI tools can connect with the **Redirect URI allowlist** in **Configuration > Settings > Authorization Server**.
 - To disconnect an agent, [revoke the person's sessions](/docs/security/users-and-teams/timeouts-and-invalidation#TimeoutsAndInvalidation-SessionInvalidation). This also signs the person out of every other session.
+
 :::
 
 ## Permissions that let AI agents work around controls
