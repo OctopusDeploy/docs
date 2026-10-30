@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-06-06
+modDate: 2026-10-30
 title: Jira issue tracking
 description: Configure Jira Cloud and Jira Server issue tracking with Octopus.
 navOrder: 20
@@ -76,7 +76,7 @@ The process is slightly different depending on whether you are connecting to [Ji
 
 ### Connecting Jira Cloud and Octopus Deploy {#connecting-jira-cloud-and-octopus}
 
-If you are using Jira Cloud, you can use the Octopus Deploy plugin for Jira, available from the [Atlassian Marketplace](https://marketplace.atlassian.com/apps/1220376/octopus-deploy-for-jira), to enable teams to view release and deployment details from Octopus directly in Jira issues. This section and the following steps describe how to configure the plugin.
+If you are using Jira Cloud, you can use the Octopus Deploy for Jira app, available from the [Atlassian Marketplace](https://marketplace.atlassian.com/apps/1220376/octopus-deploy-for-jira), to enable teams to view release and deployment details from Octopus directly in Jira issues. This section and the following steps describe how to configure the app.
 
 This process is for Jira Cloud, if you are using Jira Server, see [Connecting Jira Server and Octopus Deploy](#connecting-jira-server-and-octopus).
 
@@ -84,35 +84,34 @@ This process is for Jira Cloud, if you are using Jira Server, see [Connecting Ji
 ![Jira Issue with deployments](/docs/img/releases/issue-tracking/images/jira-issue-with-deployments.png)
 :::
 
-1. Install the Octopus Deploy plugin in your Jira Cloud instance.
+1. Install the Octopus Deploy for Jira app in your Jira Cloud instance.
 
-    From the Atlassian Marketplace, add the [Octopus Deploy for Jira](https://marketplace.atlassian.com/apps/1220376/octopus-deploy-for-jira) app and click 'Get Started' to configure it. Alternately, the app is also available in Jira by navigating to **Jira Settings ➜ Find new apps**.
+    From the Atlassian Marketplace, add the [Octopus Deploy for Jira](https://marketplace.atlassian.com/apps/1220376/octopus-deploy-for-jira). Alternately, the app is also available in Jira by navigating to **Apps ➜ Explore more apps**.
+
+2. Configure the Octopus Deploy for Jira app
+
+    The app can be configured from the [Atlassian Administration](https://admin.atlassian.com) portal by navigating to **Apps ➜ Sites ➜ [your site] ➜ Connected apps**. This page will list all apps connected to your site. From here, find the Octopus Deploy for Jira app, and click the overflow menu (`...`), then **Configure**.
 
     :::div{.warning}
     **Safari and third-party cookies in an `iframe`**
 
-    Please note: The Octopus Deploy for Jira plugin uses cookies, and Safari, by default, discards cookies set in an `iframe` unless the host that's serving the `iframe` has set a cookie before, outside the `iframe`. In our case, this does not happen. As a result, attempting to configure our plugin using Safari will fail with a blank screen and a HTTP 400 error in the network tab. Due to this limitation, we recommend using a different browser that allows third-party cookies in an `iframe`.
+    Please note: The Octopus Deploy for Jira app uses cookies, and Safari, by default, discards cookies set in an `iframe` unless the host that's serving the `iframe` has set a cookie before, outside the `iframe`. In our case, this does not happen. As a result, attempting to configure the app using Safari will fail with a blank screen and a HTTP 400 error in the network tab. Due to this limitation, we recommend using a different browser that allows third-party cookies in an `iframe`.
     :::
 
     Note: Keep this configuration page open while you complete the next steps as you need to copy values between Octopus and Jira.
 
-2. Configure the Jira extension in Octopus Deploy.
+3. Configure the Jira extension in Octopus Deploy.
 
     In the Octopus Web Portal, navigate to **Configuration ➜ Settings ➜ Jira Integration** and copy the following values from the Jira App configuration page:
 
     - **Jira Base URL**. This tells Octopus where your Jira instance is located and enables Octopus to render the links back to Jira issues. i.e., `https://your-jira-instance.atlassian.net`.
-    - **Jira Connect App Password**.
+    - **Jira App Password**.
 
     Ensure the **Is Enabled** property is set.
 
-3. In Octopus Deploy Configure the Release Note Options.
+4. In Octopus Deploy Configure the Release Note Options.
 
-    - **Jira username/password**: Set these values to allow Octopus to connect to Jira and retrieve the Jira issue (work item) title when viewing packages or creating releases. If these are not provided, work items will not be displayed when viewing packages or creating releases.
-
-      :::div{.warning}
-      **Jira Cloud only supports API tokens**
-      Please note: Jira Cloud only supports an **API Token** for authentication. An API token should be entered, rather than an actual password. You can create one from an Atlassian account in the **Security** area.
-      :::
+    - **Jira email and API token**: Set these values to allow Octopus to connect to Jira and retrieve the Jira issue (work item) title when viewing packages or creating releases. If these are not provided, work items will not be displayed when viewing packages or creating releases.
 
       :::div{.warning}
       **Scoped (granular) API tokens are not supported**
@@ -123,16 +122,16 @@ This process is for Jira Cloud, if you are using Jira Server, see [Connecting Ji
 
     For example, a prefix of `Release note:` can be used to identify a customer friendly issue title vs a technical feature or bug fix title.
 
-4. Ensure the Octopus Server URL is set.
+5. Ensure the Octopus Server URL is set.
 
     If you are using Octopus Cloud, this value is automatically set for you. If you are not using Octopus Cloud, navigate to the **Configuration ➜ Nodes** page and ensure you have set the Server URI field to your Octopus Server's base URL. i.e., `https://my-company.octopus.app` or `https://my-company-internal-name`
     Note: Octopus passes this value to Jira so it can build hyperlinks back to the deployments from the Jira UI. It never actually tries to connect to this URL itself.
 
-5. Configure the Octopus plugin in Jira.
+6. Configure the Octopus Deploy for Jira app.
 
-    Navigate to the **Configuration ➜ Settings ➜ Jira Integration** page in Octopus, copy the **Octopus InstallationID**, and add it to Jira App configuration.
+    Navigate to the **Configuration ➜ Settings ➜ Jira Integration** page in Octopus, copy the **Octopus Installation Id**, and add it to Jira App configuration.
 
-6. In Octopus Deploy update your environment settings.
+7. In Octopus Deploy update your environment settings.
 
     Navigate to **Infrastructure ➜ Environments** to map your Octopus environments to Jira environment types. This is required so Jira can understand Octopus environments and track issue progress.
 
@@ -171,15 +170,15 @@ When configured, this integration will retrieve Jira issue details and add detai
 
 You can verify a connection can be made successfully between the Octopus Server and your Jira Cloud/Server instance.
 
-The **Connect App** `Test` button (found under `Jira Connect App Password`) checks the connectivity for pushing deployment data to your Jira Cloud instance.
-![Connect App Test button](/docs/img/releases/issue-tracking/images/jiraconnectapp_testbutton.png)
+The **Jira App** `Test` button (found under `Jira App Password`) checks the connectivity for pushing deployment data to your Jira Cloud instance.
+![Jira App Test button](/docs/img/releases/issue-tracking/images/jira-app-test-button.png)
 
 :::div{.hint}
-For this connectivity test to succeed the Octopus Server must be able to connect to both your Jira Cloud instance's URL, and to [https://jiraconnectapp.octopus.com](https://jiraconnectapp.octopus.com), which hosts our Jira plugin.
+For this connectivity test to succeed the Octopus Server must be able to connect to both your Jira Cloud instance's URL, and to `https://jiraconnectapp.octopus.com`, which hosts the Octopus Deploy for Jira app services.
 :::
 
 The **Release Notes** `Test` button (found under `Jira Password`) checks the connectivity to your Jira Cloud/Server instance for retrieving work item information.
-![Release Notes Test button](/docs/img/releases/issue-tracking/images/jirareleasenotes_testbutton.png)
+![Release Notes Test button](/docs/img/releases/issue-tracking/images/jira-release-notes-test-button.png)
 
 :::div{.hint}
 For this connectivity test to succeed the Octopus Server must be able to connect to your Jira Cloud/Server instance's URL.
@@ -187,7 +186,7 @@ For this connectivity test to succeed the Octopus Server must be able to connect
 
 ### Deployments
 
-When the Jira Integration is enabled and configured with Connect App settings, you will see blocks similar to the following appear in the log during your deployments. These show the state updates Octopus is sending through to Jira, and if you expand them the details include information about the Jira issues for traceability.
+When the Jira Integration is enabled and configured with Jira App settings, you will see blocks similar to the following appear in the log during your deployments. These show the state updates Octopus is sending through to Jira, and if you expand them the details include information about the Jira issues for traceability.
 
 :::figure
 ![Deployment task log](/docs/img/releases/issue-tracking/images/deploy-task-log-green.png)
@@ -208,14 +207,14 @@ The following illustrates Octopus attempting to send an *in_progress*, and then 
 
 If you're running into issues with the Jira Integration, it's possible it could be one of the common problems we get asked about here. If it's still not working quite right, [we are here to help!](https://octopus.com/support)
 
-### Issues after upgrading the Jira Plugin {#troubleshooting-jira-plugin-upgrades}
+### Issues after upgrading the Octopus Deploy for Jira app {#troubleshooting-jira-plugin-upgrades}
 
 :::div{.warning}
 **Change of functionality resulting in Data Loss**
-Please note: The reinstallation of the plugin has worked in the past to restore functionality of the integration. From April 2022 performing the below step will remove all Historical Deployment Information from Jira Cloud. We are waiting on information from Atlassian to confirm if this is a permanent or temporary feature. Please contact <support@octopus.com> for the latest information regarding this issue.
+Please note: The reinstallation of the app has worked in the past to restore functionality of the integration. From April 2022 performing the below step will remove all Historical Deployment Information from Jira Cloud. We are waiting on information from Atlassian to confirm if this is a permanent or temporary feature. Please contact <support@octopus.com> for the latest information regarding this issue.
 :::
 
-If you find a previously working Jira integration has stopped working after upgrading the Jira plugin, then you may need to uninstall and reinstall the Jira plugin from the Atlassian marketplace. During configuration of the reinstalled Jira plugin, you will be provided with a new Jira Connect Password which will need to be entered into the Jira Settings page on your Octopus Server.
+If you find a previously working Jira integration has stopped working after upgrading the Octopus Deploy for Jira app, then you may need to uninstall and reinstall the app from the Atlassian Marketplace. During configuration of the reinstalled app, you will be provided with a new Jira App Password which will need to be entered into the Jira Settings page on your Octopus Server.
 
 ### Map Jira environments to Octopus environments {#troubleshooting-map-your-environments}
 
