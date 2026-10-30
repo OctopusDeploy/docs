@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-09-11
-modDate: 2026-09-29
+modDate: 2026-10-30
 title: Schema for policies
 subtitle: A reference for the input schema passed to the policy engine, including field descriptions, conditional fields, and example patterns.
 icon: fa-solid fa-lock
@@ -216,6 +216,7 @@ These two fields work together. A step that's skipped still appears in `Steps`, 
 | Enabled | boolean | Yes | Whether the step is enabled in the process |
 | IsRequired | boolean | Yes | Whether the step has been marked as required |
 | IsConditional | boolean | Yes | Whether the step has non-default [run conditions](/docs/projects/steps/conditions) |
+| BlockAiAgents | boolean | Yes | Whether a manual intervention step stops AI agents from actioning it. `false` when the setting uses a variable, because the value isn't known until the run starts |
 | [Source](#source-object) | object | Yes | Where the step comes from. See the Source object below |
 | [Packages](#packages-array) | array | No | Packages referenced by this step. Not present for Runbook runs |
 
@@ -543,6 +544,7 @@ The complete JSON schema for the policy input object is provided below for use w
           "Enabled": { "type": "boolean" },
           "IsRequired": { "type": "boolean" },
           "IsConditional": { "type": "boolean" },
+          "BlockAiAgents": { "type": "boolean" },
           "Source": {
             "type": "object",
             "properties": {
@@ -578,7 +580,7 @@ The complete JSON schema for the policy input object is provided below for use w
             }
           }
         },
-        "required": ["Id", "Slug", "ActionType", "Enabled", "IsRequired", "IsConditional", "Source"]
+        "required": ["Id", "Slug", "ActionType", "Enabled", "IsRequired", "IsConditional", "BlockAiAgents", "Source"]
       }
     },
     "Release": {
