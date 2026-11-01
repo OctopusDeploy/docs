@@ -92,12 +92,6 @@ This process is for Jira Cloud, if you are using Jira Server, see [Connecting Ji
 
     The app can be configured from the [Atlassian Administration](https://admin.atlassian.com) portal by navigating to **Apps ➜ Sites ➜ [your site] ➜ Connected apps**. This page will list all apps connected to your site. From here, find the Octopus Deploy for Jira app, and click the overflow menu (`...`), then **Configure**.
 
-    :::div{.warning}
-    **Safari and third-party cookies in an `iframe`**
-
-    Please note: The Octopus Deploy for Jira app uses cookies, and Safari, by default, discards cookies set in an `iframe` unless the host that's serving the `iframe` has set a cookie before, outside the `iframe`. In our case, this does not happen. As a result, attempting to configure the app using Safari will fail with a blank screen and a HTTP 400 error in the network tab. Due to this limitation, we recommend using a different browser that allows third-party cookies in an `iframe`.
-    :::
-
     Note: Keep this configuration page open while you complete the next steps as you need to copy values between Octopus and Jira.
 
 3. Configure the Jira extension in Octopus Deploy.
