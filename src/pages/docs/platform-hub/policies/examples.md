@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-09-11
-modDate: 2026-10-29
+modDate: 2026-11-03
 title: Policy examples
 subtitle: Ready-to-use Rego organized by what you want to enforce
 icon: fa-solid fa-lock

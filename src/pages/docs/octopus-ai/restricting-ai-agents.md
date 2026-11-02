@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-10-29
-modDate: 2026-10-30
+modDate: 2026-11-03
 title: Restricting what AI agents can do
 navTitle: Restricting AI agents
 sidebarLabel: Restricting AI agents

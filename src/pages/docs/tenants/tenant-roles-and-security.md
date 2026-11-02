@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2026-09-14
+modDate: 2026-11-03
 title: Tenant roles and security
 icon: fa-solid fa-people-group
 description: Common approaches to structuring roles and teams to secure a multi-tenant Octopus instance.

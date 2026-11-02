@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2026-10-29
+modDate: 2026-11-03
 title: Manual intervention and approval step
 icon: fa-solid fa-check
 description: Manual intervention and approvals allow a human to review, approve, or sign off on deployments.
@@ -43,7 +43,7 @@ Manual intervention steps are added to deployment processes in the same way as o
    - Only run the manual intervention for specific environments.
    - Run the manual intervention based on the status (success or failure) of the previous step.
    - Wait for the previous step to complete.
-   - Run based on the value of a variable expression. For instance, to pause only deployments or runbook runs started by an AI agent, use `#{if Octopus.Deployment.CreatedBy.ActorType == "Agent"}true#{/if}`.
+   - Run based on the value of a variable expression.
    - [Make the step required](#make-the-step-required) so it can't be excluded.
 8. Save the deployment process.
 
@@ -102,7 +102,7 @@ The tasks page, under the "Needs Approval" tab, contains a list of deployments p
 
 ## Block AI agents
 
-By default, AI agents can action manual interventions, the same as the person they act for. To make sure a person actions the intervention, set **Block AI agents** to **Prevent AI agents from actioning this intervention**. Also [make the step required](#make-the-step-required), so an AI agent can't exclude the step.
+By default, AI agents can action manual interventions, the same as the person they act for. To make sure a person actions the intervention, set **Block AI agents** to **Prevent AI agents from actioning this intervention**. Also [make the step required](#make-the-step-required), so an AI agent can't exclude the step. To pause only runs started by an AI agent, see [Require a person to approve AI agent runs](/docs/octopus-ai/restricting-ai-agents#require-a-person-to-approve-ai-agent-runs).
 
 When AI agents are blocked:
 
