@@ -76,7 +76,7 @@ To let Toby edit tenants without creating or deleting them, create a custom role
 :::
 
 :::div{.hint}
-Deployment Creator does not include the permissions to respond to a manual intervention or cancel a running task. If Toby needs those, create a custom role containing `InterruptionView`, `InterruptionViewSubmitResponsible` and `TaskCancel`, and scope it to the same tenants. Add `VariableView` if he also needs to see project variables on the deployment screen.
+Deployment Creator does not include the permissions to action a manual intervention or cancel a running task. If Toby needs those, create a custom role containing `InterruptionView`, `InterruptionViewSubmitResponsible` and `TaskCancel`, and scope it to the same tenants. Add `VariableView` if he also needs to see project variables on the deployment screen.
 :::
 
 ## Infrastructure manager {#infrastructure-manager}
