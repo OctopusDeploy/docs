@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2026-06-19
+modDate: 2026-10-29
 title: Auditing
 description: Octopus Deploy captures audit information whenever significant events happen in the system.
 ---
@@ -22,7 +22,7 @@ Some general points worth noting:
 - Octopus **does** capture the details of every mutating action (create/edit/delete) including who initiated the action.
 - Octopus **does** capture login events for specific user accounts, but **not** logout.
 - Octopus **does not** capture when data is read, however certain sensitive actions like downloading a certificate with its private key is captured.
-- When an action is performed via an [agent API key](/docs/api/authentication/create-an-api-key#creating-an-agent-api-key), Octopus captures the API key name alongside the action, so you can trace agent activity back to a specific credential and its owner.
+- When an action is performed with an API key, including an [agent API key](/docs/api/authentication/create-an-api-key#creating-an-agent-api-key), Octopus captures a masked version of the key alongside the action. You can match it to a key on the **API Keys** page, or select **Show advanced filters** and filter by **API keys**, to trace activity back to a specific credential and its owner.
 
 If you are concerned that Octopus does not capture a specific action of interest to you, please contact our [support team](https://octopus.com/support).
 
@@ -30,7 +30,7 @@ If you are concerned that Octopus does not capture a specific action of interest
 
 You can view the full audit history by navigating to the **Audit** tab in the **Configuration** area.
 
-To filter the log to actions taken by AI agents only, check **AI Agents** in the filter options. This lets you review agent activity without wading through actions taken by human users.
+To filter the log to actions taken by AI agents only, select **Show advanced filters**, then select **AI events only**. This lets you review agent activity without wading through actions taken by human users.
 
 :::figure
 ![Audit Configuration](/docs/img/security/users-and-teams/auditing/images/audit-configuration.png)
