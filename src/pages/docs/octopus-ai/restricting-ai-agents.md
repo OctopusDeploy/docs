@@ -14,7 +14,7 @@ image:
 imageAlt:
 ---
 
-AI agents, such as assistants connected through the [Octopus MCP server](/docs/octopus-ai/mcp), can run runbooks, create deployments, and respond to manual interventions, the same as the people and accounts whose credentials they use. This page covers how to give an agent its own identity, limit its permissions, and add controls that block or pause the runs it starts. If an agent has already run something you didn't expect, start with [Investigate an unexpected AI agent run](#investigate-an-unexpected-ai-agent-run).
+AI agents, such as assistants connected through the [Octopus MCP server](/docs/octopus-ai/mcp), can run runbooks, create deployments, and action manual interventions, the same as the people and accounts whose credentials they use. This page covers how to give an agent its own identity, limit its permissions, and add controls that block or pause the runs it starts. If an agent has already run something you didn't expect, start with [Investigate an unexpected AI agent run](#investigate-an-unexpected-ai-agent-run).
 
 ## AI agent identities
 
@@ -64,7 +64,7 @@ Each row matches what you found in the audit log to the change that stops it hap
 | The run is recorded as a person, not an AI agent | [Give the AI agent its own identity](#give-an-ai-agent-its-own-identity) |
 | The agent ran a runbook that agents should never run | [Block AI agents from running a runbook](#block-ai-agents-from-running-a-runbook) |
 | The agent ran a runbook in an environment it shouldn't use | [Limit the AI agent's permissions](#limit-an-ai-agents-permissions) to the environments it needs |
-| The agent excluded a manual intervention step, or responded to one itself | [Require a person to approve AI agent runs](#require-a-person-to-approve-ai-agent-runs) |
+| The agent excluded a manual intervention step, or actioned one itself | [Require a person to approve AI agent runs](#require-a-person-to-approve-ai-agent-runs) |
 | The agent changed a setting, step, variable, or trigger to get around a control | Remove the permission it used. See [Permissions that let AI agents work around controls](#permissions-that-let-ai-agents-work-around-controls). |
 | The run came from a trigger the agent created | Remove the agent's `TriggerCreate` and `TriggerEdit` permissions, and delete the trigger |
 | The agent's credential has broader access than it needs | Create a new agent API key with read-only access, and delete the old key. See [Choosing an access level](/docs/api/authentication/create-an-api-key#choosing-an-access-level). |
@@ -137,12 +137,12 @@ This table lists the permissions and access that let an AI agent undo or get aro
 
 | Permission or access | What an agent can do with it |
 | --- | --- |
-| `LibraryVariableSetEdit` | Add a library variable named `Octopus.Action.Manual.PreventAgentResponses` that lets AI agents respond to a manual intervention |
+| `LibraryVariableSetEdit` | Add a library variable named `Octopus.Action.Manual.PreventAgentResponses` that lets AI agents action a manual intervention |
 | `PlatformHubEdit` | Change or deactivate the policies that block AI agent runs |
-| `ProcessEdit` | Remove a manual intervention step from a deployment process, clear its **Required** option, or let AI agents respond to it |
+| `ProcessEdit` | Remove a manual intervention step from a deployment process, clear its **Required** option, or let AI agents action it |
 | `RunbookEdit` | Change a runbook's environments, clone a blocked runbook, or edit the process of a runbook it's allowed to run so it does the same work |
 | `TriggerCreate` and `TriggerEdit` | Create a scheduled or shared-secret webhook trigger that runs a blocked runbook as the Octopus system user |
-| `VariableEdit` | Add a project variable named `Octopus.Action.Manual.PreventAgentResponses` that lets AI agents respond to a manual intervention |
+| `VariableEdit` | Add a project variable named `Octopus.Action.Manual.PreventAgentResponses` that lets AI agents action a manual intervention |
 | Write access to a Config as Code project's Git repository | Change the AI agent access setting on a branch, then run the runbook from that branch |
 
 For example, an agent that restarts services might get **Runbook consumer** scoped to the Operations project in Development and Test. It can run the restart runbook there, but it can't edit the runbook, add a trigger, or run anything in Production.
@@ -154,7 +154,7 @@ This table lists the controls that block or pause deployments and runbook runs s
 | Control | What it does | Applies to | When it acts | Requirements |
 | --- | --- | --- | --- | --- |
 | [AI agent access](#block-ai-agents-from-running-a-runbook) | Rejects every agent run of the runbook | One runbook | When the run is created | None |
-| [Agent Responses on a required manual intervention](#require-a-person-to-approve-ai-agent-runs) | Pauses the run until a person responds | One step in a deployment process or runbook | When the step runs | None |
+| [Block AI agents on a required manual intervention](#require-a-person-to-approve-ai-agent-runs) | Pauses the run until a person actions it | One step in a deployment process or runbook | When the step runs | None |
 | [Policy using the `Actor` input](#block-ai-agent-runs-with-a-policy) | Blocks or warns on agent runs that match the policy's scope | Any projects, environments, or runbooks in the policy's scope | When the run's task starts | Enterprise tier and Platform Hub |
 
 ## Block AI agents from running a runbook
@@ -175,7 +175,7 @@ AI agents can turn this setting on but can't turn it off. For [Config as Code ru
 
 ## Require a person to approve AI agent runs
 
-A manual intervention step that AI agents can't respond to pauses each agent-started run until a person approves it. Use it for runbooks and deployments agents can run, but where you want a person to check each agent run first.
+A manual intervention step that AI agents can't action pauses each agent-started run until a person approves it. Use it for runbooks and deployments agents can run, but where you want a person to check each agent run first.
 
 **Before you begin**
 
@@ -186,7 +186,7 @@ You'll need:
 To require a person to approve AI agent runs:
 
 1. From the runbook or deployment process, select the manual intervention step.
-2. Expand **Agent Responses**, and select **Prevent AI agents from responding to this intervention**.
+2. Expand **Block AI agents**, and select **Prevent AI agents from actioning this intervention**.
 3. In **Conditions**, select **Required**.
 4. In **Run Condition**, select **Variable**.
 5. Enter the following expression:
@@ -197,7 +197,7 @@ To require a person to approve AI agent runs:
 
 6. Select **Save**.
 
-Runs started by an AI agent pause at the step until a person responds, and runs started by a person skip the step. AI agents that try to respond are told a person needs to respond. Learn more about [preventing AI agents from responding](/docs/projects/built-in-step-templates/manual-intervention-and-approvals#prevent-ai-agents-from-responding).
+Runs started by an AI agent pause at the step until a person actions it, and runs started by a person skip the step. AI agents that try to action it are told a person needs to action it. Learn more about [blocking AI agents](/docs/projects/built-in-step-templates/manual-intervention-and-approvals#block-ai-agents).
 
 ## Block AI agent runs with a policy
 
