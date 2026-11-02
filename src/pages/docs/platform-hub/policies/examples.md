@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-09-11
-modDate: 2026-10-29
+modDate: 2026-11-03
 title: Policy examples
 subtitle: Ready-to-use Rego organized by what you want to enforce
 icon: fa-solid fa-lock
@@ -431,7 +431,7 @@ result := {
 
 ### Require AI agent runbook runs to start with a manual intervention
 
-Flags runbook runs started by an AI agent unless the first step is an enabled manual intervention step that isn't skipped. It also flags runs where the second step starts at the same time as the manual intervention. To make sure a person responds, also [prevent AI agents from responding](/docs/projects/built-in-step-templates/manual-intervention-and-approvals) to the step.
+Flags runbook runs started by an AI agent unless the first step is an enabled manual intervention step that isn't skipped. It also flags runs where the second step starts at the same time as the manual intervention. To make sure a person actions the intervention, also [block AI agents](/docs/projects/built-in-step-templates/manual-intervention-and-approvals#block-ai-agents) on the step.
 
 **Scope:**
 

@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2026-09-14
+modDate: 2026-11-03
 title: Tenant roles and security
 icon: fa-solid fa-people-group
 description: Common approaches to structuring roles and teams to secure a multi-tenant Octopus instance.
@@ -76,7 +76,7 @@ To let Toby edit tenants without creating or deleting them, create a custom role
 :::
 
 :::div{.hint}
-Deployment Creator does not include the permissions to respond to a manual intervention or cancel a running task. If Toby needs those, create a custom role containing `InterruptionView`, `InterruptionViewSubmitResponsible` and `TaskCancel`, and scope it to the same tenants. Add `VariableView` if he also needs to see project variables on the deployment screen.
+Deployment Creator does not include the permissions to action a manual intervention or cancel a running task. If Toby needs those, create a custom role containing `InterruptionView`, `InterruptionViewSubmitResponsible` and `TaskCancel`, and scope it to the same tenants. Add `VariableView` if he also needs to see project variables on the deployment screen.
 :::
 
 ## Infrastructure manager {#infrastructure-manager}
