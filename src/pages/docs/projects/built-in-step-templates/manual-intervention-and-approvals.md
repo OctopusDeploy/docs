@@ -102,13 +102,15 @@ The tasks page, under the "Needs Approval" tab, contains a list of deployments p
 
 ## Block AI agents
 
-By default, AI agents can action manual interventions, the same as the person they act for. To make sure a person actions it, set **Block AI agents** to **Prevent AI agents from actioning this intervention**. Also [make the step required](#make-the-step-required), so an AI agent can't exclude the step.
+By default, AI agents can action manual interventions, the same as the person they act for. To make sure a person actions the intervention, set **Block AI agents** to **Prevent AI agents from actioning this intervention**. Also [make the step required](#make-the-step-required), so an AI agent can't exclude the step.
 
 When AI agents are blocked:
 
 - AI agents can't assign or submit the manual intervention. They're told a person needs to action it, with a link to the task.
+- The task page shows that AI agents can't action the manual intervention.
 - People can always action it.
 - Only callers that sign in as an AI agent are blocked, such as with an AI agent API key or through the Octopus MCP server. An agent using a person's API key counts as a person.
+- If a **Deploy a release** step runs a deployment that's waiting on this manual intervention, AI agents can't action it from the parent either.
 - AI agents can still cancel the task if they have permission to.
 
 You can set **Block AI agents** from a variable instead of choosing a value. If the variable's value isn't `True` or `False`, Octopus blocks AI agents to be safe and logs a warning.

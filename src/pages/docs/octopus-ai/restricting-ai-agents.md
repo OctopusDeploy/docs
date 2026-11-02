@@ -154,7 +154,7 @@ This table lists the controls that block or pause deployments and runbook runs s
 | Control | What it does | Applies to | When it acts | Requirements |
 | --- | --- | --- | --- | --- |
 | [AI agent access](#block-ai-agents-from-running-a-runbook) | Rejects every agent run of the runbook | One runbook | When the run is created | None |
-| [Block AI agents on a required manual intervention](#require-a-person-to-approve-ai-agent-runs) | Pauses the run until a person actions it | One step in a deployment process or runbook | When the step runs | None |
+| [Block AI agents on a required manual intervention](#require-a-person-to-approve-ai-agent-runs) | Pauses the run until a person actions the intervention | One step in a deployment process or runbook | When the step runs | None |
 | [Policy using the `Actor` input](#block-ai-agent-runs-with-a-policy) | Blocks or warns on agent runs that match the policy's scope | Any projects, environments, or runbooks in the policy's scope | When the run's task starts | Enterprise tier and Platform Hub |
 
 ## Block AI agents from running a runbook
@@ -197,7 +197,7 @@ To require a person to approve AI agent runs:
 
 6. Select **Save**.
 
-Runs started by an AI agent pause at the step until a person actions it, and runs started by a person skip the step. AI agents that try to action it are told a person needs to action it. Learn more about [blocking AI agents](/docs/projects/built-in-step-templates/manual-intervention-and-approvals#block-ai-agents).
+Runs started by an AI agent pause at the step until a person actions the intervention, and runs started by a person skip the step. AI agents that try are told a person needs to action it. Learn more about [blocking AI agents](/docs/projects/built-in-step-templates/manual-intervention-and-approvals#block-ai-agents).
 
 ## Block AI agent runs with a policy
 
