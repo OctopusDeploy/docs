@@ -126,6 +126,7 @@
 - **[octopus release progression](/docs/cli/octopus-release-progression)**:  Manage progression of a release.
 - **[octopus release progression allow](/docs/cli/octopus-release-progression-allow)**:  Allows a release to progress to the next phase..
 - **[octopus release progression prevent](/docs/cli/octopus-release-progression-prevent)**:  Prevents a release from progression to the next phase.
+- **[octopus release promote](/docs/cli/octopus-release-promote)**:  Promote a release.
 - **[octopus release snapshot-variables](/docs/cli/octopus-release-snapshot-variables)**:  Update the variable snapshot for a release.
 - **[octopus runbook](/docs/cli/octopus-runbook)**:  Manage runbooks.
 - **[octopus runbook delete](/docs/cli/octopus-runbook-delete)**:  Delete a runbook.
