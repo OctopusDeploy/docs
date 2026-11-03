@@ -16,7 +16,7 @@ Octopus Server has a built-in rate limiter for HTTP requests. Users with the `Co
 Rate limiting is configured using policies, managed in the **Configuration ➜ Settings ➜ Rate Limiting** screen in the Octopus Web Portal.
 
 :::figure
-![A screenshot of the rate limiting policies list screen. Three policies are shown, with varying configured values.](/docs/img/administration/managing-infrastructure/rate-limiting/policies-list.png)
+:img{src="/docs/img/administration/managing-infrastructure/rate-limiting/policies-list.png" src-dark="/docs/img/administration/managing-infrastructure/rate-limiting/policies-list-dark.png" alt="A screenshot of the rate limiting policies list screen. Three policies are shown, with varying configured values."}
 :::
 
 There are four built-in policies:

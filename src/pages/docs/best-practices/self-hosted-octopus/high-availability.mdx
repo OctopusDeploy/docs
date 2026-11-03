@@ -256,8 +256,6 @@ All package uploads are sent as a POST to the REST API endpoint `/api/[SPACE-ID]
 
 Polling Tentacles poll each Octopus Server node at regular intervals to see if that node has picked up a task. Using Polling Tentacles with HA requires every Polling Tentacle to be able to connect to all nodes.
 
-{/* Commented out for the themed-images spike; `:10943` parses as a directive. Fixed on main.
-
 You have two options:
 
 1. Using a unique address per node with the default port of `10943`.
@@ -268,8 +266,6 @@ You have two options:
    1. Node1 would be: octopus.domain.com:10943
    2. Node2 would be: octopus.domain.com:10944
    3. Node3 would be: octopus.domain.com:10945
-
-*/}
 
 :::div{.hint}
 For Polling Tentacles, SSL offloading is not supported. Octopus Deploy and the Tentacle establishes a two-way trust using the certificates created by Octopus Deploy and the Tentacle. If either of them doesn't match, the connection is closed and all commands are rejected.
