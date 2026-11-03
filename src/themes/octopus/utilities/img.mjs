@@ -47,8 +47,12 @@ function findReferencedImages() {
     absolute: true,
   });
 
-  // `:img{ ... src="/docs/img/foo.png" ... }` remark directives
-  const directive = /:img\{[^}]*?\ssrc\s*=\s*["']([^"']+)["']/g;
+  // `:img{ ... src="/docs/img/foo.png" ... }` remark directives. `src` can come
+  // straight after the brace, as in `:img{src="..."}`, so the brace counts as
+  // a boundary as well as whitespace.
+  const directive = /:img\{(?:[^}]*?\s)?src\s*=\s*["']([^"']+)["']/g;
+  // ...and the dark variant of a themed one, `:img{ ... src-dark="..." }`
+  const directiveDark = /:img\{(?:[^}]*?\s)?src-dark\s*=\s*["']([^"']+)["']/g;
   // `bannerImage:` frontmatter, where `src:` is on a following indented line
   const banner =
     /bannerImage:\s*\r?\n(?:\s*#[^\n]*\r?\n)*\s*src:\s*["']?([^"'\s]+)/g;
@@ -58,7 +62,7 @@ function findReferencedImages() {
   for (const file of sources) {
     const text = fs.readFileSync(file, 'utf8');
 
-    for (const pattern of [directive, banner]) {
+    for (const pattern of [directive, directiveDark, banner]) {
       pattern.lastIndex = 0;
       let match;
       while ((match = pattern.exec(text)) !== null) {

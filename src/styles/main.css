@@ -257,12 +257,10 @@ figure img[data-hidden='true'] {
   visibility: hidden;
 }
 
-/* Diagrams exported in a light and a dark variant. Keyed off data-theme rather
-   than prefers-color-scheme so the swap follows the site's theme toggle, not
-   just the OS setting. */
-html[data-theme='light'] .theme-dark-only,
-html[data-theme='dark'] .theme-light-only {
-  display: none;
+/* A themed :img{src-dark=...} wraps its <img> in a <picture>, which is inline
+   by default. Make it a block so the <img> inside lays out as it would bare. */
+figure picture {
+  display: block;
 }
 
 .image__caption {

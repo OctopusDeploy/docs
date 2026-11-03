@@ -11,6 +11,25 @@ function stillFrames() {
 }
 
 /**
+ * The full-size file for what the image is showing. A themed
+ * `:img{src-dark=...}` is a <picture> whose dark <source> may be the one in
+ * use, and `img.src` only ever holds the light original.
+ *
+ * @param {HTMLImageElement} img
+ */
+function originalSrc(img) {
+  const source = img.parentElement?.querySelector(
+    'source[data-original-src]'
+  );
+
+  if (source && window.matchMedia(source.media).matches) {
+    return new URL(source.dataset.originalSrc, document.baseURI).href;
+  }
+
+  return img.src;
+}
+
+/**
  * Where the image lands: its own aspect ratio, centred, never wider than the
  * source really is. Vector images have no real source size, so they fill the
  * room.
@@ -25,7 +44,7 @@ function targetRect(img) {
   };
 
   const ratio = img.naturalWidth / img.naturalHeight;
-  const vector = new URL(img.src).pathname.endsWith('.svg');
+  const vector = new URL(originalSrc(img)).pathname.endsWith('.svg');
   const native = vector
     ? Infinity
     : Number(img.getAttribute('width')) || img.naturalWidth;
@@ -71,12 +90,19 @@ function open(img) {
   close.setAttribute('aria-label', 'Close image');
 
   const frame = document.createElement('div');
-  const clone = /** @type {HTMLImageElement} */ (img.cloneNode());
+  // Copied attribute by attribute rather than with cloneNode(), which would
+  // start downloading the light original of a themed image in dark mode.
+  // Every srcset entry is a variant generated for a column, capped at 2000px,
+  // so keep the clone off them and on the full-size original.
+  const clone = document.createElement('img');
 
-  // src is the original. Every srcset entry is a variant generated for a
-  // column, capped at 2000px, so keep the clone off them.
-  clone.removeAttribute('srcset');
-  clone.removeAttribute('sizes');
+  for (const { name, value } of img.attributes) {
+    if (!['src', 'srcset', 'sizes'].includes(name)) {
+      clone.setAttribute(name, value);
+    }
+  }
+
+  clone.src = originalSrc(img);
 
   frame.appendChild(clone);
   lightbox.append(frame, close);
@@ -157,7 +183,8 @@ function enhanceFigures() {
     // Fetch the original before the click, so the zoom does not open on a
     // stretched thumbnail
     const warm = () => {
-      if (img.src !== img.currentSrc) new Image().src = img.src;
+      const src = originalSrc(img);
+      if (src !== img.currentSrc) new Image().src = src;
     };
 
     img.addEventListener('pointerenter', warm, { once: true });
