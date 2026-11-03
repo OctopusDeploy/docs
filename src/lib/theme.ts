@@ -26,6 +26,26 @@ export const THEME_TRANSITION_ATTRIBUTE = 'data-theme-transition';
 export const COLOR_SCHEME_QUERY = '(prefers-color-scheme: dark)';
 
 /**
+ * Marks the dark `<source>` of a themed `:img{src-dark=…}` picture
+ * (see custom-markdown.mjs). A media query can't see `data-theme`, so the
+ * source is built to follow the OS, and the theme scripts switch it on or off
+ * when the reader has picked a theme that differs from it.
+ */
+export const THEME_VARIANT_ATTRIBUTE = 'data-theme-variant';
+export const THEME_VARIANT_MEDIA = COLOR_SCHEME_QUERY;
+
+/**
+ * The media query the dark `<source>` should carry for a preference. `all`
+ * always matches and `not all` never does, which turns the source on or off
+ * regardless of the OS setting.
+ */
+export function themeVariantMedia(preference: ThemePreference): string {
+  if (preference === 'dark') return 'all';
+  if (preference === 'light') return 'not all';
+  return THEME_VARIANT_MEDIA;
+}
+
+/**
  * Fired on <html> after the theme changes. detail: { theme, preference }
  *
  * Does not fire at boot - the pre-paint script sets the attribute directly.

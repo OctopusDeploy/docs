@@ -49,6 +49,8 @@ function findReferencedImages() {
 
   // `:img{ ... src="/docs/img/foo.png" ... }` remark directives
   const directive = /:img\{[^}]*?\ssrc\s*=\s*["']([^"']+)["']/g;
+  // ...and the dark variant of a themed one, `:img{ ... src-dark="..." }`
+  const directiveDark = /:img\{[^}]*?\ssrc-dark\s*=\s*["']([^"']+)["']/g;
   // `bannerImage:` frontmatter, where `src:` is on a following indented line
   const banner =
     /bannerImage:\s*\r?\n(?:\s*#[^\n]*\r?\n)*\s*src:\s*["']?([^"'\s]+)/g;
@@ -58,7 +60,7 @@ function findReferencedImages() {
   for (const file of sources) {
     const text = fs.readFileSync(file, 'utf8');
 
-    for (const pattern of [directive, banner]) {
+    for (const pattern of [directive, directiveDark, banner]) {
       pattern.lastIndex = 0;
       let match;
       while ((match = pattern.exec(text)) !== null) {

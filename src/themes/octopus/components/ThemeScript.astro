@@ -4,7 +4,16 @@ import {
   THEME_ATTRIBUTE,
   THEME_PREFERENCE_ATTRIBUTE,
   THEME_STORAGE_KEY,
+  THEME_VARIANT_ATTRIBUTE,
+  themeVariantMedia,
 } from 'src/lib/theme';
+
+// define:vars serialises its values, so resolve the media queries here rather
+// than passing the function
+const VARIANT_MEDIA = {
+  light: themeVariantMedia('light'),
+  dark: themeVariantMedia('dark'),
+};
 
 // Render this as early in <head> as possible - before the stylesheets, so the
 // parser is not waiting on a CSS download before it can run.
@@ -20,6 +29,8 @@ import {
     THEME_ATTRIBUTE,
     THEME_PREFERENCE_ATTRIBUTE,
     THEME_STORAGE_KEY,
+    THEME_VARIANT_ATTRIBUTE,
+    VARIANT_MEDIA,
   }}
 >
   (() => {
@@ -42,5 +53,33 @@ import {
     const root = document.documentElement;
     root.setAttribute(THEME_ATTRIBUTE, theme);
     root.setAttribute(THEME_PREFERENCE_ATTRIBUTE, preference);
+
+    // Themed :img{src-dark=...} pictures follow the OS setting as written. When
+    // the reader has picked a theme with the toggle, switch each dark <source>
+    // on or off as the parser adds it, which is before the <img> after it picks
+    // a file, so only the right variant is downloaded. theme-switcher.ts takes
+    // over once the page has loaded.
+    if (preference !== 'system') {
+      const media = VARIANT_MEDIA[preference];
+      const observer = new MutationObserver((records) => {
+        for (const record of records) {
+          for (const node of record.addedNodes) {
+            if (
+              node.nodeName === 'SOURCE' &&
+              node.hasAttribute(THEME_VARIANT_ATTRIBUTE)
+            ) {
+              node.media = media;
+            }
+          }
+        }
+      });
+
+      observer.observe(root, { childList: true, subtree: true });
+      document.addEventListener(
+        'DOMContentLoaded',
+        () => observer.disconnect(),
+        { once: true }
+      );
+    }
   })();
 </script>

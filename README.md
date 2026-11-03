@@ -362,23 +362,22 @@ To make an image follow the theme:
     - For a screenshot, capture the same view with Octopus in its light theme and again in its dark theme.
     - For a diagram, export each variant with a solid background in the page color for that theme: `#FFFFFF` for light and `#111A23` for dark. These are the `colorBackgroundPrimaryDefault` design token in each theme, so the diagram blends into the page.
 2. Name the files with a `-light` and `-dark` suffix, such as `load-balancer-light.svg` and `load-balancer-dark.svg`.
-3. Add both images to the `figure` with the `:img` directive, and give each one a theme class:
+3. Add one `:img` directive to the `figure`. Put the light variant in `src` and the dark variant in `src-dark`:
 
     ```markdown
     :::figure
-    :img{.theme-light-only src="/docs/img/kubernetes/steps/load-balancer-light.svg" alt="Traffic from the internet reaches a cloud load balancer, which sends it to a Node Port on each node in the cluster"}
-    :img{.theme-dark-only src="/docs/img/kubernetes/steps/load-balancer-dark.svg" alt="Traffic from the internet reaches a cloud load balancer, which sends it to a Node Port on each node in the cluster"}
+    :img{src="/docs/img/kubernetes/steps/load-balancer-light.svg" src-dark="/docs/img/kubernetes/steps/load-balancer-dark.svg" alt="Traffic from the internet reaches a cloud load balancer, which sends it to a Node Port on each node in the cluster"}
     :::
     ```
 
 4. Preview the page in both themes with the theme toggle in the top nav, and open the zoom view on the image.
 
-The site hides `.theme-dark-only` in the light theme and `.theme-light-only` in the dark theme. The classes follow the site's theme toggle, so don't use `<picture>` with a `prefers-color-scheme` media query instead. That only follows the reader's operating system setting, and the zoom view always shows its fallback image.
+The directive renders a `<picture>`, so the reader's browser only downloads the variant for the current theme. The other variant is downloaded when the reader switches theme. The image follows the site's theme toggle, and the zoom view shows the same variant as the page.
 
 A few things to keep in mind:
 
-- Give both variants the same alt text, so readers who can't see the image get the same description in either theme.
-- Don't set `width` and `height`. The directive reads them from the image, and halves them for an `@2x` file. Put `@2x` after the theme suffix, such as `dashboard-light@2x.png`.
+- Write alt text that describes both variants. There is only one `alt`, and it is used in either theme.
+- Don't set `width` and `height`. The directive reads them from the light variant, and halves them for an `@2x` file. Export both variants at the same size; the build warns if they differ. Put `@2x` after the theme suffix, such as `dashboard-light@2x.png`.
 - When more than one page uses an image, store it in the nearest shared folder, such as `/docs/img/kubernetes/steps/`, and update every page that references it.
 
 #### Add an image with a single variant
