@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-09-04
+modDate: 2026-10-07
 title: Spaces
 ---
 
@@ -1017,7 +1017,8 @@ Lists all of the Spaces in the supplied Octopus Deploy Space. The results will b
   The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`Description`** :span[string]{.type-label}
-  - **`ExtensionSettings`** :span[array of object]{.type-label}
+  - **`ExtensionSettings`** :span[array of object]{.type-label}  
+    Not intended for general use; You should not alter or add/remove any values it may have.
   - **`Icon`** :span[object]{.type-label}
   - **`Id`** :span[string]{.type-label}  
     Gets or sets a unique identifier for this resource.
@@ -1053,12 +1054,10 @@ Lists all of the Spaces in the supplied Octopus Deploy Space. The results will b
   "Items": [
     {
       "Description": "string",
-      "ExtensionSettings": [
-        {}
-      ],
+      "ExtensionSettings": [],
       "Icon": {
-        "Color": "string",
-        "Id": "string"
+        "Color": "#3CA4F3",
+        "Id": "rocket"
       },
       "Id": "string",
       "IsDefault": false,
@@ -1133,7 +1132,8 @@ Lists all of the Spaces in the supplied Octopus Deploy Space. The results will b
 `201` — Created
 
 - **`Description`** :span[string]{.type-label}
-- **`ExtensionSettings`** :span[array of object]{.type-label}
+- **`ExtensionSettings`** :span[array of object]{.type-label}  
+  Not intended for general use; You should not alter or add/remove any values it may have.
   - **`ExtensionId`** :span[string]{.type-label}
   - **`Values`** :span[string]{.type-label}
 - **`Icon`** :span[object]{.type-label}
@@ -1161,15 +1161,10 @@ Lists all of the Spaces in the supplied Octopus Deploy Space. The results will b
 ```json
 {
   "Description": "string",
-  "ExtensionSettings": [
-    {
-      "ExtensionId": "string",
-      "Values": "string"
-    }
-  ],
+  "ExtensionSettings": [],
   "Icon": {
-    "Color": "string",
-    "Id": "string"
+    "Color": "#3CA4F3",
+    "Id": "rocket"
   },
   "Id": "string",
   "IsDefault": false,
@@ -1209,7 +1204,8 @@ Lists all Spaces. The results will be sorted alphabetically by name.
 `200` — The requested list of Spaces
 
 - **`Description`** :span[string]{.type-label}
-- **`ExtensionSettings`** :span[array of object]{.type-label}
+- **`ExtensionSettings`** :span[array of object]{.type-label}  
+  Not intended for general use; You should not alter or add/remove any values it may have.
   - **`ExtensionId`** :span[string]{.type-label}
   - **`Values`** :span[string]{.type-label}
 - **`Icon`** :span[object]{.type-label}
@@ -1238,15 +1234,10 @@ Lists all Spaces. The results will be sorted alphabetically by name.
 [
   {
     "Description": "string",
-    "ExtensionSettings": [
-      {
-        "ExtensionId": "string",
-        "Values": "string"
-      }
-    ],
+    "ExtensionSettings": [],
     "Icon": {
-      "Color": "string",
-      "Id": "string"
+      "Color": "#3CA4F3",
+      "Id": "rocket"
     },
     "Id": "string",
     "IsDefault": false,
@@ -1312,7 +1303,8 @@ Lists all Spaces. The results will be sorted alphabetically by name.
 
 - **`Space`** :span[object]{.type-label}
   - **`Description`** :span[string]{.type-label}
-  - **`ExtensionSettings`** :span[array of object]{.type-label}
+  - **`ExtensionSettings`** :span[array of object]{.type-label}  
+    Not intended for general use; You should not alter or add/remove any values it may have.
   - **`Icon`** :span[object]{.type-label}
   - **`Id`** :span[string]{.type-label}  
     Gets or sets a unique identifier for this resource.
@@ -1335,15 +1327,10 @@ Lists all Spaces. The results will be sorted alphabetically by name.
 {
   "Space": {
     "Description": "string",
-    "ExtensionSettings": [
-      {
-        "ExtensionId": "string",
-        "Values": "string"
-      }
-    ],
+    "ExtensionSettings": [],
     "Icon": {
-      "Color": "string",
-      "Id": "string"
+      "Color": "#3CA4F3",
+      "Id": "rocket"
     },
     "Id": "string",
     "IsDefault": false,
@@ -1382,7 +1369,8 @@ Lists all Spaces. The results will be sorted alphabetically by name.
 `200` — Returns a space
 
 - **`Description`** :span[string]{.type-label}
-- **`ExtensionSettings`** :span[array of object]{.type-label}
+- **`ExtensionSettings`** :span[array of object]{.type-label}  
+  Not intended for general use; You should not alter or add/remove any values it may have.
   - **`ExtensionId`** :span[string]{.type-label}
   - **`Values`** :span[string]{.type-label}
 - **`Icon`** :span[object]{.type-label}
@@ -1410,15 +1398,10 @@ Lists all Spaces. The results will be sorted alphabetically by name.
 ```json
 {
   "Description": "string",
-  "ExtensionSettings": [
-    {
-      "ExtensionId": "string",
-      "Values": "string"
-    }
-  ],
+  "ExtensionSettings": [],
   "Icon": {
-    "Color": "string",
-    "Id": "string"
+    "Color": "#3CA4F3",
+    "Id": "rocket"
   },
   "Id": "string",
   "IsDefault": false,
@@ -1488,7 +1471,8 @@ Lists all Spaces. The results will be sorted alphabetically by name.
 `200` — Confirmation that the Space was modified, contains the updated Space
 
 - **`Description`** :span[string]{.type-label}
-- **`ExtensionSettings`** :span[array of object]{.type-label}
+- **`ExtensionSettings`** :span[array of object]{.type-label}  
+  Not intended for general use; You should not alter or add/remove any values it may have.
   - **`ExtensionId`** :span[string]{.type-label}
   - **`Values`** :span[string]{.type-label}
 - **`Icon`** :span[object]{.type-label}
@@ -1516,15 +1500,10 @@ Lists all Spaces. The results will be sorted alphabetically by name.
 ```json
 {
   "Description": "string",
-  "ExtensionSettings": [
-    {
-      "ExtensionId": "string",
-      "Values": "string"
-    }
-  ],
+  "ExtensionSettings": [],
   "Icon": {
-    "Color": "string",
-    "Id": "string"
+    "Color": "#3CA4F3",
+    "Id": "rocket"
   },
   "Id": "string",
   "IsDefault": false,
@@ -1694,7 +1673,8 @@ Also reachable at `/api/spaces/{id}/search`, `/api/spaces/{spaceIdentifier}/spac
 `200` — The requested list of Spaces available to the user
 
 - **`Description`** :span[string]{.type-label}
-- **`ExtensionSettings`** :span[array of object]{.type-label}
+- **`ExtensionSettings`** :span[array of object]{.type-label}  
+  Not intended for general use; You should not alter or add/remove any values it may have.
   - **`ExtensionId`** :span[string]{.type-label}
   - **`Values`** :span[string]{.type-label}
 - **`Icon`** :span[object]{.type-label}
@@ -1723,15 +1703,10 @@ Also reachable at `/api/spaces/{id}/search`, `/api/spaces/{spaceIdentifier}/spac
 [
   {
     "Description": "string",
-    "ExtensionSettings": [
-      {
-        "ExtensionId": "string",
-        "Values": "string"
-      }
-    ],
+    "ExtensionSettings": [],
     "Icon": {
-      "Color": "string",
-      "Id": "string"
+      "Color": "#3CA4F3",
+      "Id": "rocket"
     },
     "Id": "string",
     "IsDefault": false,

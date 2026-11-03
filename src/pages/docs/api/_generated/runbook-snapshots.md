@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-09-22
+modDate: 2026-10-22
 title: Runbook Snapshots
 ---
 
@@ -238,7 +238,7 @@ Also reachable at `/api/projects/{projectId}/runbookSnapshots`, `/api/spaces/{sp
 - **`Name`** :span[string]{.type-label} *(required)*  
   The name of the runbook snapshot. Minimum length 1.
 - **`Notes`** :span[string]{.type-label}  
-  Any additional information about the runbook snapshot.
+  Any additional information about the runbook snapshot. Maximum length 200.
 - **`ProjectId`** :span[string]{.type-label} *(required)*  
   ID of the project that owns the runbook to snapshot.
 - **`Publish`** :span[string]{.type-label}  
@@ -515,7 +515,7 @@ Also reachable at `/api/projects/{projectId}/runbookSnapshots/{id}`, `/api/space
 - **`Name`** :span[string]{.type-label} *(required)*  
   The name of the runbook snapshot. Minimum length 1.
 - **`Notes`** :span[string]{.type-label}  
-  Any additional information about the runbook snapshot.
+  Any additional information about the runbook snapshot. Maximum length 200.
 - **`ProjectId`** :span[string]{.type-label}  
   Not used to locate the snapshot; the snapshot ID alone finds it. Safe to omit.
 - **`SelectedGitResources`** :span[array of object]{.type-label}  
@@ -1835,7 +1835,7 @@ Also reachable at `/api/runbookSnapshots`, `/api/spaces/{spaceIdentifier}/runboo
 - **`Name`** :span[string]{.type-label} *(required)*  
   The name of the runbook snapshot. Minimum length 1.
 - **`Notes`** :span[string]{.type-label}  
-  Any additional information about the runbook snapshot.
+  Any additional information about the runbook snapshot. Maximum length 200.
 - **`ProjectId`** :span[string]{.type-label} *(required)*  
   ID of the project that owns the runbook to snapshot.
 - **`Publish`** :span[string]{.type-label}  
@@ -2108,7 +2108,7 @@ Also reachable at `/api/runbookSnapshots/{id}`, `/api/spaces/{spaceIdentifier}/r
 - **`Name`** :span[string]{.type-label} *(required)*  
   The name of the runbook snapshot. Minimum length 1.
 - **`Notes`** :span[string]{.type-label}  
-  Any additional information about the runbook snapshot.
+  Any additional information about the runbook snapshot. Maximum length 200.
 - **`ProjectId`** :span[string]{.type-label}  
   Not used to locate the snapshot; the snapshot ID alone finds it. Safe to omit.
 - **`SelectedGitResources`** :span[array of object]{.type-label}  

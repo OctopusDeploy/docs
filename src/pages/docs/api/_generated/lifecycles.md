@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-09-04
+modDate: 2026-10-07
 title: Lifecycles
 ---
 
@@ -986,7 +986,8 @@ Also reachable at `/api/lifecycles/{id}/projects`, `/api/spaces/{spaceIdentifier
 - **`DiscreteChannelRelease`** :span[boolean]{.type-label}  
   Treats releases of different channels to the same environment as a seperate deployment dimension. 'False' indicates a "hotfix"-style usage of channels (single release active per environment ignoring channels), whereas `True` indicates "microservice"-style usage (single release per environment per channel).
 - **`ExecuteDeploymentsOnEventBasedPipeline`** :span[boolean]{.type-label}
-- **`ExtensionSettings`** :span[array of object]{.type-label}
+- **`ExtensionSettings`** :span[array of object]{.type-label}  
+  Not intended for general use; You should not alter or add/remove any values it may have.
   - **`ExtensionId`** :span[string]{.type-label}
   - **`Values`** :span[string]{.type-label}
 - **`ForcePackageDownload`** :span[boolean]{.type-label}
@@ -1056,36 +1057,31 @@ Also reachable at `/api/lifecycles/{id}/projects`, `/api/spaces/{spaceIdentifier
     "AutoCreateRelease": false,
     "AutoDeployReleaseOverrides": [
       {
-        "EnvironmentId": "string",
-        "ReleaseId": "string",
+        "EnvironmentId": "Environments-1",
+        "ReleaseId": "Releases-1",
         "TenantId": "Tenants-1"
       }
     ],
     "ClonedFromProjectId": "Projects-1",
     "CombineHealthAndSyncStatusInDashboardLiveStatus": false,
     "DefaultGuidedFailureMode": "EnvironmentDefault",
-    "DefaultPowerShellEdition": "string",
+    "DefaultPowerShellEdition": null,
     "DefaultToSkipIfAlreadyInstalled": false,
     "DeploymentChangesTemplate": "string",
-    "DeploymentProcessId": "string",
+    "DeploymentProcessId": "deploymentprocess-Projects-1",
     "DeprovisioningRunbookId": "Runbooks-1",
     "Description": "string",
     "DiscreteChannelRelease": false,
     "ExecuteDeploymentsOnEventBasedPipeline": false,
-    "ExtensionSettings": [
-      {
-        "ExtensionId": "string",
-        "Values": "string"
-      }
-    ],
+    "ExtensionSettings": [],
     "ForcePackageDownload": false,
     "Icon": {
-      "Color": "string",
-      "Id": "string"
+      "Color": "#3CA4F3",
+      "Id": "rocket"
     },
     "Id": "string",
     "IncludedLibraryVariableSetIds": [
-      "string"
+      "LibraryVariableSets-1"
     ],
     "IsBadgesEnabled": false,
     "IsDisabled": false,
@@ -1108,7 +1104,7 @@ Also reachable at `/api/lifecycles/{id}/projects`, `/api/spaces/{spaceIdentifier
         "string"
       ]
     },
-    "ProjectGroupId": "string",
+    "ProjectGroupId": "ProjectGroups-1",
     "ProjectTags": [
       "string"
     ],
@@ -1139,7 +1135,7 @@ Also reachable at `/api/lifecycles/{id}/projects`, `/api/spaces/{spaceIdentifier
       }
     ],
     "TenantedDeploymentMode": "Untenanted",
-    "VariableSetId": "string",
+    "VariableSetId": "variableset-Projects-1",
     "VersioningStrategy": {
       "DonorPackage": {
         "DeploymentAction": "string",

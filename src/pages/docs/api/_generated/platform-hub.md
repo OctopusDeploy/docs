@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-09-04
+modDate: 2026-10-07
 title: Platform Hub
 ---
 
@@ -2850,8 +2850,8 @@ Request will fail if the user does not have a valid GitHub OAuth token.
       "Description": "string",
       "GitRef": "string",
       "Icon": {
-        "Color": "string",
-        "Id": "string"
+        "Color": "#3CA4F3",
+        "Id": "rocket"
       },
       "Id": "string",
       "Name": "string",
