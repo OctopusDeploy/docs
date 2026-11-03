@@ -40,8 +40,6 @@
   --navy-200: var(--colorScalesNavy200);
   --navy-100: var(--colorScalesNavy100);
 
-  --blue-500: var(--colorScalesBlue500);
-
   /* TODO: remove green-400 as it's being used in one place only */
   --green-400: var(--colorScalesGreen400);
   --green-500: var(--colorScalesGreen500);
@@ -61,11 +59,6 @@
   --blue-grey-dark: #152b3dff;
   --blue-gray-darker: #1f2f3cff;
   --blue-grey-medium: var(--brandGrey);
-  --blue-grey: var(--navy-700);
-  --blue-grey-light: #274b66ff;
-  /* This is navy 500 in the design system's scale */
-  --blue-grey-lighter: var(--colorScalesNavy500);
-  --blue-grey-smoke: #c5e6ff66;
 
   --grey: #555555ff;
   /* #777777 is low contrast (WCAG) */
@@ -90,7 +83,6 @@
   --color-menu-link-alt: var(--colorTextLinkDefault);
   --color-menu-marker: var(--navy-300);
   --bg-color-menu: var(--colorBackgroundSecondaryDefault);
-  --bg-color-menu-open: rgba(13, 128, 216, 0.1);
   --border-color-menu-open: var(--colorBorderPrimary);
   --gap-menu: 0.6em;
 
@@ -157,12 +149,10 @@
   --search-height: 3rem;
   --search-border-radius: calc(var(--search-height) / 2);
   --search-results-padding: 1rem;
-  --search-border: 0.0625rem solid #76a1c2;
+  --search-border: 0.0625rem solid var(--colorTextFieldBorderDefault);
   --search-dropdown-height: 60vh;
   --search-dropdown-duration: var(--duration-default);
-  --search-placeholder-color: #173b56;
-  --search-remove-icon-color: #355670;
-  --search-overlay: rgba(12, 26, 36, 0.3);
+  --search-overlay: var(--colorOverlayPrimary);
 
   --hamburger-lines-color: var(--colorIconPrimary);
 
@@ -175,16 +165,13 @@
   /* To be checked and cleaned */
 
   --octo-blue: var(--colorTextLinkDefault);
-  --octo-blue-lighter: #2f95e3ff;
-  --octo-blue-lightest: #1fc0ffff;
 
   --header-link-color: var(--octo-blue);
 
   --content-bg: var(--white);
 
   --body-link-color: var(--octo-blue);
-  --body-link-alt: var(--blue-grey-light);
-  --menu-link-bg: var(--blue-grey-smoke);
+  --body-link-alt: var(--colorTextPrimary);
 
   --icon-stroke: var(--white);
   --icon-fill: var(--colorIconSecondary);
@@ -231,9 +218,10 @@
 
   --standard-radius: 0.5rem;
 
-  --colorNavBackgroundRest: rgb(from var(--colorScalesBlue500) r g b / 0);
-  --colorNavBackgroundHover: var(--colorScalesSlate100);
-  --colorNavBackgroundActive: rgb(from var(--colorScalesBlue500) r g b / 0.06);
+  /* Row backgrounds for the side nav, top nav and search results. */
+  --colorNavBackgroundRest: transparent;
+  --colorNavBackgroundHover: var(--colorMenuListBackgroundHover);
+  --colorNavBackgroundActive: var(--colorMenuListBackgroundActive);
 
   --colorApiBadgeBackgroundGet: var(--colorScalesGreen100);
   --colorApiBadgeBorderGet: var(--colorScalesGreen200);
@@ -275,25 +263,11 @@
 html[data-theme='dark'] {
   /* The navigation matches the page in dark, unlike light */
   --bg-color-menu: var(--colorBackgroundPrimaryDefault);
-  --bg-color-menu-open: var(--blue-grey-dark);
-  --body-link-alt: var(--white);
-  --search-placeholder-color: var(--navy-400);
-  --search-remove-icon-color: var(--white);
   --grey-lighter: var(--blue-grey-dark);
-  /* TODO: --navy-200 is still hand-themed because main.css uses it directly on
-     code, .image, figure:has(p > img) p, .card and .site-search-results__item.
-     Point those at --border-default-color / --bg-color-tab and this can go. */
-  --navy-200: #314c62;
-  /* TODO: --blue-grey is hand-themed for .card__description, which is
-     secondary text, so --color-text-secondary already covers it. */
-  --blue-grey: #dae2e9ff;
   --grey-light: var(--navy-700);
   --octopus-logo-text-color: var(--white);
-  --search-overlay: rgba(12, 26, 36, 0.8);
   /* Tiles sit one step above the page so hover has somewhere lighter to go */
   --icon-tile-background-hover: var(--colorBackgroundTertiary);
-
-  --colorNavBackgroundHover: var(--colorScalesNavy800);
 
   --colorApiBadgeBackgroundGet: var(--colorScalesGreen900);
   --colorApiBadgeBorderGet: var(--colorScalesGreen700);
