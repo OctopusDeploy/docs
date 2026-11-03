@@ -90,12 +90,81 @@ export function getImageInfo(src, className, sizes) {
   return info;
 }
 
+const VALID_TAG_NAME = /^[a-z][a-z0-9-]*$/i;
+
+const DIRECTIVE_MARKERS = {
+  textDirective: ':',
+  leafDirective: '::',
+  containerDirective: ':::',
+};
+
+function attributesText(attributes) {
+  const entries = Object.entries(attributes ?? {});
+  if (!entries.length) return '';
+  const parts = entries.map(([key, value]) =>
+    key === 'id'
+      ? `#${value}`
+      : key === 'class'
+        ? String(value)
+            .split(/\s+/)
+            .map((name) => `.${name}`)
+            .join(' ')
+        : `${key}="${value}"`
+  );
+  return `{${parts.join(' ')}}`;
+}
+
+// Sätteri parses text like `host.example.com:10943` as a `:10943` directive, and
+// `::1` on its own line as a leaf one. A name that can't be a tag was never meant
+// as one, so put the text back. The label comes back as plain text: anything
+// richer is flattened, so that case is reported rather than passed silently.
+function restoreDirectiveText(node, ctx) {
+  const marker = DIRECTIVE_MARKERS[node.type];
+  const attributes = attributesText(node.attributes);
+
+  if (node.type === 'containerDirective') {
+    ctx.replaceNode(node, [
+      paragraph(`${marker}${node.name}${attributes}`),
+      ...node.children,
+      paragraph(marker),
+    ]);
+    return;
+  }
+
+  const children = node.children ?? [];
+  const label = children.length ? `[${ctx.textContent(node)}]` : '';
+  // Sätteri 0.10 collects ctx.report() diagnostics but never prints them.
+  if (children.some((child) => child.type !== 'text')) {
+    const file = ctx.fileURL ? ` in ${ctx.fileURL.pathname}` : '';
+    console.warn(
+      `[custom-markdown] Restored "${marker}${node.name}" as text${file}; formatting inside its [label] was dropped`
+    );
+  }
+
+  const text = {
+    type: 'text',
+    value: `${marker}${node.name}${label}${attributes}`,
+  };
+  ctx.replaceNode(node, node.type === 'leafDirective' ? paragraph(text) : text);
+}
+
+function paragraph(content) {
+  const text =
+    typeof content === 'string' ? { type: 'text', value: content } : content;
+  return { type: 'paragraph', children: [text] };
+}
+
 // A directive's `name` is the tag to render and its `attributes` are already
 // parsed into plain properties (`{.hint}` arrives as `class: 'hint'`), so
 // hanging hName/hProperties off the node is all the conversion needs. Sätteri
 // drops null and undefined properties on the way out, which is what keeps an
 // image with no srcset from emitting an empty attribute.
 function directiveToHtml(node, ctx) {
+  if (!VALID_TAG_NAME.test(node.name)) {
+    restoreDirectiveText(node, ctx);
+    return;
+  }
+
   const properties = { ...node.attributes };
 
   if (properties.src) {
