@@ -29,7 +29,10 @@ const config: PlaywrightTestConfig = {
   ],
   outputDir: 'test-results/',
   webServer: {
-    command: 'npm run preview',
+    // --ignore-lock keeps the server in the foreground. Without it, Astro
+    // detaches the preview server when an AI agent runs it, so Playwright sees
+    // the command exit early and the server is left running.
+    command: 'npm run preview -- --ignore-lock',
     port: 3000,
   },
 };

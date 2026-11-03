@@ -90,12 +90,22 @@ export function getImageInfo(src, className, sizes) {
   return info;
 }
 
+const VALID_TAG_NAME = /^[a-z][a-z0-9-]*$/i;
+
 // A directive's `name` is the tag to render and its `attributes` are already
 // parsed into plain properties (`{.hint}` arrives as `class: 'hint'`), so
 // hanging hName/hProperties off the node is all the conversion needs. Sätteri
 // drops null and undefined properties on the way out, which is what keeps an
 // image with no srcset from emitting an empty attribute.
 function directiveToHtml(node, ctx) {
+  // Sätteri parses text like `host.example.com:10943` as a `:10943` directive.
+  // A name that can't be a tag was never meant as one, so put the text back.
+  if (node.type === 'textDirective' && !VALID_TAG_NAME.test(node.name)) {
+    const label = node.children?.length ? `[${ctx.textContent(node)}]` : '';
+    ctx.replaceNode(node, { type: 'text', value: `:${node.name}${label}` });
+    return;
+  }
+
   const properties = { ...node.attributes };
 
   if (properties.src) {
