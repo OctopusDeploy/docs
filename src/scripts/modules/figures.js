@@ -90,12 +90,18 @@ function open(img) {
   close.setAttribute('aria-label', 'Close image');
 
   const frame = document.createElement('div');
-  const clone = /** @type {HTMLImageElement} */ (img.cloneNode());
+  // Copied attribute by attribute rather than with cloneNode(), which would
+  // start downloading the light original of a themed image in dark mode.
+  // Every srcset entry is a variant generated for a column, capped at 2000px,
+  // so keep the clone off them and on the full-size original.
+  const clone = document.createElement('img');
 
-  // src is the original. Every srcset entry is a variant generated for a
-  // column, capped at 2000px, so keep the clone off them.
-  clone.removeAttribute('srcset');
-  clone.removeAttribute('sizes');
+  for (const { name, value } of img.attributes) {
+    if (!['src', 'srcset', 'sizes'].includes(name)) {
+      clone.setAttribute(name, value);
+    }
+  }
+
   clone.src = originalSrc(img);
 
   frame.appendChild(clone);

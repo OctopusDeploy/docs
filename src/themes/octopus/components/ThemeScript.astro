@@ -8,8 +8,8 @@ import {
   themeVariantMedia,
 } from 'src/lib/theme';
 
-// define:vars serialises its values, so resolve the media queries here rather
-// than passing the function
+// define:vars can only pass plain values, not functions, so resolve the media
+// queries here
 const VARIANT_MEDIA = {
   light: themeVariantMedia('light'),
   dark: themeVariantMedia('dark'),
