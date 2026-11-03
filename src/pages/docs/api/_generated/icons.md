@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-10-07
 title: Icons
 ---
 
@@ -115,26 +115,26 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/logo/icon`
 **Path Parameters**
 
 - **`projectId`** :span[string]{.type-label} *(required)*  
-  The ID of the project to change logo for. Example: 'Projects-1'.
+  The ID of the project to change logo for.
 - **`spaceId`** :span[string]{.type-label} *(required)*  
   The ID of the space containing the resource(s).
 
 **Request Body**
 
 - **`IconColor`** :span[string]{.type-label} *(required)*  
-  Color of the icon in hex format. Example: '#0D80D8'. Minimum length 1. Must match `^#[0-9a-fA-F]{6}$`.
+  Color of the icon in hex format. Minimum length 1. Must match `^#[0-9a-fA-F]{6}$`.
 - **`IconId`** :span[string]{.type-label} *(required)*  
-  ID of the icon. Example: 'octopus-deploy'. Minimum length 1.
+  ID of the icon. Minimum length 1.
 - **`ProjectId`** :span[string]{.type-label} *(required)*  
-  The ID of the project to change logo for. Example: 'Projects-1'.
+  The ID of the project to change logo for.
 - **`SpaceId`** :span[string]{.type-label} *(required)*  
   The ID of the space containing the resource(s).
 
 :::api-example{label="Request"}
 ```json
 {
-  "IconColor": "string",
-  "IconId": "string",
+  "IconColor": "#0D80D8",
+  "IconId": "octopus-deploy",
   "ProjectId": "Projects-1",
   "SpaceId": "Spaces-1"
 }

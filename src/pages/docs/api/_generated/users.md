@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-09-04
+modDate: 2026-10-22
 title: Users
 ---
 
@@ -615,9 +615,6 @@ Unless the first administrator user is being registered, an invitation code must
 - **`DisplayName`** :span[string]{.type-label} *(required)*  
   Minimum length 1.
 - **`EmailAddress`** :span[string]{.type-label}
-- **`Identities`** :span[array of object]{.type-label}
-  - **`Claims`** :span[object]{.type-label}
-  - **`IdentityProviderName`** :span[string]{.type-label}
 - **`InvitationCode`** :span[string]{.type-label} *(required)*  
   Minimum length 1.
 - **`Password`** :span[string]{.type-label} *(required)*  
@@ -630,16 +627,6 @@ Unless the first administrator user is being registered, an invitation code must
 {
   "DisplayName": "string",
   "EmailAddress": "string",
-  "Identities": [
-    {
-      "Claims": {
-        "additionalProp1": {},
-        "additionalProp2": {},
-        "additionalProp3": {}
-      },
-      "IdentityProviderName": "string"
-    }
-  ],
   "InvitationCode": "string",
   "Password": "string",
   "Username": "string"
@@ -908,6 +895,32 @@ Unless the first administrator user is being registered, an invitation code must
 **Response**
 
 `200` — Success
+
+## Get the profile picture uploaded by a user
+
+:endpoint{method="GET" path="/api/users/\{userId\}/avatar"}
+
+Any signed-in user can view any user's profile picture, as they appear alongside audit events and team members.
+
+**Path Parameters**
+
+- **`userId`** :span[string]{.type-label} *(required)*  
+  The ID of the user.
+
+**Query Parameters**
+
+- **`cb`** :span[string]{.type-label}  
+  The cache buster from the user's Avatar link. Only a request for the current picture is cached indefinitely.
+
+**Response**
+
+`200` — Success
+
+:::api-example{label="Response"}
+```json
+"string"
+```
+:::
 
 ## Revoke all sessions for a user
 

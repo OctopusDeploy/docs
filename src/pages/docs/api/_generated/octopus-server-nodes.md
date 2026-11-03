@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-09-04
+modDate: 2026-10-06
 title: Octopus Server Nodes
 ---
 
@@ -181,6 +181,7 @@ Returns HTTP ImATeapot (418) when the Octopus Server node is draining or offline
 
 `200` — The Octopus Server Nodes Summary
 
+- **`IsMultiNodePollingTentaclesEnabled`** :span[boolean]{.type-label}
 - **`Links`** :span[object]{.type-label}
 - **`Nodes`** :span[array of object]{.type-label}
   - **`Id`** :span[string]{.type-label}  
@@ -205,6 +206,7 @@ Returns HTTP ImATeapot (418) when the Octopus Server node is draining or offline
 :::api-example{label="Response"}
 ```json
 {
+  "IsMultiNodePollingTentaclesEnabled": false,
   "Links": {
     "additionalProp1": "string",
     "additionalProp2": "string",
