@@ -1143,7 +1143,8 @@ html[data-theme='dark'] img.card__icon {
 /* The row for the page you are on, hovered or not. */
 .site-nav__link[aria-current] {
   background-color: var(--colorNavBackgroundActive);
-  color: var(--colorMenuListTextPrimary);
+  color: var(--colorTextPrimary);
+  font: var(--textBodyBoldMedium);
 }
 
 /* The API nav lists the current page's endpoints in place of a table of
@@ -1151,10 +1152,11 @@ html[data-theme='dark'] img.card__icon {
    there: `highlight` comes from scripts/modules/toc.js. */
 .site-nav__link--heading.highlight {
   background-color: var(--colorNavBackgroundActive);
-  color: var(--colorMenuListTextPrimary);
+  color: var(--colorTextPrimary);
+  font: var(--textBodyBoldMedium);
 }
 
-/* An expanded section is the only row that goes bold. */
+/* Expanded sections go bold, as does the active row. */
 .site-nav__group[open] > .site-nav__link {
   font: var(--textBodyBoldMedium);
 }

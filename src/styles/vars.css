@@ -218,10 +218,11 @@
 
   --standard-radius: 0.5rem;
 
-  /* Row backgrounds for the side nav, top nav and search results. */
-  --colorNavBackgroundRest: transparent;
-  --colorNavBackgroundHover: var(--colorMenuListBackgroundHover);
-  --colorNavBackgroundActive: var(--colorMenuListBackgroundActive);
+  /* Row backgrounds for the side nav and top nav. Hover and active share a
+     background; the active row is told apart by its bold font instead. */
+  --colorNavBackgroundRest: var(--colorNavListBackgroundDefault);
+  --colorNavBackgroundHover: var(--colorNavListBackgroundActive);
+  --colorNavBackgroundActive: var(--colorNavListBackgroundActive);
 
   --colorApiBadgeBackgroundGet: var(--colorScalesGreen100);
   --colorApiBadgeBorderGet: var(--colorScalesGreen200);
