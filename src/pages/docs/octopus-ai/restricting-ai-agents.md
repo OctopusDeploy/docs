@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-10-29
-modDate: 2026-11-03
+modDate: 2026-11-04
 title: Restricting what AI agents can do
 navTitle: Restricting AI agents
 sidebarLabel: Restricting AI agents
@@ -91,7 +91,7 @@ To give an AI agent its own identity:
 6. In your AI agent's configuration, such as its MCP server settings, replace the old API key with the new agent API key.
 7. Delete the API key the agent used before.
 
-The agent service account appears in the **Users** list labeled as an AI agent, and the runs it starts show an **AI agent** badge in their run history.
+The agent service account appears in the **Users** list labeled as an AI agent, and the runs it starts show an **AI agent** badge in their run history. To see only runbook runs started by AI agents, select **Show advanced filters** on the project's **Operations** page or a runbook's **Runs** page. Then select **AI runs only**.
 
 ## Limit an AI agent's permissions
 
