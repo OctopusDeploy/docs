@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-10-07
+modDate: 2026-11-04
 title: Project Groups
 ---
 
@@ -540,6 +540,7 @@ Also reachable at `/api/projectgroups/{id}/projects`, `/api/spaces/{spaceIdentif
       ],
       "ProjectTemplateDetails": {
         "IsShared": false,
+        "ManagedChannelsAndLifecycles": false,
         "Slug": "string",
         "VersionMask": "string"
       },

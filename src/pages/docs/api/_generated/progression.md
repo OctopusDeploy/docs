@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-09-04
+modDate: 2026-11-03
 title: Progression
 ---
 
@@ -20,6 +20,9 @@ Return a list of runbook dashboard items, filtered by various criteria including
 
 **Query Parameters**
 
+- **`actorTypes`** :span[array of enum]{.type-label}  
+  Return only runs started by these actor types, for example Agent for AI agents.  
+  Allowed values: `Unknown`, `System`, `User`, `Agent`, `ServiceAccount`.
 - **`environmentIds`** :span[array of string]{.type-label}
 - **`projectIds`** :span[array of string]{.type-label}
 - **`runbookIds`** :span[array of string]{.type-label}

@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-10-07
+modDate: 2026-11-04
 title: Lifecycles
 ---
 
@@ -1025,6 +1025,8 @@ Also reachable at `/api/lifecycles/{id}/projects`, `/api/spaces/{spaceIdentifier
   List of tags assigned to this project.
 - **`ProjectTemplateDetails`** :span[object]{.type-label}
   - **`IsShared`** :span[boolean]{.type-label}
+  - **`ManagedChannelsAndLifecycles`** :span[boolean]{.type-label}  
+    True when the resolved template version manages channels and lifecycles. Output only; ignored on input.
   - **`Slug`** :span[string]{.type-label}
   - **`VersionMask`** :span[string]{.type-label}  
     Minimum length 1.
@@ -1110,6 +1112,7 @@ Also reachable at `/api/lifecycles/{id}/projects`, `/api/spaces/{spaceIdentifier
     ],
     "ProjectTemplateDetails": {
       "IsShared": false,
+      "ManagedChannelsAndLifecycles": false,
       "Slug": "string",
       "VersionMask": "string"
     },
