@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-11-02
-modDate: 2026-11-02
+modDate: 2026-11-04
 title: Feature Flags
 ---
 
@@ -752,7 +752,8 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/feature-fl
 - **`DefaultIsEnabled`** :span[boolean]{.type-label}
 - **`Description`** :span[string]{.type-label}  
   Maximum length 1000.
-- **`Environments`** :span[array of object]{.type-label} *(required)*
+- **`Environments`** :span[array of object]{.type-label} *(required)*  
+  The complete set of per-environment configurations for the flag. This replaces the existing set: environments omitted here are removed from the flag.
   - **`DeploymentEnvironmentId`** :span[string]{.type-label} *(required)*
   - **`IsEnabled`** :span[boolean]{.type-label} *(required)*
   - **`Phases`** :span[array of object]{.type-label} *(required)*

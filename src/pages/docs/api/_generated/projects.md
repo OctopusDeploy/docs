@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-10-07
+modDate: 2026-11-04
 title: Projects
 ---
 
@@ -161,6 +161,7 @@ List all the projects in the supplied Octopus Deploy Space, from all project gro
       ],
       "ProjectTemplateDetails": {
         "IsShared": false,
+        "ManagedChannelsAndLifecycles": false,
         "Slug": "string",
         "VersionMask": "string"
       },
@@ -417,6 +418,8 @@ Also reachable at `/api/projects`, `/api/spaces/{spaceIdentifier}/projects`.
   List of tags assigned to this project.
 - **`ProjectTemplateDetails`** :span[object]{.type-label}
   - **`IsShared`** :span[boolean]{.type-label}
+  - **`ManagedChannelsAndLifecycles`** :span[boolean]{.type-label}  
+    True when the resolved template version manages channels and lifecycles. Output only; ignored on input.
   - **`Slug`** :span[string]{.type-label}
   - **`VersionMask`** :span[string]{.type-label}  
     Minimum length 1.
@@ -501,6 +504,7 @@ Also reachable at `/api/projects`, `/api/spaces/{spaceIdentifier}/projects`.
   ],
   "ProjectTemplateDetails": {
     "IsShared": false,
+    "ManagedChannelsAndLifecycles": false,
     "Slug": "string",
     "VersionMask": "string"
   },
@@ -626,6 +630,8 @@ List all of the projects in the supplied Octopus Deploy Space.
   List of tags assigned to this project.
 - **`ProjectTemplateDetails`** :span[object]{.type-label}
   - **`IsShared`** :span[boolean]{.type-label}
+  - **`ManagedChannelsAndLifecycles`** :span[boolean]{.type-label}  
+    True when the resolved template version manages channels and lifecycles. Output only; ignored on input.
   - **`Slug`** :span[string]{.type-label}
   - **`VersionMask`** :span[string]{.type-label}  
     Minimum length 1.
@@ -711,6 +717,7 @@ List all of the projects in the supplied Octopus Deploy Space.
     ],
     "ProjectTemplateDetails": {
       "IsShared": false,
+      "ManagedChannelsAndLifecycles": false,
       "Slug": "string",
       "VersionMask": "string"
     },
@@ -846,6 +853,8 @@ Also reachable at `/api/projects/{projectId}`, `/api/projects/{projectId}/{unuse
   List of tags assigned to this project.
 - **`ProjectTemplateDetails`** :span[object]{.type-label}
   - **`IsShared`** :span[boolean]{.type-label}
+  - **`ManagedChannelsAndLifecycles`** :span[boolean]{.type-label}  
+    True when the resolved template version manages channels and lifecycles. Output only; ignored on input.
   - **`Slug`** :span[string]{.type-label}
   - **`VersionMask`** :span[string]{.type-label}  
     Minimum length 1.
@@ -930,6 +939,7 @@ Also reachable at `/api/projects/{projectId}`, `/api/projects/{projectId}/{unuse
   ],
   "ProjectTemplateDetails": {
     "IsShared": false,
+    "ManagedChannelsAndLifecycles": false,
     "Slug": "string",
     "VersionMask": "string"
   },
@@ -1211,6 +1221,8 @@ Also reachable at `/api/projects/{projectId}`, `/api/spaces/{spaceIdentifier}/pr
   List of tags assigned to this project.
 - **`ProjectTemplateDetails`** :span[object]{.type-label}
   - **`IsShared`** :span[boolean]{.type-label}
+  - **`ManagedChannelsAndLifecycles`** :span[boolean]{.type-label}  
+    True when the resolved template version manages channels and lifecycles. Output only; ignored on input.
   - **`Slug`** :span[string]{.type-label}
   - **`VersionMask`** :span[string]{.type-label}  
     Minimum length 1.
@@ -1295,6 +1307,7 @@ Also reachable at `/api/projects/{projectId}`, `/api/spaces/{spaceIdentifier}/pr
   ],
   "ProjectTemplateDetails": {
     "IsShared": false,
+    "ManagedChannelsAndLifecycles": false,
     "Slug": "string",
     "VersionMask": "string"
   },
