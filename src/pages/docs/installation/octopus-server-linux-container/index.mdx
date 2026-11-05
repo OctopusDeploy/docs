@@ -43,6 +43,10 @@ This section walks through some of the different ways you can run the Octopus Se
 - [Octopus Server Container with systemd](/docs/installation/octopus-server-linux-container/systemd-service-definition)
 - [Octopus Server Container in Kubernetes](/docs/installation/octopus-server-linux-container/octopus-in-kubernetes)
 
+## Hardened image
+
+If you need a reduced attack surface for security or compliance reasons, you can run the [hardened Octopus Server Linux Container](/docs/installation/octopus-server-linux-container/hardened-image) instead. It's a minimal, shell-less image that runs as a non-root user and takes the latest security updates, even when they break compatibility with older clients.
+
 ## Migration
 
 You may already have Octopus Server running on Windows Server or in a Windows container you wish to run in a Linux Container. This section walks through the different options and considerations for migrating to an Octopus Server Linux Container.
