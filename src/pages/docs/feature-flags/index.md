@@ -1,122 +1,65 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-05-21
-modDate: 2026-06-18
-title: Feature Flags
-icon: fa-solid fa-toggle-on
+modDate: 2026-11-05
+title: Feature flags
+sidebarLabel: Overview
 navTitle: Overview
 navSection: Feature Flags
-description: Octopus Feature Flags allow progressive delivery of changes and instant rollback 
 navOrder: 95
+icon: fa-solid fa-toggle-on
+description: Turn features on and off without redeploying, and roll changes out to the right users in stages with Octopus Feature Flags.
+subject: feature flags, feature toggles, progressive delivery, OpenFeature, phased rollouts, rules
+type: concept
+audience: [app-dev, devops-eng, evaluator]
+image:
+imageAlt:
 ---
 
-Octopus Feature Flags support toggling features on or off in real-time, without redeploying, and progressively releasing changes to subsets of your users.
+This page explains what Octopus Feature Flags are, the parts a flag is built from, and how they connect to the projects, environments, and tenants you already deploy with.
 
 :::div{.hint}
-Octopus Feature Flags are now available to Octopus Cloud customers as a Private Preview. To get access, [register your interest](https://survey.octopus.com/t/piv3LpVWWmus).
+Octopus Feature Flags are available to Octopus Cloud customers as a Private Preview. To get access, [register your interest](https://survey.octopus.com/t/piv3LpVWWmus).
 :::
 
-## Usage
-
-### Create a Feature Flag
-
-Feature Flags are located within Octopus Projects:
-**Project ➜ Feature Flags**
-
-Create a new flag and give it a name.
-
-![New flag name](/docs/img/feature-flags/new-flag-name.png)
-
-### Configure OpenFeature in your client application {#configure-open-feature-client-app}
-
-Octopus Feature Flags rely on [OpenFeature](https://openfeature.dev/) as the client SDK.
-
-Follow the [OpenFeature guide for installing the SDK for your language](https://openfeature.dev/ecosystem?instant_search%5BrefinementList%5D%5Btype%5D%5B0%5D=SDK) into your application.
-
-Configure OpenFeature to use the [Octopus Provider](/docs/feature-flags/providers).
-
-The Octopus OpenFeature Provider requires a client identifier when instantiated. This is a [JWT](https://jwt.io/introduction) which specifies the Octopus Project, Environment, and Tenant (if applicable). This tells the Octopus Feature Flag service which set of flags to evaluate.
-
-:::div{.hint}
-The Octopus Feature Flag client identifier is available via the Octopus variable `Octopus.FeatureToggles.ClientIdentifier` or via the Feature Flag UI (see below).
+:::div{.info}
+If your project's **Feature Flags** page shows an **Upgrade to feature flag rules** callout, the project still uses the previous way of configuring flags. See [Legacy feature flags](/docs/feature-flags/legacy) for how those flags work, or [Upgrading to feature flag rules](/docs/feature-flags/upgrading-to-rules) to move the project to rules.
 :::
 
-For applications deployed by Octopus, the recommended way is to have Octopus inject the client identifier as part of deployment, for example by injecting it into a configuration file or environment variable. The client identifier is made available via the Octopus variable `Octopus.FeatureToggles.ClientIdentifier`.
+## Feature flags
 
-For applications not deployed by Octopus, or cannot have the client identifier supplied during deployment for any reason, the client identifier can be obtained via the portal UI, as shown below.
+A feature flag is a named on/off switch that your application checks at runtime. Flags let you ship code with a feature turned off, then turn it on for some or all of your users without another deployment, and turn it off again as quickly if something goes wrong.
 
-![Client identifier preview menu item](/docs/img/feature-flags/client-identifier-preview-menu-item.png)
+Feature flags belong to a project in Octopus. Your application evaluates them with [OpenFeature](https://openfeature.dev/), an open standard for feature flag SDKs, and the [Octopus provider](/docs/feature-flags/providers) for your language. When your application starts, the provider uses a client identifier to tell the Octopus feature flag service which project, environment, and tenant the application belongs to. Octopus injects the client identifier during deployment, so the same build gets the right flags in every environment.
 
-![Client identifier preview UI](/docs/img/feature-flags/client-identifier-preview.png)
+When you change a flag in Octopus, Octopus publishes the change to the feature flag service, and your applications pick it up without being redeployed.
 
-The previewed client identifier may then be copied into your application configuration.
+Use a feature flag when you want to separate releasing a feature from deploying it: to test a change with a small group of users, to roll it out gradually, or to keep a way to turn it off quickly. Feature flags are boolean. They aren't a replacement for configuration values that differ by environment. Use [variables](/docs/projects/variables) for those.
 
-For example, an ASP.NET application could have an `appsettings.json` file which contained the following:
+## Environment configuration
 
-```json
-{
-  "FeatureFlags": {
-    "ClientId": "#{Octopus.FeatureToggles.ClientIdentifier}"
-  }
-}
-```
+A feature flag is configured separately for each environment in your project. Adding an environment to a flag gives that environment its own on/off switch and its own targeting, so a flag can be on for everyone in Development, on for a few internal users in Production, and absent from Staging entirely.
 
-This would be transformed during deployment by Octopus to contain the correct client identifier for the current Project and Environment.
+An environment that isn't added to a flag returns the flag's default value. An environment that's added and switched on, with no rules, has the flag on for everyone. To narrow down who gets the flag, you add rules.
 
-This would then be used during application startup to configure the OpenFeature with the Octopus Provider, similar to:
+## Rules, conditions, and phases
 
-```cs
-// Retrieve client identifier from config 
-var builder = WebApplication.CreateBuilder(args);
-var octopusFeatureFlagsClientId = builder.Configuration["FeatureFlags:ClientId"] ?? "";
+Rules decide who gets a flag in an environment. A rule is made of one or more conditions, such as "the tenant has the tag `Tier/Enterprise`" or "the user falls in 20% of targeting keys". A rule matches when all its conditions match, and the flag is on for a user when any rule matches.
 
-// Instantiate the Octopus Provider
-var octopusProvider = new OctopusFeatureProvider(new OctopusFeatureConfiguration(octopusFeatureFlagsClientId));
+Phases group rules into stages of a rollout. Each phase adds more rules, and turning on a phase adds its rules to the rules that are already on. Phases can turn on by themselves at a set date and time, or a set delay after the phase before them, so a rollout can move from internal users to 10% of users to everyone without anyone having to be online for each step.
 
-// Set Octopus as the OpenFeature provider
-await OpenFeature.Api.Instance.SetProviderAsync(octopusProvider);
-```
+<!-- SUGGESTED VISUAL: a diagram showing a feature flag containing environments, an environment containing ordered phases, and each phase containing rules made of conditions, with AND between conditions and OR between rules -->
 
-### Evaluate a Flag
+You don't need phases to use rules. An environment with rules and no phases behaves like a single phase that's always on. To see how these parts combine into a single result, see [How feature flag evaluation works](/docs/feature-flags/how-evaluation-works).
 
-The [Provider](/docs/feature-flags/providers) for each language documents how to evaluate flags.
+## Feature flags and tenants
 
-You will need the flag slug in order to reference the flag in code. This can be found in the Octopus portal:
+In a project that uses [tenants](/docs/tenants), the client identifier also names the tenant an application was deployed for. Rules can target tenants directly, target tenants by their tenant tags, or roll a flag out to a percentage of tenants. This means you can give a feature to one customer, to every customer on a particular tier, or to a growing share of customers, without writing any targeting code in your application.
 
-![Feature Flag slug](/docs/img/feature-flags/feature-flag-slug.png)
+## Related links
 
-Below is an example of evaluating the flag with slug `dark-mode` in C#:
-
-```cs
-var darkModeEnabled = await featureClient.GetBooleanValueAsync("dark-mode", false);
-```
-
-The second argument is the default value. Read more about [default values](#default-values) below.
-
-### Rollout
-
-To enable your flag for an environment, add the environment to the flag.
-
-![Add Environment button](/docs/img/feature-flags/add-environment-button.png)
-
-Once your Environment configuration is saved, you can toggle the Flag on or off for that Environment.
-
-![Toggle Environment](/docs/img/feature-flags/environment-toggle.png)
-
-You can additionally control rollout within an environment. See [Feature Flag targeting](/docs/feature-flags/targeting) for more information.
-
-## Default Values {#default-values}
-
-Flag default values are configured both on the flag in Octopus, and at the evaluation site in your client application. It's important to understand how these interact.
-
-The default value on the flag in Octopus will be returned if the environment being evaluated has not been configured with an explicit value.
-
-In the example below, the `Production` and `Staging` environments have values configured. The default value for the flag is `Off`. If an evaluation is made by an application running in the `Development` environment, or any other environment not configured, it would receive the default value (`Off`).  
-
-![Default Values](/docs/img/feature-flags/default-values.png)
-
-The default value supplied in client code (the `false` argument in the example below) will only be used if the Octopus Feature Flag service cannot be reached, for example if there are network issues or the service is unavailable.
-
-```cs
-var darkModeEnabled = await featureClient.GetBooleanValueAsync("dark-mode", false);
-```
+- [Getting started with feature flags](/docs/feature-flags/getting-started)
+- [How feature flag evaluation works](/docs/feature-flags/how-evaluation-works)
+- [Targeting users with feature flag rules](/docs/feature-flags/rules)
+- [Rolling out feature flags in phases](/docs/feature-flags/phased-rollouts)
+- [OpenFeature providers](/docs/feature-flags/providers)
