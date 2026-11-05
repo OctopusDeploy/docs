@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-10-01
-modDate: 2026-10-01
+modDate: 2026-11-05
 title: Hardened Octopus Server Linux Container
 description: Run Octopus Server in a minimal, shell-less Linux container that runs as a non-root user. Learn what's different from the standard image, how to configure it, and which features aren't supported.
 navOrder: 30
@@ -54,7 +54,7 @@ If you need to support older clients or targets that can't keep up, use the [sta
 
 ## Getting started
 
-The hardened image is published to the same [Docker Hub repository](https://hub.docker.com/r/octopusdeploy/octopusdeploy) as the standard image, using tags with a `-hardened` suffix.
+The hardened image is published to its own Docker Hub repository, [octopusdeploy/hardened-octopusdeploy](https://hub.docker.com/r/octopusdeploy/hardened-octopusdeploy), separate from the [standard image](https://hub.docker.com/r/octopusdeploy/octopusdeploy). Tags use the same Octopus Server version numbers as the standard image.
 
 ```bash
 docker run --detach --name OctopusDeploy \
@@ -65,7 +65,7 @@ docker run --detach --name OctopusDeploy \
   --env ADMIN_USERNAME="admin" \
   --env ADMIN_PASSWORD="..." \
   --volume ./masterKey:/masterKey \
-  octopusdeploy/octopusdeploy:<version>-hardened
+  octopusdeploy/hardened-octopusdeploy:<version>
 ```
 
 - You don't need `--interactive` or `--privileged`. The container runs Octopus Server in non-interactive mode and doesn't start Docker-in-Docker.
@@ -79,7 +79,7 @@ The image runs as UID `1001` by default. Every file and directory Octopus needs 
 To run as a different UID with Docker, pass `--user` with group `0`:
 
 ```bash
-docker run --detach --user 12345:0 ... octopusdeploy/octopusdeploy:<version>-hardened
+docker run --detach --user 12345:0 ... octopusdeploy/hardened-octopusdeploy:<version>
 ```
 
 On Kubernetes, set a security context on the pod:
