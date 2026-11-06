@@ -5,7 +5,7 @@ modDate: 2026-10-26
 title: Octopus Remote MCP use cases
 navTitle: Use cases
 description: Explore how Octopus Remote MCP helps teams track releases, diagnose failures, automate deployments, audit changes, and manage tenants.
-navOrder: 2
+navOrder: 3
 ---
 
 Octopus Remote MCP lets your AI assistant work with the deployment information and operations in your Octopus instance. These use cases show how it can reduce investigation time, make release status easier to understand, and help teams act without manually piecing together information from different parts of Octopus.
