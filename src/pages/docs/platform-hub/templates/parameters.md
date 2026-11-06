@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-03-05
-modDate: 2026-09-21
+modDate: 2026-11-04
 title: Template parameters
 subtitle: A reference for parameters in Platform Hub templates
 icon: fa-solid fa-layer-group
@@ -41,7 +41,7 @@ Templates can manage the following as parameters:
 - Project
 - A previous step name (process templates only)
 
-To create a parameter, navigate to **Parameters** on a template and add a new parameter.
+To create a parameter, navigate to **Parameters** on a template and select **Add parameter**. You can also create a parameter from the step that uses it. See [Create a parameter from a step](/docs/platform-hub/templates/process-templates#create-parameter-from-step) for process templates, and [Create a parameter or variable from a step](/docs/platform-hub/templates/project-templates#create-from-step) for project templates.
 
 ## Parameter values
 

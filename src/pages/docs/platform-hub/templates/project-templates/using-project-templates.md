@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-03-16
-modDate: 2026-10-12
+modDate: 2026-11-04
 title: Templated projects
 subtitle: How to create and manage projects from a project template
 icon: fa-solid fa-layer-group
@@ -68,6 +68,8 @@ Template values are the parameters the template owner has defined to let you cus
 ![The Template values page for a templated project](/docs/img/platform-hub/project-templates/templated-project-values.png)
 :::
 
+To use a project variable as a template value, select the **Insert a variable** button (**#\{\}**) next to the field. If the variable doesn't exist yet, select **Create Variable** to create it without leaving the page. It's saved to the project's variables and inserted into the field. For the fields in the drawer, see [Create a variable from the process editor](/docs/projects/variables/getting-started#create-from-process-editor).
+
 After you've provided the required values, you can create a release as usual.
 
 :::div{.hint}
@@ -104,3 +106,7 @@ When a new version of the template is published, you'll receive the update. How 
 ## Limitations
 
 Some features are not yet supported for templated projects. For a full list, see [Troubleshooting](/docs/platform-hub/templates/project-templates/troubleshooting).
+
+## Version notes
+
+- Creating a project variable from the **Template values** page is available from [PLACEHOLDER: the first self-hosted Octopus Server version that includes creating variables and parameters from the process editor, with build number — needs: release version from Travis].

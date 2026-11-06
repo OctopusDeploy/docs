@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2024-03-06
-modDate: 2024-08-28
+modDate: 2026-11-04
 title: Getting started with variables
 icon: fa-solid fa-play
 description: A guide to getting started with variables in Octopus Deploy.
@@ -45,6 +45,63 @@ In this example, we'll add a variable to a Hello World project that runs a scrip
     :::
 
 When a release of the project is deployed, the script step will run with the string *Hello, Test* on the Test environment, and with the string *Hello, Production*, on the Production environment.
+
+## Create a variable from the process editor \{#create-from-process-editor}
+
+You can create a project variable without leaving the step you're editing. The variable is saved to the project and inserted into the field you're working in, so you don't have to switch to **Project Variables** and back. This example builds the same Hello World script as the previous section.
+
+**Before you begin**
+
+You'll need:
+
+- A [project](/docs/projects) with a deployment process.
+- Permission to edit variables in the project.
+- For a project that stores its variables in Git, an unprotected branch selected in the branch switcher.
+- Octopus Deploy on version `>= REPLACE_ME_WITH_VERSION_NUMBER`.
+
+To create a variable from the process editor:
+
+1. In your project, select **Process**.
+2. Select **Add Step**, then select **Run a Script**.
+3. In the **Script** section, enter the following PowerShell into the script editor, followed by a space:
+
+   ```powershell
+   Write-Host
+   ```
+
+4. Select the **Insert a variable** button (**#\{\}**) in the script editor.
+5. In the search box, enter *Greeting*.
+6. Select **Create “Greeting” Variable**. The **Create Variable** drawer opens with *Greeting* already in **Variable name**.
+
+    :::figure
+    ![Using a variable in a Hello World script in Octopus Deploy](/docs/img/projects/variables/images/hello-world-greeting-script-process.png)
+    :::
+
+7. In **Type**, keep **Text** selected.
+8. In **Value 1**, enter *Hello, Test*.
+9. Select **Add scope**, then select **Environments**.
+10. In **Environments**, select *Test*.
+11. Select **Add Value**.
+12. In **Value 2**, enter *Hello, Production*.
+13. Select **Add scope**, then select **Environments**.
+14. In **Environments**, select *Production*.
+
+    :::figure
+    ![Using a variable in a Hello World script in Octopus Deploy](/docs/img/projects/variables/images/hello-world-greeting-script-process-creation.png)
+    :::
+
+15. Select **Create and Insert**.
+16. Select **Save** to save the step.
+
+The drawer closes, `$Greeting`(if using Powershell syntax) appears in the script after `Write-Host`, and *Greeting* is listed with both values under **Project Variables**. When a release is deployed, the step prints *Hello, Test* on the Test environment and *Hello, Production* on the Production environment.
+
+:::div{.hint}
+Fields that take a variable rather than free text, such as a certificate or account field, have their own **Create Variable** button next to the field. It opens the same drawer, offers only the variable types the field accepts, and selects the new variable in the field when you select **Create and Insert**.
+:::
+
+:::div{.hint}
+If your project stores variables in Git and you're viewing a protected branch, a tag, or a commit, the drawer is read-only. Switch to an unprotected branch to create the variable.
+:::
 
 ## Scoping variables \{#scoping-variables}
 
@@ -248,6 +305,10 @@ If you have many configuration settings for your application and are using a var
 - Are the settings safe to be stored in clear text as they don't hold a sensitive value?
 
 If the answer to either question is yes, consider an external store for your variables. This might be a source control repository, a configuration management system, or a database.
+
+## Version notes
+
+- Creating a project variable from the process editor is available from [PLACEHOLDER: the first self-hosted Octopus Server version that includes creating variables from the process editor, with build number — needs: release version from Travis].
 
 ## Learn more
 
