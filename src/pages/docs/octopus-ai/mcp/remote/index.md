@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-08-17
-modDate: 2026-10-29
+modDate: 2026-11-09
 title: Octopus Remote MCP
 navTitle: Remote MCP
 navSection: Octopus Remote MCP

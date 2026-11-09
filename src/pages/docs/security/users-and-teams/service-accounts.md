@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2026-10-26
+modDate: 2026-11-09
 title: Service accounts
 description: Creating Service Accounts to provide individual services with the least privileges required for the tasks they will perform.
 navOrder: 2

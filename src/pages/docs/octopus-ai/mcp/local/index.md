@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-04-04
-modDate: 2026-10-26
+modDate: 2026-11-09
 title: Local Octopus MCP server
 navTitle: Overview
 navSection: Local MCP
