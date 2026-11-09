@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-04-28
+modDate: 2026-11-09
 title: Releases and Deployments
 description: Guidelines and recommendations for creating releases and deploying them in Octopus Deploy.
 navOrder: 95
@@ -32,7 +32,7 @@ Octopus Deploy provides [built-in package repository](/docs/projects/project-tri
 
 Release creation triggers have the following limitations:
 
-- Only the built-in package repository, container image and helm feeds are currently supported.
+- The built-in package repository and all external feed types except Maven are supported.
 - The order the build server pushes the packages can be very important when there are multiple involved, as you'll have to configure the trigger to monitor the last package pushed by the build server. That makes the build server and Octopus Deploy more tightly coupled.
 - Built-in package repository triggers have a limit of one per project.
 
