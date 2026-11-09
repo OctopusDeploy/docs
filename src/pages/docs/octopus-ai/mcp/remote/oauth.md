@@ -1,12 +1,12 @@
 ---
 layout: src/layouts/Default.astro
-pubDate: 2026-10-28
-modDate: 2026-10-29
+pubDate: 2026-11-09
+modDate: 2026-11-09
 title: Connecting AI assistants with OAuth
 navTitle: OAuth sign-in
 sidebarLabel: OAuth sign-in
 navOrder: 2
-description: Connect Claude Code, Codex, Claude, ChatGPT, GitHub Copilot, and other AI assistants to Octopus Remote MCP by signing in with your Octopus account.
+description: Connect Claude Code, Codex, claude.ai, ChatGPT, GitHub Copilot, and other AI assistants to Octopus Remote MCP by signing in with your Octopus account.
 subject: Remote MCP, OAuth, AI assistants, Claude Code, GitHub Copilot, Codex, ChatGPT, MCP authentication
 type: guide
 audience: [app-dev, devops-eng, admin]
@@ -21,7 +21,13 @@ With OAuth, you connect an AI assistant to [Octopus Remote MCP](/docs/octopus-ai
 | **Read-only** | Use your permissions, excluding any that make changes |
 | **Full access** | Everything you can do, in every space you have access to |
 
-Supported assistants include Claude Code, Claude, ChatGPT, Codex, GitHub Copilot, Google Antigravity, Zed, and Grok. Cursor doesn't support Octopus OAuth, so use an [Agent API key](/docs/octopus-ai/mcp/remote#connect-cursor) instead.
+Octopus Server supports AI assistants that use OAuth for authentication and CIMD for client registration. Supported assistants include Claude Code, claude.ai, ChatGPT, Codex, GitHub Copilot, Google Antigravity, Zed, and Grok along with many others.
+
+Cursor doesn't support CIMD yet, so use an [Agent API key](/docs/octopus-ai/mcp/remote#connect-cursor) instead.
+
+:::div{.hint}
+OAuth for Octopus Remote MCP is rolling out to Octopus Cloud now. It will be available to self-hosted Octopus Server instances in the next LTS release `2026.4`.
+:::
 
 ## Connect your AI assistant
 
@@ -29,10 +35,9 @@ Supported assistants include Claude Code, Claude, ChatGPT, Codex, GitHub Copilot
 
 You'll need:
 
-- Octopus Cloud, or Octopus Server 2026.4.9289 or later.
 - **Enable Remote MCP** turned on in **Configuration > Settings > MCP Controls**. It's on by default.
 - An Octopus user account. Service accounts and the guest account can't sign in this way.
-- For Claude, ChatGPT, and Grok, an Octopus instance that's reachable from the internet.
+- For claude.ai Connectors, chatgpt.com Custom MCP servers, and grok.com Connectors, an Octopus instance that's reachable from the internet.
 
 In each example, replace `your-octopus-url` with your Octopus address.
 
@@ -97,7 +102,7 @@ To approve access in Octopus:
 3. Choose **Read-only** or **Full access**.
 
     :::div{.hint}
-    You can't change the access level later. To change it, [disconnect the assistant](#disconnect-an-ai-assistant), then connect again.
+    You can't change the access level later. To change it, disconnect the assistant, then connect again.
     :::
 
 4. Select **Approve**.
@@ -111,26 +116,6 @@ In Claude Code, run `/mcp` to see the connection status:
 :::figure
 ![The Claude Code /mcp panel showing octopus-deploy as connected](/docs/img/octopus-ai/mcp/oauth/claude-connected.png)
 :::
-
-## Disconnect an AI assistant
-
-To disconnect Claude Code, run `claude mcp logout octopus-deploy`. This also ends its access in Octopus.
-
-Most other assistants don't end their access in Octopus when you remove the server or sign out. To end it, revoke your sessions.
-
-:::div{.warning}
-**Revoke Sessions** disconnects all your AI assistants and signs you out of Octopus everywhere.
-:::
-
-To disconnect another AI assistant:
-
-1. Remove the Octopus server from your assistant.
-2. In Octopus, select your profile image.
-3. Select **Profile**.
-4. Select the overflow menu (`...`).
-5. Select **Revoke Sessions**.
-
-Administrators can revoke another user's sessions from **Configuration > Users**.
 
 ## Allow an AI assistant's redirect address
 

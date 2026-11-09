@@ -73,6 +73,7 @@ childelement
 choco
 cicd
 CIFS
+CIMD
 classiclink
 ClaudeCodeBehaviour
 clientcertificate

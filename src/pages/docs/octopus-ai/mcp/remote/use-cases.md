@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-08-17
-modDate: 2026-10-26
+modDate: 2026-11-09
 title: Octopus Remote MCP use cases
 navTitle: Use cases
 description: Explore how Octopus Remote MCP helps teams track releases, diagnose failures, automate deployments, audit changes, and manage tenants.
