@@ -11,8 +11,6 @@ navOrder: 12
 
 By configuring your Octopus project with container dependencies, you can now create triggers that watch those repositories for new packages, container images and Helm charts pushed by your build tool. This feature enables pull-driven deployments for Kubernetes steps. Based on tags and version rules, triggers detect if an image appears that is later than the image used in your previous release. Octopus then automatically creates a new release with all the latest container images or Helm Chart dependencies.
 
-External feed triggers support all external feed types except Maven, including NuGet, npm, PyPI, GitHub releases, S3, Google Cloud Storage, Artifactory Generic and Octopus project feeds, as well as container registries and Helm feeds.
-
 Your existing [lifecycles](/docs/releases/lifecycles/) will then promote that release through your [environments](/docs/infrastructure/environments) or [tenants](/docs/tenants), just like it does currently. If your lifecycle uses automatic release progression, then you've just set up a Continuous Delivery pipeline without explicitly letting Octopus know about your application changes!
 
 The details of these container images and Helm Charts are already known in Octopus. This means we can use the registry locations, image names, chart names, and credentials to do this monitoring, without adding or maintaining this information anywhere else.
@@ -80,7 +78,7 @@ If required, more detailed information can be found in the system task logs.
 
 ## Advanced use cases
 
-Feeds or packages referenced using variable substitution are able to be leveraged with external feed triggers. They will only be used by the trigger, however, if they resolve to a supported feed (any external feed type except Maven), and also do not use variable unavailable at release creation time. For example, using an environment name variable will not work, because that value is only available at the time of deployment.
+Feeds or packages referenced using variable substitution are able to be leveraged with external feed triggers. They will only be used by the trigger, however, if they resolve to a supported feed, and also do not use variable unavailable at release creation time. For example, using an environment name variable will not work, because that value is only available at the time of deployment.
 
 If you have a chain of dependencies with your external feed packages, make sure your trigger uses the package which will be pushed to its repository last.
 
@@ -103,6 +101,10 @@ When you are using external feed triggers there are a few reasons why a release 
 7. If you have a **chain of package dependencies** with your external feed packages, make sure your trigger uses the package which will be **pushed to its repository last**. Otherwise, some of the packages required for the release may be missing.
 
 8. As [mentioned above](/docs/projects/project-triggers/external-feed-triggers#trigger-sources), for [configuration as code](/docs/projects/version-control/config-as-code-reference) projects, only packages, container images and Helm Charts in the deployment process from the **default branch** are able to be referenced. Any changes to the deployment process in other branches will not be available for use in external feed triggers.
+
+## Limitations
+
+External feed triggers do not support Maven feeds.
 
 ## Learn more
 
