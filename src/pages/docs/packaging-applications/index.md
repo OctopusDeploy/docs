@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 202-12-16
+modDate: 2025-12-16
 title: Packaging applications
 subtitle: How to package your applications for deployment with Octopus
 icon: fa-solid fa-cubes
