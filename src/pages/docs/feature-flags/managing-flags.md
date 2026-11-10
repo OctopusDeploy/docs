@@ -8,7 +8,7 @@ navTitle: Managing flags
 navSection: Feature Flags
 navOrder: 70
 icon: fa-solid fa-sliders
-description: Clone Octopus feature flags, copy rules between flags, change slugs safely, rotate client identifiers, and check publish history.
+description: Clone Octopus feature flags, copy rules between flags, change slugs safely, and check publish history.
 subject: feature flags, clone, slug, client identifier, publish history, troubleshooting
 type: guide
 audience: [app-dev, devops-eng]
@@ -16,7 +16,7 @@ image:
 imageAlt:
 ---
 
-This page covers the everyday upkeep of feature flags in a project: reusing configuration from other flags, renaming a flag's slug without breaking your applications, rotating client identifiers, and checking that your changes reached the Octopus feature flag service.
+This page covers the everyday upkeep of feature flags in a project: reusing configuration from other flags, renaming a flag's slug without breaking your applications, and checking that your changes reached the Octopus feature flag service.
 
 ## Clone a feature flag
 

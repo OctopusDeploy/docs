@@ -47,7 +47,7 @@ An environment with rules but no visible phases holds all its rules in a single 
 
 ## Default values {#default-values}
 
-A flag has 2 default values, and each applies in a different situation. Mixing them up is the most common cause of a flag returning something unexpected.
+A flag has 2 default values, and each applies in a different situation.
 
 The default value on the flag in Octopus is returned for any environment that hasn't been added to the flag. For example, if a flag's default value is off and only `Staging` and `Production` have been added to it, an application in `Development` gets `false`.
 
