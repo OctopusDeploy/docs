@@ -75,6 +75,7 @@ childelement
 choco
 cicd
 CIFS
+CIMD
 classiclink
 ClaudeCodeBehaviour
 clientcertificate
@@ -523,6 +524,7 @@ serviceaccount
 Sesna
 setspn
 sfproj
+SGID
 shiki
 showcerts
 Showplan

@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-10-26
+modDate: 2026-11-04
 title: Certificates
 ---
 
@@ -1874,6 +1874,7 @@ Also reachable at `/api/certificates/{id}/usages`, `/api/spaces/{spaceIdentifier
       ],
       "ProjectTemplateDetails": {
         "IsShared": false,
+        "ManagedChannelsAndLifecycles": false,
         "Slug": "string",
         "VersionMask": "string"
       },

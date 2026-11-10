@@ -1,11 +1,11 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-08-17
-modDate: 2026-10-26
+modDate: 2026-11-09
 title: Octopus Remote MCP use cases
 navTitle: Use cases
 description: Explore how Octopus Remote MCP helps teams track releases, diagnose failures, automate deployments, audit changes, and manage tenants.
-navOrder: 2
+navOrder: 3
 ---
 
 Octopus Remote MCP lets your AI assistant work with the deployment information and operations in your Octopus instance. These use cases show how it can reduce investigation time, make release status easier to understand, and help teams act without manually piecing together information from different parts of Octopus.
@@ -43,7 +43,7 @@ Example prompts:
 - "Generate release notes for release 2.4.1 and attach them to the release."
 - "Run the Restart payment workers runbook in Production."
 
-Operations that make changes run with the permissions of the API key used to connect the assistant. Use a dedicated [Agent Service Account](/docs/security/users-and-teams/service-accounts#agent-service-accounts) and grant it only the permissions it needs. To stop agents from running a sensitive runbook, use the runbook's [AI agent access](/docs/runbooks/runbooks-vs-deployments#ai-agent-access) setting.
+Operations that make changes run with the permissions of the API key used to connect the assistant. Use an [Agent API key](/docs/api/authentication/create-an-api-key#creating-an-agent-api-key) configured with custom scopes or a dedicated [Agent Service Account](/docs/security/users-and-teams/service-accounts#agent-service-accounts) and grant it only the permissions it needs. To stop agents from running a sensitive runbook, use the runbook's [AI agent access](/docs/runbooks/runbooks-vs-deployments#ai-agent-access) setting.
 
 ## Operational oversight
 
