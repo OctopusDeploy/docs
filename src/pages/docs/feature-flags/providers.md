@@ -20,7 +20,7 @@ Your application connects to Octopus Feature Flags through an Octopus provider f
 
 ## Octopus providers
 
-This table lists every Octopus OpenFeature provider. The minimum versions apply to projects that use feature flag rules. While projects that haven't been upgraded to rules will continue to work with older versions, they are deprecated and will stop working in the future.
+This table lists every Octopus OpenFeature provider. The minimum versions apply to projects that use feature flag rules. Projects that haven't been upgraded to rules still work with older provider versions, but those versions are deprecated and will stop working in the future.
 
 | Language | Type | Repository | Minimum version for rules |
 | --- | --- | --- | --- |

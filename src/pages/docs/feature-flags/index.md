@@ -24,7 +24,7 @@ If your project's **Feature Flags** page shows an **Upgrade to feature flag rule
 
 ## Feature flags
 
-A feature flag is a named on/off switch that your application checks at runtime. Flags let you ship code with a feature turned off, then turn it on for some or all of your users without another deployment, and turn it off again as quickly if something goes wrong.
+A feature flag is a named on/off switch that your application checks at runtime. Flags let you ship code with a feature turned off, then turn it on for some or all of your users without another deployment, and turn it off again quickly if something goes wrong.
 
 Feature flags belong to a project in Octopus. Your application evaluates them with [OpenFeature](https://openfeature.dev/), an open standard for feature flag SDKs, and the [Octopus provider](/docs/feature-flags/providers) for your language. When your application starts, the provider uses a client identifier to tell the Octopus feature flag service which project, environment, and tenant the application belongs to. Octopus injects the client identifier during deployment, so the same build gets the right flags in every environment.
 

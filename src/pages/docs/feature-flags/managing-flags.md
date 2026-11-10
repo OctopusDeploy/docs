@@ -81,7 +81,7 @@ Applications that still ask for the old slug after it is changed in Octopus get 
 
 ## Check a project's publish history
 
-When you save a flag, Octopus publishes the project's flag configuration to the Octopus feature flag service. Publish history shows all publish attempts for the project and the result (success or failure).
+When you save a flag, Octopus publishes the project's flag configuration to the Octopus feature flag service. Publish history shows all publish attempts for the project and their results (success or failure).
 
 To check a project's publish history:
 

@@ -28,12 +28,12 @@ An environment that's added and switched on, with no rules, returns `true` for e
 
 A rule is a set of conditions that together describe a group of users, and the rules on an environment are how a flag reaches some users but not others. Conditions in a rule combine with AND: the rule matches only when every condition matches. Rules combine with OR: the flag is on when at least one rule in an environment matches.
 
-For example, an environment with these 2 rules:
+For example, take an environment with these 2 rules:
 
 - **Internal users**: context attribute `email-domain` is one of `octopus.com`
-- **Early adopters**: tenant has tag `Ring/Early adopter` AND 50% of tenants
+- **Early adopters**: tenant has tag `Ring/Early adopter` AND 50% of targeting keys
 
-turns the flag on for every internal user, and for half the users of tenants in the early adopter ring.
+This turns the flag on for every internal user, and for half the users of tenants in the early adopter ring.
 
 Because rules combine with OR, a condition only limits the rule it's in. To keep a flag away from someone no matter which rule they'd otherwise match, such as excluding one tenant, add that condition to every rule. For the full list of conditions, see [Rule conditions](/docs/feature-flags/rules#rule-conditions).
 
