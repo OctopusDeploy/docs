@@ -15,37 +15,6 @@ You can manage the variables for your projects, by navigating to your project in
 ![Project variables in Octopus Deploy](/docs/img/projects/variables/images/project-variables.png)
 :::
 
-## Creating hello world variables \{#example}
-
-In this example, we'll add a variable to a Hello World project that runs a script to say hello. The project uses the variable to vary the message it displays based on the environment the script is deployed to.
-
-1. To add a variable to your [project](/docs/projects), navigate to **Project Variables** to access the variable editor.
-2. Give the variable a name, for instance, *Greeting*.
-3. Enter the first value for the variable, for instance, *Hello, Test*, in the value field.
-4. Define the scope for the value, for instance, by selecting the *Test* environment.
-5. Click **Add another value** and enter the second value for the variable, for instance, *Hello, Production*.
-6. Define the scope for this value, for instance, by selecting the *Production* environment.
-
-   :::figure
-   ![Adding a project variable in Octopus Deploy](/docs/img/projects/variables/images/add-project-variable.png)
-   :::
-
-7. Save the variable by clicking **Save**.
-8. In this example, we'll reference this variable from a **Run a Script** step.
-9. Define your step (Click **Process ➜ Add Step ➜ Run A Script**) and in the **Script** section, enter the following PowerShell script into the script editor:
-
-   ```powershell
-   Write-Host
-   ```
-
-10. Select the variable Greeting from the insert variable tool (**#\{\}**) in the script editor, and click **Save**.
-
-    :::figure
-    ![Using a variable in a Hello World script in Octopus Deploy](/docs/img/projects/variables/images/hello-world-greeting-script.png)
-    :::
-
-When a release of the project is deployed, the script step will run with the string *Hello, Test* on the Test environment, and with the string *Hello, Production*, on the Production environment.
-
 ## Create a variable from the process editor \{#create-from-process-editor}
 
 You can create a project variable without leaving the step you're editing. The variable is saved to the project and inserted into the field you're working in, so you don't have to switch to **Project Variables** and back. This example builds the same Hello World script as the previous section.
@@ -57,7 +26,7 @@ You'll need:
 - A [project](/docs/projects) with a deployment process.
 - Permission to edit variables in the project.
 - For a project that stores its variables in Git, an unprotected branch selected in the branch switcher.
-- Octopus Deploy on version `>= REPLACE_ME_WITH_VERSION_NUMBER`.
+- Octopus Deploy on version `>= 2026.4.11453`.
 
 To create a variable from the process editor:
 
@@ -102,6 +71,38 @@ Fields that take a variable rather than free text, such as a certificate or acco
 :::div{.hint}
 If your project stores variables in Git and you're viewing a protected branch, a tag, or a commit, the drawer is read-only. Switch to an unprotected branch to create the variable.
 :::
+
+## Creating variables from the project variables page \{#example}
+
+In this example, we'll add a variable to a Hello World project that runs a script to say hello. The project uses the variable to vary the message it displays based on the environment the script is deployed to.
+
+1. To add a variable to your [project](/docs/projects), navigate to **Project Variables** to access the variable editor.
+2. Give the variable a name, for instance, *Greeting*.
+3. Enter the first value for the variable, for instance, *Hello, Test*, in the value field.
+4. Define the scope for the value, for instance, by selecting the *Test* environment.
+5. Click **Add another value** and enter the second value for the variable, for instance, *Hello, Production*.
+6. Define the scope for this value, for instance, by selecting the *Production* environment.
+
+   :::figure
+   ![Adding a project variable in Octopus Deploy](/docs/img/projects/variables/images/add-project-variable.png)
+   :::
+
+7. Save the variable by clicking **Save**.
+8. In this example, we'll reference this variable from a **Run a Script** step.
+9. Define your step (Click **Process ➜ Add Step ➜ Run A Script**) and in the **Script** section, enter the following PowerShell script into the script editor:
+
+   ```powershell
+   Write-Host
+   ```
+
+10. Select the variable Greeting from the insert variable tool (**#\{\}**) in the script editor, and click **Save**.
+
+    :::figure
+    ![Using a variable in a Hello World script in Octopus Deploy](/docs/img/projects/variables/images/hello-world-greeting-script.png)
+    :::
+
+When a release of the project is deployed, the script step will run with the string *Hello, Test* on the Test environment, and with the string *Hello, Production*, on the Production environment.
+
 
 ## Scoping variables \{#scoping-variables}
 
@@ -308,7 +309,7 @@ If the answer to either question is yes, consider an external store for your var
 
 ## Version notes
 
-- Creating a project variable from the process editor is available from [PLACEHOLDER: the first self-hosted Octopus Server version that includes creating variables from the process editor, with build number — needs: release version from Travis].
+- Creating a project variable from the process editor is available in Octopus Deploy versions `>= 2026.4.11453`.
 
 ## Learn more
 

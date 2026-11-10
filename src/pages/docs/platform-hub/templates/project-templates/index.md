@@ -254,7 +254,7 @@ Project templates are in Public Preview and we're actively shaping how the featu
 
 ## Version notes
 
-- Creating a parameter or variable from a step in the process editor is available from [PLACEHOLDER: the first self-hosted Octopus Server version that includes creating variables and parameters from the process editor, with build number — needs: release version from Travis].
+- Creating a parameter or variable from a step in the process editor is available in Octopus Deploy versions `>= 2026.4.11453`.
 
 - [Channels](#channels) and [Lifecycles](#lifecycles) in Project Templates are available from Octopus Server version `2026.4.4005`.
 - Retention policies in project template lifecycles are applied from Octopus Server version `2026.4.7884`.

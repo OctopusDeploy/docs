@@ -109,4 +109,4 @@ Some features are not yet supported for templated projects. For a full list, see
 
 ## Version notes
 
-- Creating a project variable from the **Template values** page is available from [PLACEHOLDER: the first self-hosted Octopus Server version that includes creating variables and parameters from the process editor, with build number — needs: release version from Travis].
+- Creating a project variable from the **Template values** page is available from in Octopus Deploy versions `>= 2026.4.11453`.

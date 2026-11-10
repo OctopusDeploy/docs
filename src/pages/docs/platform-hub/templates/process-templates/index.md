@@ -158,4 +158,4 @@ You can now deploy this process to say "Hello, World!".
 
 ## Version notes
 
-- Creating a parameter from a step in the process editor is available from [PLACEHOLDER: the first self-hosted Octopus Server version that includes creating variables and parameters from the process editor, with build number — needs: release version from Travis].
+- Creating a parameter from a step in the process editor is available in Octopus Deploy versions `>= 2026.4.11453`.
