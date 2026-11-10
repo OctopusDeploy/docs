@@ -74,6 +74,7 @@ Raising a percentage keeps everyone who's already included and adds more. If you
 Octopus doesn't evaluate flags inside your deployments. When you save a change to a flag, Octopus publishes the project's flag configuration to the Octopus feature flag service, which your applications' providers read from. This is why flag changes reach running applications without a redeployment.
 
 If a publish fails, the project's **Feature Flags** page shows a callout, and your applications keep the configuration from the last successful publish. To check recent publishes, see [Check a project's publish history](/docs/feature-flags/managing-flags#check-a-projects-publish-history).
+
 ## Related links
 
 - [Targeting users with feature flag rules](/docs/feature-flags/rules)
