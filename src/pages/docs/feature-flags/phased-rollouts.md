@@ -100,6 +100,10 @@ The phase shows as on or off in the environment's phase list, and applications i
 Because phases turn on in order, a phase can only be turned off while every phase after it is off. If any phases are enabled out of order the save will be blocked.
 
 :::div{.warning}
+Turning a phase off doesn't remove its trigger. If the trigger is already due, such as a **Specific date/time** that has passed or an **After a delay** that has run out since the previous phase turned on, saving turns the phase straight back on. To keep the phase off, change its trigger to **Manual** before you save. A phase's trigger settings appear after you turn it off.
+:::
+
+:::div{.warning}
 Turning a phase off also clears the time it turned on. If the next phase has an **After a delay** trigger, its delay starts again from when you turn the earlier phase back on.
 :::
 

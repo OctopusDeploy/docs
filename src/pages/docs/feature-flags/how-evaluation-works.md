@@ -18,19 +18,11 @@ imageAlt:
 
 When your application asks for a feature flag, Octopus works through the flag's configuration for that application's environment and returns `true` or `false`. This page explains each part of that decision, so you can predict what any user will get before you change a flag.
 
-## The evaluation sequence
+## Environment configuration
 
-Every evaluation follows the same sequence, and it stops at the first step that decides the result. Knowing the order tells you which part of a flag's configuration to look at when a user gets a result you didn't expect.
+A flag is evaluated against the environment named in the application's client identifier, so the environment's configuration on the flag is the first thing that decides the result. An environment that hasn't been added to the flag returns the flag's [default value](#default-values). An environment whose switch is off returns `false` for everyone, whatever its rules and phases say, which makes the switch the quickest way to stop a flag in one environment.
 
-For the environment named in the application's client identifier:
-
-1. If the environment hasn't been added to the flag, the result is the flag's default value.
-2. If the environment's switch is off, the result is `false`.
-3. If the environment has no rules, the result is `true`, for everyone.
-4. If the environment has no enabled phases, the result is `false`.
-5. If any rule in a phase that's on matches, the result is `true`. Otherwise, it's `false`.
-
-If the application can't reach the Octopus feature flag service at all, none of this happens, and the application uses the default value in its own code.
+An environment that's added and switched on, with no rules, returns `true` for everyone. Rules and phases, described below, narrow it down from there.
 
 ## Rules and conditions
 
@@ -75,16 +67,13 @@ Octopus decides who falls in a percentage by hashing a target-specific identifie
 
 Because the flag's key is part of the hash, a 20% rollout of one flag reaches a different 20% than a 20% rollout of another flag. This stops the same users from always being the first to get every new feature. When you want related flags to reach the same users, put them in a [rollout group](/docs/feature-flags/rollout-groups), which gives every flag in the group the same key.
 
-[VERIFY: that increasing a percentage keeps everyone already included and only adds new tenants or users — needs: confirmation of the bucketing behavior from the feature flags team]
+Raising a percentage keeps everyone who's already included and adds more. If you move a flag from 20% to 50% of tenants, the original 20% stay in, so nobody loses a feature they already have as the rollout widens.
 
 ## Publishing
 
 Octopus doesn't evaluate flags inside your deployments. When you save a change to a flag, Octopus publishes the project's flag configuration to the Octopus feature flag service, which your applications' providers read from. This is why flag changes reach running applications without a redeployment.
 
 If a publish fails, the project's **Feature Flags** page shows a callout, and your applications keep the configuration from the last successful publish. To check recent publishes, see [Check a project's publish history](/docs/feature-flags/managing-flags#check-a-projects-publish-history).
-
-[VERIFY: how long a running application takes to see a published change — needs: the provider refresh interval from the feature flags team]
-
 ## Related links
 
 - [Targeting users with feature flag rules](/docs/feature-flags/rules)

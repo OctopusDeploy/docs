@@ -24,7 +24,7 @@ A rule describes a group of users who should get a flag, such as "enterprise ten
 
 Rules belong to an environment on a flag, and each environment has its own rules. An environment without rules has the flag on for everyone, so adding the first rule is what narrows the flag down to a group.
 
-Some conditions use information Octopus already knows, such as the tenant in the client identifier or the version of the release deployed to the environment. Others use information your application passes in when it evaluates the flag, called the evaluation context. If a condition needs evaluation context and your application doesn't pass it, the condition doesn't match.
+Some conditions use information Octopus already knows, such as the tenant in the client identifier or the version of the release deployed to the environment. Others use information your application passes in when it evaluates the flag, called the evaluation context. If your application doesn't pass an attribute that a condition needs, a **one of** condition doesn't match, but a **not one of** condition does, because a missing attribute can't be excluded.
 
 Because rules combine with OR, a condition in one rule has no effect on another rule. To exclude a tenant or a user from a flag entirely, add the exclusion to every rule on the environment.
 
@@ -114,7 +114,7 @@ For other languages, and for setting context once for every evaluation, see the 
 If your application doesn't set a targeting key, a **Percentage** condition by targeting keys doesn't match unless the percentage is 100%.
 :::
 
-Attribute keys and values are case-sensitive, so `Region` and `region` are different attributes.
+Attribute keys and values aren't case-sensitive, so an attribute of `Region: EU` matches a condition where `region` is one of `eu`. The targeting key is different. It's hashed rather than compared, so `User-123` and `user-123` are different targeting keys that can fall on different sides of a percentage. Always pass a user's targeting key with the same casing.
 
 ## Related links
 
