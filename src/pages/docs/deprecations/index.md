@@ -29,6 +29,10 @@ If you have questions or need help assessing the impact of a deprecation on your
 
 ## Planned Deprecations
 
+## AI Assistant Deprecation
+
+The AI Assistant Chrome Extension has been deprecated. Refer to the [blog post](https://octopus.com/blog/ai-assistant-deprecated) for more information and the recommended migration path.
+
 ## Octopus Deploy for Jira on Atlassian Connect EOL - January 2027
 
 As of January 2027, Atlassian will no longer support the legacy Connect framework.
