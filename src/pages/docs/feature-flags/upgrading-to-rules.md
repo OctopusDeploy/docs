@@ -55,7 +55,7 @@ Upgrade a project when you're ready to use rules and phases for its feature flag
 You'll need:
 
 - Every application that uses the project's feature flags on a provider version that supports rules. See [OpenFeature providers](/docs/feature-flags/providers).
-- [VERIFY: the permission required to upgrade a project — needs: confirmation from the feature flags team]
+- `FeatureToggleEdit` permission for all environments in the project.
 
 To upgrade a project to feature flag rules:
 
@@ -65,7 +65,7 @@ To upgrade a project to feature flag rules:
 4. Type `Upgrade` to confirm.
 5. Select **Upgrade**.
 
-The callout no longer appears on the **Feature Flags** page, and each environment with targeting shows its converted rules. To check that every flag still targets the same users, see [Previewing feature flag evaluations](/docs/feature-flags/previewing-evaluations).
+The callout no longer appears on the **Feature Flags** page, and each environment with targeting shows its converted rules.
 
 ## Related links
 

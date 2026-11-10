@@ -41,15 +41,13 @@ You'll need:
 To add a rule:
 
 1. From your project, select **Feature Flags**, then select the flag.
-2. In the **Environments** section, select the environment. [VERIFY: that selecting the environment in the list opens its rules and phases editor — needs: confirmation from the feature flag page UI]
+2. In the **Environments** section, select the environment.
 3. Select **Add**, then select **Rule**.
 4. Enter a **Rule name** that describes the group the rule targets.
 5. Select **Add Condition**, then select the condition type.
 6. Enter the condition's values.
 7. Select **Done**.
 8. Save the flag.
-
-<!-- SUGGESTED VISUAL: a screenshot of the environment editor showing a rule with a Tenant tags condition and a Percentage condition joined by And -->
 
 The rule appears in the environment's rule list, with its conditions joined by **And** and separated from any other rules by **Or**. To check who the rule reaches before or after you save, see [Previewing feature flag evaluations](/docs/feature-flags/previewing-evaluations).
 
@@ -59,14 +57,14 @@ Adding a rule to an environment that's switched on applies it straight away when
 
 ## Rule conditions {#rule-conditions}
 
-This table lists every condition a rule can use, in the order they appear when you select **Add Condition**. The **Tenants** and **Tenant tags** conditions, and percentages by tenants, appear only in projects that use tenants.
+This table lists every condition a rule can use. The **Tenants** and **Tenant tags** conditions, and percentages by tenants, appear only in projects that use tenants.
 
 | Condition | Match | Matches when | Values come from |
 | --- | --- | --- | --- |
 | **Percentage** | By tenants, by targeting keys | The tenant, or the targeting key in the evaluation context, falls in the given percentage. Percentages go up in steps of 10%. | Octopus (tenant) or your application (targeting key) |
 | **Tenants** | One of, not one of | The tenant in the client identifier is, or isn't, one of the selected tenants. | Octopus (client identifier) |
-| **Tenant tags** | One of, not one of | The tenant has, or doesn't have, any of the selected tags. All the tags in one condition come from the same tag set. | Octopus (tenant tags) |
-| **Minimum version** | Version is at least | The latest release deployed to the environment is the given version or later. The version must be a valid semantic version. [VERIFY: whether a tenanted application is matched on the latest release deployed to its tenant — needs: confirmation from the feature flags team] | Octopus (deployed release) |
+| **Tenant tags** | One of, not one of | The tenant has, or doesn't have, any of the selected tags. All the tags in one condition come from the same tag set. Only one tag needs to match for the condition to be met. | Octopus (tenant tags) |
+| **Minimum version** | Version is at least | The latest release deployed to the environment (and tenant) is the given version or later. The version must be a valid semantic version. | Octopus (deployed release) |
 | **Context attribute** | One of, not one of | The named attribute in the evaluation context is, or isn't, one of the listed values. | Your application (evaluation context) |
 
 To reach several tag sets, such as a region and a tier, add a **Tenant tags** condition for each tag set. A rule with `Region` is one of `Australia`, `Europe` AND `Tier` is one of `Enterprise` matches enterprise tenants in either Australia or Europe.
@@ -113,10 +111,10 @@ var darkModeEnabled = await featureClient.GetBooleanValueAsync("dark-mode", fals
 For other languages, and for setting context once for every evaluation, see the [OpenFeature evaluation context documentation](https://openfeature.dev/docs/reference/concepts/evaluation-context).
 
 :::div{.warning}
-If your application doesn't set a targeting key, a **Percentage** condition by targeting keys doesn't match unless the percentage is 100%. [VERIFY: that a missing targeting key still fails to match for rule-based flags, as it did for client rollout percentages — needs: confirmation from the feature flags team]
+If your application doesn't set a targeting key, a **Percentage** condition by targeting keys doesn't match unless the percentage is 100%.
 :::
 
-Attribute keys and values are case-sensitive, so `Region` and `region` are different attributes. [VERIFY: that context attribute matching is case-sensitive for both keys and values — needs: confirmation of OctoToggle condition matching]
+Attribute keys and values are case-sensitive, so `Region` and `region` are different attributes.
 
 ## Related links
 

@@ -51,7 +51,7 @@ To copy rules and phases from another flag:
 1. From your project, select **Feature Flags**, then select the flag you're copying to.
 2. In the **Environments** section, select the environment to copy into.
 3. Select **Add**, then select **Existing configuration**.
-4. Select the flag and environment to copy from. Select **Only show this environment** to limit the list to the same environment.
+4. Select the flag to copy from.
 5. Select **Clone**.
 6. Save the flag.
 
@@ -77,25 +77,11 @@ To change a feature flag's slug safely:
 4. Save the flag.
 5. Release a version of your application that only uses the new slug.
 
-Applications that still ask for the old slug get the default value in their own code. [VERIFY: that evaluating a slug that no longer exists returns the code default — needs: confirmation of provider behavior for unknown flags]
-
-## Rotate client identifiers
-
-Rotate a project's client identifiers if one has been exposed or your security policy requires regular rotation. Rotation is a 2-step process, so applications keep working while you redeploy them with the new identifiers.
-
-:::div{.warning}
-Rotating client identifiers is destructive. After the rotation finishes, applications that still use an old client identifier can't get flag values and fall back to the default values in their own code.
-:::
-
-To rotate client identifiers:
-
-1. From your project, select **Feature Flags**.
-2. Open the overflow menu and select **Rotate Client Identifiers**.
-3. [PLACEHOLDER: the remaining steps of the 2-step rotation, including when to redeploy applications — needs: the rotation procedure from the feature flags team]
+Applications that still ask for the old slug after it is changed in Octopus get the default value in their own code.
 
 ## Check a project's publish history
 
-When you save a flag, Octopus publishes the project's flag configuration to the Octopus feature flag service. Check the publish history when your applications don't seem to have a change you saved.
+When you save a flag, Octopus publishes the project's flag configuration to the Octopus feature flag service. Publish history shows all publish attempts for the project and the result (success or failure).
 
 To check a project's publish history:
 

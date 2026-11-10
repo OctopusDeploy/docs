@@ -24,7 +24,7 @@ An evaluation preview runs a flag's configuration the same way the Octopus featu
 
 Previews also include changes you haven't saved yet. While you edit a flag, the preview shows both the saved value and the unsaved value, so you can check a change before it reaches anyone.
 
-A preview covers what Octopus knows: environments, tenants, and deployed versions. It can't know your application's evaluation context, so the result for rules that use **Context attribute** or **Percentage** by targeting keys conditions depends on the users in your application. [VERIFY: how previews show results for rules that depend on evaluation context — needs: confirmation from the Evaluate tab UI]
+A preview covers what Octopus knows: environments, tenants, and deployed versions. It can't know your application's evaluation context, so the result for rules that use **Context attribute** or **Percentage** by targeting keys conditions cannot be previewed in Octopus.
 
 ## Preview a feature flag
 
@@ -39,8 +39,6 @@ To preview a feature flag:
 
 The table lists each environment or tenant with the flag's **Value**, the **Reason** for it, and the deployed **Version**. Projects that use tenants also show an **Untenanted** row for applications deployed without a tenant.
 
-<!-- SUGGESTED VISUAL: a screenshot of the Evaluate tab displaying by environments, with Value, Reason, and Version columns -->
-
 ## Preview every feature flag for a tenant
 
 Preview a tenant's flags to answer "what does this customer see?" for every flag in a project at once, such as before a support call or a tenant's upgrade.
@@ -54,7 +52,7 @@ You'll need:
 To preview every feature flag for a tenant:
 
 1. Select **Tenants**, then select the tenant.
-2. Select **Feature Flags**. [VERIFY: the navigation to a tenant's feature flags page — needs: confirmation from the tenant UI]
+2. Select **Feature Flags** on the tenant page.
 3. Select the **Project** and **Environment**.
 
 The page lists each of the project's feature flags with its value for that tenant in the environment.

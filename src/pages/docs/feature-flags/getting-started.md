@@ -27,14 +27,14 @@ A feature flag lives in an Octopus project. Create one for each feature you want
 You'll need:
 
 - An Octopus project that deploys the application you want to add the flag to.
-- [VERIFY: the permission required to create feature flags, for example FeatureToggleEdit — needs: confirmation of the permission name shown in the Octopus UI]
+- The permission required to create feature flags (`FeatureToggleEdit`). If you can edit other parts of a project like a deployment process, you probably already have this permission.
 
 To create a feature flag:
 
 1. From your project, select **Feature Flags**.
 2. Select **Add Feature Flag**.
 3. Enter a **Name** for the flag.
-4. [VERIFY: the label of the button that creates the flag — needs: confirmation from the Add Feature Flag dialog]
+4. Click **Save**.
 
 The flag appears in the project's feature flag list. Octopus generates a slug from the name, which is how your application refers to the flag.
 
@@ -116,7 +116,7 @@ To get a client identifier:
 ![Client identifier preview menu item](/docs/img/feature-flags/client-identifier-preview-menu-item.png)
 
 :::div{.warning}
-A generated client identifier doesn't carry the version of a deployed release, so flags that use a [Version is at least](/docs/feature-flags/rules#rule-conditions) condition won't match for applications that use it.
+A generated client identifier doesn't carry the version of a deployed release. Any [Version is at least](/docs/feature-flags/rules#rule-conditions) conditions on flags will be ignored.
 :::
 
 ## Evaluate a feature flag

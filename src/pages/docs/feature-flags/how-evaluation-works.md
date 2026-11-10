@@ -25,23 +25,21 @@ Every evaluation follows the same sequence, and it stops at the first step that 
 For the environment named in the application's client identifier:
 
 1. If the environment hasn't been added to the flag, the result is the flag's default value.
-2. If the environment's switch is off, the result is `false`. [VERIFY: that a switched-off environment returns false rather than the flag's default value — needs: confirmation from the feature flags team]
+2. If the environment's switch is off, the result is `false`.
 3. If the environment has no rules, the result is `true`, for everyone.
-4. If the environment has phases and none of them is on, the result is `false`.
+4. If the environment has no enabled phases, the result is `false`.
 5. If any rule in a phase that's on matches, the result is `true`. Otherwise, it's `false`.
 
 If the application can't reach the Octopus feature flag service at all, none of this happens, and the application uses the default value in its own code.
 
-<!-- SUGGESTED VISUAL: a flowchart of the evaluation sequence, from "Is the environment added?" through to "Does any rule in an enabled phase match?", with each exit labeled with its result -->
-
 ## Rules and conditions
 
-A rule is a set of conditions that together describe a group of users, and the rules on an environment are how a flag reaches some users but not others. Conditions in a rule combine with AND: the rule matches only when every condition matches. Rules combine with OR: the flag is on when at least one rule matches.
+A rule is a set of conditions that together describe a group of users, and the rules on an environment are how a flag reaches some users but not others. Conditions in a rule combine with AND: the rule matches only when every condition matches. Rules combine with OR: the flag is on when at least one rule in an environment matches.
 
 For example, an environment with these 2 rules:
 
 - **Internal users**: context attribute `email-domain` is one of `octopus.com`
-- **Early adopters**: tenant has tag `Ring/Early adopter` AND 50% of targeting keys
+- **Early adopters**: tenant has tag `Ring/Early adopter` AND 50% of tenants
 
 turns the flag on for every internal user, and for half the users of tenants in the early adopter ring.
 
@@ -73,7 +71,7 @@ Set the default value in your code to the result that's safest for your users if
 
 A percentage condition turns a flag on for a share of tenants or users, such as 20% of tenants. Percentages let you limit how many people a change reaches while you watch for problems, then widen it.
 
-Octopus decides who falls in a percentage by hashing an identifier together with a key that belongs to the flag. For tenants, the identifier is the tenant ID. For users, it's the [targeting key](/docs/feature-flags/rules#evaluation-context) your application supplies. The hash is deterministic, so the same tenant or user always gets the same result for the same flag, and they don't flip between on and off as they use your application.
+Octopus decides who falls in a percentage by hashing a target-specific identifier together with a key that belongs to the flag. For tenants, the identifier is the tenant ID. For users, it's the [targeting key](/docs/feature-flags/rules#evaluation-context) your application supplies. The hash is deterministic, so the same tenant or user always gets the same result for the same flag, and they don't flip between on and off as they use your application.
 
 Because the flag's key is part of the hash, a 20% rollout of one flag reaches a different 20% than a 20% rollout of another flag. This stops the same users from always being the first to get every new feature. When you want related flags to reach the same users, put them in a [rollout group](/docs/feature-flags/rollout-groups), which gives every flag in the group the same key.
 

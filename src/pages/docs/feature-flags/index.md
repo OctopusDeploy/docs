@@ -18,10 +18,6 @@ imageAlt:
 
 This page explains what Octopus Feature Flags are, the parts a flag is built from, and how they connect to the projects, environments, and tenants you already deploy with.
 
-:::div{.hint}
-Octopus Feature Flags are available to Octopus Cloud customers as a Private Preview. To get access, [register your interest](https://survey.octopus.com/t/piv3LpVWWmus).
-:::
-
 :::div{.info}
 If your project's **Feature Flags** page shows an **Upgrade to feature flag rules** callout, the project still uses the previous way of configuring flags. See [Legacy feature flags](/docs/feature-flags/legacy) for how those flags work, or [Upgrading to feature flag rules](/docs/feature-flags/upgrading-to-rules) to move the project to rules.
 :::
@@ -47,8 +43,6 @@ An environment that isn't added to a flag returns the flag's default value. An e
 Rules decide who gets a flag in an environment. A rule is made of one or more conditions, such as "the tenant has the tag `Tier/Enterprise`" or "the user falls in 20% of targeting keys". A rule matches when all its conditions match, and the flag is on for a user when any rule matches.
 
 Phases group rules into stages of a rollout. Each phase adds more rules, and turning on a phase adds its rules to the rules that are already on. Phases can turn on by themselves at a set date and time, or a set delay after the phase before them, so a rollout can move from internal users to 10% of users to everyone without anyone having to be online for each step.
-
-<!-- SUGGESTED VISUAL: a diagram showing a feature flag containing environments, an environment containing ordered phases, and each phase containing rules made of conditions, with AND between conditions and OR between rules -->
 
 You don't need phases to use rules. An environment with rules and no phases behaves like a single phase that's always on. To see how these parts combine into a single result, see [How feature flag evaluation works](/docs/feature-flags/how-evaluation-works).
 

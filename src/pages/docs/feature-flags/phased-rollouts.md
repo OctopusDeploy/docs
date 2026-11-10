@@ -28,8 +28,6 @@ A trigger turns a phase on without anyone having to do it. Each phase can have o
 
 Triggers chain. If phase 2 starts 1 day after phase 1, and phase 3 starts 2 days after phase 2, turning on phase 1 sets the whole rollout in motion. Each delay counts from when the phase before it actually turned on, so if you hold phase 2 back by turning it on by hand later, phase 3 moves back too.
 
-<!-- SUGGESTED VISUAL: a timeline showing 3 phases in Production: "Internal" turned on manually on day 0, "10% of users" triggered 1 day later, and "Everyone" triggered 2 days after that, with the audience widening at each step -->
-
 Use phases when you want a planned, staged rollout in an environment. If you only need to target a fixed group of users, rules on their own are enough.
 
 ## Add a phase
@@ -69,8 +67,6 @@ A phase's trigger decides when the phase turns on. This table lists the trigger 
 
 Delays are exact durations, so a 24-hour delay that crosses a daylight saving change is still 24 hours. A **Specific date/time** trigger still waits for the phases before it: if an earlier phase is off when the date passes, the phase turns on after the earlier phases do.
 
-For example, a Production rollout might start an "Internal" phase manually, start "10% of users" **After a delay** of 1 day, and start "Everyone" at a **Specific date/time** of Monday at 9:00am in the team's timezone.
-
 ## Set a phase trigger
 
 Set a trigger to turn a phase on automatically, so the rollout keeps moving outside working hours or without someone watching.
@@ -79,12 +75,12 @@ To set a phase trigger:
 
 1. From your project, select **Feature Flags**, then select the flag.
 2. In the **Environments** section, select the environment.
-3. Select the phase's trigger. [VERIFY: the name or position of the control that opens a phase's trigger settings — needs: confirmation from the phase list UI]
+3. Select the phase's trigger to open the trigger configuration.
 4. Select the trigger type.
 5. Enter the trigger's settings.
 6. Save the flag.
 
-The phase shows when it's due to turn on, such as "Triggers in 2 days". Octopus checks for due triggers with a scheduled server task [VERIFY: how often the task runs and whether it appears in the Tasks list — needs: confirmation from the feature flags team], so a phase can turn on a short time after its due time.
+The phase shows when it's due to turn on, such as "Triggers in 2 days". Octopus checks for due triggers every 30 seconds, so a phase will turn on a short time after its due time.
 
 If a trigger's time has already passed when you save, for example because you set a date in the past, Octopus asks you to confirm in a **Save and Trigger Phases** dialog. Saving turns those phases on straight away, along with any later phases whose triggers also become due.
 
@@ -101,13 +97,13 @@ To turn a phase on or off:
 
 The phase shows as on or off in the environment's phase list, and applications in the environment get the new result after Octopus publishes the change.
 
-Because phases turn on in order, a phase can only be turned off while every phase after it is off. [VERIFY: whether turning a phase off in the UI also turns off the later phases, or blocks the change until they're off — needs: confirmation from the phase list UI]
+Because phases turn on in order, a phase can only be turned off while every phase after it is off. If any phases are enabled out of order the save will be blocked.
 
 :::div{.warning}
 Turning a phase off also clears the time it turned on. If the next phase has an **After a delay** trigger, its delay starts again from when you turn the earlier phase back on.
 :::
 
-To stop a flag for everyone in the environment straight away, turn off the environment's switch instead.
+To stop a flag for everyone in the environment straight away (without changing any of the phase configuration), turn off the environment's switch instead.
 
 ## Related links
 

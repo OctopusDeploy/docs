@@ -36,7 +36,7 @@ To create a rollout group:
 2. Open the overflow menu and select **Manage Rollout Groups**.
 3. Select **Add Rollout Group**.
 4. Enter a name for the group.
-5. [VERIFY: the label of the button that saves a new rollout group — needs: confirmation from the Add Rollout Group dialog]
+5. Select **Save**.
 
 ![Feature flags list page with the overflow menu open and Manage Rollout Groups highlighted](/docs/img/feature-flags/manage-rollout-group-overflow.png)
 
