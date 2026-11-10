@@ -31,9 +31,9 @@ A rule is a set of conditions that together describe a group of users, and the r
 For example, take an environment with these 2 rules:
 
 - **Internal users**: context attribute `email-domain` is one of `octopus.com`
-- **Early adopters**: tenant has tag `Ring/Early adopter` AND 50% of targeting keys
+- **Early adopters**: tenant has tag `Ring/Early adopter` AND 50% of tenants
 
-This turns the flag on for every internal user, and for half the users of tenants in the early adopter ring.
+This turns the flag on for every internal user, and for half the tenants in the early adopter ring.
 
 Because rules combine with OR, a condition only limits the rule it's in. To keep a flag away from someone no matter which rule they'd otherwise match, such as excluding one tenant, add that condition to every rule. For the full list of conditions, see [Rule conditions](/docs/feature-flags/rules#rule-conditions).
 
