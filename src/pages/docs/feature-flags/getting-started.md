@@ -113,8 +113,6 @@ To get a client identifier:
 3. Select the **Environment**, and the **Tenant** if your project uses tenants.
 4. Copy the client identifier into your application's configuration.
 
-![Client identifier preview menu item](/docs/img/feature-flags/client-identifier-preview-menu-item.png)
-
 :::div{.warning}
 A generated client identifier doesn't carry the version of a deployed release. Any [**Minimum version**](/docs/feature-flags/rules#rule-conditions) conditions on flags will be ignored.
 :::

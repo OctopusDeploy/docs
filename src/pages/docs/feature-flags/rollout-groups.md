@@ -38,8 +38,6 @@ To create a rollout group:
 4. Enter a name for the group.
 5. Select **Save**.
 
-![Feature flags list page with the overflow menu open and Manage Rollout Groups highlighted](/docs/img/feature-flags/manage-rollout-group-overflow.png)
-
 The group appears in the project's rollout group list, ready to assign to flags.
 
 ## Add a feature flag to a rollout group
@@ -73,8 +71,6 @@ To rename or delete a rollout group:
 1. From your project, select **Feature Flags**.
 2. Open the overflow menu and select **Manage Rollout Groups**.
 3. Open the group's overflow menu and select **Edit** or **Delete**.
-
-![Rollout group list with one group named new onboarding flow, its overflow menu open showing Edit and Delete](/docs/img/feature-flags/rollout-group-page.png)
 
 The group shows its new name, or no longer appears in the list.
 
