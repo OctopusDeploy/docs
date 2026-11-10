@@ -53,7 +53,7 @@ A preview of the [lifecycle](/docs/releases/lifecycles) used by the selected cha
 
 ## Trigger sources
 
-Any packages, container images or Helm Charts referenced in your project's deployment process can be selected to trigger release creation, as long as they come from a supported feed (any external feed type except Maven).
+Any packages, container images or Helm Charts referenced in your project's deployment process can be selected to trigger release creation.
 
 Please note that for [configuration as code](/docs/projects/version-control/config-as-code-reference) projects, only packages, container images and Helm Charts in the deployment process from the **default branch** are able to be referenced. Any changes to the deployment process in other branches will not be available for use in external feed triggers.
 
