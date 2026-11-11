@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-10-07
+modDate: 2026-10-22
 title: Process Templates
 ---
 
@@ -233,6 +233,8 @@ title: Process Templates
 - **`GitRef`** :span[string]{.type-label} *(required)*
 - **`Name`** :span[string]{.type-label} *(required)*  
   Minimum length 1.
+- **`StarterTemplateId`** :span[string]{.type-label}  
+  The starter template whose steps and parameters the new process template should be populated with. When omitted, the process template is created empty.
 
 :::api-example{label="Request"}
 ```json
@@ -240,7 +242,8 @@ title: Process Templates
   "ChangeDescription": "string",
   "Description": "string",
   "GitRef": "string",
-  "Name": "string"
+  "Name": "string",
+  "StarterTemplateId": "string"
 }
 ```
 :::
