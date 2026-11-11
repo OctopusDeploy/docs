@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-10-07
+modDate: 2026-11-10
 title: Spaces
 ---
 
@@ -350,6 +350,8 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/v2`.
   - **`Name`** :span[string]{.type-label}  
     Minimum length 1.
   - **`RepositoryRestrictions`** :span[object]{.type-label}
+  - **`SetAuthorAsCommitter`** :span[boolean]{.type-label}  
+    Whether commits made with this credential use the commit author as the committer.
   - **`SpaceId`** :span[string]{.type-label}
 - **`ItemsPerPage`** :span[integer]{.type-label}
 - **`LastPageNumber`** :span[integer]{.type-label}
@@ -376,6 +378,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/v2`.
         ],
         "Enabled": false
       },
+      "SetAuthorAsCommitter": false,
       "SpaceId": "Spaces-1"
     }
   ],
@@ -409,6 +412,8 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/v2`.
 - **`RepositoryRestrictions`** :span[object]{.type-label}
   - **`AllowedRepositories`** :span[array of string]{.type-label}
   - **`Enabled`** :span[boolean]{.type-label}
+- **`SetAuthorAsCommitter`** :span[boolean]{.type-label}  
+  Whether commits made with this credential use the commit author as the committer.
 - **`SpaceId`** :span[string]{.type-label} *(required)*  
   The ID of the space containing the resource(s).
 
@@ -426,6 +431,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/v2`.
     ],
     "Enabled": false
   },
+  "SetAuthorAsCommitter": false,
   "SpaceId": "Spaces-1"
 }
 ```
@@ -847,6 +853,8 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}/v2`.
   - **`Name`** :span[string]{.type-label}  
     Minimum length 1.
   - **`RepositoryRestrictions`** :span[object]{.type-label}
+  - **`SetAuthorAsCommitter`** :span[boolean]{.type-label}  
+    Whether commits made with this credential use the commit author as the committer.
   - **`SpaceId`** :span[string]{.type-label}
 
 :::api-example{label="Response"}
@@ -867,6 +875,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}/v2`.
       ],
       "Enabled": false
     },
+    "SetAuthorAsCommitter": false,
     "SpaceId": "Spaces-1"
   }
 }
@@ -897,6 +906,8 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}/v2`.
 - **`RepositoryRestrictions`** :span[object]{.type-label}
   - **`AllowedRepositories`** :span[array of string]{.type-label}
   - **`Enabled`** :span[boolean]{.type-label}
+- **`SetAuthorAsCommitter`** :span[boolean]{.type-label}  
+  Whether commits made with this credential use the commit author as the committer. If you do not provide a value, it will be left as-is.
 - **`SpaceId`** :span[string]{.type-label} *(required)*  
   The ID of the space containing the resource(s).
 
@@ -915,6 +926,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}/v2`.
     ],
     "Enabled": false
   },
+  "SetAuthorAsCommitter": false,
   "SpaceId": "Spaces-1"
 }
 ```

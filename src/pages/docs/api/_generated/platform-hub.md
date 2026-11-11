@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-10-07
+modDate: 2026-11-10
 title: Platform Hub
 ---
 
@@ -1903,6 +1903,8 @@ title: Platform Hub
   - **`Name`** :span[string]{.type-label}  
     Minimum length 1.
   - **`RepositoryRestrictions`** :span[object]{.type-label}
+  - **`SetAuthorAsCommitter`** :span[boolean]{.type-label}  
+    Whether commits made with this credential use the commit author as the committer.
 - **`ItemsPerPage`** :span[integer]{.type-label}
 - **`LastPageNumber`** :span[integer]{.type-label}
 - **`NumberOfPages`** :span[integer]{.type-label}
@@ -1925,7 +1927,8 @@ title: Platform Hub
           "string"
         ],
         "Enabled": false
-      }
+      },
+      "SetAuthorAsCommitter": false
     }
   ],
   "ItemsPerPage": 30,
@@ -1951,6 +1954,8 @@ title: Platform Hub
 - **`RepositoryRestrictions`** :span[object]{.type-label}
   - **`AllowedRepositories`** :span[array of string]{.type-label}
   - **`Enabled`** :span[boolean]{.type-label}
+- **`SetAuthorAsCommitter`** :span[boolean]{.type-label}  
+  Whether commits made with this credential use the commit author as the committer.
 
 :::api-example{label="Request"}
 ```json
@@ -1965,7 +1970,8 @@ title: Platform Hub
       "string"
     ],
     "Enabled": false
-  }
+  },
+  "SetAuthorAsCommitter": false
 }
 ```
 :::
@@ -2125,6 +2131,8 @@ title: Platform Hub
 - **`RepositoryRestrictions`** :span[object]{.type-label}
   - **`AllowedRepositories`** :span[array of string]{.type-label}
   - **`Enabled`** :span[boolean]{.type-label}
+- **`SetAuthorAsCommitter`** :span[boolean]{.type-label}  
+  Whether commits made with this credential use the commit author as the committer.
 
 :::api-example{label="Response"}
 ```json
@@ -2140,7 +2148,8 @@ title: Platform Hub
       "string"
     ],
     "Enabled": false
-  }
+  },
+  "SetAuthorAsCommitter": false
 }
 ```
 :::
@@ -2165,6 +2174,8 @@ title: Platform Hub
 - **`RepositoryRestrictions`** :span[object]{.type-label}
   - **`AllowedRepositories`** :span[array of string]{.type-label}
   - **`Enabled`** :span[boolean]{.type-label}
+- **`SetAuthorAsCommitter`** :span[boolean]{.type-label}  
+  Whether commits made with this credential use the commit author as the committer. If you do not provide a value, it will be left as-is.
 
 :::api-example{label="Request"}
 ```json
@@ -2180,7 +2191,8 @@ title: Platform Hub
       "string"
     ],
     "Enabled": false
-  }
+  },
+  "SetAuthorAsCommitter": false
 }
 ```
 :::
