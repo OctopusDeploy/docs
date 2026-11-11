@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-04-20
-modDate: 2026-11-05
+modDate: 2026-11-11
 title: Legacy targeting
 icon: fa-solid fa-bullseye
 navTitle: Targeting
@@ -65,7 +65,7 @@ Support for client rollout percentages was added in the following versions of th
 
 - [.NET: `2.1.0`](https://github.com/OctopusDeploy/openfeature-provider-dotnet/releases/tag/v2.1.0)
 - [Java: `0.3.0`](https://github.com/OctopusDeploy/openfeature-provider-java/releases/tag/0.3.0)
-- [TypeScript/JavaScript: `3.0.0`](https://github.com/OctopusDeploy/openfeature-provider-ts-web/releases/tag/v3.0.0)
+- [TypeScript/JavaScript: `3.0.0`](https://github.com/OctopusDeploy/openfeature-provider-ts/releases/tag/v3.0.0)
 
 If you are not running the required minimum version of these libraries, the rollout percentage will be ignored (and handled as if the value was set to 100%).
 :::
