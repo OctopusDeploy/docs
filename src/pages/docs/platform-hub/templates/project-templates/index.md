@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-03-05
-modDate: 2026-10-12
+modDate: 2026-11-04
 title: Project templates
 subtitle: An overview of project templates
 icon: fa-solid fa-layer-group
@@ -127,7 +127,7 @@ If your license changes after you've published a template version, Octopus doesn
 Project templates don't yet support parameter scoping or sensitive parameter default values. We're still shaping how parameters, variables, and scoping work together and expect this area to evolve. We'd love your [feedback](#feedback).
 :::
 
-To create a parameter, navigate to **Parameters** on your project template and add a new parameter.
+To create a parameter, navigate to **Parameters** on your project template and select **Add parameter**. You can also [create a parameter or variable from the step that uses it](#create-from-step).
 
 :::figure
 ![The Parameters tab in a project template](/docs/img/platform-hub/project-templates/project-templates-parameters.png)
@@ -169,6 +169,44 @@ Scoping is fixed at the template level. The same scoping rules apply to every pr
 
 :::figure
 ![The Variables tab in a project template](/docs/img/platform-hub/project-templates/project-templates-variables.png)
+:::
+
+## Create a parameter or variable from a step {#create-from-step}
+
+Create a parameter or variable while you configure a step in the template's deployment process, so you don't have to switch to **Parameters** or **Variables** and back. Whichever you create is inserted into the field you're working in.
+
+The **Create Parameter Value** drawer asks you to choose a **Type**:
+
+- **Variable**: the value is fixed by the project template, and every project created from it gets the same value.
+- **Parameter**: the value is supplied by each project that uses the template.
+
+To create a parameter or variable from a step:
+
+1. In your project template, open the step you want to configure.
+2. In a text field or the script editor, select the **Insert a variable or parameter** button (**#\{\}**).
+3. In the search box, enter a name for the parameter or variable.
+4. Select the **Create Variable/Parameter** button, which shows the name you entered. The **Create Parameter Value** drawer opens.
+5. In **Type**, select **Variable** or **Parameter**.
+6. Enter the details for the value. A variable takes a value and optional scopes. A parameter takes a **Label** and optional **Help text** and **Default value**.
+7. Select **Create and Insert**.
+8. Commit your changes to the project template.
+
+:::figure
+![The parameters/variables drawer in a project template](/docs/img/platform-hub/project-template-parameters-variable-drawer.png)
+:::
+
+The new variable appears under **Variables**, or the new parameter under **Parameters**, and the field you started from references it.
+
+:::div{.hint}
+A variable is committed to the template's branch as soon as you select **Create and Insert**. A parameter isn't saved until you commit your other changes to the template. Because the variable is saved first, you can only scope it to parameters that have already been committed.
+:::
+
+:::div{.hint}
+Some values can only be supplied by the project, such as worker pools and target tags. For those, the drawer skips the **Type** choice and creates a parameter.
+:::
+
+:::div{.hint}
+You can only create a parameter on a protected branch. Switch to an unprotected branch first to create a variable.
 :::
 
 ## Project settings
@@ -215,6 +253,8 @@ After you publish and share a template, users in a space can create a new projec
 Project templates are in Public Preview and we're actively shaping how the feature works. If you run into something unexpected or have thoughts on how parameters, variables, scoping, or anything else should work, we'd love to hear from you. [Share your feedback](https://oc.to/feedback) to help us build this the right way.
 
 ## Version notes
+
+- Creating a parameter or variable from a step in the process editor is available in Octopus Deploy versions `>= 2026.4.11453`.
 
 - [Channels](#channels) and [Lifecycles](#lifecycles) in Project Templates are available from Octopus Server version `2026.4.4005`.
 - Retention policies in project template lifecycles are applied from Octopus Server version `2026.4.7884`.
