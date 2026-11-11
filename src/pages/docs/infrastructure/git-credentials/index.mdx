@@ -82,7 +82,7 @@ You can optionally restrict the Git credential to specified repository URL's. Th
 Available from Octopus 2026.4
 :::
 
-When a user commits through Octopus (for example when editing a deployment process for a version controlled project), the author on the commit is set to the Octopus user name and email address. By default, the committer is set to "Octopus Deploy (noreply@octopus.com)". 
+When a user commits through Octopus (for example when editing a deployment process for a version controlled project), the author on the commit is set to the Octopus user name and email address. By default, the committer is set to Octopus Deploy itself.
 
 This can cause issues with some Git provider pre-receive hooks, which require the author to match the committer on the commit. You can enable the **Set author as committer** option on a Git credential, which will set both the author and the committer to the Octopus user details.
 
