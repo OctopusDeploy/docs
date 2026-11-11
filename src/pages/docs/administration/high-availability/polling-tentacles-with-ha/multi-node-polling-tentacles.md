@@ -115,7 +115,7 @@ If your Redis requires TLS, add `ssl=true`.
     Octopus.Server.exe configure --instance="OctopusServer" --multiNodePollingTentaclesRedisConnectionString="your-redis-host:6379,password=your-secret-password"
     ```
 
-    On Windows, run this from a command prompt opened with **Run as administrator**. In a normal command prompt, the command fails with `Access to the path '...\OctopusServer.config' is denied`, even if your account is an administrator.
+    On Windows, this usually needs to be run as an administrator.
 
     The command checks that the connection string is valid before saving it. The value is treated as sensitive, so it is masked in the command's output.
 1. Restart each node. The setting takes effect when Octopus Server starts.
