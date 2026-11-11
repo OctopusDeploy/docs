@@ -71,11 +71,13 @@ You do not need session affinity. Any node can serve any Tentacle.
 
 Configuring a Redis connection string enables multi-node support for Polling Tentacles; removing it disables it. Configure **every node** in the cluster with the same connection string.
 
-The value is a [StackExchange.Redis connection string](https://stackexchange.github.io/StackExchange.Redis/Configuration.html), for example:
+The value is a [StackExchange.Redis connection string](https://github.com/StackExchange/StackExchange.Redis/blob/main/docs/Configuration.md), for example:
 
 ```text
-your-redis-host:6380,password=your-secret-password,ssl=true
+your-redis-host:6379,password=your-secret-password
 ```
+
+`6379` is the default Redis port, used by the [Redis example above](#running-redis). If your Redis requires TLS, add `ssl=true` and use its TLS port. Many managed Redis services use `6380` for TLS, for example `your-redis-host:6380,password=your-secret-password,ssl=true`.
 
 ### Windows and Linux servers
 
@@ -108,8 +110,10 @@ your-redis-host:6380,password=your-secret-password,ssl=true
     For example, to set the Redis connection string using the command line, run the [configure command](/docs/administration/octopus.server.exe-command-line/configure):
 
     ```powershell
-    Octopus.Server.exe configure --instance="OctopusServer" --multiNodePollingTentaclesRedisConnectionString="your-redis-host:6380,password=your-secret-password,ssl=true"
+    Octopus.Server.exe configure --instance="OctopusServer" --multiNodePollingTentaclesRedisConnectionString="your-redis-host:6379,password=your-secret-password"
     ```
+
+    On Windows, run this from a command prompt opened with **Run as administrator**. In a normal command prompt, the command fails with `Access to the path '...\OctopusServer.config' is denied`, even if your account is an administrator.
 
     The command checks that the connection string is valid before saving it. The value is treated as sensitive, so it is masked in the command's output.
 1. Restart each node. The setting takes effect when Octopus Server starts.
@@ -162,7 +166,7 @@ octopus:
   multiNodePollingTentacles:
     enabled: true
     redis:
-      connectionString: "your-redis-host:6380,password=your-secret-password,ssl=true"
+      connectionString: "your-redis-host:6379,password=your-secret-password"
 ```
 
 This setting is under `octopus.multiNodePollingTentacles`, not the top-level `redis` key, which only controls the in-cluster Redis. Leave `redis.enabled` set to `false`. If it is `true`, the chart ignores your connection string and uses the in-cluster Redis.
@@ -277,7 +281,7 @@ When multi-node support for Polling Tentacles is enabled, Octopus temporarily st
 ## Troubleshooting
 
 **The configure command reports that the Redis connection string is not valid.**
-Check the value follows the [StackExchange.Redis connection string format](https://stackexchange.github.io/StackExchange.Redis/Configuration.html). Wrap the whole value in quotes so your shell does not split it on commas.
+Check the value follows the [StackExchange.Redis connection string format](https://github.com/StackExchange/StackExchange.Redis/blob/main/docs/Configuration.md). Wrap the whole value in quotes so your shell does not split it on commas.
 
 **`IsReachable` is `false`.**
 Check that the node can reach the Redis host and port through any firewalls, that the password is correct, and that `ssl=true` is set if your Redis requires TLS.
