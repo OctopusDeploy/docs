@@ -206,7 +206,7 @@ Some values can only be supplied by the project, such as worker pools and target
 :::
 
 :::div{.hint}
-On a protected branch you can still create a parameter, but not a variable. On a tag or commit you can't create a variable. Switch to an unprotected branch to create one.
+You can only create a parameter on a protected branch. Switch to an unprotected branch first to create a variable.
 :::
 
 ## Project settings

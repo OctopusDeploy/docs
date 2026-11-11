@@ -17,7 +17,7 @@ You can manage the variables for your projects, by navigating to your project in
 
 ## Create a variable from the process editor \{#create-from-process-editor}
 
-You can create a project variable without leaving the step you're editing. The variable is saved to the project and inserted into the field you're working in, so you don't have to switch to **Project Variables** and back. This example builds the same Hello World script as the previous section.
+You can create a project variable without leaving the step you're editing. The variable is saved to the project and inserted into the field you're working in, so you don't have to switch to **Project Variables** and back.
 
 **Before you begin**
 
@@ -26,7 +26,6 @@ You'll need:
 - A [project](/docs/projects) with a deployment process.
 - Permission to edit variables in the project.
 - For a project that stores its variables in Git, an unprotected branch selected in the branch switcher.
-- Octopus Deploy on version `>= 2026.4.11453`.
 
 To create a variable from the process editor:
 
@@ -69,12 +68,12 @@ Fields that take a variable rather than free text, such as a certificate or acco
 :::
 
 :::div{.hint}
-If your project stores variables in Git and you're viewing a protected branch, a tag, or a commit, the drawer is read-only. Switch to an unprotected branch to create the variable.
+If your project stores variables in Git, the drawer becomes read-only if you're viewing a protected branch. Switch to an unprotected branch to create the variable.
 :::
 
 ## Creating variables from the project variables page \{#example}
 
-In this example, we'll add a variable to a Hello World project that runs a script to say hello. The project uses the variable to vary the message it displays based on the environment the script is deployed to.
+This example builds the same Hello World script as the previous section by using the **Project Variables** page.
 
 1. To add a variable to your [project](/docs/projects), navigate to **Project Variables** to access the variable editor.
 2. Give the variable a name, for instance, *Greeting*.

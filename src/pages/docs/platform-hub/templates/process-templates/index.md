@@ -83,10 +83,6 @@ The parameter appears on the **Parameters** tab, and the field you started from 
 A new parameter isn't saved until you commit the process template. If you discard your changes, the parameter is discarded with them.
 :::
 
-:::div{.hint}
-Fields that take a specific kind of value, such as an account, worker pool, environment, or target tag field, have an **Add** button next to the field instead. It opens the same drawer, offers only the parameter type the field accepts, and selects the new parameter in the field.
-:::
-
 ### Sensitive parameter defaults
 
 :::div{.hint}
