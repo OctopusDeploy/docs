@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-09-18
 title: Tasks
 ---
 
@@ -70,7 +70,8 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks`, `/api/tasks`.
 
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`Arguments`** :span[object]{.type-label}  
     Gets or sets any arguments to the task.
@@ -145,7 +146,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks`, `/api/tasks`.
 ```json
 {
   "Id": "string",
-  "ItemType": "string",
+  "ItemType": "Task",
   "Items": [
     {
       "Arguments": {
@@ -171,9 +172,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks`, `/api/tasks`.
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "LastUpdatedTime": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Name": "string",
       "PendingInterruptionTypes": [
@@ -191,17 +190,15 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks`, `/api/tasks`.
       "State": "Queued"
     }
   ],
-  "ItemsPerPage": 0,
+  "ItemsPerPage": 30,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "LastPageNumber": 0,
+  "LastPageNumber": 1,
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -336,9 +333,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks`, `/api/tasks`.
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "LastUpdatedTime": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "PendingInterruptionTypes": [
@@ -358,11 +353,13 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks`, `/api/tasks`.
 ```
 :::
 
-## Create a new task and execute it, using a given task as the input. Note that deployment tasks cannot be re-run
+## Create a new task and execute it, using a given task as the input
 
 :endpoint{method="POST" path="/api/\{spaceId\}/tasks/rerun/\{id\}"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/tasks/rerun/{id}`, `/api/tasks/rerun/{id}`.
+
+Note that deployment tasks cannot be re-run.
 
 **Path Parameters**
 
@@ -460,9 +457,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks/rerun/{id}`, `/api/tasks/
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "LastUpdatedTime": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "PendingInterruptionTypes": [
@@ -618,9 +613,129 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}`, `/api/tasks/{id}`.
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "LastUpdatedTime": "2020-01-01T00:00:00.000Z",
   "Links": {
+    "Self": "/api/..."
+  },
+  "Name": "string",
+  "PendingInterruptionTypes": [
+    "ManualIntervention"
+  ],
+  "PendingPreconditionTypes": [
+    "string"
+  ],
+  "ProjectId": "Projects-1",
+  "QueueTime": "2020-01-01T00:00:00.000Z",
+  "QueueTimeExpiry": "2020-01-01T00:00:00.000Z",
+  "ServerNode": "string",
+  "SpaceId": "Spaces-1",
+  "StartTime": "2020-01-01T00:00:00.000Z",
+  "State": "Queued"
+}
+```
+:::
+
+## Abandon a task that has stopped responding to cancellation
+
+:endpoint{method="POST" path="/api/\{spaceId\}/tasks/\{id\}/abandon"}
+
+Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}/abandon`, `/api/tasks/{id}/abandon`.
+
+**Path Parameters**
+
+- **`id`** :span[string]{.type-label} *(required)*  
+  ID of the Task to abandon.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resources.
+
+**Response**
+
+`200` — Returned in response to AbandonServerTaskCommand. If the task could not be abandoned, clients receive an error instead.
+
+- **`Arguments`** :span[object]{.type-label}  
+  Gets or sets any arguments to the task.
+- **`CanRerun`** :span[boolean]{.type-label}  
+  If true, then the task can be used as the basis for a new task with the same effect.
+- **`Completed`** :span[string]{.type-label}  
+  Gets or sets a value indicating the completion status of the task. May be "Timed out", "Queued...", "Executing...", or the time at which the task completed for completed tasks.
+- **`CompletedTime`** :span[string]{.type-label}  
+  Gets or sets the date/time that the task completed. Will be null if the task has not yet completed. Format `date-time`.
+- **`Description`** :span[string]{.type-label}  
+  Gets or sets a short, human-understandable description of this task. An example might be "Manual database backup". This is the name that will be shown in the task list.
+- **`Duration`** :span[string]{.type-label}  
+  Gets or sets a string indicating how long the task took to run.
+- **`ErrorMessage`** :span[string]{.type-label}  
+  Gets or sets a short summary of the errors encountered when the task ran (if any).
+- **`EstimatedRemainingQueueDurationSeconds`** :span[integer]{.type-label}
+- **`FinishedSuccessfully`** :span[boolean]{.type-label}  
+  Gets or sets a value indicating whether the task ran to completion successfully.
+- **`HasBeenPickedUpByProcessor`** :span[boolean]{.type-label}  
+  Gets or sets a boolean value indicating whether the Octopus Server is processing this task.
+- **`HasPendingInterruptions`** :span[boolean]{.type-label}  
+  True if the task has any pending interruptions.
+- **`HasPendingPreconditions`** :span[boolean]{.type-label}  
+  True if the task has any pending preconditions.
+- **`HasWarningsOrErrors`** :span[boolean]{.type-label}  
+  True if any warnings or non-fatal errors were recorded in the task log during execution.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IsCompleted`** :span[boolean]{.type-label}  
+  Gets or sets a value indicating whether the task has completed (that is, not queued, not running, and not paused; may have finished successfully or failed).
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`LastUpdatedTime`** :span[string]{.type-label}  
+  Gets or sets the time that the Octopus server last updated the status of this task. For a running task this should happen at least every couple of minutes. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}  
+  Gets or sets the name of the task to create. This name must be one of the list of possible names documented in the create API operation documentation.
+- **`PendingInterruptionTypes`** :span[array of enum]{.type-label}  
+  Contains a list of the types of any pending interruptions.  
+  Allowed values: `ManualIntervention`, `GuidedFailure`, `PullRequestCompletion`, `ArgoCDApplicationSync`, `KubernetesResourceVerification`.
+- **`PendingPreconditionTypes`** :span[array of string]{.type-label}  
+  Contains a list of the types of any pending preconditions.
+- **`ProjectId`** :span[string]{.type-label}  
+  If the task belongs to a project (e.g. a deployment), the ID of the project it belongs to.
+- **`QueueTime`** :span[string]{.type-label}  
+  Gets or sets the time at which the task was queued. Format `date-time`.
+- **`QueueTimeExpiry`** :span[string]{.type-label}  
+  Gets or sets the time at which the task will timeout if it has not started executing. Format `date-time`.
+- **`ServerNode`** :span[string]{.type-label}  
+  Gets the ID of the Octopus server that created and will control this task.
+- **`SpaceId`** :span[string]{.type-label}
+- **`StartTime`** :span[string]{.type-label}  
+  Gets or sets the time at which the task started executing. Format `date-time`.
+- **`State`** :span[enum]{.type-label}  
+  Gets or sets the current state of the task.  
+  Allowed values: `Queued`, `Executing`, `Failed`, `Canceled`, `TimedOut`, `Success`, `Cancelling`.
+
+:::api-example{label="Response"}
+```json
+{
+  "Arguments": {
     "additionalProp1": "string",
     "additionalProp2": "string",
     "additionalProp3": "string"
+  },
+  "CanRerun": false,
+  "Completed": "string",
+  "CompletedTime": "2020-01-01T00:00:00.000Z",
+  "Description": "string",
+  "Duration": "string",
+  "ErrorMessage": "string",
+  "EstimatedRemainingQueueDurationSeconds": 0,
+  "FinishedSuccessfully": false,
+  "HasBeenPickedUpByProcessor": false,
+  "HasPendingInterruptions": false,
+  "HasPendingPreconditions": false,
+  "HasWarningsOrErrors": false,
+  "Id": "string",
+  "IsCompleted": false,
+  "LastModifiedBy": "string",
+  "LastModifiedOn": "2020-01-01T00:00:00.000Z",
+  "LastUpdatedTime": "2020-01-01T00:00:00.000Z",
+  "Links": {
+    "Self": "/api/..."
   },
   "Name": "string",
   "PendingInterruptionTypes": [
@@ -742,9 +857,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}/cancel`, `/api/tasks
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "LastUpdatedTime": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "PendingInterruptionTypes": [
@@ -898,9 +1011,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}/details`, `/api/task
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "PhysicalLogSize": 0,
   "Progress": {
@@ -931,9 +1042,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}/details`, `/api/task
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "LastUpdatedTime": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     },
     "Name": "string",
     "PendingInterruptionTypes": [
@@ -994,7 +1103,8 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}/queued-behind`, `/ap
 
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`Arguments`** :span[object]{.type-label}  
     Gets or sets any arguments to the task.
@@ -1069,7 +1179,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}/queued-behind`, `/ap
 ```json
 {
   "Id": "string",
-  "ItemType": "string",
+  "ItemType": "Task",
   "Items": [
     {
       "Arguments": {
@@ -1095,9 +1205,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}/queued-behind`, `/ap
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "LastUpdatedTime": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Name": "string",
       "PendingInterruptionTypes": [
@@ -1115,26 +1223,26 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}/queued-behind`, `/ap
       "State": "Queued"
     }
   ],
-  "ItemsPerPage": 0,
+  "ItemsPerPage": 30,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "LastPageNumber": 0,
+  "LastPageNumber": 1,
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
 
-## Get the full task log of a given resource as plain text. Useful when the log needs to be rendered to a console or sent as an email attachment
+## Get the full task log of a given resource as plain text
 
 :endpoint{method="GET" path="/api/\{spaceId\}/tasks/\{id\}/raw"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}/raw`, `/api/tasks/{id}/raw`.
+
+Useful when the log needs to be rendered to a console or sent as an email attachment
 
 **Path Parameters**
 
@@ -1142,6 +1250,11 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}/raw`, `/api/tasks/{i
   The ID of the task.
 - **`spaceId`** :span[string]{.type-label} *(required)*  
   The ID of the space containing the resource(s).
+
+**Query Parameters**
+
+- **`timestamps`** :span[string]{.type-label}  
+  Whether to show server timestamps (`Server`) or remote machine timestamps (`Remote`) in the log. Defaults to Server.
 
 **Response**
 
@@ -1278,9 +1391,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}/state`, `/api/tasks/
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "LastUpdatedTime": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "PendingInterruptionTypes": [
@@ -1340,9 +1451,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}/status/messages`, `/
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Message": "string",
       "Title": "string"

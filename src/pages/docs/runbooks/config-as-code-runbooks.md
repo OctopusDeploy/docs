@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2024-11-24
-modDate: 2025-11-27
+modDate: 2026-10-26
 title: Config as Code runbooks
 description: Details about using configuration as code with runbooks.
 navOrder: 20
@@ -83,13 +83,19 @@ Assuming your default branch is protected, this means that your old 'published' 
 
 💡 If you are using Octopus's built in roles, keep these permissions in mind when moving your draft runbooks out of the 'migrated-drafts/' folder and consider storing these runbooks on a non-default branch.
 
+## AI agent access
+
+A runbook's [AI agent access](/docs/runbooks/runbooks-vs-deployments#ai-agent-access) setting is stored in its OCL file, so it can differ between branches and commits. Octopus only writes `agent_access` to the file when the runbook blocks agents, so saving a runbook that lets agents run it doesn't change its OCL file.
+
+When an AI agent runs a Config as Code runbook, Octopus checks the setting in the version being run. An agent can still run a blocked runbook from a branch, tag, or commit where the setting lets agents run it. Protect your default branch so changes to the setting go through your usual review process.
+
 ## Snapshots vs commits
 
 Another exciting thing about CaC Runbooks is that every revision to your runbook process, settings and variables is captured in your commit history. This means that you can now re-run any previous version of your runbook without the need for snapshots.
 
 To re-run a previous version of a CaC Runbook, simply enter a commit hash on the branch selector at the top of the **Runbooks** page then run from that commit. If you are using the Octopus built in roles, this will require the Runbook Producer role.
 
-The information that was previously found on the **Snapshot** page is still available on the **Details** tab of each runbook run.
+The information that was previously found on the **Snapshot** page is still available on the **Runbook** tab of each runbook run.
 
 💡 Rather than setting package versions in your runbook snapshots, you can now specify fixed package versions inside your runbook steps and store these in CaC alongside the rest of your runbook process.
 

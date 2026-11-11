@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-08-06
-modDate: 2026-08-06
+modDate: 2026-10-26
 title: Webhook runbook triggers
 description: Webhook runbook triggers let an external system run a runbook by sending an HTTP request to Octopus.
 navOrder: 45
@@ -54,12 +54,30 @@ Every request to the endpoint must be authenticated. Each webhook trigger uses o
 
 With **Shared secret**, callers send a secret that only the trigger knows in the `X-Octopus-Webhook-Secret` header:
 
+<details data-group="webhook-secret-example">
+<summary>Bash</summary>
+
 ```bash
 curl -X POST https://your-octopus-url/api/Spaces-1/webhook/{trigger-guid} \
   -H "X-Octopus-Webhook-Secret: your-secret" \
   -H "Content-Type: application/json" \
   -d '{ "reason": "Disk usage above threshold" }'
 ```
+
+</details>
+
+<details data-group="webhook-secret-example">
+<summary>Powershell</summary>
+
+```powershell
+Invoke-WebRequest -Uri "https://your-octopus-url/api/Spaces-1/webhook/{trigger-guid}" `
+  -Method Post `
+  -Headers @{ "X-Octopus-Webhook-Secret" = "your-secret" } `
+  -ContentType "application/json" `
+  -Body '{ "reason": "Disk usage above threshold" }'
+```
+
+</details>
 
 Requests with a missing or incorrect secret are rejected with `401 Unauthorized`, and Octopus records an audit event including the caller's IP address.
 
@@ -69,22 +87,69 @@ Runbook runs created this way are not attributed to an Octopus user, so no permi
 
 With **Octopus API key**, callers authenticate as an Octopus user by sending an [API key](/docs/api/authentication/create-an-api-key) in the `X-Octopus-ApiKey` header:
 
+<details data-group="webhook-apikey-example">
+<summary>Bash</summary>
+
 ```bash
-curl -X POST https://your-octopus-url/api/Spaces-1/webhook/00000000-0000-0000-0000-000000000000 \
+curl -X POST https://your-octopus-url/api/Spaces-1/webhook/{trigger-guid} \
   -H "X-Octopus-ApiKey: API-YOUR-KEY" \
   -H "Content-Type: application/json" \
   -d '{ "reason": "Disk usage above threshold" }'
 ```
 
+</details>
+
+<details data-group="webhook-apikey-example">
+<summary>Powershell</summary>
+
+```powershell
+Invoke-WebRequest -Uri "https://your-octopus-url/api/Spaces-1/webhook/{trigger-guid}" `
+  -Method Post `
+  -Headers @{ "X-Octopus-ApiKey" = "API-YOUR-KEY" } `
+  -ContentType "application/json" `
+  -Body '{ "reason": "Disk usage above threshold" }'
+```
+
+</details>
+
 The runbook run is created as the owner of the API key, which means:
 
 - The key's owner needs the `RunbookRunCreate` [permission](/docs/runbooks/runbook-permissions) for the project, and for every environment and tenant the trigger targets.
 - The run appears in the audit log and task list as being run by that user, rather than by the Octopus system user.
+- If the key is an [agent API key](/docs/api/authentication/create-an-api-key#creating-an-agent-api-key), or belongs to an agent service account, the run is an agent run, and the runbook's [AI agent access](/docs/runbooks/runbooks-vs-deployments#ai-agent-access) setting applies.
 
 We recommend using a [service account](/docs/security/users-and-teams/service-accounts) scoped to only what the runbook needs, rather than a key belonging to a person.
 
 :::div{.warning}
 **Payload signature verification is not supported.** Webhook runbook triggers are generic, and signing schemes are specific to the system sending the request so Octopus ignores signed payload headers.
+:::
+
+## Accessing the payload
+
+The request body sent to the webhook trigger endpoint is available in the runbook as the system variable `Octopus.WebhookTrigger.RequestBody`. Octopus will not parse, validate or modify it.
+
+<details data-group="webhook-body-example">
+<summary>PowerShell</summary>
+
+```powershell
+$body = $OctopusParameters["Octopus.WebhookTrigger.RequestBody"] | ConvertFrom-Json
+Write-Host "Reason: $($body.reason)"
+```
+
+</details>
+
+<details data-group="webhook-body-example">
+<summary>Bash</summary>
+
+```bash
+body=$(get_octopusvariable "Octopus.WebhookTrigger.RequestBody")
+echo "Reason: $(echo "$body" | jq -r '.reason')"
+```
+
+</details>
+
+:::div{.warning}
+Treat the request body as untrusted input. Read it at runtime, as shown above, instead of using `#{Octopus.WebhookTrigger.RequestBody}` substitution in script source. Substitution inserts the raw text into your script before it runs.
 :::
 
 ## Rate limiting

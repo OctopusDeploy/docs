@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-09-18
 title: Machines
 ---
 
@@ -14,7 +14,7 @@ Also reachable at `/api/machines/{id}/connection`, `/api/spaces/{spaceIdentifier
 **Path Parameters**
 
 - **`id`** :span[string]{.type-label} *(required)*  
-  ID of the machine whose connection status is being requested.
+  The ID of the machine whose connection status is requested.
 - **`spaceId`** :span[string]{.type-label} *(required)*  
   ID of the space.
 
@@ -39,8 +39,10 @@ Also reachable at `/api/machines/{id}/connection`, `/api/spaces/{spaceIdentifier
   - **`GapLastNumber`** :span[integer]{.type-label}
   - **`MessageText`** :span[string]{.type-label}
   - **`Number`** :span[integer]{.type-label}
+  - **`ObservedAt`** :span[string]{.type-label}  
+    The time the server received the output. Format `date-time`.
   - **`OccurredAt`** :span[string]{.type-label}  
-    Format `date-time`.
+    The time the output actually occurred, usually from the remote machine. Will be the same as ObservedAt if not available or applicable. Format `date-time`.
 - **`MachineId`** :span[string]{.type-label}
 - **`Status`** :span[string]{.type-label}
 
@@ -53,9 +55,7 @@ Also reachable at `/api/machines/{id}/connection`, `/api/spaces/{spaceIdentifier
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Logs": [
     {
@@ -64,6 +64,7 @@ Also reachable at `/api/machines/{id}/connection`, `/api/spaces/{spaceIdentifier
       "GapLastNumber": 0,
       "MessageText": "string",
       "Number": 0,
+      "ObservedAt": "2020-01-01T00:00:00.000Z",
       "OccurredAt": "2020-01-01T00:00:00.000Z"
     }
   ],

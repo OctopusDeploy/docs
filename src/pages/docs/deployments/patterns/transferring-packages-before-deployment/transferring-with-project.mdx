@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-11-05
-modDate: 2025-11-05
+modDate: 2026-10-13
 title: Transferring packages with a separate project
 description: Transferring packages to environments before the main deployment in Octopus with a separate project.
 navOrder: 90
@@ -29,21 +29,11 @@ You can add in any other checks or steps that you would also like to perform (co
 ![The deployment process for the package transfer project](/docs/img/deployments/patterns/transferring-packages-before-deployment/transfer-project-process.png)
 :::
 
-## Acquisition logs from transfer project
+## Acquisition logs
 
-We can see that the packages were uploaded to the targets when deploying the release in the transfer project.
+When you deploy a release of the transfer project, the **Acquire packages** section of the task log shows each package being uploaded to the targets.
 
-:::figure
-![Acquisition logs showing packages uploaded by the transfer project](/docs/img/deployments/patterns/transferring-packages-before-deployment/acquisition-logs-from-transfer-project.png)
-:::
-
-## Acquisition logs from main project
-
-We can see that the packages were found in the cache and not uploaded when deploying the release in the main project.
-
-:::figure
-![Acquisition logs showing packages found in the cache in the main project](/docs/img/deployments/patterns/transferring-packages-before-deployment/acquisition-logs-from-main-project.png)
-:::
+When you then deploy the main project with the same package versions, that section shows each package being found in the targets' package cache instead, so no packages are uploaded during the deployment.
 
 ## Benefits of this approach
 

@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2026-07-20
+modDate: 2026-09-15
 title: Creating releases from a build server plugin on a version-controlled project
 description: Examples of how to ensure that the right branch is used to create the release when using a build server plugin.
 navOrder: 45
@@ -51,10 +51,10 @@ ${{ github.head_ref || github.ref }}
 For *Git Commit*, use
 
 ```text
-${{ github.event.push.after || github.event.pull_request.head.sha }}
+${{ github.event.pull_request.head.sha || github.sha }}
 ```
 
-**Note:** this approach doesn't populate the commit details for manually triggered runs. It is recommended that you provide the values for both branch and commit in this case.
+On a pull request this resolves to the head of the source branch. On every other event, including manually triggered runs, it falls back to `github.sha`.
 
 ## TeamCity
 

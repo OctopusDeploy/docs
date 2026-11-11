@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-10-07
 title: Spaces
 ---
 
@@ -31,7 +31,8 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials`.
 
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`Description`** :span[string]{.type-label}
   - **`Details`** :span[object]{.type-label}
@@ -61,7 +62,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials`.
 ```json
 {
   "Id": "string",
-  "ItemType": "string",
+  "ItemType": "GitCredential",
   "Items": [
     {
       "Description": "string",
@@ -72,9 +73,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials`.
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Name": "string",
       "RepositoryRestrictions": {
@@ -86,17 +85,15 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials`.
       "SpaceId": "Spaces-1"
     }
   ],
-  "ItemsPerPage": 0,
+  "ItemsPerPage": 30,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "LastPageNumber": 0,
+  "LastPageNumber": 1,
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -198,7 +195,8 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/v1`.
 - **`GitCredentials`** :span[object]{.type-label}
   - **`Id`** :span[string]{.type-label}  
     Gets or sets a unique identifier for this resource.
-  - **`ItemType`** :span[string]{.type-label}
+  - **`ItemType`** :span[string]{.type-label}  
+    The type of item in this list.
   - **`Items`** :span[array of object]{.type-label}
   - **`ItemsPerPage`** :span[integer]{.type-label}
   - **`LastModifiedBy`** :span[string]{.type-label}  
@@ -216,7 +214,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/v1`.
 {
   "GitCredentials": {
     "Id": "string",
-    "ItemType": "string",
+    "ItemType": "GitCredential",
     "Items": [
       {
         "Description": "string",
@@ -224,23 +222,23 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/v1`.
         "Id": "string",
         "LastModifiedBy": "string",
         "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-        "Links": {},
+        "Links": {
+          "Self": "/api/..."
+        },
         "Name": "string",
         "RepositoryRestrictions": {},
         "SpaceId": "Spaces-1"
       }
     ],
-    "ItemsPerPage": 0,
+    "ItemsPerPage": 30,
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-    "LastPageNumber": 0,
+    "LastPageNumber": 1,
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     },
-    "NumberOfPages": 0,
-    "TotalResults": 0
+    "NumberOfPages": 2,
+    "TotalResults": 42
   }
 }
 ```
@@ -340,7 +338,8 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/v2`.
 
 `200` — Success
 
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`Description`** :span[string]{.type-label}
   - **`Details`** :span[object]{.type-label}
@@ -360,7 +359,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/v2`.
 :::api-example{label="Response"}
 ```json
 {
-  "ItemType": "string",
+  "ItemType": "GitCredentialV2",
   "Items": [
     {
       "Description": "string",
@@ -380,10 +379,10 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/v2`.
       "SpaceId": "Spaces-1"
     }
   ],
-  "ItemsPerPage": 0,
-  "LastPageNumber": 0,
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "ItemsPerPage": 30,
+  "LastPageNumber": 1,
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -492,9 +491,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}`.
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "RepositoryRestrictions": {
@@ -722,9 +719,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}/v1`.
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     },
     "Name": "string",
     "RepositoryRestrictions": {
@@ -983,9 +978,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/git/refs`.
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Name": "string"
     }
@@ -1020,10 +1013,12 @@ Lists all of the Spaces in the supplied Octopus Deploy Space. The results will b
 
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`Description`** :span[string]{.type-label}
-  - **`ExtensionSettings`** :span[array of object]{.type-label}
+  - **`ExtensionSettings`** :span[array of object]{.type-label}  
+    Not intended for general use; You should not alter or add/remove any values it may have.
   - **`Icon`** :span[object]{.type-label}
   - **`Id`** :span[string]{.type-label}  
     Gets or sets a unique identifier for this resource.
@@ -1055,16 +1050,14 @@ Lists all of the Spaces in the supplied Octopus Deploy Space. The results will b
 ```json
 {
   "Id": "string",
-  "ItemType": "string",
+  "ItemType": "Space",
   "Items": [
     {
       "Description": "string",
-      "ExtensionSettings": [
-        {}
-      ],
+      "ExtensionSettings": [],
       "Icon": {
-        "Color": "string",
-        "Id": "string"
+        "Color": "#3CA4F3",
+        "Id": "rocket"
       },
       "Id": "string",
       "IsDefault": false,
@@ -1072,9 +1065,7 @@ Lists all of the Spaces in the supplied Octopus Deploy Space. The results will b
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Name": "string",
       "Slug": "string",
@@ -1088,17 +1079,15 @@ Lists all of the Spaces in the supplied Octopus Deploy Space. The results will b
       "TaskQueueStopped": false
     }
   ],
-  "ItemsPerPage": 0,
+  "ItemsPerPage": 30,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "LastPageNumber": 0,
+  "LastPageNumber": 1,
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -1143,7 +1132,8 @@ Lists all of the Spaces in the supplied Octopus Deploy Space. The results will b
 `201` — Created
 
 - **`Description`** :span[string]{.type-label}
-- **`ExtensionSettings`** :span[array of object]{.type-label}
+- **`ExtensionSettings`** :span[array of object]{.type-label}  
+  Not intended for general use; You should not alter or add/remove any values it may have.
   - **`ExtensionId`** :span[string]{.type-label}
   - **`Values`** :span[string]{.type-label}
 - **`Icon`** :span[object]{.type-label}
@@ -1171,15 +1161,10 @@ Lists all of the Spaces in the supplied Octopus Deploy Space. The results will b
 ```json
 {
   "Description": "string",
-  "ExtensionSettings": [
-    {
-      "ExtensionId": "string",
-      "Values": "string"
-    }
-  ],
+  "ExtensionSettings": [],
   "Icon": {
-    "Color": "string",
-    "Id": "string"
+    "Color": "#3CA4F3",
+    "Id": "rocket"
   },
   "Id": "string",
   "IsDefault": false,
@@ -1187,9 +1172,7 @@ Lists all of the Spaces in the supplied Octopus Deploy Space. The results will b
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "Slug": "string",
@@ -1221,7 +1204,8 @@ Lists all Spaces. The results will be sorted alphabetically by name.
 `200` — The requested list of Spaces
 
 - **`Description`** :span[string]{.type-label}
-- **`ExtensionSettings`** :span[array of object]{.type-label}
+- **`ExtensionSettings`** :span[array of object]{.type-label}  
+  Not intended for general use; You should not alter or add/remove any values it may have.
   - **`ExtensionId`** :span[string]{.type-label}
   - **`Values`** :span[string]{.type-label}
 - **`Icon`** :span[object]{.type-label}
@@ -1250,15 +1234,10 @@ Lists all Spaces. The results will be sorted alphabetically by name.
 [
   {
     "Description": "string",
-    "ExtensionSettings": [
-      {
-        "ExtensionId": "string",
-        "Values": "string"
-      }
-    ],
+    "ExtensionSettings": [],
     "Icon": {
-      "Color": "string",
-      "Id": "string"
+      "Color": "#3CA4F3",
+      "Id": "rocket"
     },
     "Id": "string",
     "IsDefault": false,
@@ -1266,9 +1245,7 @@ Lists all Spaces. The results will be sorted alphabetically by name.
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     },
     "Name": "string",
     "Slug": "string",
@@ -1326,7 +1303,8 @@ Lists all Spaces. The results will be sorted alphabetically by name.
 
 - **`Space`** :span[object]{.type-label}
   - **`Description`** :span[string]{.type-label}
-  - **`ExtensionSettings`** :span[array of object]{.type-label}
+  - **`ExtensionSettings`** :span[array of object]{.type-label}  
+    Not intended for general use; You should not alter or add/remove any values it may have.
   - **`Icon`** :span[object]{.type-label}
   - **`Id`** :span[string]{.type-label}  
     Gets or sets a unique identifier for this resource.
@@ -1349,15 +1327,10 @@ Lists all Spaces. The results will be sorted alphabetically by name.
 {
   "Space": {
     "Description": "string",
-    "ExtensionSettings": [
-      {
-        "ExtensionId": "string",
-        "Values": "string"
-      }
-    ],
+    "ExtensionSettings": [],
     "Icon": {
-      "Color": "string",
-      "Id": "string"
+      "Color": "#3CA4F3",
+      "Id": "rocket"
     },
     "Id": "string",
     "IsDefault": false,
@@ -1365,9 +1338,7 @@ Lists all Spaces. The results will be sorted alphabetically by name.
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     },
     "Name": "string",
     "Slug": "string",
@@ -1398,7 +1369,8 @@ Lists all Spaces. The results will be sorted alphabetically by name.
 `200` — Returns a space
 
 - **`Description`** :span[string]{.type-label}
-- **`ExtensionSettings`** :span[array of object]{.type-label}
+- **`ExtensionSettings`** :span[array of object]{.type-label}  
+  Not intended for general use; You should not alter or add/remove any values it may have.
   - **`ExtensionId`** :span[string]{.type-label}
   - **`Values`** :span[string]{.type-label}
 - **`Icon`** :span[object]{.type-label}
@@ -1426,15 +1398,10 @@ Lists all Spaces. The results will be sorted alphabetically by name.
 ```json
 {
   "Description": "string",
-  "ExtensionSettings": [
-    {
-      "ExtensionId": "string",
-      "Values": "string"
-    }
-  ],
+  "ExtensionSettings": [],
   "Icon": {
-    "Color": "string",
-    "Id": "string"
+    "Color": "#3CA4F3",
+    "Id": "rocket"
   },
   "Id": "string",
   "IsDefault": false,
@@ -1442,9 +1409,7 @@ Lists all Spaces. The results will be sorted alphabetically by name.
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "Slug": "string",
@@ -1506,7 +1471,8 @@ Lists all Spaces. The results will be sorted alphabetically by name.
 `200` — Confirmation that the Space was modified, contains the updated Space
 
 - **`Description`** :span[string]{.type-label}
-- **`ExtensionSettings`** :span[array of object]{.type-label}
+- **`ExtensionSettings`** :span[array of object]{.type-label}  
+  Not intended for general use; You should not alter or add/remove any values it may have.
   - **`ExtensionId`** :span[string]{.type-label}
   - **`Values`** :span[string]{.type-label}
 - **`Icon`** :span[object]{.type-label}
@@ -1534,15 +1500,10 @@ Lists all Spaces. The results will be sorted alphabetically by name.
 ```json
 {
   "Description": "string",
-  "ExtensionSettings": [
-    {
-      "ExtensionId": "string",
-      "Values": "string"
-    }
-  ],
+  "ExtensionSettings": [],
   "Icon": {
-    "Color": "string",
-    "Id": "string"
+    "Color": "#3CA4F3",
+    "Id": "rocket"
   },
   "Id": "string",
   "IsDefault": false,
@@ -1550,9 +1511,7 @@ Lists all Spaces. The results will be sorted alphabetically by name.
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "Slug": "string",
@@ -1714,7 +1673,8 @@ Also reachable at `/api/spaces/{id}/search`, `/api/spaces/{spaceIdentifier}/spac
 `200` — The requested list of Spaces available to the user
 
 - **`Description`** :span[string]{.type-label}
-- **`ExtensionSettings`** :span[array of object]{.type-label}
+- **`ExtensionSettings`** :span[array of object]{.type-label}  
+  Not intended for general use; You should not alter or add/remove any values it may have.
   - **`ExtensionId`** :span[string]{.type-label}
   - **`Values`** :span[string]{.type-label}
 - **`Icon`** :span[object]{.type-label}
@@ -1743,15 +1703,10 @@ Also reachable at `/api/spaces/{id}/search`, `/api/spaces/{spaceIdentifier}/spac
 [
   {
     "Description": "string",
-    "ExtensionSettings": [
-      {
-        "ExtensionId": "string",
-        "Values": "string"
-      }
-    ],
+    "ExtensionSettings": [],
     "Icon": {
-      "Color": "string",
-      "Id": "string"
+      "Color": "#3CA4F3",
+      "Id": "rocket"
     },
     "Id": "string",
     "IsDefault": false,
@@ -1759,9 +1714,7 @@ Also reachable at `/api/spaces/{id}/search`, `/api/spaces/{spaceIdentifier}/spac
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     },
     "Name": "string",
     "Slug": "string",

@@ -1,15 +1,17 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-09-04
 title: Build Information
 ---
 
-## Retrieve a list of build information records describing the vcs information for a given package
+## List build information for a package
 
 :endpoint{method="GET" path="/api/\{spaceId\}/build-information"}
 
 Also reachable at `/api/build-information`, `/api/spaces/{spaceIdentifier}/build-information`.
+
+Retrieve a list of build information records describing the vcs information for a given package
 
 **Path Parameters**
 
@@ -38,7 +40,8 @@ Also reachable at `/api/build-information`, `/api/spaces/{spaceIdentifier}/build
 
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`Branch`** :span[string]{.type-label}
   - **`BuildEnvironment`** :span[string]{.type-label}
@@ -79,7 +82,7 @@ Also reachable at `/api/build-information`, `/api/spaces/{spaceIdentifier}/build
 ```json
 {
   "Id": "string",
-  "ItemType": "string",
+  "ItemType": "OctopusPackageVersionBuildInformationMapped",
   "Items": [
     {
       "Branch": "string",
@@ -96,9 +99,7 @@ Also reachable at `/api/build-information`, `/api/spaces/{spaceIdentifier}/build
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "PackageId": "string",
       "VcsCommitNumber": "string",
@@ -111,17 +112,15 @@ Also reachable at `/api/build-information`, `/api/spaces/{spaceIdentifier}/build
       ]
     }
   ],
-  "ItemsPerPage": 0,
+  "ItemsPerPage": 30,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "LastPageNumber": 0,
+  "LastPageNumber": 1,
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -240,9 +239,7 @@ Also reachable at `/api/build-information`, `/api/spaces/{spaceIdentifier}/build
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "PackageId": "string",
   "VcsCommitNumber": "string",
@@ -365,9 +362,7 @@ Also reachable at `/api/build-information/{id}`, `/api/spaces/{spaceIdentifier}/
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "PackageId": "string",
   "VcsCommitNumber": "string",

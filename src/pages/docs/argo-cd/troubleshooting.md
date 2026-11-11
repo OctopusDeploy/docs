@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-09-15
-modDate: 2026-06-11
+modDate: 2026-09-09
 title: Troubleshooting Argo CD in Octopus
 navTitle: Troubleshooting
 description: How to resolve configuration issues
@@ -174,24 +174,24 @@ Behavior:
 - Deployments with Argo CD steps fail intermittently with gRPC connection errors, and succeed when retried
 - The "Gateway connectivity" tab of the Argo CD instance intermittently shows "Unavailable", depending on when the last health check ran
 - The gateway pod logs show stream errors followed by an immediate reconnection
-- If the load balancer drops connections silently instead of closing them, the logs show failing keep alives (`keep alive check failed - cancelling subscribers` with `DeadlineExceeded` errors) and the gateway pod restart count climbs at a regular cadence
+- If the load balancer drops connections silently instead of closing them, the logs show failing health checks (`Health check failed - cancelling subscribers` with `DeadlineExceeded` errors) and the gateway pod restart count climbs at a regular cadence
 
 Cause:
 
 - A load balancer or proxy between the gateway and Octopus Server closes connections it considers idle
-- The gateway sends a keep alive to Octopus Server every 30 seconds by default to hold the connection open. If the load balancer's idle timeout is shorter than the keep alive interval (or keep alives are disabled), the connection is terminated before the next keep alive is sent
+- The gateway sends a health check to Octopus Server every 30 seconds by default to hold the connection open. If the load balancer's idle timeout is shorter than the health check interval (or health checks are disabled), the connection is terminated before the next health check is sent
 
 Resolution:
 
-- Increase the idle timeout on your load balancer so it comfortably exceeds the keep alive interval (`gateway.octopus.keepAlive.intervalSeconds`, default 30 seconds)
-- Alternatively, reduce the keep alive interval below the load balancer's idle timeout:
+- Increase the idle timeout on your load balancer so it comfortably exceeds the health check interval (`gateway.octopus.healthCheck.interval`, default 30 seconds)
+- Alternatively, reduce the health check interval below the load balancer's idle timeout:
 
 ```bash
 helm upgrade --atomic \
 --version "1.0.0" \
 --namespace "{{GATEWAY_NAMESPACE}}" \
 --reset-then-reuse-values \
---set gateway.octopus.keepAlive.intervalSeconds="15" \
+--set gateway.octopus.healthCheck.interval="15s" \
 {{EXISTING_HELM_RELEASE_NAME}} \
 oci://registry-1.docker.io/octopusdeploy/octopus-argocd-gateway-chart
 ```
@@ -299,7 +299,9 @@ Behavior:
 Cause:
 
 - Live Status is not enabled
+- Project doesn't have any deployments
 
 Resolution:
 
-- Enable Live Status via the "Live Status" toggle switch at the top of the dashboard.
+- Enable Live Status via the "Live Status" toggle switch at the top of the dashboard
+- Deploy a release in the desired project

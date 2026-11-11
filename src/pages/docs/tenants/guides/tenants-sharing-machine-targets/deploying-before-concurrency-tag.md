@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-08-21
-modDate: 2023-08-21
+modDate: 2026-10-13
 title: Deploying before the concurrency tag is changed
 icon: fa-solid fa-users-rectangle
 description: Shows the impact of the deployment mutex on concurrent deployments to the same target
@@ -21,11 +21,7 @@ Once the deployments are complete, we can see that each of the deployments took 
 ![Completed deployments, each taking 2-3 minutes](/docs/img/tenants/guides/tenants-sharing-machine-targets/all-groups-concurrent-complete.png)
 :::
 
-If we look at one of the specific task logs, we can see that each step in the deployment to Group 1 - Tenant E had to wait for one or more other tasks to finish before it could start.
-
-:::figure
-![The task log for Group 1 - Tenant E, with each step waiting on other tasks](/docs/img/tenants/guides/tenants-sharing-machine-targets/deployment-details-concurrent.png)
-:::
+The task log for the deployment to Group 1 - Tenant E shows why. Each step had to wait for one or more other tasks to finish before it could start, because the other tenants in the group were deploying to the same targets.
 
 The time required to complete a deployment in this scenario will grow based on the number of steps targeting the shared infrastructure and the number of tenants in that group being deployed at once. It can also cause tasks to queue for longer than expected since all tasks are running, they are consuming part of the task cap. If you have a task cap of 20, and three infrastructure groups that each host 50 tenants, the tasks for one group can cause the tasks for the other two groups to wait in the queue for quite a while.
 

@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2026-10-27
 title: Script Console
 description: The Script Console allows Octopus administrators to execute scripts and perform administrative tasks on workers and deployment targets as groups or individuals.
 navOrder: 600
@@ -21,10 +21,10 @@ Any machines registered with Octopus as [workers](/docs/infrastructure/workers/)
 
 ## Use the Script Console
 
-The Script Console can be found under the Tasks area:
+The Script Console runs scripts within a space, so it's only available from a space's Tasks page, not the global Tasks page. To open it, navigate to **Deploy ➜ Tasks** in the space you want to work in, and click **Script console**:
 
 :::figure
-![The Script Console button in the Tasks area](/docs/img/administration/managing-infrastructure/images/tasks-script-console-button.png)
+![The Script Console button on the space-level Tasks page](/docs/img/administration/managing-infrastructure/images/tasks-script-console-button.png)
 :::
 
 Inside the Script Console, you can choose whether to run your script on:
@@ -92,3 +92,7 @@ Sometimes you might like to collect files from each of the machines as part of y
 Besides making it easy to run a script on many servers, the other advantage of using the Script Console is auditing. Ad-hoc scripts run via the Script Console will appear in the [Audit](/docs/security/users-and-teams/auditing) tab in the Configuration area.
 
 ![A Script Console run recorded in the audit log](/docs/img/administration/managing-infrastructure/images/script-console-audit.png)
+
+## Version notes
+
+- The **Script console** button moved from the global Tasks page to the space-level Tasks page (**Deploy ➜ Tasks**) in Octopus Server 2027.0. In earlier versions, it's on the global Tasks page.

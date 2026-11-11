@@ -1,15 +1,3 @@
-/* Row backgrounds for the side navigation. These are design tokens that @octopusdeploy/design-system-tokens does not ship because they are specific to the docs site.*/
-:root {
-  --navBackgroundRest: rgba(26, 119, 202, 0);
-  --navBackgroundHover: var(--colorScalesSlate100);
-  --navBackgroundActive: rgba(26, 119, 202, 0.06);
-}
-
-html[data-theme='dark'] {
-  --navBackgroundHover: var(--colorScalesNavy800);
-  --navBackgroundActive: rgba(26, 119, 202, 0.24);
-}
-
 html {
   box-sizing: border-box;
   scroll-padding-block-start: var(--scroll-pad);
@@ -109,9 +97,6 @@ blockquote cite {
 }
 
 code {
-  border-radius: var(--borderRadiusSmall);
-  border: var(--borderWidth1) solid var(--colorBorderPrimary);
-  background: var(--colorBackgroundSecondaryDefault);
   white-space: pre-wrap;
   overflow-wrap: break-word;
   padding: 0 var(--space4);
@@ -756,7 +741,7 @@ html[data-signed-in='false'] [data-signed-in-only] {
   display: inline-flex;
   gap: 1rem;
   text-decoration: none;
-  color: var(--octo-blue-lightest);
+  color: var(--colorTextLinkDefault);
   font-family: var(--fontFamilySystem-ui);
   font-size: var(--fontSizeLarge);
   line-height: var(--lineHeightMedium);
@@ -767,7 +752,7 @@ html[data-signed-in='false'] [data-signed-in-only] {
 
 .link:hover,
 .link:focus {
-  color: var(--octo-blue);
+  color: var(--colorTextLinkHover);
 }
 
 .link__icon-wrapper {
@@ -1096,7 +1081,7 @@ html[data-theme='dark'] img.card__icon {
   gap: var(--space8);
   padding: var(--space8);
   border-radius: var(--borderRadiusSmall);
-  background-color: var(--navBackgroundRest);
+  background-color: var(--colorNavBackgroundRest);
   color: var(--colorTextPrimary);
   font: var(--textBodyRegularMedium);
   text-decoration: none;
@@ -1152,24 +1137,26 @@ html[data-theme='dark'] img.card__icon {
 /* Clicking a section to expand it should not leave the row looking hovered. */
 .site-nav__link:hover,
 .site-nav__link:focus-visible {
-  background-color: var(--navBackgroundHover);
+  background-color: var(--colorNavBackgroundHover);
 }
 
 /* The row for the page you are on, hovered or not. */
 .site-nav__link[aria-current] {
-  background-color: var(--navBackgroundActive);
-  color: var(--colorTextSelected);
+  background-color: var(--colorNavBackgroundActive);
+  color: var(--colorTextPrimary);
+  font: var(--textBodyBoldMedium);
 }
 
 /* The API nav lists the current page's endpoints in place of a table of
    contents, so the row for the endpoint in view is marked the way one is
    there: `highlight` comes from scripts/modules/toc.js. */
 .site-nav__link--heading.highlight {
-  background-color: var(--navBackgroundActive);
-  color: var(--colorTextSelected);
+  background-color: var(--colorNavBackgroundActive);
+  color: var(--colorTextPrimary);
+  font: var(--textBodyBoldMedium);
 }
 
-/* An expanded section is the only row that goes bold. */
+/* Expanded sections go bold, as does the active row. */
 .site-nav__group[open] > .site-nav__link {
   font: var(--textBodyBoldMedium);
 }
@@ -1414,7 +1401,7 @@ html[data-theme='dark'] img.card__icon {
 /* Author info */
 
 .post-meta {
-  border-top: 1px solid var(--navy-400);
+  border-top: 1px solid var(--colorBorderPrimary);
   padding-block-start: var(--block-gap);
   margin-block-start: 5rem;
   display: flex;
@@ -1526,8 +1513,8 @@ html[data-theme='dark'] img.card__icon {
 }
 
 .post-taxonomy li a {
-  background-color: var(--menu-link-bg);
-  color: var(--body-link-alt);
+  background-color: var(--colorChipBackgroundPrimary);
+  color: var(--colorChipTextPrimary);
   border-radius: var(--standard-radius);
   padding: 0.3rem 0.5rem;
   text-decoration: none;
@@ -1821,7 +1808,7 @@ html:has(.site-search__wrapper.is-active) {
 }
 
 .site-search__icon path {
-  fill: var(--blue-grey-light);
+  fill: var(--colorTextFieldIconPrimary);
 }
 
 .site-search-query {
@@ -1834,8 +1821,7 @@ html:has(.site-search__wrapper.is-active) {
 }
 
 .site-search-query::placeholder {
-  color: var(--search-placeholder-color);
-  opacity: 0.6;
+  color: var(--colorTextFieldTextSecondary);
 }
 
 .search-results__heading {
@@ -1853,7 +1839,7 @@ html:has(.site-search__wrapper.is-active) {
   transition-duration: var(--search-dropdown-duration);
   transition-timing-function: ease-in-out;
   border-bottom: 0.0625rem solid;
-  border-color: var(--navy-200);
+  border-color: var(--colorBorderPrimary);
   position: relative;
   cursor: pointer;
 }
@@ -1916,7 +1902,7 @@ html:has(.site-search__wrapper.is-active) {
 }
 
 .result-path {
-  color: var(--blue-grey-lighter);
+  color: var(--colorTextTertiary);
   font-size: var(--fontSizeMedium);
   font-weight: var(--fontWeight400);
   display: flex;
@@ -1962,7 +1948,7 @@ html:has(.site-search__wrapper.is-active) {
 }
 
 .site-search__remove-btn path {
-  fill: var(--search-remove-icon-color);
+  fill: var(--colorTextFieldIconPrimary);
 }
 
 .site-search.is-active .site-search__remove-btn {
@@ -2030,12 +2016,12 @@ html:has(.site-search__wrapper.is-active) {
 
 .fa-spinner:before {
   content: '\f110';
-  color: var(--blue-500);
+  color: var(--colorIconInfo);
   font-family: fa-solid;
 }
 
 .fa-spinner.blue {
-  color: var(--blue-500);
+  color: var(--colorIconInfo);
 }
 
 .fa-circle-check:before {
@@ -2109,7 +2095,7 @@ html:has(.site-search__wrapper.is-active) {
 .fa-circle-notch.blue,
 .fa-hourglass.blue,
 .fa-arrows-rotate.blue {
-  color: var(--blue-500);
+  color: var(--colorIconInfo);
 }
 
 .fa-circle-exclamation.red,

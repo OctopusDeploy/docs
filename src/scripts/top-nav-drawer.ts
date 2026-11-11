@@ -7,6 +7,8 @@ const PANEL_SELECTOR = '[data-top-nav-panel]';
 const TOGGLE_SELECTOR = '[data-top-nav-toggle]';
 const NAV_SLOT_SELECTOR = '[data-top-nav-nav-slot]';
 const SITE_NAV_SELECTOR = '#site-nav';
+const NAV_SCROLL_SELECTOR = '[data-site-nav-scroll]';
+const ACTIVE_LINK_SELECTOR = '[aria-current="page"]';
 
 const ICON_SELECTOR = '.btn__icon';
 const BARS_ICON = 'top-nav__bars-icon';
@@ -42,6 +44,17 @@ function setIcon(name: string) {
   icon?.classList.add(name);
 }
 
+function centerActiveNavLink() {
+  const list = navSlot?.querySelector<HTMLElement>(NAV_SCROLL_SELECTOR);
+  const active = list?.querySelector<HTMLElement>(ACTIVE_LINK_SELECTOR);
+  if (!list || !active) return;
+
+  const listRect = list.getBoundingClientRect();
+  const activeRect = active.getBoundingClientRect();
+  list.scrollTop +=
+    activeRect.top - listRect.top - (listRect.height - activeRect.height) / 2;
+}
+
 function open() {
   if (!panel || !toggle || isOpen()) return;
 
@@ -50,6 +63,7 @@ function open() {
   toggle.setAttribute('aria-label', 'Close navigation');
   setIcon(CLOSE_ICON);
   removeScroll();
+  centerActiveNavLink();
 }
 
 function close({ restoreFocus = false } = {}) {

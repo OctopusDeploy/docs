@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-11-04
 title: Certificates
 ---
 
@@ -43,7 +43,8 @@ Also reachable at `/api/certificates`, `/api/spaces/{spaceIdentifier}/certificat
 
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`Archived`** :span[string]{.type-label}  
     Format `date-time`.
@@ -104,7 +105,7 @@ Also reachable at `/api/certificates`, `/api/spaces/{spaceIdentifier}/certificat
 ```json
 {
   "Id": "string",
-  "ItemType": "string",
+  "ItemType": "Certificate",
   "Items": [
     {
       "Archived": "2020-01-01T00:00:00.000Z",
@@ -130,9 +131,7 @@ Also reachable at `/api/certificates`, `/api/spaces/{spaceIdentifier}/certificat
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Name": "string",
       "NotAfter": "2020-01-01T00:00:00.000Z",
@@ -166,17 +165,15 @@ Also reachable at `/api/certificates`, `/api/spaces/{spaceIdentifier}/certificat
       "Version": 0
     }
   ],
-  "ItemsPerPage": 0,
+  "ItemsPerPage": 30,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "LastPageNumber": 0,
+  "LastPageNumber": 1,
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -346,9 +343,7 @@ Adds a new certificate
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "NotAfter": "2020-01-01T00:00:00.000Z",
@@ -384,7 +379,7 @@ Adds a new certificate
 ```
 :::
 
-## Get a list of Certificates
+## List all Certificates (unpaginated)
 
 :endpoint{method="GET" path="/api/\{spaceId\}/certificates/all"}
 
@@ -503,9 +498,7 @@ Lists X.509 certificates managed by Octopus.
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     },
     "Name": "string",
     "NotAfter": "2020-01-01T00:00:00.000Z",
@@ -571,9 +564,7 @@ Returns the server thumbprint used to identify this Octopus Server to any Tentac
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "SignatureAlgorithm": "string",
@@ -590,132 +581,54 @@ Also reachable at `/api/certificates/generate`, `/api/spaces/{spaceIdentifier}/c
 
 **Path Parameters**
 
-- **`spaceId`** :span[string]{.type-label} *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space to create the certificate in.
 
 **Request Body**
 
-- **`Archived`** :span[string]{.type-label}  
-  Format `date-time`.
-- **`CertificateChain`** :span[array of object]{.type-label}
-  - **`IssuerDistinguishedName`** :span[string]{.type-label}
-  - **`NotAfter`** :span[string]{.type-label}  
-    Format `date-time`.
-  - **`NotBefore`** :span[string]{.type-label}  
-    Format `date-time`.
-  - **`SerialNumber`** :span[string]{.type-label}
-  - **`SignatureAlgorithmName`** :span[string]{.type-label}
-  - **`SubjectDistinguishedName`** :span[string]{.type-label}
-  - **`Thumbprint`** :span[string]{.type-label}
-  - **`Version`** :span[integer]{.type-label}
-- **`CertificateData`** :span[sensitive value]{.type-label}
-  - **`HasValue`** :span[boolean]{.type-label}
-  - **`Hint`** :span[string]{.type-label}
-  - **`NewValue`** :span[string]{.type-label}
-- **`CertificateDataFormat`** :span[enum]{.type-label}  
-  Allowed values: `Pkcs12`, `Der`, `Pem`, `Unknown`.
-- **`EnvironmentIds`** :span[array of string]{.type-label}
-- **`HasPrivateKey`** :span[boolean]{.type-label}
-- **`Id`** :span[string]{.type-label}  
-  Gets or sets a unique identifier for this resource.
-- **`IsExpired`** :span[boolean]{.type-label}
-- **`IssuerCommonName`** :span[string]{.type-label}
-- **`IssuerDistinguishedName`** :span[string]{.type-label}
-- **`IssuerOrganization`** :span[string]{.type-label}
-- **`LastModifiedBy`** :span[string]{.type-label}  
-  Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** :span[string]{.type-label}  
-  Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** :span[object]{.type-label}  
-  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** :span[string]{.type-label}
-- **`NotAfter`** :span[string]{.type-label}  
-  Format `date-time`.
-- **`NotBefore`** :span[string]{.type-label}  
-  Format `date-time`.
-- **`Notes`** :span[string]{.type-label}
+- **`EnvironmentIds`** :span[array of string]{.type-label}  
+  Environments the certificate should be scoped to. Leave empty to allow use in all environments.
+- **`Name`** :span[string]{.type-label} *(required)*  
+  The name of the certificate. Minimum length 1.
+- **`Notes`** :span[string]{.type-label}  
+  Additional information on the certificate. Maximum length 10240.
 - **`Password`** :span[sensitive value]{.type-label}
   - **`HasValue`** :span[boolean]{.type-label}
   - **`Hint`** :span[string]{.type-label}
   - **`NewValue`** :span[string]{.type-label}
-- **`ReplacedBy`** :span[string]{.type-label}
-- **`SelfSigned`** :span[boolean]{.type-label}
 - **`SelfSignedCertificateCurve`** :span[string]{.type-label}  
   Elliptic curve for the generated key pair: nistP256, nistP384 or nistP521. Defaults to nistP384 when omitted.
-- **`SerialNumber`** :span[string]{.type-label}
-- **`SignatureAlgorithmName`** :span[string]{.type-label}
-- **`SpaceId`** :span[string]{.type-label}
-- **`SubjectAlternativeNames`** :span[array of string]{.type-label}
+- **`SpaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space to create the certificate in.
 - **`SubjectCommonName`** :span[string]{.type-label}  
   The certificate subject's common name (CN). When creating a self-signed certificate this becomes the generated certificate's CN, and at least one of SubjectCommonName or SubjectOrganization must be supplied.
-- **`SubjectDistinguishedName`** :span[string]{.type-label}
 - **`SubjectOrganization`** :span[string]{.type-label}  
   The certificate subject's organization (O). When creating a self-signed certificate, at least one of SubjectCommonName or SubjectOrganization must be supplied.
-- **`TenantIds`** :span[array of string]{.type-label}
-- **`TenantTags`** :span[array of string]{.type-label}
+- **`TenantIds`** :span[array of string]{.type-label}  
+  The tenants the certificate is associated with.
+- **`TenantTags`** :span[array of string]{.type-label}  
+  The canonical tenant tag names the certificate is associated with.
 - **`TenantedDeploymentParticipation`** :span[enum]{.type-label}  
+  Whether the certificate is available to tenanted deployments. Defaults to Tenanted when TenantIds or TenantTags are supplied, otherwise Untenanted.  
   Allowed values: `Untenanted`, `TenantedOrUntenanted`, `Tenanted`.
-- **`Thumbprint`** :span[string]{.type-label}
-- **`Version`** :span[integer]{.type-label}
 
 :::api-example{label="Request"}
 ```json
 {
-  "Archived": "2020-01-01T00:00:00.000Z",
-  "CertificateChain": [
-    {
-      "IssuerDistinguishedName": "string",
-      "NotAfter": "2020-01-01T00:00:00.000Z",
-      "NotBefore": "2020-01-01T00:00:00.000Z",
-      "SerialNumber": "string",
-      "SignatureAlgorithmName": "string",
-      "SubjectDistinguishedName": "string",
-      "Thumbprint": "string",
-      "Version": 0
-    }
-  ],
-  "CertificateData": {
-    "HasValue": false,
-    "Hint": "string",
-    "NewValue": "string"
-  },
-  "CertificateDataFormat": "Pkcs12",
   "EnvironmentIds": [
     "Environments-1",
     "..."
   ],
-  "HasPrivateKey": false,
-  "Id": "string",
-  "IsExpired": false,
-  "IssuerCommonName": "string",
-  "IssuerDistinguishedName": "string",
-  "IssuerOrganization": "string",
-  "LastModifiedBy": "string",
-  "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
-  },
   "Name": "string",
-  "NotAfter": "2020-01-01T00:00:00.000Z",
-  "NotBefore": "2020-01-01T00:00:00.000Z",
   "Notes": "string",
   "Password": {
     "HasValue": false,
     "Hint": "string",
     "NewValue": "string"
   },
-  "ReplacedBy": "string",
-  "SelfSigned": false,
   "SelfSignedCertificateCurve": "string",
-  "SerialNumber": "string",
-  "SignatureAlgorithmName": "string",
   "SpaceId": "Spaces-1",
-  "SubjectAlternativeNames": [
-    "string"
-  ],
   "SubjectCommonName": "string",
-  "SubjectDistinguishedName": "string",
   "SubjectOrganization": "string",
   "TenantIds": [
     "Tenants-1",
@@ -724,9 +637,7 @@ Also reachable at `/api/certificates/generate`, `/api/spaces/{spaceIdentifier}/c
   "TenantTags": [
     "string"
   ],
-  "TenantedDeploymentParticipation": "Untenanted",
-  "Thumbprint": "string",
-  "Version": 0
+  "TenantedDeploymentParticipation": "Untenanted"
 }
 ```
 :::
@@ -831,9 +742,7 @@ Also reachable at `/api/certificates/generate`, `/api/spaces/{spaceIdentifier}/c
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "NotAfter": "2020-01-01T00:00:00.000Z",
@@ -869,11 +778,13 @@ Also reachable at `/api/certificates/generate`, `/api/spaces/{spaceIdentifier}/c
 ```
 :::
 
-## List the X.509 certificates in the supplied Octopus Deploy Space in pages. Current certificates are sorted by soonest expiry first unless OrderBy says otherwise; archived certificates are always sorted by most recently archived
+## List Certificates
 
 :endpoint{method="GET" path="/api/\{spaceId\}/certificates/v2"}
 
 Also reachable at `/api/certificates/v2`, `/api/spaces/{spaceIdentifier}/certificates/v2`.
+
+List the X.509 certificates in the supplied Octopus Deploy Space in pages. Current certificates are sorted by soonest expiry first unless OrderBy says otherwise; archived certificates are always sorted by most recently archived.
 
 Skip and Take are required. TotalResults is always the real count of matching certificates, including when Tenant or FirstResult is supplied. Certificate data and passwords are never returned by this endpoint.
 
@@ -905,7 +816,8 @@ Skip and Take are required. TotalResults is always the real count of matching ce
 
 `200` — Success
 
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`Archived`** :span[string]{.type-label}  
     Format `date-time`.
@@ -959,7 +871,7 @@ Skip and Take are required. TotalResults is always the real count of matching ce
 :::api-example{label="Response"}
 ```json
 {
-  "ItemType": "string",
+  "ItemType": "Certificate",
   "Items": [
     {
       "Archived": "2020-01-01T00:00:00.000Z",
@@ -985,9 +897,7 @@ Skip and Take are required. TotalResults is always the real count of matching ce
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Name": "string",
       "NotAfter": "2020-01-01T00:00:00.000Z",
@@ -1021,10 +931,10 @@ Skip and Take are required. TotalResults is always the real count of matching ce
       "Version": 0
     }
   ],
-  "ItemsPerPage": 0,
-  "LastPageNumber": 0,
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "ItemsPerPage": 30,
+  "LastPageNumber": 1,
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -1142,9 +1052,7 @@ Also reachable at `/api/certificates/{id}`, `/api/spaces/{spaceIdentifier}/certi
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "NotAfter": "2020-01-01T00:00:00.000Z",
@@ -1338,9 +1246,7 @@ Modifies an existing certificate
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "NotAfter": "2020-01-01T00:00:00.000Z",
@@ -1603,9 +1509,7 @@ Also reachable at `/api/certificates/{id}/replace`, `/api/spaces/{spaceIdentifie
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "NotAfter": "2020-01-01T00:00:00.000Z",
@@ -1681,13 +1585,11 @@ Also reachable at `/api/certificates/{id}/unarchive/v1`, `/api/spaces/{spaceIden
 ```
 :::
 
-## GET /api/{spaceId}/certificates/{id}/usages
+## Get the usages of a certificate
 
 :endpoint{method="GET" path="/api/\{spaceId\}/certificates/\{id\}/usages"}
 
 Also reachable at `/api/certificates/{id}/usages`, `/api/spaces/{spaceIdentifier}/certificates/{id}/usages`.
-
-Get the usages of a certificate
 
 **Path Parameters**
 
@@ -1782,7 +1684,8 @@ Get the usages of a certificate
   - **`DiscreteChannelRelease`** :span[boolean]{.type-label}  
     Treats releases of different channels to the same environment as a seperate deployment dimension. 'False' indicates a "hotfix"-style usage of channels (single release active per environment ignoring channels), whereas `True` indicates "microservice"-style usage (single release per environment per channel).
   - **`ExecuteDeploymentsOnEventBasedPipeline`** :span[boolean]{.type-label}
-  - **`ExtensionSettings`** :span[array of object]{.type-label}
+  - **`ExtensionSettings`** :span[array of object]{.type-label}  
+    Not intended for general use; You should not alter or add/remove any values it may have.
   - **`ForcePackageDownload`** :span[boolean]{.type-label}
   - **`Icon`** :span[object]{.type-label}
   - **`Id`** :span[string]{.type-label}  
@@ -1848,7 +1751,9 @@ Get the usages of a certificate
         "Id": "string",
         "LastModifiedBy": "string",
         "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-        "Links": {}
+        "Links": {
+          "Self": "/api/..."
+        }
       },
       "EnvironmentIds": [
         "Environments-1",
@@ -1862,9 +1767,7 @@ Get the usages of a certificate
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "MachinePolicyId": "string",
       "Name": "string",
@@ -1902,9 +1805,7 @@ Get the usages of a certificate
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Name": "string",
       "SpaceId": "Spaces-1",
@@ -1916,9 +1817,7 @@ Get the usages of a certificate
     }
   ],
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "ProjectUsages": [
     {
@@ -1930,25 +1829,23 @@ Get the usages of a certificate
       "ClonedFromProjectId": "Projects-1",
       "CombineHealthAndSyncStatusInDashboardLiveStatus": false,
       "DefaultGuidedFailureMode": "EnvironmentDefault",
-      "DefaultPowerShellEdition": "string",
+      "DefaultPowerShellEdition": null,
       "DefaultToSkipIfAlreadyInstalled": false,
       "DeploymentChangesTemplate": "string",
-      "DeploymentProcessId": "string",
+      "DeploymentProcessId": "deploymentprocess-Projects-1",
       "DeprovisioningRunbookId": "Runbooks-1",
       "Description": "string",
       "DiscreteChannelRelease": false,
       "ExecuteDeploymentsOnEventBasedPipeline": false,
-      "ExtensionSettings": [
-        {}
-      ],
+      "ExtensionSettings": [],
       "ForcePackageDownload": false,
       "Icon": {
-        "Color": "string",
-        "Id": "string"
+        "Color": "#3CA4F3",
+        "Id": "rocket"
       },
       "Id": "string",
       "IncludedLibraryVariableSetIds": [
-        "string"
+        "LibraryVariableSets-1"
       ],
       "IsBadgesEnabled": false,
       "IsDisabled": false,
@@ -1957,9 +1854,7 @@ Get the usages of a certificate
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "LifecycleId": "string",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Name": "string",
       "PersistenceSettings": {
@@ -1973,12 +1868,13 @@ Get the usages of a certificate
           "string"
         ]
       },
-      "ProjectGroupId": "string",
+      "ProjectGroupId": "ProjectGroups-1",
       "ProjectTags": [
         "string"
       ],
       "ProjectTemplateDetails": {
         "IsShared": false,
+        "ManagedChannelsAndLifecycles": false,
         "Slug": "string",
         "VersionMask": "string"
       },
@@ -1994,7 +1890,7 @@ Get the usages of a certificate
         {}
       ],
       "TenantedDeploymentMode": "Untenanted",
-      "VariableSetId": "string",
+      "VariableSetId": "variableset-Projects-1",
       "VersioningStrategy": {
         "DonorPackage": {},
         "Template": "string"
@@ -2009,17 +1905,15 @@ Get the usages of a certificate
       ],
       "Description": "string",
       "Icon": {
-        "Color": "string",
-        "Id": "string"
+        "Color": "#3CA4F3",
+        "Id": "rocket"
       },
       "Id": "string",
       "IsDisabled": false,
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Name": "string",
       "ProjectEnvironments": {
@@ -2063,7 +1957,8 @@ Only returns configurations for the global Certificate
 
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`Id`** :span[string]{.type-label}  
     Gets or sets a unique identifier for this resource.
@@ -2091,33 +1986,29 @@ Only returns configurations for the global Certificate
 ```json
 {
   "Id": "string",
-  "ItemType": "string",
+  "ItemType": "CertificateConfiguration",
   "Items": [
     {
       "Id": "string",
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Name": "string",
       "SignatureAlgorithm": "string",
       "Thumbprint": "string"
     }
   ],
-  "ItemsPerPage": 0,
+  "ItemsPerPage": 30,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "LastPageNumber": 0,
+  "LastPageNumber": 1,
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -2154,9 +2045,7 @@ Only returns configurations for the global Certificate
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "SignatureAlgorithm": "string",

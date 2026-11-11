@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-10-08
 title: Worker Pools
 ---
 
@@ -37,7 +37,8 @@ Lists the name and ID of of the Worker Pools in the supplied Octopus Deploy Spac
 
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`CanAddWorkers`** :span[boolean]{.type-label}
   - **`Description`** :span[string]{.type-label}  
@@ -75,7 +76,7 @@ Lists the name and ID of of the Worker Pools in the supplied Octopus Deploy Spac
 ```json
 {
   "Id": "string",
-  "ItemType": "string",
+  "ItemType": "WorkerPool",
   "Items": [
     {
       "CanAddWorkers": false,
@@ -85,9 +86,7 @@ Lists the name and ID of of the Worker Pools in the supplied Octopus Deploy Spac
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Name": "string",
       "Slug": "string",
@@ -96,17 +95,15 @@ Lists the name and ID of of the Worker Pools in the supplied Octopus Deploy Spac
       "WorkerPoolType": "StaticWorkerPool"
     }
   ],
-  "ItemsPerPage": 0,
+  "ItemsPerPage": 30,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "LastPageNumber": 0,
+  "LastPageNumber": 1,
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -188,9 +185,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workerpools`, `/api/workerpools
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "Slug": "string",
@@ -256,9 +251,7 @@ Lists the name and ID of of the Worker Pools in the supplied Octopus Deploy Spac
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     },
     "Name": "string",
     "Slug": "string",
@@ -368,14 +361,21 @@ Lists all worker pools, including a summary of machine information.
 
 **Query Parameters**
 
-- **`commStyles`** :span[array of string]{.type-label}
-- **`healthStatuses`** :span[array of string]{.type-label}
-- **`hideEmptyWorkerPools`** :span[boolean]{.type-label}
+- **`commStyles`** :span[array of string]{.type-label}  
+  Only count workers with one of these communication styles, such as TentaclePassive, TentacleActive or Ssh. Matching is exact and case-sensitive.
+- **`healthStatuses`** :span[array of string]{.type-label}  
+  Only count workers with one of these health statuses: Healthy, HasWarnings, Unhealthy, Unavailable or Unknown.
+- **`hideEmptyWorkerPools`** :span[boolean]{.type-label}  
+  When true, leave out worker pools with no workers matching the filters.
 - **`ids`** :span[array of string]{.type-label}
-- **`isDisabled`** :span[boolean]{.type-label}
-- **`machinePartialName`** :span[string]{.type-label}
-- **`partialName`** :span[string]{.type-label}
-- **`shellNames`** :span[array of string]{.type-label}
+- **`isDisabled`** :span[boolean]{.type-label}  
+  When true, only count disabled workers. When false or not set, both enabled and disabled workers are counted.
+- **`machinePartialName`** :span[string]{.type-label}  
+  A partial or complete worker name. Only workers whose name contains it are counted.
+- **`partialName`** :span[string]{.type-label}  
+  A partial or complete worker pool name to search on, using a case-insensitive "contains" match.
+- **`shellNames`** :span[array of string]{.type-label}  
+  Only count workers using one of these shells, such as PowerShell or Bash. Matching is exact and case-sensitive.
 
 **Response**
 
@@ -448,7 +448,9 @@ Lists all worker pools, including a summary of machine information.
         "IsDefault": false,
         "LastModifiedBy": "string",
         "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-        "Links": {},
+        "Links": {
+          "Self": "/api/..."
+        },
         "Name": "string",
         "Slug": "string",
         "SortOrder": 0,
@@ -545,9 +547,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workerpools/{id}`, `/api/worker
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "Slug": "string",
@@ -640,9 +640,7 @@ Updates an existing worker pool.
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "Slug": "string",
@@ -703,7 +701,8 @@ Lists all of the machines that belong to the given worker pool.
 
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`Architecture`** :span[string]{.type-label}
   - **`Endpoint`** :span[object]{.type-label}
@@ -748,7 +747,7 @@ Lists all of the machines that belong to the given worker pool.
 ```json
 {
   "Id": "string",
-  "ItemType": "string",
+  "ItemType": "Worker",
   "Items": [
     {
       "Architecture": "string",
@@ -757,7 +756,9 @@ Lists all of the machines that belong to the given worker pool.
         "Id": "string",
         "LastModifiedBy": "string",
         "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-        "Links": {}
+        "Links": {
+          "Self": "/api/..."
+        }
       },
       "HasLatestCalamari": false,
       "HealthStatus": "Healthy",
@@ -767,9 +768,7 @@ Lists all of the machines that belong to the given worker pool.
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "MachinePolicyId": "string",
       "Name": "string",
@@ -789,17 +788,15 @@ Lists all of the machines that belong to the given worker pool.
       ]
     }
   ],
-  "ItemsPerPage": 0,
+  "ItemsPerPage": 30,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "LastPageNumber": 0,
+  "LastPageNumber": 1,
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::

@@ -1,7 +1,7 @@
 ﻿---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-05-20
+modDate: 2026-10-13
 title: Deployment changes
 description: Summarize the changes in a deployment
 navOrder: 130
@@ -9,11 +9,7 @@ navOrder: 130
 
 When a release is deployed to an environment, you can think of this as deploying all changes contained in all releases since the previous deployment to the environment.
 
-Deployment changes summarize these changes by rolling up the [release notes](/docs/releases/release-notes) from each release.
-
-:::figure
-![Deployment changes](/docs/img/releases/images/deployment-notes.png)
-:::
+Deployment changes summarize these changes by rolling up the [release notes](/docs/releases/release-notes) from each release. You can see them in the **Changes** section of the deployment's **Metadata** tab.
 
 ## Versioning and pre-releases {#versioning}
 
@@ -125,11 +121,7 @@ The following template only shows the most recent change being deployed, includi
 #{/each}
 ```
 
-This is achieved using the Octopus [loop iteration variables](https://octopus.com/docs/projects/variables/variable-substitutions#loop-iteration-variables), specifically `Octopus.Template.Each.Last` and `Octopus.Template.Each.First` to include a header for each section, and will render like this:
-
-:::figure
-![Deployment notes rendered using the Octopus.Template.Each.Last variable](/docs/img/releases/images/deployment-notes-template-each-last-example.png)
-:::
+This is achieved using the Octopus [loop iteration variables](https://octopus.com/docs/projects/variables/variable-substitutions#loop-iteration-variables), specifically `Octopus.Template.Each.Last` and `Octopus.Template.Each.First` to include a header for each section.
 
 ### Deployment changes and targets
 

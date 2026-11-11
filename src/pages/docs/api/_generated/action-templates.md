@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-09-04
 title: Action Templates
 ---
 
@@ -77,7 +77,8 @@ Lists all of the Action Templates in the supplied Octopus Deploy Space. The resu
 
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`ActionType`** :span[string]{.type-label}  
     Minimum length 1.
@@ -114,7 +115,7 @@ Lists all of the Action Templates in the supplied Octopus Deploy Space. The resu
 ```json
 {
   "Id": "string",
-  "ItemType": "string",
+  "ItemType": "ActionTemplate",
   "Items": [
     {
       "ActionType": "string",
@@ -127,9 +128,7 @@ Lists all of the Action Templates in the supplied Octopus Deploy Space. The resu
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Name": "string",
       "Packages": [
@@ -147,17 +146,15 @@ Lists all of the Action Templates in the supplied Octopus Deploy Space. The resu
       "Version": 0
     }
   ],
-  "ItemsPerPage": 0,
+  "ItemsPerPage": 30,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "LastPageNumber": 0,
+  "LastPageNumber": 1,
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -182,6 +179,8 @@ Also reachable at `/api/actiontemplates`, `/api/spaces/{spaceIdentifier}/actiont
 - **`Description`** :span[string]{.type-label}  
   The description of the Action Template.
 - **`GitDependencies`** :span[array of object]{.type-label}
+  - **`AcquisitionLocation`** :span[string]{.type-label}  
+    Describes how the files for this dependency are made available to the action. Server is the default and clones the repository. NotAcquired skips the clone and is only valid for named dependencies. May also be a variable-expression.
   - **`DefaultBranch`** :span[string]{.type-label} *(required)*  
     Minimum length 1.
   - **`FilePathFilters`** :span[array of string]{.type-label}
@@ -238,6 +237,7 @@ Also reachable at `/api/actiontemplates`, `/api/spaces/{spaceIdentifier}/actiont
   "Description": "string",
   "GitDependencies": [
     {
+      "AcquisitionLocation": "string",
       "DefaultBranch": "string",
       "FilePathFilters": [
         "string"
@@ -333,6 +333,8 @@ Also reachable at `/api/actiontemplates`, `/api/spaces/{spaceIdentifier}/actiont
 - **`CommunityActionTemplateId`** :span[string]{.type-label}
 - **`Description`** :span[string]{.type-label}
 - **`GitDependencies`** :span[array of object]{.type-label}
+  - **`AcquisitionLocation`** :span[string]{.type-label}  
+    Describes how the files for this dependency are made available to the action. Server is the default and clones the repository. NotAcquired skips the clone and is only valid for named dependencies. May also be a variable-expression.
   - **`DefaultBranch`** :span[string]{.type-label}  
     Minimum length 1.
   - **`FilePathFilters`** :span[array of string]{.type-label}
@@ -388,6 +390,7 @@ Also reachable at `/api/actiontemplates`, `/api/spaces/{spaceIdentifier}/actiont
   "Description": "string",
   "GitDependencies": [
     {
+      "AcquisitionLocation": "string",
       "DefaultBranch": "string",
       "FilePathFilters": [
         "string"
@@ -404,9 +407,7 @@ Also reachable at `/api/actiontemplates`, `/api/spaces/{spaceIdentifier}/actiont
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "Packages": [
@@ -500,6 +501,8 @@ Lists the all of the action templates in the supplied Octopus Deploy Space. The 
 - **`CommunityActionTemplateId`** :span[string]{.type-label}
 - **`Description`** :span[string]{.type-label}
 - **`GitDependencies`** :span[array of object]{.type-label}
+  - **`AcquisitionLocation`** :span[string]{.type-label}  
+    Describes how the files for this dependency are made available to the action. Server is the default and clones the repository. NotAcquired skips the clone and is only valid for named dependencies. May also be a variable-expression.
   - **`DefaultBranch`** :span[string]{.type-label}  
     Minimum length 1.
   - **`FilePathFilters`** :span[array of string]{.type-label}
@@ -556,6 +559,7 @@ Lists the all of the action templates in the supplied Octopus Deploy Space. The 
     "Description": "string",
     "GitDependencies": [
       {
+        "AcquisitionLocation": "string",
         "DefaultBranch": "string",
         "FilePathFilters": [
           "string"
@@ -572,9 +576,7 @@ Lists the all of the action templates in the supplied Octopus Deploy Space. The 
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     },
     "Name": "string",
     "Packages": [
@@ -660,13 +662,13 @@ Also reachable at `/api/actiontemplates/categories`, `/api/spaces/{spaceIdentifi
 ```
 :::
 
-## List all available action templates including built-in, custom and community contributed step templates
+## List all available action templates
 
 :endpoint{method="GET" path="/api/\{spaceId\}/actiontemplates/search"}
 
 Also reachable at `/api/actiontemplates/search`, `/api/spaces/{spaceIdentifier}/actiontemplates/search`.
 
-Lists all of the Action Templates in the supplied Octopus Deploy Space that fit the search criteria.
+Lists all the Action Templates in the supplied Octopus Deploy Space that fit the search criteria. Includes built-in, custom and community contributed step templates.
 
 **Path Parameters**
 
@@ -757,6 +759,8 @@ Also reachable at `/api/actiontemplates/{id}`, `/api/spaces/{spaceIdentifier}/ac
 - **`CommunityActionTemplateId`** :span[string]{.type-label}
 - **`Description`** :span[string]{.type-label}
 - **`GitDependencies`** :span[array of object]{.type-label}
+  - **`AcquisitionLocation`** :span[string]{.type-label}  
+    Describes how the files for this dependency are made available to the action. Server is the default and clones the repository. NotAcquired skips the clone and is only valid for named dependencies. May also be a variable-expression.
   - **`DefaultBranch`** :span[string]{.type-label}  
     Minimum length 1.
   - **`FilePathFilters`** :span[array of string]{.type-label}
@@ -812,6 +816,7 @@ Also reachable at `/api/actiontemplates/{id}`, `/api/spaces/{spaceIdentifier}/ac
   "Description": "string",
   "GitDependencies": [
     {
+      "AcquisitionLocation": "string",
       "DefaultBranch": "string",
       "FilePathFilters": [
         "string"
@@ -828,9 +833,7 @@ Also reachable at `/api/actiontemplates/{id}`, `/api/spaces/{spaceIdentifier}/ac
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "Packages": [
@@ -920,6 +923,8 @@ Also reachable at `/api/actiontemplates/{id}`, `/api/spaces/{spaceIdentifier}/ac
 - **`Description`** :span[string]{.type-label}  
   The description of the Action Template.
 - **`GitDependencies`** :span[array of object]{.type-label}
+  - **`AcquisitionLocation`** :span[string]{.type-label}  
+    Describes how the files for this dependency are made available to the action. Server is the default and clones the repository. NotAcquired skips the clone and is only valid for named dependencies. May also be a variable-expression.
   - **`DefaultBranch`** :span[string]{.type-label} *(required)*  
     Minimum length 1.
   - **`FilePathFilters`** :span[array of string]{.type-label}
@@ -970,6 +975,7 @@ Also reachable at `/api/actiontemplates/{id}`, `/api/spaces/{spaceIdentifier}/ac
   "Description": "string",
   "GitDependencies": [
     {
+      "AcquisitionLocation": "string",
       "DefaultBranch": "string",
       "FilePathFilters": [
         "string"
@@ -1065,6 +1071,8 @@ Also reachable at `/api/actiontemplates/{id}`, `/api/spaces/{spaceIdentifier}/ac
 - **`CommunityActionTemplateId`** :span[string]{.type-label}
 - **`Description`** :span[string]{.type-label}
 - **`GitDependencies`** :span[array of object]{.type-label}
+  - **`AcquisitionLocation`** :span[string]{.type-label}  
+    Describes how the files for this dependency are made available to the action. Server is the default and clones the repository. NotAcquired skips the clone and is only valid for named dependencies. May also be a variable-expression.
   - **`DefaultBranch`** :span[string]{.type-label}  
     Minimum length 1.
   - **`FilePathFilters`** :span[array of string]{.type-label}
@@ -1120,6 +1128,7 @@ Also reachable at `/api/actiontemplates/{id}`, `/api/spaces/{spaceIdentifier}/ac
   "Description": "string",
   "GitDependencies": [
     {
+      "AcquisitionLocation": "string",
       "DefaultBranch": "string",
       "FilePathFilters": [
         "string"
@@ -1136,9 +1145,7 @@ Also reachable at `/api/actiontemplates/{id}`, `/api/spaces/{spaceIdentifier}/ac
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "Packages": [
@@ -1593,12 +1600,14 @@ Also reachable at `/api/actiontemplates/{id}/logo`, `/api/spaces/{spaceIdentifie
 ```
 :::
 
-## Update the logo associated with the latest version of the action template
+## Update the action template logo
 
 :endpoint{method="POST" path="/api/\{spaceId\}/actiontemplates/\{id\}/logo"}
 
 Also reachable at `/api/actiontemplates/{id}/logo`, `/api/spaces/{spaceIdentifier}/actiontemplates/{id}/logo`.
 
+Updates the logo associated with the latest version of the action template.
+
 **Path Parameters**
 
 - **`id`** :span[string]{.type-label} *(required)*  
@@ -1616,10 +1625,12 @@ Also reachable at `/api/actiontemplates/{id}/logo`, `/api/spaces/{spaceIdentifie
 ```
 :::
 
-## Update the logo associated with the latest version of the action template
+## Update the action template logo
 
 :endpoint{method="PUT" path="/api/\{spaceId\}/actiontemplates/\{id\}/logo"}
 
+Updates the logo associated with the latest version of the action template.
+
 **Path Parameters**
 
 - **`id`** :span[string]{.type-label} *(required)*  
@@ -1637,11 +1648,13 @@ Also reachable at `/api/actiontemplates/{id}/logo`, `/api/spaces/{spaceIdentifie
 ```
 :::
 
-## Update the logo associated with the latest version of the action template
+## Update the action template logo
 
 :endpoint{method="PUT" path="/api/spaces/\{spaceIdentifier\}/actiontemplates/\{id\}/logo"}
 
 Also reachable at `/api/actiontemplates/{id}/logo`.
+
+Updates the logo associated with the latest version of the action template.
 
 **Path Parameters**
 
@@ -1739,9 +1752,7 @@ Gets a list of all steps/deployment processes that use a given action template.
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     },
     "ProcessId": "string",
     "ProcessType": "Deployment",
@@ -1807,6 +1818,7 @@ Also reachable at `/api/actiontemplates/{id}/v1`, `/api/spaces/{spaceIdentifier}
     "Description": "string",
     "GitDependencies": [
       {
+        "AcquisitionLocation": "string",
         "DefaultBranch": "string",
         "FilePathFilters": [
           "string"
@@ -1823,9 +1835,7 @@ Also reachable at `/api/actiontemplates/{id}/v1`, `/api/spaces/{spaceIdentifier}
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     },
     "Name": "string",
     "Packages": [
@@ -1896,6 +1906,8 @@ Also reachable at `/api/actiontemplates/{id}/versions`, `/api/spaces/{spaceIdent
 - **`CommunityActionTemplateId`** :span[string]{.type-label}
 - **`Description`** :span[string]{.type-label}
 - **`GitDependencies`** :span[array of object]{.type-label}
+  - **`AcquisitionLocation`** :span[string]{.type-label}  
+    Describes how the files for this dependency are made available to the action. Server is the default and clones the repository. NotAcquired skips the clone and is only valid for named dependencies. May also be a variable-expression.
   - **`DefaultBranch`** :span[string]{.type-label}  
     Minimum length 1.
   - **`FilePathFilters`** :span[array of string]{.type-label}
@@ -1952,6 +1964,7 @@ Also reachable at `/api/actiontemplates/{id}/versions`, `/api/spaces/{spaceIdent
     "Description": "string",
     "GitDependencies": [
       {
+        "AcquisitionLocation": "string",
         "DefaultBranch": "string",
         "FilePathFilters": [
           "string"
@@ -1968,9 +1981,7 @@ Also reachable at `/api/actiontemplates/{id}/versions`, `/api/spaces/{spaceIdent
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     },
     "Name": "string",
     "Packages": [
@@ -2043,6 +2054,8 @@ Also reachable at `/api/actiontemplates/{id}/versions/{version}`, `/api/spaces/{
 - **`CommunityActionTemplateId`** :span[string]{.type-label}
 - **`Description`** :span[string]{.type-label}
 - **`GitDependencies`** :span[array of object]{.type-label}
+  - **`AcquisitionLocation`** :span[string]{.type-label}  
+    Describes how the files for this dependency are made available to the action. Server is the default and clones the repository. NotAcquired skips the clone and is only valid for named dependencies. May also be a variable-expression.
   - **`DefaultBranch`** :span[string]{.type-label}  
     Minimum length 1.
   - **`FilePathFilters`** :span[array of string]{.type-label}
@@ -2098,6 +2111,7 @@ Also reachable at `/api/actiontemplates/{id}/versions/{version}`, `/api/spaces/{
   "Description": "string",
   "GitDependencies": [
     {
+      "AcquisitionLocation": "string",
       "DefaultBranch": "string",
       "FilePathFilters": [
         "string"
@@ -2114,9 +2128,7 @@ Also reachable at `/api/actiontemplates/{id}/versions/{version}`, `/api/spaces/{
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "Packages": [

@@ -7,7 +7,7 @@ description: Subscriptions allow you to subscribe to events that are happening w
 navOrder: 1600
 ---
 
-Subscriptions allow you to subscribe to events that are happening within Octopus, so you can be notified when events have occurred and react accordingly. **Email**, **webhook**, and **Slack** notifications are supported.
+Subscriptions allow you to subscribe to events that are happening within Octopus, so you can be notified when events have occurred and react accordingly. **Email**, **webhook**, **Slack**, and **Microsoft Teams** notifications are supported.
 
 Subscriptions can be accessed from the `Configuration` menu.
 
@@ -123,6 +123,14 @@ Once connected, select or enter the channels to post to and set the frequency.
 Public channels in your workspace are listed automatically. To post to a private channel, type its name and add it. The Slack app must be a member of the channel.
 
 For more information on what channels the Slack app can post to, see [public and private channels](/docs/administration/managing-infrastructure/slack-integration#slack-integration-channels).
+
+## Microsoft Teams webhook notifications {#Subscriptions-TeamsNotifications}
+
+Microsoft Teams webhook notifications send a digest of events to one or more Teams channels via incoming webhooks. Available from Octopus Server version `2026.4.1197`.
+
+To configure Teams notifications on a subscription, add one or more channels under **Microsoft Teams notifications**. For each channel, enter a display name and paste the incoming webhook URL. Set the frequency to control how often digests are delivered.
+
+To create an incoming webhook URL for a Teams channel, see [Create an Incoming Webhook](https://learn.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook) in the Microsoft Teams documentation.
 
 ## Event visibility and permissions {#Subscriptions-Event-Visibility-and-Permissions}
 

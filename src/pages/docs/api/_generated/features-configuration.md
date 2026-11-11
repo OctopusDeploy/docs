@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-09-23
 title: Features Configuration
 ---
 
@@ -20,7 +20,6 @@ Gets the features configuration of the current instance
 - **`HelpSidebarSupportLinkLabel`** :span[string]{.type-label}
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`IsAutomaticStepUpdatesEnabled`** :span[boolean]{.type-label}
 - **`IsBuiltInWorkerEnabled`** :span[boolean]{.type-label}
 - **`IsCommunityActionTemplatesEnabled`** :span[boolean]{.type-label}
 - **`IsCompositeDockerHubRegistryFeedEnabled`** :span[boolean]{.type-label}
@@ -30,7 +29,6 @@ Gets the features configuration of the current instance
 - **`IsHelpSidebarEnabled`** :span[boolean]{.type-label}
 - **`IsKubernetesCloudTargetDiscoveryEnabled`** :span[boolean]{.type-label}
 - **`IsProjectsPageOnboardingEnabled`** :span[boolean]{.type-label}
-- **`IsProjectsPageOptimizationEnabled`** :span[boolean]{.type-label}
 - **`IsWebhookTriggerEnabled`** :span[boolean]{.type-label}
 - **`LastModifiedBy`** :span[string]{.type-label}  
   Gets or sets the username of the user who last modified this resource.
@@ -46,7 +44,6 @@ Gets the features configuration of the current instance
   "HelpSidebarSupportLink": "string",
   "HelpSidebarSupportLinkLabel": "string",
   "Id": "string",
-  "IsAutomaticStepUpdatesEnabled": false,
   "IsBuiltInWorkerEnabled": false,
   "IsCommunityActionTemplatesEnabled": false,
   "IsCompositeDockerHubRegistryFeedEnabled": false,
@@ -56,14 +53,11 @@ Gets the features configuration of the current instance
   "IsHelpSidebarEnabled": false,
   "IsKubernetesCloudTargetDiscoveryEnabled": false,
   "IsProjectsPageOnboardingEnabled": false,
-  "IsProjectsPageOptimizationEnabled": false,
   "IsWebhookTriggerEnabled": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   }
 }
 ```
@@ -85,8 +79,6 @@ Updates the features configuration of the current instance
   Custom label for the help sidebar support link.
 - **`Id`** :span[string]{.type-label}  
   The id of features configuration resource.
-- **`IsAutomaticStepUpdatesEnabled`** :span[boolean]{.type-label}  
-  Enable automatic step updates feature.
 - **`IsBuiltInWorkerEnabled`** :span[boolean]{.type-label}  
   Enable built-in worker feature.
 - **`IsCommunityActionTemplatesEnabled`** :span[boolean]{.type-label}  
@@ -107,8 +99,6 @@ Updates the features configuration of the current instance
   Enable navigation visual uplift feature.
 - **`IsProjectsPageOnboardingEnabled`** :span[boolean]{.type-label}  
   Enable projects page onboarding experience.
-- **`IsProjectsPageOptimizationEnabled`** :span[boolean]{.type-label}  
-  Enable new project page bff datasource.
 - **`IsWebhookTriggerEnabled`** :span[boolean]{.type-label}  
   Enable the webhook triggers feature.
 
@@ -119,7 +109,6 @@ Updates the features configuration of the current instance
   "HelpSidebarSupportLink": "string",
   "HelpSidebarSupportLinkLabel": "string",
   "Id": "string",
-  "IsAutomaticStepUpdatesEnabled": false,
   "IsBuiltInWorkerEnabled": false,
   "IsCommunityActionTemplatesEnabled": false,
   "IsCompositeDockerHubRegistryFeedEnabled": false,
@@ -130,7 +119,6 @@ Updates the features configuration of the current instance
   "IsKubernetesCloudTargetDiscoveryEnabled": false,
   "IsNavigationVisualUpliftEnabled": false,
   "IsProjectsPageOnboardingEnabled": false,
-  "IsProjectsPageOptimizationEnabled": false,
   "IsWebhookTriggerEnabled": false
 }
 ```
@@ -145,7 +133,6 @@ Updates the features configuration of the current instance
 - **`HelpSidebarSupportLinkLabel`** :span[string]{.type-label}
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`IsAutomaticStepUpdatesEnabled`** :span[boolean]{.type-label}
 - **`IsBuiltInWorkerEnabled`** :span[boolean]{.type-label}
 - **`IsCommunityActionTemplatesEnabled`** :span[boolean]{.type-label}
 - **`IsCompositeDockerHubRegistryFeedEnabled`** :span[boolean]{.type-label}
@@ -155,7 +142,6 @@ Updates the features configuration of the current instance
 - **`IsHelpSidebarEnabled`** :span[boolean]{.type-label}
 - **`IsKubernetesCloudTargetDiscoveryEnabled`** :span[boolean]{.type-label}
 - **`IsProjectsPageOnboardingEnabled`** :span[boolean]{.type-label}
-- **`IsProjectsPageOptimizationEnabled`** :span[boolean]{.type-label}
 - **`IsWebhookTriggerEnabled`** :span[boolean]{.type-label}
 - **`LastModifiedBy`** :span[string]{.type-label}  
   Gets or sets the username of the user who last modified this resource.
@@ -171,7 +157,6 @@ Updates the features configuration of the current instance
   "HelpSidebarSupportLink": "string",
   "HelpSidebarSupportLinkLabel": "string",
   "Id": "string",
-  "IsAutomaticStepUpdatesEnabled": false,
   "IsBuiltInWorkerEnabled": false,
   "IsCommunityActionTemplatesEnabled": false,
   "IsCompositeDockerHubRegistryFeedEnabled": false,
@@ -181,14 +166,11 @@ Updates the features configuration of the current instance
   "IsHelpSidebarEnabled": false,
   "IsKubernetesCloudTargetDiscoveryEnabled": false,
   "IsProjectsPageOnboardingEnabled": false,
-  "IsProjectsPageOptimizationEnabled": false,
   "IsWebhookTriggerEnabled": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   }
 }
 ```

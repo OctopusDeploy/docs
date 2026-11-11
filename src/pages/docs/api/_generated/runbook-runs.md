@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-09-22
 title: Runbook Runs
 ---
 
@@ -47,7 +47,8 @@ Lists all of the runbookRuns in the supplied Octopus Deploy Space, from projects
 
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`ChangeRequestSettings`** :span[array of object]{.type-label}
   - **`Comments`** :span[string]{.type-label}
@@ -55,6 +56,8 @@ Lists all of the runbookRuns in the supplied Octopus Deploy Space, from projects
     Format `date-time`.
   - **`DebugMode`** :span[string]{.type-label}
   - **`DeployedBy`** :span[string]{.type-label}
+  - **`DeployedByActorType`** :span[enum]{.type-label}  
+    Allowed values: `Unknown`, `System`, `User`, `Agent`, `ServiceAccount`.
   - **`DeployedById`** :span[string]{.type-label}
   - **`DeployedToMachineIds`** :span[array of string]{.type-label}
   - **`EnvironmentId`** :span[string]{.type-label}
@@ -115,7 +118,7 @@ Lists all of the runbookRuns in the supplied Octopus Deploy Space, from projects
 ```json
 {
   "Id": "string",
-  "ItemType": "string",
+  "ItemType": "RunbookRun",
   "Items": [
     {
       "ChangeRequestSettings": [
@@ -125,6 +128,7 @@ Lists all of the runbookRuns in the supplied Octopus Deploy Space, from projects
       "Created": "2020-01-01T00:00:00.000Z",
       "DebugMode": "string",
       "DeployedBy": "string",
+      "DeployedByActorType": "Unknown",
       "DeployedById": "string",
       "DeployedToMachineIds": [
         "string"
@@ -154,9 +158,7 @@ Lists all of the runbookRuns in the supplied Octopus Deploy Space, from projects
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "ManifestVariableSetId": "string",
       "Name": "string",
@@ -188,17 +190,15 @@ Lists all of the runbookRuns in the supplied Octopus Deploy Space, from projects
       "UseGuidedFailure": false
     }
   ],
-  "ItemsPerPage": 0,
+  "ItemsPerPage": 30,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "LastPageNumber": 0,
+  "LastPageNumber": 1,
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -300,6 +300,8 @@ Also reachable at `/api/projects/{projectId}/runbookRuns`, `/api/spaces/{spaceId
   Format `date-time`.
 - **`DebugMode`** :span[string]{.type-label}
 - **`DeployedBy`** :span[string]{.type-label}
+- **`DeployedByActorType`** :span[enum]{.type-label}  
+  Allowed values: `Unknown`, `System`, `User`, `Agent`, `ServiceAccount`.
 - **`DeployedById`** :span[string]{.type-label}
 - **`DeployedToMachineIds`** :span[array of string]{.type-label}
 - **`EnvironmentId`** :span[string]{.type-label}
@@ -364,6 +366,7 @@ Also reachable at `/api/projects/{projectId}/runbookRuns`, `/api/spaces/{spaceId
   "Created": "2020-01-01T00:00:00.000Z",
   "DebugMode": "string",
   "DeployedBy": "string",
+  "DeployedByActorType": "Unknown",
   "DeployedById": "string",
   "DeployedToMachineIds": [
     "string"
@@ -396,9 +399,7 @@ Also reachable at `/api/projects/{projectId}/runbookRuns`, `/api/spaces/{spaceId
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "ManifestVariableSetId": "string",
   "Name": "string",
@@ -459,6 +460,8 @@ Also reachable at `/api/projects/{projectId}/runbookRuns/{id}`, `/api/spaces/{sp
   Format `date-time`.
 - **`DebugMode`** :span[string]{.type-label}
 - **`DeployedBy`** :span[string]{.type-label}
+- **`DeployedByActorType`** :span[enum]{.type-label}  
+  Allowed values: `Unknown`, `System`, `User`, `Agent`, `ServiceAccount`.
 - **`DeployedById`** :span[string]{.type-label}
 - **`DeployedToMachineIds`** :span[array of string]{.type-label}
 - **`EnvironmentId`** :span[string]{.type-label}
@@ -523,6 +526,7 @@ Also reachable at `/api/projects/{projectId}/runbookRuns/{id}`, `/api/spaces/{sp
   "Created": "2020-01-01T00:00:00.000Z",
   "DebugMode": "string",
   "DeployedBy": "string",
+  "DeployedByActorType": "Unknown",
   "DeployedById": "string",
   "DeployedToMachineIds": [
     "string"
@@ -555,9 +559,7 @@ Also reachable at `/api/projects/{projectId}/runbookRuns/{id}`, `/api/spaces/{sp
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "ManifestVariableSetId": "string",
   "Name": "string",
@@ -633,6 +635,8 @@ Also reachable at `/api/projects/{projectId}/runbookruns/{runbookRunId}/retry/v1
     Format `date-time`.
   - **`DebugMode`** :span[string]{.type-label}
   - **`DeployedBy`** :span[string]{.type-label}
+  - **`DeployedByActorType`** :span[enum]{.type-label}  
+    Allowed values: `Unknown`, `System`, `User`, `Agent`, `ServiceAccount`.
   - **`DeployedById`** :span[string]{.type-label}
   - **`DeployedToMachineIds`** :span[array of string]{.type-label}
   - **`EnvironmentId`** :span[string]{.type-label}
@@ -692,6 +696,7 @@ Also reachable at `/api/projects/{projectId}/runbookruns/{runbookRunId}/retry/v1
     "Created": "2020-01-01T00:00:00.000Z",
     "DebugMode": "string",
     "DeployedBy": "string",
+    "DeployedByActorType": "Unknown",
     "DeployedById": "string",
     "DeployedToMachineIds": [
       "string"
@@ -721,9 +726,7 @@ Also reachable at `/api/projects/{projectId}/runbookruns/{runbookRunId}/retry/v1
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     },
     "ManifestVariableSetId": "string",
     "Name": "string",
@@ -887,6 +890,8 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks/{runbookId}/run/v
     Format `date-time`.
   - **`DebugMode`** :span[string]{.type-label}
   - **`DeployedBy`** :span[string]{.type-label}
+  - **`DeployedByActorType`** :span[enum]{.type-label}  
+    Allowed values: `Unknown`, `System`, `User`, `Agent`, `ServiceAccount`.
   - **`DeployedById`** :span[string]{.type-label}
   - **`DeployedToMachineIds`** :span[array of string]{.type-label}
   - **`EnvironmentId`** :span[string]{.type-label}
@@ -945,6 +950,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks/{runbookId}/run/v
       "Created": "2020-01-01T00:00:00.000Z",
       "DebugMode": "string",
       "DeployedBy": "string",
+      "DeployedByActorType": "Unknown",
       "DeployedById": "string",
       "DeployedToMachineIds": [
         "string"
@@ -974,9 +980,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks/{runbookId}/run/v
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "ManifestVariableSetId": "string",
       "Name": "string",
@@ -1178,7 +1182,8 @@ Lists all of the runbookRuns in the supplied Octopus Deploy Space, from projects
 
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`ChangeRequestSettings`** :span[array of object]{.type-label}
   - **`Comments`** :span[string]{.type-label}
@@ -1186,6 +1191,8 @@ Lists all of the runbookRuns in the supplied Octopus Deploy Space, from projects
     Format `date-time`.
   - **`DebugMode`** :span[string]{.type-label}
   - **`DeployedBy`** :span[string]{.type-label}
+  - **`DeployedByActorType`** :span[enum]{.type-label}  
+    Allowed values: `Unknown`, `System`, `User`, `Agent`, `ServiceAccount`.
   - **`DeployedById`** :span[string]{.type-label}
   - **`DeployedToMachineIds`** :span[array of string]{.type-label}
   - **`EnvironmentId`** :span[string]{.type-label}
@@ -1246,7 +1253,7 @@ Lists all of the runbookRuns in the supplied Octopus Deploy Space, from projects
 ```json
 {
   "Id": "string",
-  "ItemType": "string",
+  "ItemType": "RunbookRun",
   "Items": [
     {
       "ChangeRequestSettings": [
@@ -1256,6 +1263,7 @@ Lists all of the runbookRuns in the supplied Octopus Deploy Space, from projects
       "Created": "2020-01-01T00:00:00.000Z",
       "DebugMode": "string",
       "DeployedBy": "string",
+      "DeployedByActorType": "Unknown",
       "DeployedById": "string",
       "DeployedToMachineIds": [
         "string"
@@ -1285,9 +1293,7 @@ Lists all of the runbookRuns in the supplied Octopus Deploy Space, from projects
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "ManifestVariableSetId": "string",
       "Name": "string",
@@ -1319,17 +1325,15 @@ Lists all of the runbookRuns in the supplied Octopus Deploy Space, from projects
       "UseGuidedFailure": false
     }
   ],
-  "ItemsPerPage": 0,
+  "ItemsPerPage": 30,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "LastPageNumber": 0,
+  "LastPageNumber": 1,
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -1430,6 +1434,8 @@ Also reachable at `/api/runbookRuns`, `/api/spaces/{spaceIdentifier}/runbookRuns
   Format `date-time`.
 - **`DebugMode`** :span[string]{.type-label}
 - **`DeployedBy`** :span[string]{.type-label}
+- **`DeployedByActorType`** :span[enum]{.type-label}  
+  Allowed values: `Unknown`, `System`, `User`, `Agent`, `ServiceAccount`.
 - **`DeployedById`** :span[string]{.type-label}
 - **`DeployedToMachineIds`** :span[array of string]{.type-label}
 - **`EnvironmentId`** :span[string]{.type-label}
@@ -1494,6 +1500,7 @@ Also reachable at `/api/runbookRuns`, `/api/spaces/{spaceIdentifier}/runbookRuns
   "Created": "2020-01-01T00:00:00.000Z",
   "DebugMode": "string",
   "DeployedBy": "string",
+  "DeployedByActorType": "Unknown",
   "DeployedById": "string",
   "DeployedToMachineIds": [
     "string"
@@ -1526,9 +1533,7 @@ Also reachable at `/api/runbookRuns`, `/api/spaces/{spaceIdentifier}/runbookRuns
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "ManifestVariableSetId": "string",
   "Name": "string",
@@ -1592,6 +1597,8 @@ Also reachable at `/api/runbookRuns/{id}`, `/api/spaces/{spaceIdentifier}/runboo
   Format `date-time`.
 - **`DebugMode`** :span[string]{.type-label}
 - **`DeployedBy`** :span[string]{.type-label}
+- **`DeployedByActorType`** :span[enum]{.type-label}  
+  Allowed values: `Unknown`, `System`, `User`, `Agent`, `ServiceAccount`.
 - **`DeployedById`** :span[string]{.type-label}
 - **`DeployedToMachineIds`** :span[array of string]{.type-label}
 - **`EnvironmentId`** :span[string]{.type-label}
@@ -1656,6 +1663,7 @@ Also reachable at `/api/runbookRuns/{id}`, `/api/spaces/{spaceIdentifier}/runboo
   "Created": "2020-01-01T00:00:00.000Z",
   "DebugMode": "string",
   "DeployedBy": "string",
+  "DeployedByActorType": "Unknown",
   "DeployedById": "string",
   "DeployedToMachineIds": [
     "string"
@@ -1688,9 +1696,7 @@ Also reachable at `/api/runbookRuns/{id}`, `/api/spaces/{spaceIdentifier}/runboo
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "ManifestVariableSetId": "string",
   "Name": "string",

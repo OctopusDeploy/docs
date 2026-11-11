@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-10-22
 title: Scheduled Jobs
 ---
 
@@ -42,9 +42,7 @@ title: Scheduled Jobs
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "TaskStatus": [
     {
@@ -53,70 +51,12 @@ title: Scheduled Jobs
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Name": "string"
     }
   ]
 }
-```
-:::
-
-## Enable a scheduled job or the job scheduler
-
-:endpoint{method="GET" path="/api/scheduler/start"}
-
-**Query Parameters**
-
-- **`task`** :span[string]{.type-label}  
-  The name of the Job to enable. If null the job scheduler itself will be enabled.
-
-**Response**
-
-`200` — Success
-
-:::api-example{label="Response"}
-```json
-"string"
-```
-:::
-
-## Disable a scheduled job or the job scheduler
-
-:endpoint{method="GET" path="/api/scheduler/stop"}
-
-**Query Parameters**
-
-- **`task`** :span[string]{.type-label}  
-  The name of the Job to disable. If null the job scheduler itself will be disableped.
-
-**Response**
-
-`200` — Success
-
-:::api-example{label="Response"}
-```json
-"string"
-```
-:::
-
-## Trigger a scheduled job immediately and waits for it to complete
-
-:endpoint{method="GET" path="/api/scheduler/trigger"}
-
-**Query Parameters**
-
-- **`task`** :span[string]{.type-label} *(required)*
-
-**Response**
-
-`200` — Success
-
-:::api-example{label="Response"}
-```json
-"string"
 ```
 :::
 
@@ -174,6 +114,7 @@ title: Scheduled Jobs
         "GapLastNumber": 0,
         "MessageText": "string",
         "Number": 0,
+        "ObservedAt": "2020-01-01T00:00:00.000Z",
         "OccurredAt": "2020-01-01T00:00:00.000Z"
       }
     ],
@@ -188,9 +129,7 @@ title: Scheduled Jobs
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   }
 }
 ```

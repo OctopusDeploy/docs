@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-08-20
-modDate: 2026-08-20
+modDate: 2026-09-09
 title: Octopus API
 navTitle: Get started
 crumbTitle: API
@@ -33,6 +33,22 @@ https://<your-octopus-url>/swaggerui/
 :::div{.hint}
 Our docs cover the latest version of the Octopus REST API. If you're on a Long Term Support (LTS) version, some endpoints and values may differ. Use the Swagger UI served by your own instance (see above) as the source of truth for your version.
 :::
+
+## API context for AI assistants (llms.txt)
+
+Octopus Server provides a Markdown summary at `/llms.txt` to give large language models (LLMs) context for writing scripts and integrations with the Octopus REST API.
+
+```text
+https://<your-octopus-url>/llms.txt
+```
+
+The summary is generated from your Server's API and step definitions. It includes API endpoints, resource types, authentication guidance, and deployment step properties. You can provide the URL or downloaded content to your AI coding assistant as context.
+
+Reading `/llms.txt` doesn't require authentication or an API key. API requests made using the summary still require the usual authentication and permissions.
+
+Like Swagger documentation, the summary describes the API without exposing instance data such as your projects, deployments, or variable values.
+
+This endpoint was previously available at `/api/experimental/llms.txt`. The experimental route now permanently redirects to `/llms.txt`.
 
 ## Common tasks
 

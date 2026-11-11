@@ -107,7 +107,7 @@ export const HEADER_SCRIPTS = `
   if (document.location.hostname === 'octopus.com'
   	|| document.location.hostname === 'www.octopus.com') {
 	// Only add analytics to production site
-    add_gtm(window, document, 'script', 'dataLayer', 'GTM-MQ943TFN');
+    add_gtm(window, document, 'script', 'dataLayer', 'GTM-M6BF84M');
   }
   </script>
 `.trim();

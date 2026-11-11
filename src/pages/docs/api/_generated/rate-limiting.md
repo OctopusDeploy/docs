@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-09-04
 title: Rate Limiting
 ---
 
@@ -9,11 +9,14 @@ Rate Limiting policies can be configured via the API.
 
 See https://octopus.com/docs/administration/managing-infrastructure/rate-limiting to understand the feature and what the settings mean.
 
-## List all rate limiting policies
+## List rate limiting policies
 
 :endpoint{method="GET" path="/api/ratelimitingpolicies"}
 
-There are three builtin policies, so while this returns a paginated response, there is only ever a single page. - Unauthenticated requests - Authenticated requests - AI Agent requests
+There are three builtin policies:
+- Unauthenticated requests
+- Authenticated requests
+- AI Agent requests
 
 **Query Parameters**
 
@@ -26,7 +29,8 @@ There are three builtin policies, so while this returns a paginated response, th
 
 `200` — Success
 
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`AuditMode`** :span[boolean]{.type-label}  
     When enabled, the policy logs requests that would be rate limited without rejecting them (no 429 response).
@@ -52,7 +56,7 @@ There are three builtin policies, so while this returns a paginated response, th
 :::api-example{label="Response"}
 ```json
 {
-  "ItemType": "string",
+  "ItemType": "RateLimitingPolicy",
   "Items": [
     {
       "AuditMode": false,
@@ -62,13 +66,13 @@ There are three builtin policies, so while this returns a paginated response, th
       "IsEnabled": false,
       "Name": "Authenticated requests",
       "RequestsPerMinute": 600,
-      "ScopeType": "string"
+      "ScopeType": "AuthenticatedHuman"
     }
   ],
-  "ItemsPerPage": 0,
-  "LastPageNumber": 0,
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "ItemsPerPage": 30,
+  "LastPageNumber": 1,
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -113,7 +117,7 @@ There are three builtin policies, so while this returns a paginated response, th
   "IsEnabled": false,
   "Name": "Authenticated requests",
   "RequestsPerMinute": 600,
-  "ScopeType": "string"
+  "ScopeType": "AuthenticatedHuman"
 }
 ```
 :::
@@ -153,7 +157,7 @@ There are three builtin policies, so while this returns a paginated response, th
   "IsEnabled": false,
   "Name": "Authenticated requests",
   "RequestsPerMinute": 600,
-  "ScopeType": "string"
+  "ScopeType": "AuthenticatedHuman"
 }
 ```
 :::
@@ -189,7 +193,7 @@ There are three builtin policies, so while this returns a paginated response, th
   "IsEnabled": false,
   "Name": "Authenticated requests",
   "RequestsPerMinute": 600,
-  "ScopeType": "string"
+  "ScopeType": "AuthenticatedHuman"
 }
 ```
 :::

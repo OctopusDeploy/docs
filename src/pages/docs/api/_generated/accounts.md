@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-09-04
 title: Accounts
 ---
 
@@ -36,7 +36,8 @@ Lists accounts in the supplied Octopus Deploy Space in pages. The results will b
 
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`AccountType`** :span[enum]{.type-label}  
     Allowed values: `AmazonWebServicesAccount`, `AmazonWebServicesOidcAccount`, `AzureOidc`, `AzureServicePrincipal`, `AzureSubscription`, `GenericOidcAccount`, `GoogleCloudAccount`, `GoogleCloudOidcAccount`, `None`, `SshKeyPair`, `Token`, `UsernamePassword`.
@@ -72,7 +73,7 @@ Lists accounts in the supplied Octopus Deploy Space in pages. The results will b
 ```json
 {
   "Id": "string",
-  "ItemType": "string",
+  "ItemType": "Account",
   "Items": [
     {
       "AccountType": "AmazonWebServicesAccount",
@@ -85,9 +86,7 @@ Lists accounts in the supplied Octopus Deploy Space in pages. The results will b
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Name": "string",
       "Slug": "string",
@@ -102,17 +101,15 @@ Lists accounts in the supplied Octopus Deploy Space in pages. The results will b
       "TenantedDeploymentParticipation": "Untenanted"
     }
   ],
-  "ItemsPerPage": 0,
+  "ItemsPerPage": 30,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "LastPageNumber": 0,
+  "LastPageNumber": 1,
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -204,9 +201,7 @@ Also reachable at `/api/accounts`, `/api/spaces/{spaceIdentifier}/accounts`.
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "Slug": "string",
@@ -274,9 +269,7 @@ Lists all of the accounts in the supplied Octopus Deploy Space. The results will
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     },
     "Name": "string",
     "Slug": "string",
@@ -394,9 +387,7 @@ Also reachable at `/api/accounts/{accountId}`, `/api/spaces/{spaceIdentifier}/ac
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "Slug": "string",
@@ -463,9 +454,7 @@ Also reachable at `/api/accounts/{id}`, `/api/spaces/{spaceIdentifier}/accounts/
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "Slug": "string",
@@ -655,9 +644,7 @@ Also reachable at `/api/accounts/{id}/usages`, `/api/spaces/{spaceIdentifier}/ac
     }
   ],
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "ProjectTenantVariables": [
     {

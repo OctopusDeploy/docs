@@ -44,10 +44,13 @@ const { area, lang, headings, apiMethods } = Astro.props satisfies Props;
 }
 <script is:inline>
   (() => {
-    const active = document
-      .querySelector('[data-site-nav-scroll]')
-      ?.querySelector('[aria-current="page"]');
+    const list = document.querySelector('[data-site-nav-scroll]');
+    const active = list?.querySelector('[aria-current="page"]');
+    if (!list || !active) return;
 
-    active?.scrollIntoView({ block: 'center' });
+    const listRect = list.getBoundingClientRect();
+    const activeRect = active.getBoundingClientRect();
+    list.scrollTop +=
+      activeRect.top - listRect.top - (listRect.height - activeRect.height) / 2;
   })();
 </script>

@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-10-26
 title: Tenants
 ---
 
@@ -35,7 +35,7 @@ Lists all of the tenants in the supplied Octopus Deploy Space. The results will 
 - **`skip`** :span[integer]{.type-label}  
   Number of items to skip. Defaults to zero. Minimum `0`.
 - **`tags`** :span[array of string]{.type-label}  
-  A set of Tenant Tags, to limit the set of retrieved Tenants to those which are tagged with the specific tags. Example: Alpha,Beta,Stable.
+  Limits the results to Tenants with these canonical tag names. Example: ["Region/APAC", "Region/EMEA", "Tier/Gold"] finds Gold Tenants in APAC or EMEA. Tags can also be IDs (TagSets-1/Tags-1).
 - **`take`** :span[integer]{.type-label}  
   Number of items to take. Defaults to 30. Minimum `0`.
 
@@ -45,7 +45,8 @@ Lists all of the tenants in the supplied Octopus Deploy Space. The results will 
 
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`ClonedFromTenantId`** :span[string]{.type-label}
   - **`CustomFields`** :span[array of string]{.type-label}
@@ -81,7 +82,7 @@ Lists all of the tenants in the supplied Octopus Deploy Space. The results will 
 ```json
 {
   "Id": "string",
-  "ItemType": "string",
+  "ItemType": "Tenant",
   "Items": [
     {
       "ClonedFromTenantId": "string",
@@ -90,17 +91,15 @@ Lists all of the tenants in the supplied Octopus Deploy Space. The results will 
       ],
       "Description": "string",
       "Icon": {
-        "Color": "string",
-        "Id": "string"
+        "Color": "#3CA4F3",
+        "Id": "rocket"
       },
       "Id": "string",
       "IsDisabled": false,
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Name": "string",
       "ProjectEnvironments": {
@@ -121,17 +120,15 @@ Lists all of the tenants in the supplied Octopus Deploy Space. The results will 
       ]
     }
   ],
-  "ItemsPerPage": 0,
+  "ItemsPerPage": 30,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "LastPageNumber": 0,
+  "LastPageNumber": 1,
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -228,17 +225,15 @@ Creates a new Tenant, optionally cloning an existing tenant if the clone query s
   ],
   "Description": "string",
   "Icon": {
-    "Color": "string",
-    "Id": "string"
+    "Color": "#3CA4F3",
+    "Id": "rocket"
   },
   "Id": "string",
   "IsDisabled": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "ProjectEnvironments": {
@@ -287,7 +282,7 @@ Lists all of the tenants in the supplied Octopus Deploy Space. The results will 
 - **`projectId`** :span[string]{.type-label}  
   A Project ID, to limit the set of retrieved Tenants to those connected to a particular Project.
 - **`tags`** :span[array of string]{.type-label}  
-  A set of Tenant Tags, to limit the set of retrieved Tenants to those which are tagged with the specific tags. Example: Alpha,Beta,Stable.
+  Limits the results to Tenants with these canonical tag names. Example: ["Region/APAC", "Region/EMEA", "Tier/Gold"] finds Gold Tenants in APAC or EMEA. Tags can also be IDs (TagSets-1/Tags-1).
 
 **Response**
 
@@ -327,17 +322,15 @@ Lists all of the tenants in the supplied Octopus Deploy Space. The results will 
     ],
     "Description": "string",
     "Icon": {
-      "Color": "string",
-      "Id": "string"
+      "Color": "#3CA4F3",
+      "Id": "rocket"
     },
     "Id": "string",
     "IsDisabled": false,
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     },
     "Name": "string",
     "ProjectEnvironments": {
@@ -395,9 +388,7 @@ If multi-tenancy is enabled, \"Enabled\" will be true, otherwise it will be fals
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   }
 }
 ```
@@ -565,17 +556,15 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}`, `/api/tenants/{i
   ],
   "Description": "string",
   "Icon": {
-    "Color": "string",
-    "Id": "string"
+    "Color": "#3CA4F3",
+    "Id": "rocket"
   },
   "Id": "string",
   "IsDisabled": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "ProjectEnvironments": {
@@ -690,17 +679,15 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}`, `/api/tenants/{i
   ],
   "Description": "string",
   "Icon": {
-    "Color": "string",
-    "Id": "string"
+    "Color": "#3CA4F3",
+    "Id": "rocket"
   },
   "Id": "string",
   "IsDisabled": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "ProjectEnvironments": {
@@ -900,9 +887,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}/variables`, `/api/
     }
   },
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "ProjectVariables": {
     "additionalProp1": {
@@ -1183,9 +1168,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}/variables`, `/api/
     }
   },
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "ProjectVariables": {
     "additionalProp1": {
@@ -1464,9 +1447,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}/variables`, `/api/
     }
   },
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "ProjectVariables": {
     "additionalProp1": {
@@ -1748,9 +1729,7 @@ Also reachable at `/api/tenants/{id}/variables`.
     }
   },
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "ProjectVariables": {
     "additionalProp1": {
@@ -2747,9 +2726,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenantvariables/all`, `/api/ten
       }
     },
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     },
     "ProjectVariables": {
       "additionalProp1": {

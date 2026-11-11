@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-06-27
+modDate: 2026-11-03
 title: Azure web apps
 description: Octopus Deploy can help you perform repeatable and controlled deployments to Azure web apps.
 hideInThisSectionHeader: true
@@ -138,6 +138,10 @@ The example we've discussed here is the most common scenario for deploying Azure
 
 Octopus currently uses web deploy for azure web app deployments, which requires you to disable the SCM endpoint in order for deployments to work for linux web apps. In order to achieve this the `WEBSITE_WEBDEPLOY_USE_SCM` app setting should be
 to the Azure portal with a value of `false`. If you have multiple slots, this setting needs to be applied for each slot. If you do not add this setting, web deploy will be unable to find the appropriate endpoint for deployment.
+
+:::div{.hint}
+The **Deploy an Azure App Service** step reads the `WEBSITE_WEBDEPLOY_USE_SCM` setting to choose its deployment URL from the publishing profile. When the setting is `false`, the step uses the ZipDeploy URL. Otherwise, the step uses the MSDeploy URL.
+:::
 
 ## Learn more
 

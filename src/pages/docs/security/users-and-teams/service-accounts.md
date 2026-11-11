@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2026-06-19
+modDate: 2026-11-09
 title: Service accounts
 description: Creating Service Accounts to provide individual services with the least privileges required for the tasks they will perform.
 navOrder: 2
@@ -14,6 +14,8 @@ When using Octopus Deploy it is common to have other automated services control 
 - You might have your own dashboard solution and want to get data directly from the [Octopus API](/docs/octopus-rest-api).
 
 It is best to create **Service accounts** for this purpose to provide each service with the least privileges required for the tasks each service will perform.
+
+If you have tooling working on your behalf (such as an AI agent), consider using a [custom-scoped API key](/docs/api/authentication/create-an-api-key#choosing-an-access-level) under your own user account, instead of creating service accounts. Service accounts make the most sense for tooling that isn't used by a single user.
 
 :::div{.hint}
 **Service accounts** are **API-only accounts** that can be assigned permissions in the same way you do for normal accounts, but are prevented from using the Octopus Web Portal.
@@ -56,7 +58,7 @@ Once you have created an [Octopus API key](/docs/api/authentication/create-an-ap
 
 If you're connecting an AI agent to Octopus—such as the [Octopus MCP server](/docs/octopus-ai/mcp) or any other automated tooling that runs without a human user session—create an **Agent Service Account** rather than a regular service account. Agent service accounts are a dedicated identity type for AI agents, and they're labeled as such across the product, making agent activity easy to identify and audit.
 
-Any API key created under an agent service account is automatically treated as an agent key. This means you can filter for agent activity separately from human activity in the [audit log](/docs/security/users-and-teams/auditing) and on the **API Keys** page.
+Any API key created under an agent service account is automatically treated as an agent key. This means you can filter for agent activity separately from human activity in the [audit log](/docs/security/users-and-teams/auditing) and on the **API Keys** page. It also means a runbook's [AI agent access](/docs/runbooks/runbooks-vs-deployments#ai-agent-access) setting applies to any runbook run the account starts.
 
 To create an agent service account:
 

@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2026-08-11
+modDate: 2026-10-26
 title: Linux Tentacle
 description: How to install and configure Octopus Tentacles on Linux Servers in either listening or polling mode.
 navOrder: 20
@@ -21,6 +21,16 @@ Before you can configure a Linux Tentacle, the Linux server must meet the [requi
 - Octopus Server **2019.8.3** or newer
 
 Linux Tentacle is a .NET application distributed as a [self-contained deployment](https://docs.microsoft.com/en-us/dotnet/core/deploying/#publish-self-contained). On most Linux distributions it will *just work*, but be aware that [you will need to install some prerequisites](https://learn.microsoft.com/en-us/dotnet/core/install/linux-scripted-manual#dependencies).
+
+Linux Tentacle is built on .NET 10, so the server's C library must be at least the version [.NET 10 requires](https://github.com/dotnet/core/blob/main/release-notes/10.0/supported-os.md#libc-compatibility):
+
+| Architecture | Minimum C library                                          |
+| ------------ | ---------------------------------------------------------- |
+| x64          | glibc 2.27, or musl 1.2.3 for the `linux-musl-x64` archive |
+| ARM64        | glibc 2.27                                                 |
+| ARM32        | glibc 2.35                                                 |
+
+ARM32 servers need a distribution at least as new as Debian 12, Ubuntu 22.04 or Raspberry Pi OS (bookworm).
 
 ### Git-based steps \{#git-based-steps}
 

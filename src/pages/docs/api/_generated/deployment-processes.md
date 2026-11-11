@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-20
+modDate: 2026-09-04
 title: Deployment Processes
 ---
 
@@ -33,7 +33,8 @@ Lists all the deployment processes in the supplied Octopus Deploy Space, sorted 
 
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`Id`** :span[string]{.type-label}  
     Gets or sets a unique identifier for this resource.
@@ -63,7 +64,7 @@ Lists all the deployment processes in the supplied Octopus Deploy Space, sorted 
 ```json
 {
   "Id": "string",
-  "ItemType": "string",
+  "ItemType": "DeploymentProcess",
   "Items": [
     {
       "Id": "string",
@@ -71,9 +72,7 @@ Lists all the deployment processes in the supplied Octopus Deploy Space, sorted 
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "LastSnapshotId": "string",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "ProjectId": "Projects-1",
       "SpaceId": "Spaces-1",
@@ -83,17 +82,15 @@ Lists all the deployment processes in the supplied Octopus Deploy Space, sorted 
       "Version": 0
     }
   ],
-  "ItemsPerPage": 0,
+  "ItemsPerPage": 30,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "LastPageNumber": 0,
+  "LastPageNumber": 1,
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -191,9 +188,7 @@ Also reachable at `/api/deploymentprocesses/{deploymentProcessId}/template`, `/a
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "LastReleaseVersion": "string",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "NextVersionIncrement": "string",
   "Packages": [
@@ -271,9 +266,7 @@ Also reachable at `/api/deploymentprocesses/{id}`, `/api/spaces/{spaceIdentifier
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "LastSnapshotId": "string",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "ProjectId": "Projects-1",
   "SpaceId": "Spaces-1",
@@ -352,9 +345,7 @@ Also reachable at `/api/projects/{projectId}/deploymentprocesses`, `/api/spaces/
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "LastSnapshotId": "string",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "ProjectId": "Projects-1",
   "SpaceId": "Spaces-1",
@@ -489,9 +480,7 @@ Modifies a deployment process. Only allowed for deployment processes owned by a 
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "LastSnapshotId": "string",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "ProjectId": "Projects-1",
   "SpaceId": "Spaces-1",
@@ -572,9 +561,7 @@ This request returns the deployment process with all process template usages res
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "LastSnapshotId": "string",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "ProjectId": "Projects-1",
   "SpaceId": "Spaces-1",
@@ -695,9 +682,7 @@ Also reachable at `/api/projects/{projectId}/deploymentprocesses/template`, `/ap
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "LastReleaseVersion": "string",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "NextVersionIncrement": "string",
   "Packages": [
@@ -818,9 +803,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/deploymentprocesses`, `/ap
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "LastSnapshotId": "string",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "ProjectId": "Projects-1",
   "SpaceId": "Spaces-1",
@@ -958,9 +941,7 @@ Modifies a deployment process. Only allowed for deployment processes owned by a 
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "LastSnapshotId": "string",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "ProjectId": "Projects-1",
   "SpaceId": "Spaces-1",
@@ -1042,9 +1023,7 @@ This request returns the deployment process with all process template usages res
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "LastSnapshotId": "string",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "ProjectId": "Projects-1",
   "SpaceId": "Spaces-1",
@@ -1167,9 +1146,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/deploymentprocesses/templa
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "LastReleaseVersion": "string",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "NextVersionIncrement": "string",
   "Packages": [
@@ -1295,9 +1272,7 @@ Modifies a deployment process. Only allowed for deployment processes owned by a 
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "LastSnapshotId": "string",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "ProjectId": "Projects-1",
   "SpaceId": "Spaces-1",
@@ -1365,9 +1340,7 @@ Modifies a deployment process. Only allowed for deployment processes owned by a 
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "LastSnapshotId": "string",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "ProjectId": "Projects-1",
   "SpaceId": "Spaces-1",

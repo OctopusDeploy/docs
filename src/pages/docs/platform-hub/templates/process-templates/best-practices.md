@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-09-11
-modDate: 2025-09-11
+modDate: 2026-10-13
 title: Process Templates best practices
 subtitle: Best practices for creating process templates within Platform Hub
 icon: fa-solid fa-lock
@@ -202,7 +202,7 @@ Octopus supports different levels of logs:
 
 - Write-Verbose - writes a verbose log (hidden by default)
 - Write-Info - writes an info log (visible on task log screen by default)
-- Write-Highlight - writes the information to the task summary screen
+- Write-Highlight - writes a highlighted message to the task log
 - Write-Error - writes an error message
 
 Use those log levels and write messages frequently.  This aids in debugging when a deployment or runbook run fails.  Logs are like an umbrella - better to have it and not need it than need it and not have it.

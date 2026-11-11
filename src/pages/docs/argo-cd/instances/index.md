@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-09-15
-modDate: 2026-06-11
+modDate: 2026-09-07
 navSection: Argo CD Instances
 navTitle: Overview
 title: Overview
@@ -44,7 +44,7 @@ If your Octopus Server sits behind a load balancer, proxy, or firewall, make sur
 :::
 
 :::div{.hint}
-The gateway holds long-lived gRPC streams and sends a keep-alive every 30 seconds by default. If a load balancer between the cluster and Octopus Server closes idle connections, set its idle timeout to comfortably exceed the keep-alive interval (`gateway.octopus.keepAlive.intervalSeconds`).
+The gateway holds long-lived gRPC streams and sends a health check to Octopus Server every 30 seconds by default. If a load balancer between the cluster and Octopus Server closes idle connections, set its idle timeout to comfortably exceed the health check interval (`gateway.octopus.healthCheck.interval`).
 :::
 
 ## Installing the Octopus Argo CD Gateway

@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-09-04
 title: Feeds
 ---
 
@@ -37,7 +37,8 @@ Also reachable at `/api/feeds`, `/api/spaces/{spaceIdentifier}/feeds`.
 
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`FeedType`** :span[enum]{.type-label}  
     Allowed values: `None`, `NuGet`, `Docker`, `Maven`, `OctopusProject`, `GitHub`, `Helm`, `OciRegistry`, `AwsElasticContainerRegistry`, `BuiltIn`, `S3`, `AzureContainerRegistry`, `GoogleContainerRegistry`, `ArtifactoryGeneric`, `Npm`, `GcsStorage`, `PyPi`.
@@ -69,7 +70,7 @@ Also reachable at `/api/feeds`, `/api/spaces/{spaceIdentifier}/feeds`.
 ```json
 {
   "Id": "string",
-  "ItemType": "string",
+  "ItemType": "Feed",
   "Items": [
     {
       "FeedType": "None",
@@ -77,9 +78,7 @@ Also reachable at `/api/feeds`, `/api/spaces/{spaceIdentifier}/feeds`.
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Name": "string",
       "PackageAcquisitionLocationOptions": [
@@ -89,17 +88,15 @@ Also reachable at `/api/feeds`, `/api/spaces/{spaceIdentifier}/feeds`.
       "SpaceId": "Spaces-1"
     }
   ],
-  "ItemsPerPage": 0,
+  "ItemsPerPage": 30,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "LastPageNumber": 0,
+  "LastPageNumber": 1,
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -206,9 +203,7 @@ Also reachable at `/api/feeds`, `/api/spaces/{spaceIdentifier}/feeds`.
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "PackageAcquisitionLocationOptions": [
@@ -260,9 +255,7 @@ Also reachable at `/api/feeds/all`, `/api/spaces/{spaceIdentifier}/feeds/all`.
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     },
     "Name": "string",
     "PackageAcquisitionLocationOptions": [
@@ -307,9 +300,7 @@ Also reachable at `/api/feeds/stats`, `/api/spaces/{spaceIdentifier}/feeds/stats
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "TotalPackages": 0
 }
@@ -357,9 +348,7 @@ Also reachable at `/api/feeds/{id}`, `/api/spaces/{spaceIdentifier}/feeds/{id}`.
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "PackageAcquisitionLocationOptions": [
@@ -478,9 +467,7 @@ Also reachable at `/api/feeds/{id}`, `/api/spaces/{spaceIdentifier}/feeds/{id}`.
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "PackageAcquisitionLocationOptions": [
@@ -539,7 +526,8 @@ Also reachable at `/api/feeds/{id}/packages/search`, `/api/spaces/{spaceIdentifi
 
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`Description`** :span[string]{.type-label}
   - **`Id`** :span[string]{.type-label}
@@ -561,7 +549,7 @@ Also reachable at `/api/feeds/{id}/packages/search`, `/api/spaces/{spaceIdentifi
 ```json
 {
   "Id": "string",
-  "ItemType": "string",
+  "ItemType": "PackageDescription",
   "Items": [
     {
       "Description": "string",
@@ -575,17 +563,15 @@ Also reachable at `/api/feeds/{id}/packages/search`, `/api/spaces/{spaceIdentifi
       "Name": "string"
     }
   ],
-  "ItemsPerPage": 0,
+  "ItemsPerPage": 30,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "LastPageNumber": 0,
+  "LastPageNumber": 1,
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -618,7 +604,7 @@ Also reachable at `/api/feeds/{id}/packages/versions`, `/api/spaces/{spaceIdenti
 - **`skip`** :span[integer]{.type-label}  
   Number of items to skip. Defaults to zero. Minimum `0`.
 - **`take`** :span[integer]{.type-label}  
-  Number of items to take. Defaults to 30. Minimum `0`.
+  Number of items to take. Defaults to 20. Minimum `0`.
 - **`versionRange`** :span[string]{.type-label}  
   The range of versions to filter by.
 - **`versionTagRegex`** :span[string]{.type-label}  
@@ -632,7 +618,8 @@ Also reachable at `/api/feeds/{id}/packages/versions`, `/api/spaces/{spaceIdenti
 
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`FeedId`** :span[string]{.type-label}
   - **`Id`** :span[string]{.type-label}
@@ -662,7 +649,7 @@ Also reachable at `/api/feeds/{id}/packages/versions`, `/api/spaces/{spaceIdenti
 ```json
 {
   "Id": "string",
-  "ItemType": "string",
+  "ItemType": "PackageVersion",
   "Items": [
     {
       "FeedId": "string",
@@ -680,17 +667,15 @@ Also reachable at `/api/feeds/{id}/packages/versions`, `/api/spaces/{spaceIdenti
       "Version": "string"
     }
   ],
-  "ItemsPerPage": 0,
+  "ItemsPerPage": 30,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "LastPageNumber": 0,
+  "LastPageNumber": 1,
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::

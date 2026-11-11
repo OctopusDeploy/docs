@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-10-04
+modDate: 2026-10-26
 title: Runbooks vs Deployments
 description: Describing the differences between a deployment and a runbook.
 navOrder: 10
@@ -34,7 +34,7 @@ A [project's variables](/docs/projects/variables) are shared between the deploym
 
 In Octopus 2020.2 and earlier, runbooks could be executed against any environment for which the user had an appropriately scoped `RunbookRunCreate` permission.
 
-From **Octopus 2020.3**, it's also possible to choose which environments a runbook can be run in by selecting this from the *Run settings* in **Runbook ➜ Settings**:
+From **Octopus 2020.3**, it's also possible to choose which environments a runbook can be run in by selecting this from the *Run Settings* in **Runbook ➜ Settings**:
 
 :::figure
 ![Runbook environments choice](/docs/img/runbooks/runbooks-vs-deployments/runbook-runsettings-environments.png)
@@ -50,9 +50,43 @@ You can select the runbook to run in:
 In Octopus 2020.2 and earlier, if you need to restrict the environment that a runbook can be executed in, you can achieve this by adding an [Environment run condition](/docs/projects/steps/conditions/#environments) in each step of the runbook process.
 :::
 
+### AI agent access
+
+AI agent access controls whether AI agents can run a runbook. Use it to keep agents away from sensitive runbooks, such as ones that change production infrastructure, while still letting them run routine ones.
+
+The setting sits below **Environments** in the *Run Settings* of **Runbook ➜ Settings**:
+
+:::figure
+![The AI agent access setting on the runbook settings page, with the options AI agents can run this runbook and AI agents can't run this runbook](/docs/img/runbooks/runbooks-vs-deployments/runbook-runsettings-ai-agent-access.png)
+:::
+
+You can choose:
+
+- **AI agents can run this runbook** (the default)
+- **AI agents can't run this runbook**
+
+Blocking only applies to runs started with an AI agent's credentials: an [agent API key](/docs/api/authentication/create-an-api-key#creating-an-agent-api-key) or an [agent service account](/docs/security/users-and-teams/service-accounts#agent-service-accounts). This includes agents using the [Octopus MCP server](/docs/octopus-ai/mcp), and [webhook triggers](/docs/runbooks/webhook-runbook-trigger#authentication) called with an agent API key. Runs started by users, scheduled triggers, and webhook triggers that use a shared secret aren't affected.
+
+When a runbook is blocked, Octopus rejects an agent's run with an error before the run starts. Agents also see an empty list of environments for the runbook, so they don't try runs that would fail.
+
+AI agent access adds to [runbook permissions](/docs/runbooks/runbook-permissions) rather than replacing them.
+
+Agents can change the setting to block themselves, but they can't change it back. To let agents run it again, a user or a non-agent service account needs to change the setting. In the API, the setting is the runbook's `AgentAccess` property, set to `Allowed` or `Blocked`. If you leave `AgentAccess` out when you modify a runbook, Octopus keeps its current value.
+
+:::div{.warning}
+AI agent access is an advisory control. It stops agents from running a runbook directly, but it isn't a security boundary. Agents can get around it:
+
+- An agent that can edit the runbook can still change its other settings, such as its environments.
+- An agent can create a [scheduled trigger](/docs/runbooks/scheduled-runbook-trigger) or a shared-secret [webhook trigger](/docs/runbooks/webhook-runbook-trigger) that runs the runbook. These runs use the Octopus system user, so they aren't blocked.
+- Octopus checks the setting when it creates a run. Runs an agent queued before the runbook was blocked still start, including runs scheduled for later.
+- For [Config as Code runbooks](/docs/runbooks/config-as-code-runbooks#ai-agent-access), an agent can run from a branch or commit where the setting still lets agents run the runbook.
+
+For runbooks you want to protect, don't give agents permission to edit runbooks (`RunbookEdit`) or triggers (`TriggerCreate` and `TriggerEdit`).
+:::
+
 ## Retention policy
 
-Project [Lifecycles](/docs/releases/lifecycles) and their retention policies do not apply to runbooks (only deployments). From **Octopus 2020.3**, it's possible to set a retention policy for a runbook by selecting this from the *Run settings* in **Runbook ➜ Settings**:
+Project [Lifecycles](/docs/releases/lifecycles) and their retention policies do not apply to runbooks (only deployments). From **Octopus 2020.3**, it's possible to set a retention policy for a runbook by selecting this from the *Run Settings* in **Runbook ➜ Settings**:
 
 :::figure
 ![Runbook retention policies](/docs/img/runbooks/runbooks-vs-deployments/runbook-runsettings-retention.png)
@@ -86,3 +120,7 @@ Runbooks are similar to deployments in that they also take a copy of the process
 **Package versions are included in a snapshot**
 Similar to releases, the version of any packages that are used in the runbook are also snapshotted. This means if a newer version of the package is uploaded, and you wish to use it in your runbook, you will need to create a new snapshot of the runbook.
 :::
+
+## Version notes
+
+- AI agent access for runbooks is available from Octopus **2026.4.9164**.

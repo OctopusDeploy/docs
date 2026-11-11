@@ -19,7 +19,7 @@ Octopus Cloud is the easiest way to start with Octopus Deploy; we take care of e
 
 ### Where do I begin?
 
-Many customers begin with our [getting started](/docs/getting-started) guide, which covers the key concepts and terminology we use. When you’re ready, [start a free account](https://octopus.com/free-signup) to explore Octopus Cloud.
+Many customers begin with our [getting started](/docs/getting-started) guide, which covers the key concepts and terminology we use. When you're ready, [start a free account](https://octopus.com/free-signup) to explore Octopus Cloud.
 
 ### How is Octopus Cloud built?
 
@@ -31,11 +31,9 @@ Our [Octopus Cloud architecture](https://octopus.com/blog/octopus-cloud-architec
 
 Our [Resource Center](https://octopus.com/resource-center) provides high-quality webinars, blog posts, white papers, and free tools. We also offer [books with free PDF versions](https://octopus.com/publications) covering Octopus and broader DevOps topics. We pride ourselves on the quality of our [developer documentation](/docs) and provide free [training video tutorials](https://www.youtube.com/playlist?list=PLAGskdGvlaw268i2ZTPC1ZrxwFjjKIdKH). We support a [community Slack channel](https://octopususergroup.slack.com/join/shared_invite/zt-170c1xzfl-J_pWvCeNZ4H_LmGVE4XNtw#/shared-invite/email) where our staff regularly assist with customer inquiries.
 
-Professional and Enterprise tier customers receive access to our Support team and expert-guided onboarding. Enterprise tier customers can add on Technical Account Management services. For Enterprise tier customers with over USD $50,000 licenses, we assign a Customer Success Manager.
-
 ### Can we get support for our initial setup?
 
-Professional and Enterprise tier customers receive our expert-guided onboarding Support. Our [Sales and Support teams](https://octopus.com/company/contact) are highly responsive and available to every customer.
+Our [Sales and Support teams](https://octopus.com/company/contact) are highly responsive and available to every customer.
 
 ## Purchasing
 
@@ -65,7 +63,7 @@ Our Sales team can [provide a quote](https://octopus.com/company/contact) that m
 
 ### How do I use a purchase order?
 
-For customers on Professional or Enterprise, please provide our Sales team with your purchase order, which we’ll include in your quote or invoice.
+For customers on Professional or Enterprise, please provide our Sales team with your purchase order, which we'll include in your quote or invoice.
 
 ### Where can I learn more about pricing?
 
@@ -183,7 +181,7 @@ We publish our [release updates](https://octopus.com/whatsnew) and provide a [re
 
 ## Availability
 
-### What is Octopus Cloud’s uptime SLO?
+### What is Octopus Cloud's uptime SLO?
 
 Octopus Cloud's monthly [uptime SLO](/docs/octopus-cloud/uptime-slo) is 99.99%, measured for the 95th percentile of paid Cloud instances. We calculate uptime as 100% of the month, less all unplanned downtime.
 
@@ -193,7 +191,7 @@ Our Cloud Platform team observes uptime and planned downtime durations as part o
 
 ### Where can I see Octopus Cloud uptime data?
 
-We publish Octopus Cloud’s [uptime track record](/docs/octopus-cloud/uptime-slo) monthly.
+We publish Octopus Cloud's [uptime track record](/docs/octopus-cloud/uptime-slo) monthly.
 
 ### How can we check Octopus Cloud's status?
 
@@ -245,7 +243,7 @@ Octopus Cloud has a well-defined [disaster recovery](/docs/octopus-cloud/disaste
 
 ### How often are backups performed?
 
-We take Octopus Cloud database backups using Azure’s [automated backup](https://learn.microsoft.com/en-us/azure/azure-sql/database/automated-backups-overview?view=azuresql&tabs=single-database#backup-frequency) process. We perform:
+We take Octopus Cloud database backups using Azure's [automated backup](https://learn.microsoft.com/en-us/azure/azure-sql/database/automated-backups-overview?view=azuresql&tabs=single-database#backup-frequency) process. We perform:
 
 - Full backups weekly
 - Differential backups every 12 or 24 hours

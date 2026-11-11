@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-10-22
 title: Interruptions
 ---
 
@@ -34,10 +34,13 @@ Also reachable at `/api/interruptions`, `/api/spaces/{spaceIdentifier}/interrupt
 
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
+  - **`AgentResponsesPrevented`** :span[boolean]{.type-label}  
+    Gets or sets a value indicating whether AI agents are blocked from actioning this interruption.
   - **`CanTakeResponsibility`** :span[boolean]{.type-label}  
-    Gets or sets a value indicating whether the current user has permissions to take responsibility for this interruption.
+    Gets or sets a value indicating whether the current user can take responsibility for this interruption. False for AI agents when the interruption blocks AI agents.
   - **`CorrelationId`** :span[string]{.type-label}  
     Gets or sets the correlation ID of the activity in which the interruption was requested, if any.
   - **`Created`** :span[string]{.type-label}  
@@ -63,6 +66,11 @@ Also reachable at `/api/interruptions`, `/api/spaces/{spaceIdentifier}/interrupt
     Gets the ids of documents related to this interruption.
   - **`ResponsibleTeamIds`** :span[array of string]{.type-label}  
     Gets the ids of groups that can take responsibility for this interruption.
+  - **`ResponsibleUserActor`** :span[string]{.type-label}  
+    Gets or sets the agent client (such as an MCP client) the responsible user acted through, typically in the same form as OAuth client. Null for other kinds of credential.
+  - **`ResponsibleUserActorType`** :span[enum]{.type-label}  
+    Gets or sets the kind of actor (user, service account, AI agent) that took responsibility for this interruption. Unknown when nobody has taken responsibility, or for interruptions claimed before this was recorded.  
+    Allowed values: `Unknown`, `System`, `User`, `Agent`, `ServiceAccount`.
   - **`ResponsibleUserId`** :span[string]{.type-label}  
     Gets or sets the.
   - **`SpaceId`** :span[string]{.type-label}
@@ -88,9 +96,10 @@ Also reachable at `/api/interruptions`, `/api/spaces/{spaceIdentifier}/interrupt
 ```json
 {
   "Id": "string",
-  "ItemType": "string",
+  "ItemType": "Interruption",
   "Items": [
     {
+      "AgentResponsesPrevented": false,
       "CanTakeResponsibility": false,
       "CorrelationId": "string",
       "Created": "2020-01-01T00:00:00.000Z",
@@ -107,9 +116,7 @@ Also reachable at `/api/interruptions`, `/api/spaces/{spaceIdentifier}/interrupt
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "PullRequests": [
         {}
@@ -120,6 +127,8 @@ Also reachable at `/api/interruptions`, `/api/spaces/{spaceIdentifier}/interrupt
       "ResponsibleTeamIds": [
         "string"
       ],
+      "ResponsibleUserActor": "string",
+      "ResponsibleUserActorType": "Unknown",
       "ResponsibleUserId": "string",
       "SpaceId": "Spaces-1",
       "TaskId": "string",
@@ -127,17 +136,15 @@ Also reachable at `/api/interruptions`, `/api/spaces/{spaceIdentifier}/interrupt
       "Type": "ManualIntervention"
     }
   ],
-  "ItemsPerPage": 0,
+  "ItemsPerPage": 30,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "LastPageNumber": 0,
+  "LastPageNumber": 1,
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -159,8 +166,10 @@ Also reachable at `/api/interruptions/{id}`, `/api/spaces/{spaceIdentifier}/inte
 
 `200` — The requested Interruption
 
+- **`AgentResponsesPrevented`** :span[boolean]{.type-label}  
+  Gets or sets a value indicating whether AI agents are blocked from actioning this interruption.
 - **`CanTakeResponsibility`** :span[boolean]{.type-label}  
-  Gets or sets a value indicating whether the current user has permissions to take responsibility for this interruption.
+  Gets or sets a value indicating whether the current user can take responsibility for this interruption. False for AI agents when the interruption blocks AI agents.
 - **`CorrelationId`** :span[string]{.type-label}  
   Gets or sets the correlation ID of the activity in which the interruption was requested, if any.
 - **`Created`** :span[string]{.type-label}  
@@ -198,6 +207,11 @@ Also reachable at `/api/interruptions/{id}`, `/api/spaces/{spaceIdentifier}/inte
   Gets the ids of documents related to this interruption.
 - **`ResponsibleTeamIds`** :span[array of string]{.type-label}  
   Gets the ids of groups that can take responsibility for this interruption.
+- **`ResponsibleUserActor`** :span[string]{.type-label}  
+  Gets or sets the agent client (such as an MCP client) the responsible user acted through, typically in the same form as OAuth client. Null for other kinds of credential.
+- **`ResponsibleUserActorType`** :span[enum]{.type-label}  
+  Gets or sets the kind of actor (user, service account, AI agent) that took responsibility for this interruption. Unknown when nobody has taken responsibility, or for interruptions claimed before this was recorded.  
+  Allowed values: `Unknown`, `System`, `User`, `Agent`, `ServiceAccount`.
 - **`ResponsibleUserId`** :span[string]{.type-label}  
   Gets or sets the.
 - **`SpaceId`** :span[string]{.type-label}
@@ -212,6 +226,7 @@ Also reachable at `/api/interruptions/{id}`, `/api/spaces/{spaceIdentifier}/inte
 :::api-example{label="Response"}
 ```json
 {
+  "AgentResponsesPrevented": false,
   "CanTakeResponsibility": false,
   "CorrelationId": "string",
   "Created": "2020-01-01T00:00:00.000Z",
@@ -236,9 +251,7 @@ Also reachable at `/api/interruptions/{id}`, `/api/spaces/{spaceIdentifier}/inte
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "PullRequests": [
     {
@@ -257,6 +270,8 @@ Also reachable at `/api/interruptions/{id}`, `/api/spaces/{spaceIdentifier}/inte
   "ResponsibleTeamIds": [
     "string"
   ],
+  "ResponsibleUserActor": "string",
+  "ResponsibleUserActorType": "Unknown",
   "ResponsibleUserId": "string",
   "SpaceId": "Spaces-1",
   "TaskId": "string",
@@ -283,11 +298,13 @@ Also reachable at `/api/interruptions/{id}/responsible`, `/api/spaces/{spaceIden
 
 `200` — OK
 
-## Allow the current user to take responsibility for this interruption. Only users in one of the responsible teams on this interruption can take responsibility for it
+## Allow the current user to take responsibility for this interruption
 
 :endpoint{method="PUT" path="/api/\{spaceId\}/interruptions/\{id\}/responsible"}
 
 Also reachable at `/api/interruptions/{id}/responsible`, `/api/spaces/{spaceIdentifier}/interruptions/{id}/responsible`.
+
+Only users in one of the responsible teams on this interruption can take responsibility for it.
 
 **Path Parameters**
 
@@ -352,9 +369,7 @@ Also reachable at `/api/interruptions/{id}/responsible`, `/api/spaces/{spaceIden
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Password": "string",
   "ServiceAccountType": "Standard",
@@ -363,11 +378,13 @@ Also reachable at `/api/interruptions/{id}/responsible`, `/api/spaces/{spaceIden
 ```
 :::
 
-## Submit a dictionary of form values for the interruption. Only the user with responsibility for this interruption can submit this form
+## Submit a dictionary of form values for the interruption
 
 :endpoint{method="POST" path="/api/\{spaceId\}/interruptions/\{id\}/submit"}
 
 Also reachable at `/api/interruptions/{id}/submit`, `/api/spaces/{spaceIdentifier}/interruptions/{id}/submit`.
+
+Only the user with responsibility for this interruption can submit this form.
 
 **Path Parameters**
 
@@ -408,8 +425,10 @@ Also reachable at `/api/interruptions/{id}/submit`, `/api/spaces/{spaceIdentifie
 
 `200` — Confirms that the Interruption has been submitted successfully, containing the updated Interruption
 
+- **`AgentResponsesPrevented`** :span[boolean]{.type-label}  
+  Gets or sets a value indicating whether AI agents are blocked from actioning this interruption.
 - **`CanTakeResponsibility`** :span[boolean]{.type-label}  
-  Gets or sets a value indicating whether the current user has permissions to take responsibility for this interruption.
+  Gets or sets a value indicating whether the current user can take responsibility for this interruption. False for AI agents when the interruption blocks AI agents.
 - **`CorrelationId`** :span[string]{.type-label}  
   Gets or sets the correlation ID of the activity in which the interruption was requested, if any.
 - **`Created`** :span[string]{.type-label}  
@@ -447,6 +466,11 @@ Also reachable at `/api/interruptions/{id}/submit`, `/api/spaces/{spaceIdentifie
   Gets the ids of documents related to this interruption.
 - **`ResponsibleTeamIds`** :span[array of string]{.type-label}  
   Gets the ids of groups that can take responsibility for this interruption.
+- **`ResponsibleUserActor`** :span[string]{.type-label}  
+  Gets or sets the agent client (such as an MCP client) the responsible user acted through, typically in the same form as OAuth client. Null for other kinds of credential.
+- **`ResponsibleUserActorType`** :span[enum]{.type-label}  
+  Gets or sets the kind of actor (user, service account, AI agent) that took responsibility for this interruption. Unknown when nobody has taken responsibility, or for interruptions claimed before this was recorded.  
+  Allowed values: `Unknown`, `System`, `User`, `Agent`, `ServiceAccount`.
 - **`ResponsibleUserId`** :span[string]{.type-label}  
   Gets or sets the.
 - **`SpaceId`** :span[string]{.type-label}
@@ -461,6 +485,7 @@ Also reachable at `/api/interruptions/{id}/submit`, `/api/spaces/{spaceIdentifie
 :::api-example{label="Response"}
 ```json
 {
+  "AgentResponsesPrevented": false,
   "CanTakeResponsibility": false,
   "CorrelationId": "string",
   "Created": "2020-01-01T00:00:00.000Z",
@@ -485,9 +510,7 @@ Also reachable at `/api/interruptions/{id}/submit`, `/api/spaces/{spaceIdentifie
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "PullRequests": [
     {
@@ -506,6 +529,8 @@ Also reachable at `/api/interruptions/{id}/submit`, `/api/spaces/{spaceIdentifie
   "ResponsibleTeamIds": [
     "string"
   ],
+  "ResponsibleUserActor": "string",
+  "ResponsibleUserActorType": "Unknown",
   "ResponsibleUserId": "string",
   "SpaceId": "Spaces-1",
   "TaskId": "string",

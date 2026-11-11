@@ -1,15 +1,17 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-11-04
 title: Lifecycles
 ---
 
-## List the Lifecycles in the supplied Octopus Deploy Space in pages. The results will be sorted alphabetically by name
+## List Lifecycles
 
 :endpoint{method="GET" path="/api/\{spaceId\}/lifecycles"}
 
 Also reachable at `/api/lifecycles`, `/api/spaces/{spaceIdentifier}/lifecycles`.
+
+List the Lifecycles in the supplied Octopus Deploy Space in pages. The results will be sorted alphabetically by name.
 
 **Path Parameters**
 
@@ -32,7 +34,8 @@ Also reachable at `/api/lifecycles`, `/api/spaces/{spaceIdentifier}/lifecycles`.
 
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`Description`** :span[string]{.type-label}
   - **`Id`** :span[string]{.type-label}  
@@ -64,7 +67,7 @@ Also reachable at `/api/lifecycles`, `/api/spaces/{spaceIdentifier}/lifecycles`.
 ```json
 {
   "Id": "string",
-  "ItemType": "string",
+  "ItemType": "Lifecycle",
   "Items": [
     {
       "Description": "string",
@@ -72,9 +75,7 @@ Also reachable at `/api/lifecycles`, `/api/spaces/{spaceIdentifier}/lifecycles`.
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Name": "string",
       "Phases": [
@@ -96,17 +97,15 @@ Also reachable at `/api/lifecycles`, `/api/spaces/{spaceIdentifier}/lifecycles`.
       }
     }
   ],
-  "ItemsPerPage": 0,
+  "ItemsPerPage": 30,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "LastPageNumber": 0,
+  "LastPageNumber": 1,
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -255,9 +254,7 @@ Also reachable at `/api/lifecycles`, `/api/spaces/{spaceIdentifier}/lifecycles`.
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "Phases": [
@@ -365,9 +362,7 @@ Also reachable at `/api/lifecycles/all`, `/api/spaces/{spaceIdentifier}/lifecycl
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     },
     "Name": "string",
     "Phases": [
@@ -472,9 +467,7 @@ Also reachable at `/api/lifecycles/previews`, `/api/spaces/{spaceIdentifier}/lif
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     },
     "Name": "string",
     "Phases": [
@@ -575,9 +568,7 @@ This request does not support getting Lifecycles that belong to Templated Projec
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "Phases": [
@@ -776,9 +767,7 @@ Also reachable at `/api/lifecycles/{id}`, `/api/spaces/{spaceIdentifier}/lifecyc
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "Phases": [
@@ -911,9 +900,7 @@ Also reachable at `/api/lifecycles/{id}/preview`, `/api/spaces/{spaceIdentifier}
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "Phases": [
@@ -999,7 +986,8 @@ Also reachable at `/api/lifecycles/{id}/projects`, `/api/spaces/{spaceIdentifier
 - **`DiscreteChannelRelease`** :span[boolean]{.type-label}  
   Treats releases of different channels to the same environment as a seperate deployment dimension. 'False' indicates a "hotfix"-style usage of channels (single release active per environment ignoring channels), whereas `True` indicates "microservice"-style usage (single release per environment per channel).
 - **`ExecuteDeploymentsOnEventBasedPipeline`** :span[boolean]{.type-label}
-- **`ExtensionSettings`** :span[array of object]{.type-label}
+- **`ExtensionSettings`** :span[array of object]{.type-label}  
+  Not intended for general use; You should not alter or add/remove any values it may have.
   - **`ExtensionId`** :span[string]{.type-label}
   - **`Values`** :span[string]{.type-label}
 - **`ForcePackageDownload`** :span[boolean]{.type-label}
@@ -1037,6 +1025,8 @@ Also reachable at `/api/lifecycles/{id}/projects`, `/api/spaces/{spaceIdentifier
   List of tags assigned to this project.
 - **`ProjectTemplateDetails`** :span[object]{.type-label}
   - **`IsShared`** :span[boolean]{.type-label}
+  - **`ManagedChannelsAndLifecycles`** :span[boolean]{.type-label}  
+    True when the resolved template version manages channels and lifecycles. Output only; ignored on input.
   - **`Slug`** :span[string]{.type-label}
   - **`VersionMask`** :span[string]{.type-label}  
     Minimum length 1.
@@ -1069,36 +1059,31 @@ Also reachable at `/api/lifecycles/{id}/projects`, `/api/spaces/{spaceIdentifier
     "AutoCreateRelease": false,
     "AutoDeployReleaseOverrides": [
       {
-        "EnvironmentId": "string",
-        "ReleaseId": "string",
+        "EnvironmentId": "Environments-1",
+        "ReleaseId": "Releases-1",
         "TenantId": "Tenants-1"
       }
     ],
     "ClonedFromProjectId": "Projects-1",
     "CombineHealthAndSyncStatusInDashboardLiveStatus": false,
     "DefaultGuidedFailureMode": "EnvironmentDefault",
-    "DefaultPowerShellEdition": "string",
+    "DefaultPowerShellEdition": null,
     "DefaultToSkipIfAlreadyInstalled": false,
     "DeploymentChangesTemplate": "string",
-    "DeploymentProcessId": "string",
+    "DeploymentProcessId": "deploymentprocess-Projects-1",
     "DeprovisioningRunbookId": "Runbooks-1",
     "Description": "string",
     "DiscreteChannelRelease": false,
     "ExecuteDeploymentsOnEventBasedPipeline": false,
-    "ExtensionSettings": [
-      {
-        "ExtensionId": "string",
-        "Values": "string"
-      }
-    ],
+    "ExtensionSettings": [],
     "ForcePackageDownload": false,
     "Icon": {
-      "Color": "string",
-      "Id": "string"
+      "Color": "#3CA4F3",
+      "Id": "rocket"
     },
     "Id": "string",
     "IncludedLibraryVariableSetIds": [
-      "string"
+      "LibraryVariableSets-1"
     ],
     "IsBadgesEnabled": false,
     "IsDisabled": false,
@@ -1107,9 +1092,7 @@ Also reachable at `/api/lifecycles/{id}/projects`, `/api/spaces/{spaceIdentifier
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "LifecycleId": "string",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     },
     "Name": "string",
     "PersistenceSettings": {
@@ -1123,12 +1106,13 @@ Also reachable at `/api/lifecycles/{id}/projects`, `/api/spaces/{spaceIdentifier
         "string"
       ]
     },
-    "ProjectGroupId": "string",
+    "ProjectGroupId": "ProjectGroups-1",
     "ProjectTags": [
       "string"
     ],
     "ProjectTemplateDetails": {
       "IsShared": false,
+      "ManagedChannelsAndLifecycles": false,
       "Slug": "string",
       "VersionMask": "string"
     },
@@ -1154,7 +1138,7 @@ Also reachable at `/api/lifecycles/{id}/projects`, `/api/spaces/{spaceIdentifier
       }
     ],
     "TenantedDeploymentMode": "Untenanted",
-    "VariableSetId": "string",
+    "VariableSetId": "variableset-Projects-1",
     "VersioningStrategy": {
       "DonorPackage": {
         "DeploymentAction": "string",

@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-05-02
-modDate: 2025-05-02
+modDate: 2026-10-13
 title: Applied Manifest Diffs
 navTitle: Diffs
 description: Applied Manifests Diffs guide
@@ -70,4 +70,4 @@ When performing a diff, Octopus continues to obfuscate the secrets, but will sti
 
 ## Can I compare to my live resources?
 
-The `Applied Manifest` view allows users to independently compare manifests generated at each step. In contrast, the live view aggregates the manifests, displaying the combined manifest from all steps completed during a deployment. You cannot compare or view the combined manifest on this page. Navigate to the Live page for the combined manifest. To learn more about the live status page and combined manifests, see the docs [live object status](/docs/kubernetes/live-object-status).
+The `Applied Manifest` view allows users to independently compare manifests generated at each step. In contrast, the live view aggregates the manifests, displaying the combined manifest from all steps completed during a deployment. You cannot compare or view the combined manifest on this page. Navigate to the **Kubernetes Live Status** tab of the [Environment status](/docs/projects/environment-status) page for the combined manifest. To learn more about live status and combined manifests, see the docs [live object status](/docs/kubernetes/live-object-status).

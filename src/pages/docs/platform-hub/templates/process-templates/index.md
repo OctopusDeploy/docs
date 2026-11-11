@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-09-23
-modDate: 2026-03-05
+modDate: 2026-11-04
 title: Process Templates
 subtitle: An overview of Process Templates
 icon: fa-solid fa-layer-group
@@ -44,10 +44,6 @@ Some steps look different inside a process template. They ask for a parameter ra
 ![The run a script step asks for a worker pool parameter instead of a worker pool](/docs/img/platform-hub/process-template-step-example.png)
 :::
 
-:::div{.warning}
-Our initial release of Process Templates does not include support for a few built-in steps.
-:::
-
 Once you have set up a deployment process, you can use it in any space for a deployment or runbook.
 
 ## Parameters
@@ -56,10 +52,35 @@ Parameters help you easily manage and apply the correct values during a deployme
 
 For a full reference of supported parameter types and default values, see [Template parameters](/docs/platform-hub/templates/parameters).
 
-To create a parameter, navigate to the **Parameters** tab on a process template and add a new parameter.
+To create a parameter, navigate to the **Parameters** tab on a process template and select **Add parameter**. You can also [create a parameter from the step that uses it](#create-parameter-from-step).
 
 :::figure
 ![The parameters section in a process template](/docs/img/platform-hub/process-template-parameters.png)
+:::
+
+### Create a parameter from a step {#create-parameter-from-step}
+
+Create a parameter while you configure a step, so you don't have to switch to the **Parameters** tab and back. The parameter is added to the template and inserted into the field you're working in.
+
+To create a parameter from a step:
+
+1. In your process template, open the step you want to configure.
+2. In a text field or the script editor, select the **Insert a parameter** button (**#\{\}**).
+3. In the search box, enter a name for the parameter.
+4. Select the **Create Parameter** button, which shows the name you entered. The **Create Parameter** drawer opens with **Name** already filled in.
+5. Enter a **Label** for the parameter.
+6. Optionally, enter **Help text** and a **Default value**.
+7. Select **Create and Insert**.
+8. Commit your changes to the process template.
+
+:::figure
+![The parameters drawer in a process template](/docs/img/platform-hub/process-template-parameters-drawer.png)
+:::
+
+The parameter appears on the **Parameters** tab, and the field you started from references it.
+
+:::div{.hint}
+A new parameter isn't saved until you commit the process template. If you discard your changes, the parameter is discarded with them.
 :::
 
 ### Sensitive parameter defaults
@@ -130,3 +151,7 @@ To define a simple deployment process in Octopus that executes a hello world scr
 17. Add any steps before or after the process template
 
 You can now deploy this process to say "Hello, World!".
+
+## Version notes
+
+- Creating a parameter from a step in the process editor is available in Octopus Deploy versions `>= 2026.4.11453`.

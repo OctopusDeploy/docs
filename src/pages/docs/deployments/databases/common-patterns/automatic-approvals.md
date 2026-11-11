@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2026-10-13
 title: Automatic approvals
 description: Recommendations and techniques on how to configure automatic approvals in an automated database deployment process.
 navOrder: 15
@@ -52,7 +52,7 @@ We recommend setting the output variable to `True` or `False` because that is wh
 
 We recommend the auto-approval step write logs using `Write-Host` for PowerShell or `echo` for Bash scripts.  That output is captured by Octopus Deploy and can be viewed in the `Task Log` tab on the deployment screen.  When we've debugging scripts, the more logging, the better.
 
-For important logs, such as when a command is found, leverage the [write highlight](/docs/deployments/custom-scripts/logging-messages-in-scripts) command.  That is a custom command Octopus Deploy injects into the deployment process.  Using that command will show the message on the task summary screen.
+For important logs, such as when a command is found, leverage the [write highlight](/docs/deployments/custom-scripts/logging-messages-in-scripts) command.  That is a custom command Octopus Deploy injects into the deployment process.  Using that command will highlight the message in the task log.
 
 :::figure
 ![Write highlight output in the deployment log](/docs/img/deployments/databases/common-patterns/images/auto_approve_write_highlight.png)

@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-09-04
 title: Packages
 ---
 
@@ -95,9 +95,7 @@ Also reachable at `/api/feeds/{feedId}/packages`, `/api/spaces/{spaceIdentifier}
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     },
     "NuGetFeedId": "string",
     "NuGetPackageId": "string",
@@ -117,9 +115,7 @@ Also reachable at `/api/feeds/{feedId}/packages`, `/api/spaces/{spaceIdentifier}
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "PackageId": "string",
       "VcsCommitNumber": "string",
@@ -204,7 +200,8 @@ Also reachable at `/api/packages`, `/api/spaces/{spaceIdentifier}/packages`.
 
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`Description`** :span[string]{.type-label}
   - **`FeedId`** :span[string]{.type-label}
@@ -244,7 +241,7 @@ Also reachable at `/api/packages`, `/api/spaces/{spaceIdentifier}/packages`.
 ```json
 {
   "Id": "string",
-  "ItemType": "string",
+  "ItemType": "PackageFromBuiltInFeed",
   "Items": [
     {
       "Description": "string",
@@ -255,9 +252,7 @@ Also reachable at `/api/packages`, `/api/spaces/{spaceIdentifier}/packages`.
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "NuGetFeedId": "string",
       "NuGetPackageId": "string",
@@ -277,7 +272,9 @@ Also reachable at `/api/packages`, `/api/spaces/{spaceIdentifier}/packages`.
         "IssueTrackerName": "string",
         "LastModifiedBy": "string",
         "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-        "Links": {},
+        "Links": {
+          "Self": "/api/..."
+        },
         "PackageId": "string",
         "VcsCommitNumber": "string",
         "VcsCommitUrl": "string",
@@ -295,17 +292,15 @@ Also reachable at `/api/packages`, `/api/spaces/{spaceIdentifier}/packages`.
       "Version": "string"
     }
   ],
-  "ItemsPerPage": 0,
+  "ItemsPerPage": 30,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "LastPageNumber": 0,
+  "LastPageNumber": 1,
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -423,9 +418,7 @@ Also reachable at `/api/packages/notes`, `/api/spaces/{spaceIdentifier}/packages
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Packages": [
     {
@@ -519,9 +512,7 @@ Also reachable at `/api/packages/raw`, `/api/spaces/{spaceIdentifier}/packages/r
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "NuGetFeedId": "string",
   "NuGetPackageId": "string",
@@ -546,9 +537,7 @@ Also reachable at `/api/packages/raw`, `/api/spaces/{spaceIdentifier}/packages/r
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     },
     "PackageId": "string",
     "VcsCommitNumber": "string",
@@ -678,9 +667,7 @@ Also reachable at `/api/packages/{id}`, `/api/spaces/{spaceIdentifier}/packages/
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "NuGetFeedId": "string",
   "NuGetPackageId": "string",
@@ -704,9 +691,7 @@ Also reachable at `/api/packages/{id}`, `/api/spaces/{spaceIdentifier}/packages/
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     },
     "PackageId": "string",
     "VcsCommitNumber": "string",
@@ -873,9 +858,7 @@ Also reachable at `/api/packages/{packageId}/{baseVersion}/delta`, `/api/spaces/
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "NuGetFeedId": "string",
   "NuGetPackageId": "string",
@@ -900,9 +883,7 @@ Also reachable at `/api/packages/{packageId}/{baseVersion}/delta`, `/api/spaces/
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     },
     "PackageId": "string",
     "VcsCommitNumber": "string",

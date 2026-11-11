@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2026-08-11
+modDate: 2026-10-13
 title: Logging messages from scripts
 description: When your scripts emit messages Octopus will display the messages in the Task Logs at the most appropriate level for the message.
 icon: fa-solid fa-clock-rotate-left
@@ -71,7 +71,7 @@ Try these out for yourself using the [Script Console](/docs/administration/manag
 
 ## Highlight log level
 
-Highlight messages will be show in bold and blue in the task log. They will also appear under the step heading on the Task Summary tab. You can use the highlight level to call out important information such as which upgrade scripts were run, or the exact time a web server go added back into the load balancer pool.
+Highlight messages are shown in bold and blue in the task log. You can use the highlight level to call out important information such as which upgrade scripts were run, or the exact time a web server was added back into the load balancer pool.
 
 They can also use markdown to expose hyperlinks in your logs. For example, consider the following PowerShell code:
 
@@ -81,7 +81,7 @@ Write-Highlight "Web Application Deployed!"
 Write-Highlight "Click [here]($URI) to open the newly deployed site."
 ```
 
-When evaluated, the deployment task summary will show the hyperlink that can be clicked on:
+When evaluated, the task log will show the hyperlink that can be clicked on:
 
 :::figure
 ![The Octopus Deployment Task Summary showing an example of a highlighted log level message](/docs/img/deployments/custom-scripts/images/write-highlight-in-task-summary.png)

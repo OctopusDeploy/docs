@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-09-15
 title: Subscriptions
 ---
 
@@ -34,7 +34,8 @@ Lists all of the Subscriptions in the supplied Octopus Deploy Space. The results
 
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`EventNotificationSubscription`** :span[object]{.type-label}
   - **`Id`** :span[string]{.type-label}  
@@ -65,7 +66,7 @@ Lists all of the Subscriptions in the supplied Octopus Deploy Space. The results
 ```json
 {
   "Id": "string",
-  "ItemType": "string",
+  "ItemType": "Subscription",
   "Items": [
     {
       "EventNotificationSubscription": {
@@ -87,6 +88,12 @@ Lists all of the Subscriptions in the supplied Octopus Deploy Space. The results
         "SlackDigestLastProcessed": "2020-01-01T00:00:00.000Z",
         "SlackDigestLastProcessedEventAutoId": 0,
         "SlackFrequencyPeriod": "string",
+        "TeamsChannels": [
+          {}
+        ],
+        "TeamsDigestLastProcessed": "2020-01-01T00:00:00.000Z",
+        "TeamsDigestLastProcessedEventAutoId": 0,
+        "TeamsFrequencyPeriod": "string",
         "WebhookHeaderKey": "string",
         "WebhookHeaderValue": {},
         "WebhookLastProcessed": "2020-01-01T00:00:00.000Z",
@@ -102,26 +109,22 @@ Lists all of the Subscriptions in the supplied Octopus Deploy Space. The results
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Name": "string",
       "SpaceId": "Spaces-1",
       "Type": "Event"
     }
   ],
-  "ItemsPerPage": 0,
+  "ItemsPerPage": 30,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "LastPageNumber": 0,
+  "LastPageNumber": 1,
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -156,6 +159,12 @@ Also reachable at `/api/spaces/{spaceIdentifier}/subscriptions`, `/api/subscript
     Format `date-time`.
   - **`SlackDigestLastProcessedEventAutoId`** :span[integer]{.type-label}
   - **`SlackFrequencyPeriod`** :span[string]{.type-label}  
+    Format `date-span`.
+  - **`TeamsChannels`** :span[array of object]{.type-label}
+  - **`TeamsDigestLastProcessed`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`TeamsDigestLastProcessedEventAutoId`** :span[integer]{.type-label}
+  - **`TeamsFrequencyPeriod`** :span[string]{.type-label}  
     Format `date-span`.
   - **`WebhookHeaderKey`** :span[string]{.type-label}
   - **`WebhookHeaderValue`** :span[object]{.type-label}
@@ -227,6 +236,20 @@ Also reachable at `/api/spaces/{spaceIdentifier}/subscriptions`, `/api/subscript
     "SlackDigestLastProcessed": "2020-01-01T00:00:00.000Z",
     "SlackDigestLastProcessedEventAutoId": 0,
     "SlackFrequencyPeriod": "string",
+    "TeamsChannels": [
+      {
+        "ChannelId": "string",
+        "Id": "string",
+        "Name": "string",
+        "TeamId": "string",
+        "TeamName": "string",
+        "Type": "string",
+        "WebhookUrl": {}
+      }
+    ],
+    "TeamsDigestLastProcessed": "2020-01-01T00:00:00.000Z",
+    "TeamsDigestLastProcessedEventAutoId": 0,
+    "TeamsFrequencyPeriod": "string",
     "WebhookHeaderKey": "string",
     "WebhookHeaderValue": {
       "IsSensitive": false,
@@ -273,6 +296,12 @@ Also reachable at `/api/spaces/{spaceIdentifier}/subscriptions`, `/api/subscript
     Format `date-time`.
   - **`SlackDigestLastProcessedEventAutoId`** :span[integer]{.type-label}
   - **`SlackFrequencyPeriod`** :span[string]{.type-label}  
+    Format `date-span`.
+  - **`TeamsChannels`** :span[array of object]{.type-label}
+  - **`TeamsDigestLastProcessed`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`TeamsDigestLastProcessedEventAutoId`** :span[integer]{.type-label}
+  - **`TeamsFrequencyPeriod`** :span[string]{.type-label}  
     Format `date-span`.
   - **`WebhookHeaderKey`** :span[string]{.type-label}
   - **`WebhookHeaderValue`** :span[object]{.type-label}
@@ -352,6 +381,20 @@ Also reachable at `/api/spaces/{spaceIdentifier}/subscriptions`, `/api/subscript
     "SlackDigestLastProcessed": "2020-01-01T00:00:00.000Z",
     "SlackDigestLastProcessedEventAutoId": 0,
     "SlackFrequencyPeriod": "string",
+    "TeamsChannels": [
+      {
+        "ChannelId": "string",
+        "Id": "string",
+        "Name": "string",
+        "TeamId": "string",
+        "TeamName": "string",
+        "Type": "string",
+        "WebhookUrl": {}
+      }
+    ],
+    "TeamsDigestLastProcessed": "2020-01-01T00:00:00.000Z",
+    "TeamsDigestLastProcessedEventAutoId": 0,
+    "TeamsFrequencyPeriod": "string",
     "WebhookHeaderKey": "string",
     "WebhookHeaderValue": {
       "IsSensitive": false,
@@ -375,9 +418,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/subscriptions`, `/api/subscript
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "SpaceId": "Spaces-1",
@@ -420,6 +461,12 @@ Lists all the Subscriptions in the supplied Octopus Deploy Space
     Format `date-time`.
   - **`SlackDigestLastProcessedEventAutoId`** :span[integer]{.type-label}
   - **`SlackFrequencyPeriod`** :span[string]{.type-label}  
+    Format `date-span`.
+  - **`TeamsChannels`** :span[array of object]{.type-label}
+  - **`TeamsDigestLastProcessed`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`TeamsDigestLastProcessedEventAutoId`** :span[integer]{.type-label}
+  - **`TeamsFrequencyPeriod`** :span[string]{.type-label}  
     Format `date-span`.
   - **`WebhookHeaderKey`** :span[string]{.type-label}
   - **`WebhookHeaderValue`** :span[object]{.type-label}
@@ -500,6 +547,12 @@ Lists all the Subscriptions in the supplied Octopus Deploy Space
       "SlackDigestLastProcessed": "2020-01-01T00:00:00.000Z",
       "SlackDigestLastProcessedEventAutoId": 0,
       "SlackFrequencyPeriod": "string",
+      "TeamsChannels": [
+        {}
+      ],
+      "TeamsDigestLastProcessed": "2020-01-01T00:00:00.000Z",
+      "TeamsDigestLastProcessedEventAutoId": 0,
+      "TeamsFrequencyPeriod": "string",
       "WebhookHeaderKey": "string",
       "WebhookHeaderValue": {
         "IsSensitive": false,
@@ -519,9 +572,7 @@ Lists all the Subscriptions in the supplied Octopus Deploy Space
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     },
     "Name": "string",
     "SpaceId": "Spaces-1",
@@ -565,6 +616,12 @@ Also reachable at `/api/spaces/{spaceIdentifier}/subscriptions/{id}`, `/api/subs
     Format `date-time`.
   - **`SlackDigestLastProcessedEventAutoId`** :span[integer]{.type-label}
   - **`SlackFrequencyPeriod`** :span[string]{.type-label}  
+    Format `date-span`.
+  - **`TeamsChannels`** :span[array of object]{.type-label}
+  - **`TeamsDigestLastProcessed`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`TeamsDigestLastProcessedEventAutoId`** :span[integer]{.type-label}
+  - **`TeamsFrequencyPeriod`** :span[string]{.type-label}  
     Format `date-span`.
   - **`WebhookHeaderKey`** :span[string]{.type-label}
   - **`WebhookHeaderValue`** :span[object]{.type-label}
@@ -644,6 +701,20 @@ Also reachable at `/api/spaces/{spaceIdentifier}/subscriptions/{id}`, `/api/subs
     "SlackDigestLastProcessed": "2020-01-01T00:00:00.000Z",
     "SlackDigestLastProcessedEventAutoId": 0,
     "SlackFrequencyPeriod": "string",
+    "TeamsChannels": [
+      {
+        "ChannelId": "string",
+        "Id": "string",
+        "Name": "string",
+        "TeamId": "string",
+        "TeamName": "string",
+        "Type": "string",
+        "WebhookUrl": {}
+      }
+    ],
+    "TeamsDigestLastProcessed": "2020-01-01T00:00:00.000Z",
+    "TeamsDigestLastProcessedEventAutoId": 0,
+    "TeamsFrequencyPeriod": "string",
     "WebhookHeaderKey": "string",
     "WebhookHeaderValue": {
       "IsSensitive": false,
@@ -667,9 +738,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/subscriptions/{id}`, `/api/subs
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "SpaceId": "Spaces-1",
@@ -710,6 +779,12 @@ Also reachable at `/api/spaces/{spaceIdentifier}/subscriptions/{id}`, `/api/subs
     Format `date-time`.
   - **`SlackDigestLastProcessedEventAutoId`** :span[integer]{.type-label}
   - **`SlackFrequencyPeriod`** :span[string]{.type-label}  
+    Format `date-span`.
+  - **`TeamsChannels`** :span[array of object]{.type-label}
+  - **`TeamsDigestLastProcessed`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`TeamsDigestLastProcessedEventAutoId`** :span[integer]{.type-label}
+  - **`TeamsFrequencyPeriod`** :span[string]{.type-label}  
     Format `date-span`.
   - **`WebhookHeaderKey`** :span[string]{.type-label}
   - **`WebhookHeaderValue`** :span[object]{.type-label}
@@ -785,6 +860,20 @@ Also reachable at `/api/spaces/{spaceIdentifier}/subscriptions/{id}`, `/api/subs
     "SlackDigestLastProcessed": "2020-01-01T00:00:00.000Z",
     "SlackDigestLastProcessedEventAutoId": 0,
     "SlackFrequencyPeriod": "string",
+    "TeamsChannels": [
+      {
+        "ChannelId": "string",
+        "Id": "string",
+        "Name": "string",
+        "TeamId": "string",
+        "TeamName": "string",
+        "Type": "string",
+        "WebhookUrl": {}
+      }
+    ],
+    "TeamsDigestLastProcessed": "2020-01-01T00:00:00.000Z",
+    "TeamsDigestLastProcessedEventAutoId": 0,
+    "TeamsFrequencyPeriod": "string",
     "WebhookHeaderKey": "string",
     "WebhookHeaderValue": {
       "IsSensitive": false,
@@ -833,6 +922,12 @@ Also reachable at `/api/spaces/{spaceIdentifier}/subscriptions/{id}`, `/api/subs
     Format `date-time`.
   - **`SlackDigestLastProcessedEventAutoId`** :span[integer]{.type-label}
   - **`SlackFrequencyPeriod`** :span[string]{.type-label}  
+    Format `date-span`.
+  - **`TeamsChannels`** :span[array of object]{.type-label}
+  - **`TeamsDigestLastProcessed`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`TeamsDigestLastProcessedEventAutoId`** :span[integer]{.type-label}
+  - **`TeamsFrequencyPeriod`** :span[string]{.type-label}  
     Format `date-span`.
   - **`WebhookHeaderKey`** :span[string]{.type-label}
   - **`WebhookHeaderValue`** :span[object]{.type-label}
@@ -912,6 +1007,20 @@ Also reachable at `/api/spaces/{spaceIdentifier}/subscriptions/{id}`, `/api/subs
     "SlackDigestLastProcessed": "2020-01-01T00:00:00.000Z",
     "SlackDigestLastProcessedEventAutoId": 0,
     "SlackFrequencyPeriod": "string",
+    "TeamsChannels": [
+      {
+        "ChannelId": "string",
+        "Id": "string",
+        "Name": "string",
+        "TeamId": "string",
+        "TeamName": "string",
+        "Type": "string",
+        "WebhookUrl": {}
+      }
+    ],
+    "TeamsDigestLastProcessed": "2020-01-01T00:00:00.000Z",
+    "TeamsDigestLastProcessedEventAutoId": 0,
+    "TeamsFrequencyPeriod": "string",
     "WebhookHeaderKey": "string",
     "WebhookHeaderValue": {
       "IsSensitive": false,
@@ -935,9 +1044,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/subscriptions/{id}`, `/api/subs
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "SpaceId": "Spaces-1",
