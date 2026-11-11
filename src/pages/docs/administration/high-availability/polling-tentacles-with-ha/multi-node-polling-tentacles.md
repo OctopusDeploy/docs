@@ -77,7 +77,9 @@ The value is a [StackExchange.Redis connection string](https://github.com/StackE
 your-redis-host:6379,password=your-secret-password
 ```
 
-`6379` is the default Redis port, used by the [Redis example above](#running-redis). If your Redis requires TLS, add `ssl=true` and use its TLS port. Many managed Redis services use `6380` for TLS, for example `your-redis-host:6380,password=your-secret-password,ssl=true`.
+This example uses the default Redis port, `6379`. If your Redis runs on a different port, change it.
+
+If your Redis requires TLS, add `ssl=true`.
 
 ### Windows and Linux servers
 
