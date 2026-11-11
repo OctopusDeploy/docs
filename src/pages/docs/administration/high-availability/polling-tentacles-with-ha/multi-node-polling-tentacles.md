@@ -77,7 +77,9 @@ The value is a [StackExchange.Redis connection string](https://github.com/StackE
 your-redis-host:6379,password=your-secret-password
 ```
 
-Replace `6379` with your Redis port if it's different, and add `ssl=true` if your Redis requires TLS.
+This example uses the default Redis port, `6379`. If your Redis uses a different port, use that instead.
+
+If your Redis requires TLS, add `ssl=true`.
 
 ### Windows and Linux servers
 
