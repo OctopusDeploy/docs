@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Redirect.astro
 title: Redirect
-redirect: https://octopus.com/docs/feature-flags/targeting
+redirect: https://octopus.com/docs/feature-flags/legacy/targeting
 pubDate: 2026-06-18
 navSearch: false
 navSitemap: false

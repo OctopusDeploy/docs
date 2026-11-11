@@ -402,6 +402,7 @@ oldthumbprint
 oneshot
 onlylogs
 onmicrosoft
+openfeature
 openon
 operationalize
 outfile
@@ -482,6 +483,7 @@ robocopy
 roboto
 rocksville
 rolename
+rollouts
 ROOTDIR
 rootelement
 Rootfs
