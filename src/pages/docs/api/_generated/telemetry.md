@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-09-04
+modDate: 2026-11-11
 title: Telemetry
 ---
 
@@ -150,6 +150,7 @@ title: Telemetry
   Gets or sets the date/time that this resource was last modified. Format `date-time`.
 - **`Links`** :span[object]{.type-label}  
   Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Mode`** :span[string]{.type-label}
 - **`ShowAsNewUntil`** :span[string]{.type-label}  
   Format `date-time`.
 
@@ -164,6 +165,7 @@ title: Telemetry
   "Links": {
     "Self": "/api/..."
   },
+  "Mode": "string",
   "ShowAsNewUntil": "2020-01-01T00:00:00.000Z"
 }
 ```
@@ -185,6 +187,7 @@ title: Telemetry
   Gets or sets the date/time that this resource was last modified. Format `date-time`.
 - **`Links`** :span[object]{.type-label}  
   Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Mode`** :span[string]{.type-label}
 - **`ShowAsNewUntil`** :span[string]{.type-label}  
   Format `date-time`.
 
@@ -199,6 +202,7 @@ title: Telemetry
   "Links": {
     "Self": "/api/..."
   },
+  "Mode": "string",
   "ShowAsNewUntil": "2020-01-01T00:00:00.000Z"
 }
 ```
@@ -218,6 +222,7 @@ title: Telemetry
   Gets or sets the date/time that this resource was last modified. Format `date-time`.
 - **`Links`** :span[object]{.type-label}  
   Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Mode`** :span[string]{.type-label}
 - **`ShowAsNewUntil`** :span[string]{.type-label}  
   Format `date-time`.
 
@@ -232,6 +237,7 @@ title: Telemetry
   "Links": {
     "Self": "/api/..."
   },
+  "Mode": "string",
   "ShowAsNewUntil": "2020-01-01T00:00:00.000Z"
 }
 ```
