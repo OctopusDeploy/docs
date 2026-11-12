@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-09-04
+modDate: 2026-11-12
 title: Licenses
 ---
 
@@ -119,6 +119,8 @@ Calculates the status of the current Octopus license including compliance and ma
 
 `200` — The requested License Status
 
+- **`CanExceedWithUsageReporting`** :span[boolean]{.type-label}  
+  True if your license allows exceeding the limit value for one or more item types - while usage reporting is up to date. Shows the type of license and whether it supports excess, not whether it is currently in excess.
 - **`ComplianceSummary`** :span[string]{.type-label}
 - **`DaysToEffectiveExpiryDate`** :span[integer]{.type-label}
 - **`DoesExpiryBlockKeyActivities`** :span[boolean]{.type-label}
@@ -140,19 +142,29 @@ Calculates the status of the current Octopus license including compliance and ma
 - **`LastModifiedOn`** :span[string]{.type-label}  
   Gets or sets the date/time that this resource was last modified. Format `date-time`.
 - **`Limits`** :span[array of object]{.type-label}
-  - **`CurrentUsage`** :span[integer]{.type-label}
+  - **`CanExceedWithUsageReporting`** :span[boolean]{.type-label}  
+    True if your license allows exceeding the limit value for this item type - while usage reporting is up to date. Shows the type of license limit and whether it supports excess, not whether it is currently in excess.
+  - **`CurrentUsage`** :span[integer]{.type-label}  
+    The number of the limited item your system currently has.
   - **`Disposition`** :span[enum]{.type-label}  
     Allowed values: `Information`, `Notice`, `Warning`, `Error`.
-  - **`EffectiveLimit`** :span[integer]{.type-label}
+  - **`EffectiveLimit`** :span[integer]{.type-label}  
+    The number of the limited item allowed by your license file including any Overrun or other modifiers.
   - **`EffectiveLimitDescription`** :span[string]{.type-label}
+  - **`IsEnforced`** :span[boolean]{.type-label}  
+    Whether this limit is currently enforced. When false, usage can exceed the licensed limit.
   - **`IsUnlimited`** :span[boolean]{.type-label}
   - **`LicenseLimitDescription`** :span[string]{.type-label}
-  - **`LicensedLimit`** :span[integer]{.type-label}
+  - **`LicensedLimit`** :span[integer]{.type-label}  
+    The number of the limited item exactly as it is in your license file.
   - **`LimitStatus`** :span[enum]{.type-label}  
     Allowed values: `UnderLimit`, `AlmostAtLimit`, `AtLimit`, `InOverrun`, `ExceedingLimit`.
-  - **`Message`** :span[string]{.type-label}
-  - **`Name`** :span[string]{.type-label}
-  - **`TargetTypes`** :span[array of string]{.type-label}
+  - **`Message`** :span[string]{.type-label}  
+    A textual description of this license limit and current usage.
+  - **`Name`** :span[string]{.type-label}  
+    The name of the limited item.
+  - **`TargetTypes`** :span[array of string]{.type-label}  
+    For Machines/Targets, if your license only limits certain types, they will be present in this list. For other types of license limits, or if your license does not limit by target types, this will be an empty array.
 - **`Links`** :span[object]{.type-label}  
   Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
 - **`Messages`** :span[array of object]{.type-label}
@@ -164,18 +176,23 @@ Calculates the status of the current Octopus license including compliance and ma
 - **`PermissionsMode`** :span[enum]{.type-label}  
   Allowed values: `Unspecified`, `Restricted`, `Full`.
 - **`SerialNumber`** :span[string]{.type-label}
+- **`UsageDeclarationDueDate`** :span[string]{.type-label}  
+  The UTC calendar date at which the system's must send another usage declaration and receive a new receipt. Null when the license doesn't require a usage declaration. Format `date`.
+- **`UsageReportingDaysRemaining`** :span[integer]{.type-label}  
+  How many days remaining until the system must send another usage declaration and receive a new receipt. Can be negative if the usage declaration is overdue. Null when the license doesn't require a usage declaration.
 
 :::api-example{label="Response"}
 ```json
 {
-  "ComplianceSummary": "string",
-  "DaysToEffectiveExpiryDate": 0,
+  "CanExceedWithUsageReporting": false,
+  "ComplianceSummary": "Your Octopus Deploy installation is compliant with your license. Happy deployments!",
+  "DaysToEffectiveExpiryDate": 1148,
   "DoesExpiryBlockKeyActivities": false,
   "EffectiveClusterTaskLimit": 0,
-  "EffectiveExpiryDate": "string",
+  "EffectiveExpiryDate": "2030-01-02",
   "EffectiveNodeTaskLimit": 0,
-  "EffectiveStartDate": "string",
-  "HostingEnvironment": "string",
+  "EffectiveStartDate": "2025-09-01",
+  "HostingEnvironment": "SelfHosted",
   "Id": "string",
   "IsClusterTaskLimitControlledByLicense": false,
   "IsCompliant": false,
@@ -187,18 +204,22 @@ Calculates the status of the current Octopus license including compliance and ma
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Limits": [
     {
-      "CurrentUsage": 0,
+      "CanExceedWithUsageReporting": false,
+      "CurrentUsage": 42,
       "Disposition": "Information",
-      "EffectiveLimit": 0,
-      "EffectiveLimitDescription": "string",
+      "EffectiveLimit": 120,
+      "EffectiveLimitDescription": "120",
+      "IsEnforced": false,
       "IsUnlimited": false,
-      "LicenseLimitDescription": "string",
-      "LicensedLimit": 0,
+      "LicenseLimitDescription": "100",
+      "LicensedLimit": 100,
       "LimitStatus": "UnderLimit",
-      "Message": "string",
-      "Name": "string",
+      "Message": "Your license allows 100 targets (TentaclePassive, TentacleActive, Ssh). You currently have 42 targets.",
+      "Name": "Machines",
       "TargetTypes": [
-        "string"
+        "TentaclePassive",
+        "TentacleActive",
+        "Ssh"
       ]
     }
   ],
@@ -213,7 +234,9 @@ Calculates the status of the current Octopus license including compliance and ma
     }
   ],
   "PermissionsMode": "Unspecified",
-  "SerialNumber": "string"
+  "SerialNumber": "12345-12345-12345-12345",
+  "UsageDeclarationDueDate": null,
+  "UsageReportingDaysRemaining": null
 }
 ```
 :::
@@ -236,20 +259,30 @@ Calculates the usage of the current Octopus server.
 - **`LastModifiedOn`** :span[string]{.type-label}  
   Gets or sets the date/time that this resource was last modified. Format `date-time`.
 - **`Limits`** :span[array of object]{.type-label}
-  - **`CurrentUsage`** :span[integer]{.type-label}
+  - **`CanExceedWithUsageReporting`** :span[boolean]{.type-label}  
+    True if your license allows exceeding the limit value for this item type - while usage reporting is up to date. Shows the type of license limit and whether it supports excess, not whether it is currently in excess.
+  - **`CurrentUsage`** :span[integer]{.type-label}  
+    The number of the limited item your system currently has.
   - **`Disposition`** :span[enum]{.type-label}  
     Allowed values: `Information`, `Notice`, `Warning`, `Error`.
-  - **`EffectiveLimit`** :span[integer]{.type-label}
+  - **`EffectiveLimit`** :span[integer]{.type-label}  
+    The number of the limited item allowed by your license file including any Overrun or other modifiers.
   - **`EffectiveLimitDescription`** :span[string]{.type-label}
+  - **`IsEnforced`** :span[boolean]{.type-label}  
+    Whether this limit is currently enforced. When false, usage can exceed the licensed limit.
   - **`IsUnlimited`** :span[boolean]{.type-label}
   - **`LicenseLimitDescription`** :span[string]{.type-label}
-  - **`LicensedLimit`** :span[integer]{.type-label}
+  - **`LicensedLimit`** :span[integer]{.type-label}  
+    The number of the limited item exactly as it is in your license file.
   - **`LimitStatus`** :span[enum]{.type-label}  
     Allowed values: `UnderLimit`, `AlmostAtLimit`, `AtLimit`, `InOverrun`, `ExceedingLimit`.
   - **`LimitUsageDescription`** :span[string]{.type-label}
-  - **`Message`** :span[string]{.type-label}
-  - **`Name`** :span[string]{.type-label}
-  - **`TargetTypes`** :span[array of string]{.type-label}
+  - **`Message`** :span[string]{.type-label}  
+    A textual description of this license limit and current usage.
+  - **`Name`** :span[string]{.type-label}  
+    The name of the limited item.
+  - **`TargetTypes`** :span[array of string]{.type-label}  
+    For Machines/Targets, if your license only limits certain types, they will be present in this list. For other types of license limits, or if your license does not limit by target types, this will be an empty array.
 - **`Links`** :span[object]{.type-label}  
   Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
 - **`SpacesUsage`** :span[array of object]{.type-label}
@@ -267,19 +300,23 @@ Calculates the usage of the current Octopus server.
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Limits": [
     {
-      "CurrentUsage": 0,
+      "CanExceedWithUsageReporting": false,
+      "CurrentUsage": 42,
       "Disposition": "Information",
-      "EffectiveLimit": 0,
-      "EffectiveLimitDescription": "string",
+      "EffectiveLimit": 120,
+      "EffectiveLimitDescription": "120",
+      "IsEnforced": false,
       "IsUnlimited": false,
-      "LicenseLimitDescription": "string",
-      "LicensedLimit": 0,
+      "LicenseLimitDescription": "100",
+      "LicensedLimit": 100,
       "LimitStatus": "UnderLimit",
       "LimitUsageDescription": "string",
-      "Message": "string",
-      "Name": "string",
+      "Message": "Your license allows 100 targets (TentaclePassive, TentacleActive, Ssh). You currently have 42 targets.",
+      "Name": "Machines",
       "TargetTypes": [
-        "string"
+        "TentaclePassive",
+        "TentacleActive",
+        "Ssh"
       ]
     }
   ],
