@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-04-20
-modDate: 2026-11-05
+modDate: 2026-11-11
 title: Legacy OpenFeature providers
 icon: fa-solid fa-code
 navTitle: OpenFeature providers
@@ -23,4 +23,4 @@ These are the available Octopus OpenFeature provider SDKs. Getting started instr
 
 ## Web SDKs
 
-- [TypeScript/JavaScript](https://github.com/OctopusDeploy/openfeature-provider-ts-web)
+- [TypeScript/JavaScript](https://github.com/OctopusDeploy/openfeature-provider-ts)
