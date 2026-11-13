@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-07-14
-modDate: 2026-06-02
+modDate: 2026-11-11
 title: Git credentials
 icon: fa-solid fa-key
 description: How to work with Git credentials.
@@ -75,6 +75,18 @@ You can optionally restrict the Git credential to specified repository URL's. Th
 :::figure
 ![The Git credentials area of Octopus Deploy](/docs/img/infrastructure/git-credentials/images/git-credential-details.png)
 :::
+
+## Set author as committer
+
+:::div{.info}
+Available from Octopus 2027.0
+:::
+
+When a user commits through Octopus (for example when editing a deployment process for a version controlled project), the author on the commit is set to the Octopus user name and email address. By default, the committer is set to Octopus Deploy itself.
+
+This can cause issues with some Git provider pre-receive hooks, which require the author to match the committer on the commit. You can enable the **Set Author As Committer** option on a Git credential, which will set both the author and the committer to the Octopus user details.
+
+If a Git signing key is configured, then the identity on the signing key is used as the author and committer, not the Octopus user details.
 
 ## Older versions
 
