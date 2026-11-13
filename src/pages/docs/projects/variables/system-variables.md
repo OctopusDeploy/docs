@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2026-10-09
+modDate: 2026-11-13
 title: System variables
 sidebarLabel: System variables
 navOrder: 20
@@ -132,12 +132,14 @@ Deployment-level variables are drawn from the project and release being deployed
 | `Octopus.Environment.Name` | The name of the environment. | Production |
 | `Octopus.Environment.SortOrder` | The order applied to the environment on the dashboard and elsewhere. | `3` |
 | `Octopus.Environment.State[key]` | The value of an [environment state](/docs/infrastructure/environments/environment-state) entry with the given key. | `#{Octopus.Environment.State[appUrl]}` |
+| `Octopus.Environment.TagSets[tag set].Tags` | The names of the environment's tags in the given [tag set](/docs/tenants/tag-sets), separated by commas with no spaces. When the environment has more than one tag in the tag set, the value lists them all in no guaranteed order, so an exact comparison such as `==` matches only when the environment has a single tag in that tag set. Not present when the environment has no tags in the tag set. | `US-East,EU-West` |
 | `Octopus.Machine.Id` | The ID of the machine. | `machines-123` |
 | `Octopus.Machine.Name` | The name used to register the machine in Octopus. Not the same as the hostname. | `WEBSVR01` |
 | `Octopus.Machine.Roles` | The target tags associated with the machine. | `web-server,frontend` |
 | `Octopus.Machine.Hostname` | The host part of the URI used to register the machine. Set only for Listening Tentacles. | `192.168.200.100` |
 | `Octopus.Project.Id` | The ID of the project. | `projects-123` |
 | `Octopus.Project.Name` | The name of the project. | `OctoFx` |
+| `Octopus.Project.TagSets[tag set].Tags` | The names of the project's tags in the given [tag set](/docs/tenants/tag-sets), separated by commas with no spaces. When the project has more than one tag in the tag set, the value lists them all in no guaranteed order. Not present when the project has no tags in the tag set. | `Payments,Customer-facing` |
 | `Octopus.ProjectGroup.Id` | The ID of the project group. | `project-groups-123` |
 | `Octopus.ProjectGroup.Name` | The name of the project group. | Public Web Properties |
 | `Octopus.Space.Id` | The ID of the space. | `Spaces-1` |
@@ -147,6 +149,7 @@ Deployment-level variables are drawn from the project and release being deployed
 | `Octopus.Task.Name` | The name of the task. | Deploy release 1.2.3 to Production |
 | `Octopus.Task.QueueTime` | The date and time the task should be queued for execution. | Tuesday, September 10, 1:30 PM |
 | `Octopus.Task.QueueTimeExpiry` | The date and time before which the task must start. | Tuesday, September 10, 2:30 PM |
+| `Octopus.Tenant.TagSets[tag set].Tags` | The names of the tenant's tags in the given [tag set](/docs/tenants/tag-sets), separated by commas with no spaces. When the tenant has more than one tag in the tag set, the value lists them all in no guaranteed order. Not present for untenanted deployments, or when the tenant has no tags in the tag set. | `SSO,API-Access` |
 | `Octopus.Tentacle.CurrentDeployment.PackageFilePath` | The path to the package file being deployed. | `C:\Octopus\Tentacle\Packages\OctoFx.1.2.3.nupkg` |
 | `Octopus.Tentacle.CurrentDeployment.TargetedRoles` | The intersection of the target tags targeted by the step and those on the machine. | `web-server` |
 | `Octopus.Tentacle.PreviousInstallation.CustomInstallationDirectory` | The directory the previous version of the package was deployed to. | `C:\InetPub\WWWRoot\OctoFx` |
@@ -480,6 +483,8 @@ Some variables are available only from a specific version of Octopus. This topic
 | `Octopus.Deployment.Tenant.Id`, `Octopus.Deployment.Tenant.Name`, `Octopus.Deployment.Tenant.Tags` | Octopus 3.4 |
 | `OctopusShouldFailDeploymentOnSubstitutionFails` | Octopus 2025.1.0 |
 | `Octopus.Deployment.CreatedBy.ActorType` | Octopus 2026.4.6961 |
+| `Octopus.Environment.TagSets[tag set].Tags`, `Octopus.Tenant.TagSets[tag set].Tags` | Octopus 2025.4.3583 |
+| `Octopus.Project.TagSets[tag set].Tags` | Octopus 2025.4.5038 |
 
 ## Triggers
 
