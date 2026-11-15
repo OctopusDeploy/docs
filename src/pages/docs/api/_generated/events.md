@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-10-06
+modDate: 2026-11-12
 title: Events
 ---
 
@@ -26,6 +26,10 @@ A list of all audit events collected to date, ordered by the date of the event i
 
 **Query Parameters**
 
+- **`aiEventsOnly`** :span[boolean]{.type-label}  
+  When true, only events performed by an AI agent are returned.
+- **`apiKeyIds`** :span[array of string]{.type-label}  
+  The API key ids to be matched, provided as a comma separated list of strings.
 - **`asCsv`** :span[boolean]{.type-label}  
   Returns list of events as a csv file when set to true.
 - **`documentTypes`** :span[array of string]{.type-label}  

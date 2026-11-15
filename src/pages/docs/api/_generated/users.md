@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-10-22
+modDate: 2026-11-11
 title: Users
 ---
 
@@ -124,6 +124,8 @@ Lists all of the Users in the current Octopus Deploy instance, from all Teams. T
 - **`EmailAddress`** :span[string]{.type-label}
 - **`Identities`** :span[array of object]{.type-label}
   - **`Claims`** :span[object]{.type-label}
+  - **`Id`** :span[string]{.type-label}  
+    The login's ID, or null for a login that hasn't been saved. Send it back unchanged to update the login in place. Any ID that doesn't exist in the list of the user's identities will be treated as if the ID was not specified.
   - **`IdentityProviderName`** :span[string]{.type-label}
 - **`IsActive`** :span[boolean]{.type-label}
 - **`IsService`** :span[boolean]{.type-label}
@@ -145,6 +147,7 @@ Lists all of the Users in the current Octopus Deploy instance, from all Teams. T
         "additionalProp2": {},
         "additionalProp3": {}
       },
+      "Id": "string",
       "IdentityProviderName": "string"
     }
   ],
@@ -172,6 +175,8 @@ Lists all of the Users in the current Octopus Deploy instance, from all Teams. T
   Gets or sets a unique identifier for this resource.
 - **`Identities`** :span[array of object]{.type-label}
   - **`Claims`** :span[object]{.type-label}
+  - **`Id`** :span[string]{.type-label}  
+    The login's ID, or null for a login that hasn't been saved. Send it back unchanged to update the login in place. Any ID that doesn't exist in the list of the user's identities will be treated as if the ID was not specified.
   - **`IdentityProviderName`** :span[string]{.type-label}
 - **`IsActive`** :span[boolean]{.type-label}
 - **`IsRequestor`** :span[boolean]{.type-label}  
@@ -204,6 +209,7 @@ Lists all of the Users in the current Octopus Deploy instance, from all Teams. T
         "additionalProp2": {},
         "additionalProp3": {}
       },
+      "Id": "string",
       "IdentityProviderName": "string"
     }
   ],
@@ -243,6 +249,8 @@ Lists all the Users in the System. The results will be sorted alphabetically by 
   Gets or sets a unique identifier for this resource.
 - **`Identities`** :span[array of object]{.type-label}
   - **`Claims`** :span[object]{.type-label}
+  - **`Id`** :span[string]{.type-label}  
+    The login's ID, or null for a login that hasn't been saved. Send it back unchanged to update the login in place. Any ID that doesn't exist in the list of the user's identities will be treated as if the ID was not specified.
   - **`IdentityProviderName`** :span[string]{.type-label}
 - **`IsActive`** :span[boolean]{.type-label}
 - **`IsRequestor`** :span[boolean]{.type-label}  
@@ -272,6 +280,7 @@ Lists all the Users in the System. The results will be sorted alphabetically by 
     "Identities": [
       {
         "Claims": {},
+        "Id": "string",
         "IdentityProviderName": "string"
       }
     ],
@@ -475,6 +484,8 @@ Also reachable at `/api/users/authentication`.
   Gets or sets a unique identifier for this resource.
 - **`Identities`** :span[array of object]{.type-label}
   - **`Claims`** :span[object]{.type-label}
+  - **`Id`** :span[string]{.type-label}  
+    The login's ID, or null for a login that hasn't been saved. Send it back unchanged to update the login in place. Any ID that doesn't exist in the list of the user's identities will be treated as if the ID was not specified.
   - **`IdentityProviderName`** :span[string]{.type-label}
 - **`IsActive`** :span[boolean]{.type-label}
 - **`IsRequestor`** :span[boolean]{.type-label}  
@@ -507,6 +518,7 @@ Also reachable at `/api/users/authentication`.
         "additionalProp2": {},
         "additionalProp3": {}
       },
+      "Id": "string",
       "IdentityProviderName": "string"
     }
   ],
@@ -554,6 +566,8 @@ Logs out the current user.
   Gets or sets a unique identifier for this resource.
 - **`Identities`** :span[array of object]{.type-label}
   - **`Claims`** :span[object]{.type-label}
+  - **`Id`** :span[string]{.type-label}  
+    The login's ID, or null for a login that hasn't been saved. Send it back unchanged to update the login in place. Any ID that doesn't exist in the list of the user's identities will be treated as if the ID was not specified.
   - **`IdentityProviderName`** :span[string]{.type-label}
 - **`IsActive`** :span[boolean]{.type-label}
 - **`IsRequestor`** :span[boolean]{.type-label}  
@@ -586,6 +600,7 @@ Logs out the current user.
         "additionalProp2": {},
         "additionalProp3": {}
       },
+      "Id": "string",
       "IdentityProviderName": "string"
     }
   ],
@@ -649,6 +664,8 @@ Unless the first administrator user is being registered, an invitation code must
   Gets or sets a unique identifier for this resource.
 - **`Identities`** :span[array of object]{.type-label}
   - **`Claims`** :span[object]{.type-label}
+  - **`Id`** :span[string]{.type-label}  
+    The login's ID, or null for a login that hasn't been saved. Send it back unchanged to update the login in place. Any ID that doesn't exist in the list of the user's identities will be treated as if the ID was not specified.
   - **`IdentityProviderName`** :span[string]{.type-label}
 - **`IsActive`** :span[boolean]{.type-label}
 - **`IsRequestor`** :span[boolean]{.type-label}  
@@ -681,6 +698,7 @@ Unless the first administrator user is being registered, an invitation code must
         "additionalProp2": {},
         "additionalProp3": {}
       },
+      "Id": "string",
       "IdentityProviderName": "string"
     }
   ],
@@ -723,6 +741,8 @@ Unless the first administrator user is being registered, an invitation code must
   Gets or sets a unique identifier for this resource.
 - **`Identities`** :span[array of object]{.type-label}
   - **`Claims`** :span[object]{.type-label}
+  - **`Id`** :span[string]{.type-label}  
+    The login's ID, or null for a login that hasn't been saved. Send it back unchanged to update the login in place. Any ID that doesn't exist in the list of the user's identities will be treated as if the ID was not specified.
   - **`IdentityProviderName`** :span[string]{.type-label}
 - **`IsActive`** :span[boolean]{.type-label}
 - **`IsRequestor`** :span[boolean]{.type-label}  
@@ -755,6 +775,7 @@ Unless the first administrator user is being registered, an invitation code must
         "additionalProp2": {},
         "additionalProp3": {}
       },
+      "Id": "string",
       "IdentityProviderName": "string"
     }
   ],
@@ -789,6 +810,8 @@ Unless the first administrator user is being registered, an invitation code must
 - **`Id`** :span[string]{.type-label} *(required)*
 - **`Identities`** :span[array of object]{.type-label}
   - **`Claims`** :span[object]{.type-label}
+  - **`Id`** :span[string]{.type-label}  
+    The login's ID, or null for a login that hasn't been saved. Send it back unchanged to update the login in place. Any ID that doesn't exist in the list of the user's identities will be treated as if the ID was not specified.
   - **`IdentityProviderName`** :span[string]{.type-label}
 - **`IsActive`** :span[boolean]{.type-label} *(required)*
 - **`Password`** :span[string]{.type-label}
@@ -808,6 +831,7 @@ Unless the first administrator user is being registered, an invitation code must
         "additionalProp2": {},
         "additionalProp3": {}
       },
+      "Id": "string",
       "IdentityProviderName": "string"
     }
   ],
@@ -833,6 +857,8 @@ Unless the first administrator user is being registered, an invitation code must
   Gets or sets a unique identifier for this resource.
 - **`Identities`** :span[array of object]{.type-label}
   - **`Claims`** :span[object]{.type-label}
+  - **`Id`** :span[string]{.type-label}  
+    The login's ID, or null for a login that hasn't been saved. Send it back unchanged to update the login in place. Any ID that doesn't exist in the list of the user's identities will be treated as if the ID was not specified.
   - **`IdentityProviderName`** :span[string]{.type-label}
 - **`IsActive`** :span[boolean]{.type-label}
 - **`IsRequestor`** :span[boolean]{.type-label}  
@@ -865,6 +891,7 @@ Unless the first administrator user is being registered, an invitation code must
         "additionalProp2": {},
         "additionalProp3": {}
       },
+      "Id": "string",
       "IdentityProviderName": "string"
     }
   ],
