@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-10-22
+modDate: 2026-11-11
 title: Interruptions
 ---
 
@@ -328,6 +328,8 @@ Only users in one of the responsible teams on this interruption can take respons
   Gets or sets a unique identifier for this resource.
 - **`Identities`** :span[array of object]{.type-label}
   - **`Claims`** :span[object]{.type-label}
+  - **`Id`** :span[string]{.type-label}  
+    The login's ID, or null for a login that hasn't been saved. Send it back unchanged to update the login in place. Any ID that doesn't exist in the list of the user's identities will be treated as if the ID was not specified.
   - **`IdentityProviderName`** :span[string]{.type-label}
 - **`IsActive`** :span[boolean]{.type-label}
 - **`IsRequestor`** :span[boolean]{.type-label}  
@@ -360,6 +362,7 @@ Only users in one of the responsible teams on this interruption can take respons
         "additionalProp2": {},
         "additionalProp3": {}
       },
+      "Id": "string",
       "IdentityProviderName": "string"
     }
   ],
