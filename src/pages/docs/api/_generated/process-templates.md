@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-10-22
+modDate: 2026-11-05
 title: Process Templates
 ---
 
@@ -71,6 +71,8 @@ title: Process Templates
   Minimum length 1.
 - **`Parameters`** :span[array of object]{.type-label}
   - **`DisplaySettings`** :span[object]{.type-label}
+  - **`HasUnresolvedSensitiveDefault`** :span[boolean]{.type-label}  
+    True when the parameter's sensitive default value can't be found, so it must be set again or removed before you can publish a version. Always false on version resources. Ignored when sent to the server.
   - **`HelpText`** :span[string]{.type-label}
   - **`IsOptional`** :span[boolean]{.type-label}
   - **`Label`** :span[string]{.type-label}
@@ -115,6 +117,7 @@ title: Process Templates
     "Parameters": [
       {
         "DisplaySettings": {},
+        "HasUnresolvedSensitiveDefault": false,
         "HelpText": "string",
         "IsOptional": false,
         "Label": "string",
@@ -187,6 +190,7 @@ title: Process Templates
     "Parameters": [
       {
         "DisplaySettings": {},
+        "HasUnresolvedSensitiveDefault": false,
         "HelpText": "string",
         "IsOptional": false,
         "Label": "string",
@@ -263,6 +267,8 @@ title: Process Templates
 - **`Name`** :span[string]{.type-label}
 - **`Parameters`** :span[array of object]{.type-label}
   - **`DisplaySettings`** :span[object]{.type-label}
+  - **`HasUnresolvedSensitiveDefault`** :span[boolean]{.type-label}  
+    True when the parameter's sensitive default value can't be found, so it must be set again or removed before you can publish a version. Always false on version resources. Ignored when sent to the server.
   - **`HelpText`** :span[string]{.type-label}
   - **`IsOptional`** :span[boolean]{.type-label}
   - **`Label`** :span[string]{.type-label}
@@ -303,6 +309,7 @@ title: Process Templates
         "additionalProp2": "string",
         "additionalProp3": "string"
       },
+      "HasUnresolvedSensitiveDefault": false,
       "HelpText": "string",
       "IsOptional": false,
       "Label": "string",
@@ -360,6 +367,8 @@ title: Process Templates
 - **`Name`** :span[string]{.type-label}
 - **`Parameters`** :span[array of object]{.type-label}
   - **`DisplaySettings`** :span[object]{.type-label}
+  - **`HasUnresolvedSensitiveDefault`** :span[boolean]{.type-label}  
+    True when the parameter's sensitive default value can't be found, so it must be set again or removed before you can publish a version. Always false on version resources. Ignored when sent to the server.
   - **`HelpText`** :span[string]{.type-label}
   - **`IsOptional`** :span[boolean]{.type-label}
   - **`Label`** :span[string]{.type-label}
@@ -400,6 +409,7 @@ title: Process Templates
         "additionalProp2": "string",
         "additionalProp3": "string"
       },
+      "HasUnresolvedSensitiveDefault": false,
       "HelpText": "string",
       "IsOptional": false,
       "Label": "string",
@@ -557,6 +567,8 @@ title: Process Templates
   Minimum length 1.
 - **`Parameters`** :span[array of object]{.type-label}
   - **`DisplaySettings`** :span[object]{.type-label}
+  - **`HasUnresolvedSensitiveDefault`** :span[boolean]{.type-label}  
+    True when the parameter's sensitive default value can't be found, so it must be set again or removed before you can publish a version. Always false on version resources. Ignored when sent to the server.
   - **`HelpText`** :span[string]{.type-label}
   - **`IsOptional`** :span[boolean]{.type-label}
   - **`Label`** :span[string]{.type-label}
@@ -604,6 +616,7 @@ title: Process Templates
         "additionalProp2": "string",
         "additionalProp3": "string"
       },
+      "HasUnresolvedSensitiveDefault": false,
       "HelpText": "string",
       "IsOptional": false,
       "Label": "string",
@@ -662,6 +675,8 @@ title: Process Templates
   Minimum length 1.
 - **`Parameters`** :span[array of object]{.type-label} *(required)*
   - **`DisplaySettings`** :span[object]{.type-label}
+  - **`HasUnresolvedSensitiveDefault`** :span[boolean]{.type-label}  
+    True when the parameter's sensitive default value can't be found, so it must be set again or removed before you can publish a version. Always false on version resources. Ignored when sent to the server.
   - **`HelpText`** :span[string]{.type-label}
   - **`IsOptional`** :span[boolean]{.type-label}
   - **`Label`** :span[string]{.type-label}
@@ -703,6 +718,7 @@ title: Process Templates
         "additionalProp2": "string",
         "additionalProp3": "string"
       },
+      "HasUnresolvedSensitiveDefault": false,
       "HelpText": "string",
       "IsOptional": false,
       "Label": "string",
@@ -751,6 +767,8 @@ title: Process Templates
 - **`Name`** :span[string]{.type-label}
 - **`Parameters`** :span[array of object]{.type-label}
   - **`DisplaySettings`** :span[object]{.type-label}
+  - **`HasUnresolvedSensitiveDefault`** :span[boolean]{.type-label}  
+    True when the parameter's sensitive default value can't be found, so it must be set again or removed before you can publish a version. Always false on version resources. Ignored when sent to the server.
   - **`HelpText`** :span[string]{.type-label}
   - **`IsOptional`** :span[boolean]{.type-label}
   - **`Label`** :span[string]{.type-label}
@@ -791,6 +809,7 @@ title: Process Templates
         "additionalProp2": "string",
         "additionalProp3": "string"
       },
+      "HasUnresolvedSensitiveDefault": false,
       "HelpText": "string",
       "IsOptional": false,
       "Label": "string",
@@ -897,6 +916,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/processtemplates/{slug}/{versio
     "Parameters": [
       {
         "DisplaySettings": {},
+        "HasUnresolvedSensitiveDefault": false,
         "HelpText": "string",
         "IsOptional": false,
         "Label": "string",
