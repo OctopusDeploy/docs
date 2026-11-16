@@ -81,7 +81,7 @@ To set a phase trigger:
 5. Enter the trigger's settings.
 6. Save the flag.
 
-Once a phase is due to turn on, its trigger shows a countdown in brackets, such as "2 days after previous phase (in 1 day, 4 hrs)". Octopus checks for due triggers every 30 seconds, so a phase will turn on a short time after its due time.
+The trigger then shows when the phase will turn on, such as "2 days after previous phase (in 1 day, 4 hrs)". Octopus checks for due triggers every 30 seconds, so a phase will turn on a short time after its due time.
 
 If a trigger's time has already passed when you save, for example because you set a date in the past, Octopus asks you to confirm in a **Save and Trigger Phases** dialog. Saving turns those phases on straight away, along with any later phases whose triggers also become due.
 
