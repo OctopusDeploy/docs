@@ -76,7 +76,7 @@ To set a phase trigger:
 
 1. From your project, select **Feature Flags**, then select the flag.
 2. In the **Environments** section, select the environment.
-3. Find the trigger beside the phase name, above the phase's rules. It's a small text button with an icon, and its text is the phase's current trigger, such as **Manually**, **1 day after previous phase**, or **After** followed by a date, time, and timezone. Select it to open the trigger settings. The trigger only shows while the phase is off.
+3. Select the phase's trigger. It's the small text button beside the phase name that shows when the phase turns on, such as **Manually** or **1 day after previous phase**. It only shows while the phase is off.
 4. Select the trigger type.
 5. Enter the trigger's settings.
 6. Save the flag.
