@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-09-15
+modDate: 2026-11-12
 title: Subscriptions
 ---
 
@@ -195,6 +195,10 @@ Also reachable at `/api/spaces/{spaceIdentifier}/subscriptions`, `/api/subscript
       "string"
     ],
     "Filter": {
+      "AiEventsOnly": false,
+      "ApiKeyIds": [
+        "string"
+      ],
       "DocumentTypes": [
         "string"
       ],
@@ -340,6 +344,10 @@ Also reachable at `/api/spaces/{spaceIdentifier}/subscriptions`, `/api/subscript
       "string"
     ],
     "Filter": {
+      "AiEventsOnly": false,
+      "ApiKeyIds": [
+        "string"
+      ],
       "DocumentTypes": [
         "string"
       ],
@@ -506,6 +514,10 @@ Lists all the Subscriptions in the supplied Octopus Deploy Space
         "string"
       ],
       "Filter": {
+        "AiEventsOnly": false,
+        "ApiKeyIds": [
+          "string"
+        ],
         "DocumentTypes": [
           "string"
         ],
@@ -660,6 +672,10 @@ Also reachable at `/api/spaces/{spaceIdentifier}/subscriptions/{id}`, `/api/subs
       "string"
     ],
     "Filter": {
+      "AiEventsOnly": false,
+      "ApiKeyIds": [
+        "string"
+      ],
       "DocumentTypes": [
         "string"
       ],
@@ -819,6 +835,10 @@ Also reachable at `/api/spaces/{spaceIdentifier}/subscriptions/{id}`, `/api/subs
       "string"
     ],
     "Filter": {
+      "AiEventsOnly": false,
+      "ApiKeyIds": [
+        "string"
+      ],
       "DocumentTypes": [
         "string"
       ],
@@ -966,6 +986,10 @@ Also reachable at `/api/spaces/{spaceIdentifier}/subscriptions/{id}`, `/api/subs
       "string"
     ],
     "Filter": {
+      "AiEventsOnly": false,
+      "ApiKeyIds": [
+        "string"
+      ],
       "DocumentTypes": [
         "string"
       ],

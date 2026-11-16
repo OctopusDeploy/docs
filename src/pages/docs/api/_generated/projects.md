@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-11-04
+modDate: 2026-11-13
 title: Projects
 ---
 
@@ -776,6 +776,81 @@ Also reachable at `/api/projects/{id}/logo`, `/api/spaces/{spaceIdentifier}/proj
 :::api-example{label="Response"}
 ```json
 "string"
+```
+:::
+
+## Get Project Badge based on relevant parameters
+
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectIdOrSlug\}/badge/\{environmentIdOrSlug\}/latest_release"}
+
+Also reachable at `/api/projects/{projectIdOrSlug}/badge/{environmentIdOrSlug}/latest_release`, `/api/spaces/{spaceIdentifier}/projects/{projectIdOrSlug}/badge/{environmentIdOrSlug}/latest_release`.
+
+**Path Parameters**
+
+- **`environmentIdOrSlug`** :span[string]{.type-label} *(required)*
+- **`projectIdOrSlug`** :span[string]{.type-label} *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
+
+**Query Parameters**
+
+- **`includeFailed`** :span[boolean]{.type-label}
+- **`label`** :span[string]{.type-label}
+- **`style`** :span[string]{.type-label}
+- **`tenantId`** :span[string]{.type-label}
+
+**Response**
+
+`200` — Success
+
+:::api-example{label="Response"}
+```json
+"string"
+```
+:::
+
+## Get Project Badge based on relevant parameters
+
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectIdOrSlug\}/badge/\{environmentIdOrSlug\}/latest_release.json"}
+
+Also reachable at `/api/projects/{projectIdOrSlug}/badge/{environmentIdOrSlug}/latest_release.json`, `/api/spaces/{spaceIdentifier}/projects/{projectIdOrSlug}/badge/{environmentIdOrSlug}/latest_release.json`.
+
+**Path Parameters**
+
+- **`environmentIdOrSlug`** :span[string]{.type-label} *(required)*
+- **`projectIdOrSlug`** :span[string]{.type-label} *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
+
+**Query Parameters**
+
+- **`includeFailed`** :span[boolean]{.type-label}
+- **`tenantId`** :span[string]{.type-label}
+
+**Response**
+
+`200` — Get Project Badge JSON data
+
+- **`Color`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`EnvironmentName`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`Label`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`Message`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`ProjectName`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`TenantName`** :span[string]{.type-label}
+
+:::api-example{label="Response"}
+```json
+{
+  "Color": "string",
+  "EnvironmentName": "string",
+  "Label": "string",
+  "Message": "string",
+  "ProjectName": "string",
+  "TenantName": "string"
+}
 ```
 :::
 
