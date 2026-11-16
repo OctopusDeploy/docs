@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-11-05
-modDate: 2026-11-05
+modDate: 2026-11-16
 title: Rolling out feature flags in phases
 sidebarLabel: Phased rollouts
 navTitle: Phased rollouts
@@ -32,19 +32,20 @@ Use phases when you want a planned, staged rollout in an environment. If you onl
 
 ## Add a phase
 
-Add a phase for each stage of the rollout. The first time you add a phase to an environment that already has rules, those rules become the first phase.
+Add a phase for each stage of the rollout. The first time you add a phase, the environment's existing rules become the first phase.
 
 **Before you begin**
 
 You'll need:
 
 - A feature flag with the environment added to it. See [Turn on a feature flag for an environment](/docs/feature-flags/getting-started#turn-on-a-feature-flag-for-an-environment).
+- At least one rule in the environment. See [Add a rule](/docs/feature-flags/rules#add-a-rule).
 
 To add a phase:
 
 1. From your project, select **Feature Flags**, then select the flag.
 2. In the **Environments** section, select the environment.
-3. Select **Add**, then select **Phase**.
+3. Select **Add**, then select **Phase**. **Phase** only appears once the environment has at least one rule.
 4. Enter a **Phase Name** that describes the stage.
 5. Add one or more rules to the phase. See [Add a rule](/docs/feature-flags/rules#add-a-rule).
 6. Save the flag.
@@ -75,12 +76,12 @@ To set a phase trigger:
 
 1. From your project, select **Feature Flags**, then select the flag.
 2. In the **Environments** section, select the environment.
-3. Select the phase's trigger to open the trigger configuration.
+3. Find the trigger beside the phase name, above the phase's rules. It's a small text button with an icon, and its text is the phase's current trigger, such as **Manually**, **1 day after previous phase**, or **After** followed by a date, time, and timezone. Select it to open the trigger settings. The trigger only shows while the phase is off.
 4. Select the trigger type.
 5. Enter the trigger's settings.
 6. Save the flag.
 
-The phase shows when it's due to turn on, such as "Triggers in 2 days". Octopus checks for due triggers every 30 seconds, so a phase will turn on a short time after its due time.
+Once a phase is due to turn on, its trigger shows a countdown in brackets, such as "2 days after previous phase (in 1 day, 4 hrs)". Octopus checks for due triggers every 30 seconds, so a phase will turn on a short time after its due time.
 
 If a trigger's time has already passed when you save, for example because you set a date in the past, Octopus asks you to confirm in a **Save and Trigger Phases** dialog. Saving turns those phases on straight away, along with any later phases whose triggers also become due.
 
@@ -92,7 +93,7 @@ To turn a phase on or off:
 
 1. From your project, select **Feature Flags**, then select the flag.
 2. In the **Environments** section, select the environment.
-3. Select **Turn this phase on** or **Turn this phase off** on the phase.
+3. Select the round toggle to the left of the phase name. An empty, outlined circle means the phase is off, and a filled circle with a tick means it's on. Hovering over the toggle shows **Turn this phase on** or **Turn this phase off**.
 4. Save the flag.
 
 The phase shows as on or off in the environment's phase list, and applications in the environment get the new result after Octopus publishes the change.
