@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-04-20
-modDate: 2026-11-11
+modDate: 2026-11-17
 title: OpenFeature providers
 sidebarLabel: OpenFeature providers
 navTitle: OpenFeature providers
@@ -26,6 +26,7 @@ This table lists every Octopus OpenFeature provider. The minimum versions apply 
 | --- | --- | --- | --- |
 | .NET | Server | [openfeature-provider-dotnet](https://github.com/OctopusDeploy/openfeature-provider-dotnet) | `4.0.0` |
 | Java | Server | [openfeature-provider-java](https://github.com/OctopusDeploy/openfeature-provider-java) | `2.0.0` |
+| TypeScript/JavaScript | Server | [openfeature-provider-ts](https://github.com/OctopusDeploy/openfeature-provider-ts) | `6.2.0` |
 | TypeScript/JavaScript | Web | [openfeature-provider-ts](https://github.com/OctopusDeploy/openfeature-provider-ts) | `5.0.0` |
 
 Each repository's README covers installing the provider and configuring it with your client identifier.
