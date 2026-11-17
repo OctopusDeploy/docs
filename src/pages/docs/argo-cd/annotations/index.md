@@ -1,7 +1,7 @@
 ﻿---
 layout: src/layouts/Default.astro
 pubDate: 2025-09-15
-modDate: 2026-07-21
+modDate: 2026-11-17
 title: Scoping Annotations
 description: What annotations are required to link Argo CD applications to Octopus Projects/Environments/Tenants
 navTitle: Scoping Annotations
@@ -119,6 +119,34 @@ spec:
     targetRevision: HEAD
     path: ./
 ```
+
+## Inheriting annotations from Argo CD projects
+
+Instead of adding the same annotations to every application, you can add them to an Argo CD `AppProject`. Every application in that project inherits the project's `argo.octopus.com/` annotations.
+
+This is useful when you use Argo CD projects to control which teams can see which applications. For example, adding the `argo.octopus.com/space` annotation to a project means all of its applications only appear in that space.
+
+```yaml
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: team-a
+  namespace: argocd
+  annotations:
+    argo.octopus.com/space: team-a-space
+spec:
+  ...
+```
+
+If the same annotation is defined in more than one place, the value is taken from the first of:
+
+1. The Argo CD Application
+2. The Argo CD cluster the application is deployed to
+3. The Argo CD project the application belongs to
+
+:::div{.hint}
+The gateway must have permission to `get` the project in Argo CD. If it can't read the project, the project's annotations are ignored.
+:::
 
 ## Updating in Argo CD Web UI
 
