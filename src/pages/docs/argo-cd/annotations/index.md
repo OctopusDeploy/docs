@@ -122,7 +122,7 @@ spec:
 
 ## Inheriting annotations from Argo CD projects
 
-Instead of adding the same annotations to every application, you can add them to an Argo CD `AppProject`. Every application in that project inherits the project's `argo.octopus.com/` annotations.
+You can also define shared annotations on the Argo CD project, each application in that project then inherits the project's `argo.octopus.com/` annotations.
 
 This is useful when you use Argo CD projects to control which teams can see which applications. For example, adding the `argo.octopus.com/space` annotation to a project means all of its applications only appear in that space.
 
@@ -138,14 +138,12 @@ spec:
   ...
 ```
 
-If the same annotation is defined in more than one place, the value is taken from the first of:
-
-1. The Argo CD Application
-2. The Argo CD cluster the application is deployed to
-3. The Argo CD project the application belongs to
+If the same annotation is defined on both the Argo CD application and project, then the application's value will be used.
 
 :::div{.hint}
-The gateway must have permission to `get` the project in Argo CD. If it can't read the project, the project's annotations are ignored.
+The [Argo CD account used by the gateway](/docs/argo-cd/instances/argo-user) requires `get` access on the `projects` resource. The project's annotations are ignored if the gateway can't access it.
+
+See the [Argo CD RBAC docs](https://argo-cd.readthedocs.io/en/stable/operator-manual/rbac/) for more information.
 :::
 
 ## Updating in Argo CD Web UI
