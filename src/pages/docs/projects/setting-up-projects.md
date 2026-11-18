@@ -102,8 +102,6 @@ The *Default Project* group contains all projects that have not been added to an
 1. Give the group a name and description.
 1. Click **SAVE**.
 
-When the group is first created and doesn't have any projects associated with it, you will need to click **SHOW EMPTY GROUPS** on the projects page to see the group.
-
 ## Add projects to a group
 
 After you have created a project group there are a number of ways you can add projects to the group:
