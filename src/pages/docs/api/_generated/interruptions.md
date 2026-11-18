@@ -67,7 +67,7 @@ Also reachable at `/api/interruptions`, `/api/spaces/{spaceIdentifier}/interrupt
   - **`ResponsibleTeamIds`** :span[array of string]{.type-label}  
     Gets the ids of groups that can take responsibility for this interruption.
   - **`ResponsibleUserActor`** :span[string]{.type-label}  
-    Gets or sets the agent client (such as an MCP client) the responsible user acted through, typically in the same form as OAuth client. Null for other kinds of credential.
+    Gets or sets the name of the AI tool (such as an MCP client) the responsible user acted through. For an OAuth connection, this is the OAuth client name. For an AI agent API key, this is the name the tool reported, which Octopus can't verify. Null when the responsible user didn't act through an AI tool.
   - **`ResponsibleUserActorType`** :span[enum]{.type-label}  
     Gets or sets the kind of actor (user, service account, AI agent) that took responsibility for this interruption. Unknown when nobody has taken responsibility, or for interruptions claimed before this was recorded.  
     Allowed values: `Unknown`, `System`, `User`, `Agent`, `ServiceAccount`.
@@ -208,7 +208,7 @@ Also reachable at `/api/interruptions/{id}`, `/api/spaces/{spaceIdentifier}/inte
 - **`ResponsibleTeamIds`** :span[array of string]{.type-label}  
   Gets the ids of groups that can take responsibility for this interruption.
 - **`ResponsibleUserActor`** :span[string]{.type-label}  
-  Gets or sets the agent client (such as an MCP client) the responsible user acted through, typically in the same form as OAuth client. Null for other kinds of credential.
+  Gets or sets the name of the AI tool (such as an MCP client) the responsible user acted through. For an OAuth connection, this is the OAuth client name. For an AI agent API key, this is the name the tool reported, which Octopus can't verify. Null when the responsible user didn't act through an AI tool.
 - **`ResponsibleUserActorType`** :span[enum]{.type-label}  
   Gets or sets the kind of actor (user, service account, AI agent) that took responsibility for this interruption. Unknown when nobody has taken responsibility, or for interruptions claimed before this was recorded.  
   Allowed values: `Unknown`, `System`, `User`, `Agent`, `ServiceAccount`.
@@ -470,7 +470,7 @@ Only the user with responsibility for this interruption can submit this form.
 - **`ResponsibleTeamIds`** :span[array of string]{.type-label}  
   Gets the ids of groups that can take responsibility for this interruption.
 - **`ResponsibleUserActor`** :span[string]{.type-label}  
-  Gets or sets the agent client (such as an MCP client) the responsible user acted through, typically in the same form as OAuth client. Null for other kinds of credential.
+  Gets or sets the name of the AI tool (such as an MCP client) the responsible user acted through. For an OAuth connection, this is the OAuth client name. For an AI agent API key, this is the name the tool reported, which Octopus can't verify. Null when the responsible user didn't act through an AI tool.
 - **`ResponsibleUserActorType`** :span[enum]{.type-label}  
   Gets or sets the kind of actor (user, service account, AI agent) that took responsibility for this interruption. Unknown when nobody has taken responsibility, or for interruptions claimed before this was recorded.  
   Allowed values: `Unknown`, `System`, `User`, `Agent`, `ServiceAccount`.
