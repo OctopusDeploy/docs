@@ -324,6 +324,7 @@ Also reachable at `/api/users/authentication`.
   - **`Links`** :span[object]{.type-label}
   - **`Name`** :span[string]{.type-label}
 - **`CanCurrentUserEditIdentitiesForUser`** :span[boolean]{.type-label}
+- **`IsSelfServiceIdentityEditingEnabled`** :span[boolean]{.type-label}
 - **`Links`** :span[object]{.type-label}
 
 :::api-example{label="Response"}
@@ -349,6 +350,7 @@ Also reachable at `/api/users/authentication`.
     }
   ],
   "CanCurrentUserEditIdentitiesForUser": false,
+  "IsSelfServiceIdentityEditingEnabled": false,
   "Links": {
     "additionalProp1": "string",
     "additionalProp2": "string",

@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-11-02
-modDate: 2026-11-04
+modDate: 2026-11-17
 title: Feature Flags
 ---
 
@@ -371,7 +371,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/feature-fl
   - **`Reason`** :span[string]{.type-label}  
     A human-readable explanation of why the flag evaluated to the value it did. Minimum length 1.
   - **`Value`** :span[boolean]{.type-label}  
-    The value the flag evaluated to (true or false).
+    The value the flag evaluated to (true or false). Null when the value depends on the evaluation context your application supplies, such as context attributes or a targeting key. The reason names the rules that depend on it.
   - **`Version`** :span[string]{.type-label}  
     The release version used to evaluate version conditions. Null when nothing has been deployed to the environment for the project (and tenant, when the preview is scoped to one).
 - **`ItemsPerPage`** :span[integer]{.type-label}
@@ -540,7 +540,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/feature-fl
     A human-readable explanation of why the flag evaluated to the value it did. Minimum length 1.
   - **`TenantId`** :span[string]{.type-label}
   - **`Value`** :span[boolean]{.type-label}  
-    The value the flag evaluated to (true or false).
+    The value the flag evaluated to (true or false). Null when the value depends on the evaluation context your application supplies, such as context attributes or a targeting key. The reason names the rules that depend on it.
   - **`Version`** :span[string]{.type-label}  
     The release version used to evaluate version conditions. Null when nothing has been deployed for the tenant in the project and environment.
 - **`ItemsPerPage`** :span[integer]{.type-label}
