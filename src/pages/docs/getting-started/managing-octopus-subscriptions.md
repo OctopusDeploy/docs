@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-06-13
+modDate: 2026-11-18
 title: Manage your Octopus subscriptions
 description: Use Octopus Control Center to manage your subscriptions, licenses, and user access. View billing details, add users, and adjust your plan from one place.
 navOrder: 40
@@ -16,23 +16,14 @@ There are two types of Octopus subscriptions:
 
 ## Billing
 
-### Upgrade a trial to a paid subscription
+### Upgrading your subscription from free tier
 
-Cloud instance:
-
-1. Navigate to your Cloud instance in [Control Center](https://billing.octopus.com/).
-2. Click **Upgrade Plan**.
-3. Choose your plan and complete the purchase through our checkout.
-
-Server license:
-
-1. Navigate to your Server License in [Control Center](https://billing.octopus.com/).
-2. Click **Upgrade Plan**.
-3. Choose your plan and complete the purchase through our checkout.
+1. Navigate to your Octopus subscription in [Control Center](https://billing.octopus.com/).
+2. Follow the appropriate action to **Upgrade Plan**.
 
 ### Pay an invoice
 
-We will send you a unique payment link to pay your invoice through Zuora's secure payment page.
+We will send you a unique payment link to your email to pay your invoice, this is done through Zuora's secure payment page.
 
 Please be cautious of phishing attempts. You can verify the payment page's authenticity by checking it displays the correct invoice number.
 
@@ -40,12 +31,12 @@ Please be cautious of phishing attempts. You can verify the payment page's authe
 
 Please [contact sales](https://octopus.com/company/contact) to update your billing information.
 
-### View orders
+### View orders or previous invoices
 
 1. Navigate to your subscription in [Control Center](https://billing.octopus.com/).
 2. Click **Billing** in the left sidebar.
 3. Click **Contact Sales**.
-4. Complete the form and we'll get back to you with the order details.
+4. Complete the form and we'll get back to you with the order or invoice details.
 
 ### Change your plan
 
@@ -53,8 +44,8 @@ To modify your plan:
 
 1. Navigate to your subscription in [Control Center](https://billing.octopus.com/).
 2. Click **Billing** in the left sidebar.
-3. Click **Get in Touch** under the change plan section.
-4. A contact sales dialog will appear for you to request changes to your plan.
+3. Follow the action **Contact Sales** under the change plan section.
+4. A contact form dialog will appear for you to request changes to your plan and our sales team will be in touch.
 
 ### Cancel your plan
 
@@ -62,8 +53,8 @@ To cancel your plan:
 
 1. Navigate to your subscription in [Control Center](https://billing.octopus.com/).
 2. Click **Billing** in the left sidebar.
-3. Click **Get in Touch** under the change plan section.
-4. A contact sales dialog will appear for you to cancel your plan.
+3. Follow the action **Contact Sales** under the change plan section.
+4. A contact form dialog will appear for you to request changes to your plan and our sales team will be in touch.
 
 ## Configuration
 
@@ -91,8 +82,73 @@ To keep Octopus Cloud running smoothly, we use outage windows to perform updates
 
 There are two access levels in Control Center:
 
-- **Subscription Group access**: manage a subscription group and access all current and future subscriptions in the group.
 - **Direct Subscription access**: access a specific subscription.
+- **Subscription Group access (legacy)**: manage a subscription group and access all current and future subscriptions in the group.
+
+### Direct Subscription access
+
+#### Invite a user to Direct Subscription access
+
+Invite a user to access a specific subscription.
+
+##### Cloud
+
+1. Navigate to your Cloud instance in [Control Center](https://billing.octopus.com/).
+2. Click **User Access** in the left sidebar.
+3. Click **Invite User**.
+4. Enter the user's details.
+5. Select which role to give the user ([see role permissions below](#role-permissions-for-direct-access)).
+6. Click **Invite**.
+
+##### Server
+
+1. Navigate to your Server license in [Control Center](https://billing.octopus.com/).
+2. Click **Admin Access** in the left sidebar.
+3. Click **Invite Admin**.
+4. Enter the user's details.
+5. Select which role to give the user ([see role permissions below](#role-permissions-for-direct-access)).
+6. Click **Invite**.
+
+:::figure
+![Invite users to a specific subscription in Control Center](/docs/img/getting-started/managing-octopus-subscriptions/images/direct-access.png)
+:::
+
+#### Email invitation \{#email-invitation}
+
+The invited user will receive an email invitation.
+
+If they already have an [Octopus ID](/docs/security/authentication/octopusid-authentication) (Octopus Deploy account), they just need to click **Accept invite** in the email to gain access to the subscription and then click **Sign in** to view the Octopus instance.
+
+Otherwise, they will first need to **Register** a new account using the email address the invitation was sent to.
+
+:::div{.hint}
+**Cloud instances note:** Invited users are only added to an Octopus Cloud instance after their first sign-in. To manage a newly invited user's permissions, you will need to ask them to sign in to your Octopus Cloud instance first.
+:::
+
+
+#### Role permissions for Direct access
+
+<details data-group="subscription-level">
+<summary>Cloud</summary>
+
+| -- | Cloud Subscription Owner | Cloud Subscription User (Contributor) | Cloud Subscription User (Base) |
+| -- | -- | -- | -- |
+| **Control Center** <div class="table-hint">(billing.octopus.com)</div> | View Overview <br>Manage Billing</br> Manage Configuration <br>Manage User Access</br> | View Overview | View Overview |
+| **Octopus Instance** <div class="table-hint">(example.octopus.com)</div> | "Octopus Managers" team <div class="table-hint">By default, the user has full permissions across all spaces.</div> | "Space Managers" team <div class="table-hint">By default, the user has full permissions in the "Default" space only.</div> <div class="table-hint" style="padding-top: 8px;">If you delete the "Default" space, the user will be added to the "Everyone" team.</div> | "Everyone" team <div class="table-hint">By default, the user can sign in but can't view or do anything.</div> |
+
+:::div{.hint}
+Octopus uses teams and user roles to manage permissions. The "Octopus Managers", "Space Managers", and "Everyone" teams provide different levels of access in your instance. Learn about best practices for [users, roles, and teams](/docs/best-practices/octopus-administration/users-roles-and-teams).
+:::
+
+</details>
+<details data-group="subscription-level">
+<summary>Server</summary>
+
+| -- | Server License Owner | Server License Viewer |
+| -- | -- | -- |
+| **Control Center** <div class="table-hint">(billing.octopus.com)</div> | View License Key <br>Manage Billing</br> Manage User Access | View License Key |
+
+</details>
 
 ### Subscription Group access
 
@@ -151,70 +207,6 @@ Octopus uses teams and user roles to manage permissions. The "Octopus Managers" 
 
 </details>
 
-### Direct Subscription access
-
-#### Invite a user to Direct Subscription access
-
-Invite a user to access a specific subscription.
-
-##### Cloud
-
-1. Navigate to your Cloud instance in [Control Center](https://billing.octopus.com/).
-2. Click **User Access** in the left sidebar.
-3. Click **Invite User**.
-4. Enter the user's details.
-5. Select which role to give the user ([see role permissions below](#role-permissions-for-direct-access)).
-6. Click **Invite**.
-
-##### Server
-
-1. Navigate to your Server license in [Control Center](https://billing.octopus.com/).
-2. Click **Admin Access** in the left sidebar.
-3. Click **Invite Admin**.
-4. Enter the user's details.
-5. Select which role to give the user ([see role permissions below](#role-permissions-for-direct-access)).
-6. Click **Invite**.
-
-:::figure
-![Invite users to a specific subscription in Control Center](/docs/img/getting-started/managing-octopus-subscriptions/images/direct-access.png)
-:::
-
-#### Email invitation \{#email-invitation}
-
-The invited user will receive an email invitation.
-
-If they already have an [Octopus ID](/docs/security/authentication/octopusid-authentication) (Octopus Deploy account), they just need to click **Accept invite** in the email to gain access to the subscription and then click **Sign in** to view the Octopus instance.
-
-Otherwise, they will first need to **Register** a new account using the email address the invitation was sent to.
-
-:::div{.hint}
-**Cloud instances note:** Invited users are only added to an Octopus Cloud instance after their first sign-in. To manage a newly invited user's permissions, you will need to ask them to sign in to your Octopus Cloud instance first.
-:::
-
-#### Role permissions for Direct access
-
-<details data-group="subscription-level">
-<summary>Cloud</summary>
-
-| -- | Cloud Subscription Owner | Cloud Subscription User (Contributor) | Cloud Subscription User (Base) |
-| -- | -- | -- | -- |
-| **Control Center** <div class="table-hint">(billing.octopus.com)</div> | View Overview <br>Manage Billing</br> Manage Configuration <br>Manage User Access</br> | View Overview | View Overview |
-| **Octopus Instance** <div class="table-hint">(example.octopus.com)</div> | "Octopus Managers" team <div class="table-hint">By default, the user has full permissions across all spaces.</div> | "Space Managers" team <div class="table-hint">By default, the user has full permissions in the "Default" space only.</div> <div class="table-hint" style="padding-top: 8px;">If you delete the "Default" space, the user will be added to the "Everyone" team.</div> | "Everyone" team <div class="table-hint">By default, the user can sign in but can't view or do anything.</div> |
-
-:::div{.hint}
-Octopus uses teams and user roles to manage permissions. The "Octopus Managers", "Space Managers", and "Everyone" teams provide different levels of access in your instance. Learn about best practices for [users, roles, and teams](/docs/best-practices/octopus-administration/users-roles-and-teams).
-:::
-
-</details>
-<details data-group="subscription-level">
-<summary>Server</summary>
-
-| -- | Server License Owner | Server License Viewer |
-| -- | -- | -- |
-| **Control Center** <div class="table-hint">(billing.octopus.com)</div> | View License Key <br>Manage Billing</br> Manage User Access | View License Key |
-
-</details>
-
 ### Change a user's role
 
 To change a user's role, you must remove that user's access and then re-invite them to the role you want them to have.
@@ -241,12 +233,3 @@ The question mark icon in the top right of the Control Center provides a menu of
 
 ## FAQ
 
-### Locating subscriptions
-
-Most subscriptions (Cloud instances and Server licenses) are accessible from the dashboard of Control Center. Some legacy subscriptions are only accessible from the legacy Control Center V1.
-
-If you need help please contact our [support team](https://octopus.com/support).
-
-### What is Control Center V1?
-
-[Control Center V1](https://octopus.com/control-center) is our legacy system where legacy subscriptions are managed. You should only access Control Center V1 if you need to manage a legacy subscription.
