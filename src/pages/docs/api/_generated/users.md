@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-11-11
+modDate: 2026-11-18
 title: Users
 ---
 
@@ -948,6 +948,48 @@ Any signed-in user can view any user's profile picture, as they appear alongside
 :::api-example{label="Response"}
 ```json
 "string"
+```
+:::
+
+## Upload a profile picture for the current user
+
+:endpoint{method="POST" path="/api/users/\{userId\}/avatar"}
+
+Users can only change their own profile picture. The image must be a PNG, JPEG or GIF of at most 1 MB.
+
+**Path Parameters**
+
+- **`userId`** :span[string]{.type-label} *(required)*  
+  The ID of the user. Must be the current user.
+
+**Response**
+
+`200` — Empty response, indicating the profile picture has been changed.
+
+:::api-example{label="Response"}
+```json
+{}
+```
+:::
+
+## Remove the current user's profile picture
+
+:endpoint{method="DELETE" path="/api/users/\{userId\}/avatar"}
+
+Users can only remove their own profile picture.
+
+**Path Parameters**
+
+- **`userId`** :span[string]{.type-label} *(required)*  
+  The ID of the user. Must be the current user.
+
+**Response**
+
+`200` — Empty response, indicating the profile picture has been removed.
+
+:::api-example{label="Response"}
+```json
+{}
 ```
 :::
 
