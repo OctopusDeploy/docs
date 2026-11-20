@@ -6,6 +6,8 @@ import {
   THEME_PREFERENCE_ATTRIBUTE,
   THEME_STORAGE_KEY,
   THEME_TRANSITION_ATTRIBUTE,
+  THEME_VARIANT_ATTRIBUTE,
+  themeVariantMedia,
   type Theme,
   type ThemePreference,
 } from '../lib/theme';
@@ -65,11 +67,25 @@ function markTransition() {
   }, TRANSITION_MS);
 }
 
+// Points the dark <source> of each themed :img{src-dark=...} picture at the
+// preference. Changing `media` makes the browser pick again, so the other
+// variant is only downloaded once it is needed.
+function syncImageVariants(preference: ThemePreference) {
+  const media = themeVariantMedia(preference);
+
+  document
+    .querySelectorAll<HTMLSourceElement>(`source[${THEME_VARIANT_ATTRIBUTE}]`)
+    .forEach((source) => {
+      if (source.media !== media) source.media = media;
+    });
+}
+
 function apply(preference: ThemePreference) {
   const theme = resolve(preference);
   if (theme !== currentTheme()) markTransition();
   root.setAttribute(THEME_ATTRIBUTE, theme);
   root.setAttribute(THEME_PREFERENCE_ATTRIBUTE, preference);
+  syncImageVariants(preference);
   root.dispatchEvent(
     new CustomEvent(THEME_CHANGE_EVENT, { detail: { theme, preference } })
   );
@@ -109,6 +125,10 @@ window.addEventListener('storage', (event) => {
 });
 
 bind();
+
+// ThemeScript.astro already did this while the page was parsed. Repeating it
+// is cheap and covers anything it missed.
+syncImageVariants(readPreference());
 
 // No-op today (this is an MPA), but keeps the switcher working if <ClientRouter />
 // is ever added, since a swap replaces <html> attributes and the controls.

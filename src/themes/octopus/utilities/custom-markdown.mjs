@@ -1,6 +1,10 @@
 import { SITE } from '/src/config';
 import { size } from '/src/data/image-size.mjs';
 import { defineMdastPlugin } from 'satteri';
+import {
+  THEME_VARIANT_ATTRIBUTE,
+  THEME_VARIANT_MEDIA,
+} from '/src/lib/theme.ts';
 import path from 'path';
 import fs from 'fs';
 
@@ -40,8 +44,60 @@ export function getDestination(uri, s) {
   return uri.replace(fromRegEx, replacement);
 }
 
+/**
+ * The exported size of an SVG, read off its root element. Prefers the width and
+ * height attributes and falls back to the viewBox. Sizes in units other than px
+ * are ignored, since they don't map onto CSS pixels.
+ */
+export function getSvgSize(src) {
+  try {
+    const file = path.join(workingDirectory, 'public', src);
+    const root = fs.readFileSync(file, 'utf8').match(/<svg\b[^>]*>/)?.[0];
+
+    if (!root) {
+      return null;
+    }
+
+    const attribute = (name) =>
+      root.match(new RegExp(`\\s${name}\\s*=\\s*["']([^"']*)["']`))?.[1];
+    const pixels = (value) => {
+      const match = value?.trim().match(/^(\d+(?:\.\d+)?)(px)?$/);
+      return match ? Math.round(Number(match[1])) : null;
+    };
+
+    const width = pixels(attribute('width'));
+    const height = pixels(attribute('height'));
+
+    if (width && height) {
+      return { width, height };
+    }
+
+    const viewBox = attribute('viewBox')?.trim().split(/[\s,]+/).map(Number);
+
+    if (viewBox?.length === 4 && viewBox[2] > 0 && viewBox[3] > 0) {
+      return { width: Math.round(viewBox[2]), height: Math.round(viewBox[3]) };
+    }
+  } catch (e) {
+    console.warn(e);
+  }
+
+  return null;
+}
+
 export function getImageInfo(src, className, sizes) {
   const info = {};
+  const classes = ((className ?? '') + ' resp-img').trim();
+
+  // img.mjs only generates variants for raster images, so an SVG is served from
+  // where it is. It scales without loss, so it needs no srcset either.
+  if (path.extname(src).toLowerCase() === '.svg') {
+    info.src = src;
+    info.srcset = null;
+    info.sizes = null;
+    info.class = classes;
+    info.metadata = getSvgSize(src);
+    return info;
+  }
 
   let uri = src;
   uri = uri.replace(/.jpg|.jpeg|.png/, '.webp');
@@ -80,7 +136,7 @@ export function getImageInfo(src, className, sizes) {
 
   info.srcset = srcset;
   info.sizes = sizes;
-  info.class = (className ?? '' + ' resp-img').trim();
+  info.class = classes;
 
   if ([imgSmall, imgMedium, imgLarge].includes(src)) {
     info.srcset = null;
@@ -165,6 +221,11 @@ function directiveToHtml(node, ctx) {
     return;
   }
 
+  if (node.name === 'img' && node.attributes['src-dark']) {
+    themedImageToHtml(node, ctx);
+    return;
+  }
+
   const properties = { ...node.attributes };
 
   if (properties.src) {
@@ -180,15 +241,110 @@ function directiveToHtml(node, ctx) {
     properties.sizes = info.sizes;
     properties.class = info.class;
 
-    if (info.metadata) {
-      properties.width = info.metadata.width;
-      properties.height = info.metadata.height;
+    const dimensions = displaySize(node.attributes.src, info);
+
+    if (dimensions) {
+      properties.width = dimensions.width;
+      properties.height = dimensions.height;
     }
   }
 
   ctx.setProperty(node, 'data', {
     hName: node.name,
     hProperties: properties,
+  });
+}
+
+/** The width and height to render an image at, from its generated metadata. */
+function displaySize(src, info) {
+  if (!info.metadata) {
+    return null;
+  }
+
+  // An `@2x` capture has twice the pixels of the space it fills, so it's
+  // shown at half its pixel size, the size the reader sees in Octopus
+  const scale = /@2x\.[a-z]+$/i.test(src) ? 2 : 1;
+
+  return {
+    width: Math.round(info.metadata.width / scale),
+    height: Math.round(info.metadata.height / scale),
+  };
+}
+
+/**
+ * `:img{src="…-light.svg" src-dark="…-dark.svg" alt="…"}` renders as a
+ * `<picture>` whose `<source>` holds the dark variant. The browser downloads
+ * only the variant it shows.
+ *
+ * The source's media query follows the reader's OS setting, which is right for
+ * anyone who hasn't picked a theme with the toggle. ThemeScript.astro and
+ * theme-switcher.ts rewrite it to `all` or `not all` when they have, so the
+ * image follows the site theme. See THEME_VARIANT_ATTRIBUTE in src/lib/theme.ts.
+ */
+function themedImageToHtml(node, ctx) {
+  const { 'src-dark': srcDark, ...attributes } = node.attributes;
+  const sizes = SITE.images.contentSize;
+
+  const light = getImageInfo(attributes.src, attributes.class, sizes);
+  const dark = getImageInfo(srcDark, null, sizes);
+
+  const imgProperties = {
+    ...attributes,
+    src: light.src,
+    srcset: light.srcset,
+    sizes: light.sizes,
+    class: light.class,
+  };
+
+  // Both variants share one <img>, so they share its width and height too
+  const lightSize = displaySize(attributes.src, light);
+  const darkSize = displaySize(srcDark, dark);
+
+  if (lightSize) {
+    imgProperties.width = lightSize.width;
+    imgProperties.height = lightSize.height;
+  }
+
+  if (
+    lightSize &&
+    darkSize &&
+    (lightSize.width !== darkSize.width || lightSize.height !== darkSize.height)
+  ) {
+    console.warn(
+      `Themed image variants differ in size, the dark one will be stretched: ` +
+        `${attributes.src} (${lightSize.width}x${lightSize.height}), ` +
+        `${srcDark} (${darkSize.width}x${darkSize.height})`
+    );
+  }
+
+  const sourceProperties = {
+    media: THEME_VARIANT_MEDIA,
+    // An SVG or a pre-sized file has no srcset, so offer the file itself
+    srcset: dark.srcset ?? dark.src,
+    sizes: dark.sizes,
+    [THEME_VARIANT_ATTRIBUTE]: 'dark',
+    // The full-size original, for the zoom view. srcset only holds variants
+    // sized for the content column.
+    'data-original-src': dark.src,
+  };
+
+  // The node type is irrelevant once hName is set; emphasis is just a phrasing
+  // node that is allowed to hold children wherever an :img{} can appear
+  ctx.replaceNode(node, {
+    type: 'emphasis',
+    data: { hName: 'picture', hProperties: {} },
+    children: [
+      {
+        type: 'emphasis',
+        data: { hName: 'source', hProperties: sourceProperties },
+        children: [],
+      },
+      {
+        type: 'emphasis',
+        data: { hName: 'img', hProperties: imgProperties },
+        children: [],
+      },
+    ],
   });
 }
 

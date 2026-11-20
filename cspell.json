@@ -69,6 +69,7 @@
     "tests/**",
     "node_modules/**",
     "public/docs/css/fa/**",
+    "**/*.svg",
     "assets/diagrams/**"
   ]
 }

@@ -271,7 +271,39 @@ Page structure, frontmatter, and where version-specific notes belong are governe
 
 ### Product screenshots
 
-Product screenshots used in Docs should reflect the UI in the latest version of Octopus. The `figure` component will automatically add a curved border and outline to your image:
+Product screenshots used in Docs should reflect the UI in the latest version of Octopus.
+
+#### Decide whether a page needs a screenshot
+
+Every screenshot has to be recaptured when the UI it shows changes, and a light and dark pair doubles that work. A screenshot that no longer matches the product misleads readers more than no screenshot at all. So write the text first, make sure the page works without images, and then add a screenshot only when it does one of these jobs:
+
+- **Help readers find something.** The control is small or easy to miss, it's hidden behind a menu, tab, or expander, or it sits among similar options that are easy to confuse.
+- **Confirm readers are on track.** In a long or complex procedure, a screenshot at a checkpoint lets readers check the UI looks right before they continue. This includes the point where a procedure moves to a different area of the UI. Add one per stage of the procedure, not one per step.
+- **Introduce an unfamiliar part of Octopus.** On an overview or getting-started page, a screenshot of the area the page covers helps readers recognize it when they get there. Use one per page, near the top.
+- **Show something that's visual by nature.** On a dashboard, a deployment timeline, or a status view, the layout is the information.
+
+Don't add a screenshot:
+
+- For a step the text already makes clear, such as selecting a checkbox, entering a name, or selecting **Save**.
+- To show navigation. Write the path in the step instead, such as **Infrastructure > Deployment Targets**.
+- For code, commands, YAML, logs, or other output. Use a code block, which readers can copy and search.
+- Of a part of the UI that's being redesigned or changes often. Describe it in text until it settles.
+- To break up text or decorate the page.
+
+If a concept is about how parts relate rather than what a screen looks like, use a diagram instead. A diagram stays accurate when the UI changes.
+
+To keep the screenshots you add maintainable:
+
+- Crop to the part of the UI the step is about. A tight crop stays accurate when other parts of the screen change.
+- Put every value and selection in the step text. Readers using a screen reader, and readers looking at an out-of-date screenshot, can still complete the task.
+- Capture a light and dark pair only on high-traffic pages, such as getting-started pages, the overview page of a main section, and the most-used procedures. On other pages, use a single light variant. See [Add an image with a single variant](#add-an-image-with-a-single-variant).
+- When you update a page, check its screenshots still match the product. If one doesn't and you can't recapture it, remove it rather than leave it on the page.
+
+For where a screenshot goes in a procedure, see [Inline screenshots in steps](contributing/standards/task-topic.md#inline-screenshots-in-steps).
+
+#### Add a screenshot to a page
+
+The `figure` component will automatically add a curved border and outline to your image:
 
 ```markdown
 :::figure
@@ -280,3 +312,81 @@ Product screenshots used in Docs should reflect the UI in the latest version of 
 ```
 
 Images should be uploaded to the folder that relates to the position of the page in the Docs hierarchy. In the example above, where the image is destined for the Octopus Cloud overview page, the image has been uploaded to the Docs > Octopus Cloud > Images folder. If a folder has not been created for the page you are uploading an image to, create a new folder or use the Docs > Images folder as a backup.
+
+### Images and theming
+
+Use PNG for screenshots and SVG for diagrams, where possible.
+
+#### Size images for the content column
+
+The content column is up to 800px wide on desktop, where the side navigation and the "On this page" list sit either side of it. On tablets, where the page drops to a single column, it's up to 1056px wide. On phones it's narrower.
+
+A PNG shows at its pixel width, shrunk to fit the column. The site never enlarges a PNG, so a screenshot is only sharp on a high-density display when it has at least twice as many pixels as the space it fills.
+
+To capture a sharp screenshot:
+
+1. Capture at 2x (144 dpi). On a Mac with a Retina display, the built-in screenshot tool does this by default. On Windows, set display scaling to 200% before you capture, or use your capture tool's 2x setting.
+2. Crop the capture. Don't resize it in an image editor, because resampling blurs text.
+3. Choose how to add the image to the page:
+    - For a screenshot that should fill the column, crop it to at least 1600px wide and add it with Markdown image syntax.
+    - For a smaller screenshot, such as a dialog or a single field, add `@2x` to the end of the file name, such as `deployment-target-dialog@2x.png`, and add it with the `:img` directive. The directive shows an `@2x` image at half its pixel size, so a 900 x 600 pixel capture shows at 450 x 300, the size the reader sees in Octopus. Without the suffix, a 2x capture shows at twice that size.
+
+        ```markdown
+        :::figure
+        :img{src="/docs/img/infrastructure/deployment-target-dialog@2x.png" alt="The Add deployment target dialog"}
+        :::
+        ```
+
+        The directive serves resized copies of a PNG from `public/docs/i/`, and reads the PNG's size from a `.json` file next to it, such as `deployment-target-dialog@2x.png.json`. `npm run dev` generates both, so commit them with the image. Without the `.json` file, the directive can't set the image's size or halve it for `@2x`.
+4. Compress the PNG with a tool such as [ImageOptim](https://imageoptim.com/) or [TinyPNG](https://tinypng.com/). Keep each file under 250 KB where you can.
+
+An SVG stretches to fill the column and stays sharp at any size, including when a reader zooms into it. Design diagrams in a frame 800px wide, the widest the column gets on desktop, so text shows at the size you set it. Use a font size of at least 14px. Body text on the site is 16px.
+
+When you export an SVG from Figma, leave **Outline text** selected. Browsers don't load fonts into an SVG shown with an `<img>` tag, so live text would fall back to a different font.
+
+#### Create clear images
+
+- Crop to the part of the UI the step is about, with enough of the surrounding UI for readers to find it in Octopus.
+- Capture the browser at 100% zoom.
+- Leave the cursor out, and don't show hover or focus states unless the step is about them.
+- Use realistic sample data. Don't show customer names, real email addresses, API keys, or other sensitive values.
+- Capture the latest version of the Octopus UI.
+
+#### Make images follow the theme
+
+The docs site has a light and a dark theme. An image changes with the theme when you give it a light and a dark variant. This works the same way for PNG screenshots and SVG diagrams.
+
+To make an image follow the theme:
+
+1. Create a light and a dark variant of the image:
+    - For a screenshot, capture the same view with Octopus in its light theme and again in its dark theme.
+    - If you have something like a diagram rather than a screenshot, and have both a light and dark image variant, use a transparent background. The site will provide an appropriately colored background behind your image.
+    - If you can't use a transparent background, create image variants with background colors `#FFFFFF` for light and `#16191F` for dark.
+2. Name the files with a `-light` and `-dark` suffix, such as `load-balancer-light.svg` and `load-balancer-dark.svg`.
+3. Add one `:img` directive to the `figure`. Put the light variant in `src` and the dark variant in `src-dark`:
+
+    ```markdown
+    :::figure
+    :img{src="/docs/img/kubernetes/load-balancer-light.svg" src-dark="/docs/img/kubernetes/load-balancer-dark.svg" alt="Load Balancer sends traffic to a Node Port on each cluster node"}
+    :::
+    ```
+
+4. Preview the page in both themes with the theme toggle in the top nav, and open the zoom view on the image.
+
+A few things to keep in mind:
+
+- There is only one `alt` text which is used for both variants. The images should have the same content except for the light/dark theming.
+- Both light and dark themed image variants must be the same size. The directive reads them from the light variant and assumes the dark will match.
+- Don't set `width` and `height`. The image processing pipeline reads the image, and halves them for an `@2x` file. Put `@2x` after the theme suffix, such as `dashboard-light@2x.png`.
+- For a PNG, `npm run dev` generates resized copies and a `.json` file for both variants. Commit them with the images.
+- When more than one page uses an image, store it in the nearest shared folder, such as `/docs/img/kubernetes/steps/`, and update every page that references it.
+
+#### Add an image with a single variant
+
+When you don't have a variant for each theme, use the light theme:
+
+- For a screenshot, capture Octopus in its light theme.
+- For a diagram, export it with a solid `#FFFFFF` background, **not** a transparent background.
+- Add the image with Markdown image syntax, or with the `:img` directive and no `src-dark`. Use the directive for an `@2x` screenshot, so it shows at the right size. See [Size images for the content column](#size-images-for-the-content-column).
+
+Don't export an image with a transparent background. The site puts every image on the page color, so the dark text and lines in a transparent image become hard to read in dark mode. A light image with a solid background shows as a light panel inside the figure border in the dark theme.
