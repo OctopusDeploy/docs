@@ -47,7 +47,9 @@ On Octopus Server, you can tell whether your subscription requires usage declara
 - Your license XML, which contains a `<UsageDeclarationRequired ExpiryDays="X-days">` node indicating that usage declarations are required and specifying the expiry period for each declaration.
 - Your Octopus instance, which notifies you in product when a usage declaration is required.
 
-If you don't upload your usage declaration, you may be restricted from adding billable units to your Octopus subscription.
+You can always find when your next usage declaration is due in [Control Center](/docs/getting-started/managing-octopus-subscriptions). We'll also let you know in Octopus, with a banner notification, at least 30 days before it's due.
+
+If you don't provide your usage declaration by the due date, you may be restricted from adding billable units to your Octopus subscription.
 
 ## Send usage declarations automatically
 
