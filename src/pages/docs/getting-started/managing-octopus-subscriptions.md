@@ -125,7 +125,6 @@ Otherwise, they will first need to **Register** a new account using the email ad
 **Cloud instances note:** Invited users are only added to an Octopus Cloud instance after their first sign-in. To manage a newly invited user's permissions, you will need to ask them to sign in to your Octopus Cloud instance first.
 :::
 
-
 #### Role permissions for Direct access
 
 <details data-group="subscription-level">
@@ -232,4 +231,3 @@ Deleting Direct access users:
 The question mark icon in the top right of the Control Center provides a menu of helpful links to the docs, to contact support, and to upload support files.
 
 ## FAQ
-
