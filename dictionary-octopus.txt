@@ -306,6 +306,7 @@ microsite
 milli
 minidump
 minifier
+MinIO
 minlevel
 MITM
 Mkto
