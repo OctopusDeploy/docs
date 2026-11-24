@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-05-22
+modDate: 2026-11-24
 title: Local file storage for Octopus Deploy
 description: Store Octopus Deploy files on local disk or a network share. Review default folder locations, required permissions, and how to change the storage path.
 navOrder: 10
@@ -71,9 +71,15 @@ In the diagram below each node in the cluster is configured to use the same repl
 
 DFS can still be used for redundancy and disaster recovery, as usual.
 
-If the replica that Octopus is configured to use becomes unavailable, simply changing the configuration to another replica in the DFS Namespace with the same target folders is sufficient to restore service.
+If the replica that Octopus is configured to use becomes unavailable, change the configuration to another replica in the DFS Namespace with the same target folders to restore service.
 
-Octopus does not need to be restarted in this scenario. Customers can either do this manually or can automate it.
+Change the paths with the [`path`](/docs/administration/octopus.server.exe-command-line/path) command of `Octopus.Server.exe`, for example:
+
+```text
+Octopus.Server.exe path --clusterShared \\SVR_TWO\public
+```
+
+After changing the paths, restart every Octopus Server node. Customers can either do this manually or can automate it.
 
 In the simplified diagram below, when an outage at DFS Replica `\\SVR_ONE\Public` occurs, by re-configuring each Octopus node to use a different replica (ensuring all nodes are re-configured to the same replica), customers can still take advantage of the redundancy within DFS.
 
