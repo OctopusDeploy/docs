@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-09-04
+modDate: 2026-11-05
 title: Runbook Processes
 ---
 
@@ -344,6 +344,11 @@ Also reachable at `/api/projects/{projectId}/runbookProcesses/{id}/runbookSnapsh
   The ID of the project containing this resource. Will be inferred if not provided.
 - **`spaceId`** :span[string]{.type-label} *(required)*  
   The ID of the space containing the resource(s).
+
+**Query Parameters**
+
+- **`runbookSnapshotId`** :span[string]{.type-label}  
+  The ID of an existing Runbook Snapshot of this Runbook Process. Resolves package IDs, feeds and Git resources from this snapshot's frozen project, library, process template and project template variables instead of the current ones.
 
 **Response**
 
@@ -1025,6 +1030,8 @@ Also reachable at `/api/runbookProcesses/{id}/runbookSnapshotTemplate`, `/api/sp
 
 - **`projectId`** :span[string]{.type-label}  
   The ID of the project containing this resource. Will be inferred if not provided.
+- **`runbookSnapshotId`** :span[string]{.type-label}  
+  The ID of an existing Runbook Snapshot of this Runbook Process. Resolves package IDs, feeds and Git resources from this snapshot's frozen project, library, process template and project template variables instead of the current ones.
 
 **Response**
 
