@@ -86,7 +86,7 @@ A list of all audit events collected to date, ordered by the date of the event i
   The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`Actor`** :span[string]{.type-label}  
-    Gets or sets a readable description of the AI tool that created the event, such as Claude. It includes the tool's client ID and redirect URI. To read those values separately, use ActorOAuthClient. Null when the event wasn't created through an OAuth connection.
+    Gets or sets a readable description of the AI tool that created the event, such as Claude. For an OAuth connection, it includes the tool's client ID and redirect URI. To read those values separately, use ActorOAuthClient. For an AI agent API key, it holds the name and version the tool reported, which Octopus can't verify. Null when the event wasn't created by an AI tool.
   - **`ActorOAuthClient`** :span[object]{.type-label}
   - **`ActorType`** :span[enum]{.type-label}  
     Gets or sets whether a user, an AI agent, a service account, or Octopus itself created the event. Use this field to find changes made by AI agents. Null for events created before Octopus recorded this.  
@@ -408,7 +408,7 @@ Also reachable at `/api/events/{id}`, `/api/spaces/{spaceIdentifier}/events/{id}
 `200` — The requested event
 
 - **`Actor`** :span[string]{.type-label}  
-  Gets or sets a readable description of the AI tool that created the event, such as Claude. It includes the tool's client ID and redirect URI. To read those values separately, use ActorOAuthClient. Null when the event wasn't created through an OAuth connection.
+  Gets or sets a readable description of the AI tool that created the event, such as Claude. For an OAuth connection, it includes the tool's client ID and redirect URI. To read those values separately, use ActorOAuthClient. For an AI agent API key, it holds the name and version the tool reported, which Octopus can't verify. Null when the event wasn't created by an AI tool.
 - **`ActorOAuthClient`** :span[object]{.type-label}
   - **`ClientId`** :span[string]{.type-label}  
     Gets the ID of the OAuth client.

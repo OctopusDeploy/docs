@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-11-05
-modDate: 2026-11-05
+modDate: 2026-11-17
 title: Previewing feature flag evaluations
 sidebarLabel: Previewing evaluations
 navTitle: Previewing evaluations
@@ -24,7 +24,7 @@ An evaluation preview runs a flag's configuration the same way the Octopus featu
 
 Previews also include changes you haven't saved yet. While you edit a flag, the preview shows both the saved value and the unsaved value, so you can check a change before it reaches anyone.
 
-A preview covers what Octopus knows: environments, tenants, and deployed versions. It can't know your application's evaluation context, so the result for rules that use **Context attribute** or **Percentage** by targeting keys conditions cannot be previewed in Octopus.
+A preview covers what Octopus knows: environments, tenants, and deployed versions. It can't know your application's evaluation context. When the result depends on a rule with a **Context attribute** condition or a **Percentage** by targeting key condition, the **Value** is **Depends on context**, and the **Reason** names the rules involved.
 
 ## Preview a feature flag
 

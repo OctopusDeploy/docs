@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2026-11-23
 title: AWS S3 Bucket feeds
 description: Configuring AWS S3 buckets as Octopus Feeds
 navOrder: 60
@@ -24,6 +24,20 @@ On the test page, you can check whether the feed is working by searching for pac
 :::figure
 ![Searching for packages on the S3 feed test page](/docs/img/packaging-applications/package-repositories/images/s3-feed-test.png)
 :::
+
+## S3-compatible storage
+
+:::div{.info}
+Support for S3-compatible storage is available from Octopus **2027.1.231**.
+:::
+
+S3 feeds can use S3-compatible storage, such as MinIO, Ceph, or Garage, instead of AWS S3. Enter the URL of your storage in the **Endpoint** field, for example `https://s3.example.com`. Leave **Endpoint** blank to use AWS S3.
+
+When you set an endpoint:
+
+- Octopus connects using path-style addressing, for example `https://s3.example.com/test-bucket/test-package.1.0.0.zip`.
+- Octopus signs requests with the **Region** you enter. If you leave **Region** blank, Octopus uses `us-east-1`. Check which region your provider expects.
+- Octopus doesn't create the `Octopus.Action.Package[<name>].ARN` variable. ARNs only identify AWS resources.
 
 ## Troubleshooting AWS S3 Bucket feeds
 

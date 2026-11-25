@@ -235,8 +235,20 @@ figure img {
   cursor: zoom-in;
 }
 
+/* SVG diagrams scale without loss, so fill the column rather than sitting at
+   whatever size the design tool exported them at. */
+figure img[src$='.svg'] {
+  width: 100%;
+}
+
 figure img[data-hidden='true'] {
   visibility: hidden;
+}
+
+/* A themed :img{src-dark=...} wraps its <img> in a <picture>, which is inline
+   by default. Make it a block so the <img> inside lays out as it would bare. */
+figure picture {
+  display: block;
 }
 
 .image__caption {
