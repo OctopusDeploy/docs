@@ -25,7 +25,7 @@ This table lists every Octopus OpenFeature provider. The minimum versions apply 
 | Language | Type | Repository | Minimum version for rules |
 | --- | --- | --- | --- |
 | .NET | Server | [openfeature-provider-dotnet](https://github.com/OctopusDeploy/openfeature-provider-dotnet) | `4.0.0` |
-| Go | Server | [openfeature-provider-go](https://github.com/OctopusDeploy/openfeature-provider-go) | `0.1.0` |
+| Go | Server | [openfeature-provider-go](https://github.com/OctopusDeploy/openfeature-provider-go) | `0.2.0` |
 | Java | Server | [openfeature-provider-java](https://github.com/OctopusDeploy/openfeature-provider-java) | `2.0.0` |
 | Python | Server | [openfeature-provider-python](https://github.com/OctopusDeploy/openfeature-provider-python) | `0.1.0` |
 | TypeScript/JavaScript | Server | [openfeature-provider-ts](https://github.com/OctopusDeploy/openfeature-provider-ts) | `6.2.0` |
