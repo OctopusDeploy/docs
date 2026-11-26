@@ -33,7 +33,7 @@ Use a slot when teams need to run their own steps at a particular point in the p
 
 ## Add a slot to a project template
 
-Add a slot wherever you want projects to be able to run their own steps. A new slot starts at the end of the process, so you move it into position before you commit.
+Add a slot wherever you want projects to be able to run their own steps.
 
 **Before you begin**
 
