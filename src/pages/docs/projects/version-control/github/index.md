@@ -95,7 +95,7 @@ Simply follow the on-screen prompts to reconnect the account and select the same
 
 You can currently use GitHub App Connections to connect to Configuration as Code projects. This removes the need for Personal Access Tokens (PAT) to connect to GitHub repositories, and lets users commit as their GitHub users (rather than using a single shared account, as PATs lead you to do).
 
-You can also define GitHub Connections in [Platform Hub](/docs/platform-hub). GitHub Connections defined in Platform Hub can't be used directly in spaces. You can use them to configure Platform Hub's version control settings, and in steps in process templates and project templates.
+You can also define GitHub Connections in [Platform Hub](/docs/platform-hub). GitHub Connections defined in Platform Hub can't be used directly in spaces. You can use them to configure Platform Hub's version control settings, process templates, and project templates.
 
 ## Requested Permissions
 
