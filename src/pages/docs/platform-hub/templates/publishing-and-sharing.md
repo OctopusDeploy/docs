@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-03-06
-modDate: 2026-03-06
+modDate: 2026-11-26
 title: Publishing and sharing templates
 subtitle: How to save, publish, and share templates in Platform Hub
 icon: fa-solid fa-layer-group
@@ -58,3 +58,20 @@ Sharing settings can be updated at any time.
 :::figure
 ![The sharing experience for a template](/docs/img/platform-hub/process-template-sharing.png)
 :::
+
+### What spaces can see
+
+:::div{.warning}
+Treat anything a shared template uses as visible to every space it's shared with.
+:::
+
+A template uses a Platform Hub resource when one of its variables, parameters, or steps refers to it. These resources include variables, accounts, certificates, feeds, and Git credentials.
+
+In some cases, any project in a space you share the template with can use these resources, not just projects created from the template. This includes deployments, runbooks, and Git triggers.
+
+Before you share a template:
+
+- Check which resources it uses.
+- Share it only with spaces you trust, not with all spaces.
+
+Check again each time you publish a new version.
