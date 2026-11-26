@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-09-11
-modDate: 2026-09-14
+modDate: 2026-11-26
 title: Platform Hub
 subtitle: An overview of Platform Hub
 icon: fa-solid fa-landmark
@@ -32,6 +32,10 @@ To get started, configure your version control.
 
 :::div{.hint}
 This Git repository will be used for all features in Platform Hub.
+:::
+
+:::div{.warning}
+When you share a template, the Platform Hub resources it uses can be visible to every space you share it with. See [What spaces can see](/docs/platform-hub/templates/publishing-and-sharing#what-spaces-can-see).
 :::
 
 ## Accounts in Platform Hub
