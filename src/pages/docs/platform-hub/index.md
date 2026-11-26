@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-09-11
-modDate: 2026-09-14
+modDate: 2026-11-26
 title: Platform Hub
 subtitle: An overview of Platform Hub
 icon: fa-solid fa-landmark
