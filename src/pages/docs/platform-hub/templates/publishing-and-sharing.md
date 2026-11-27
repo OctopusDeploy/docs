@@ -65,7 +65,8 @@ Sharing settings can be updated at any time.
 Treat any resource a shared template uses as visible to every space it's shared with.
 :::
 
-A template uses a Platform Hub resource, such as an account, certificate, feed, Git credential, or GitHub App Connection, when one of its variables, parameters, or steps refers to it. The same applies to the template's own variables and parameters.
+
+Templates use Platform Hub resources, such as accounts, certificates, feeds, Git credentials, or GitHub App Connections, when one of its variables, parameters, or steps refers to it.
 
 In some cases, any project in a space you share the template with can use these resources, such as in deployments, runbooks, and Git triggers. This applies to every project in the space, not just projects created from the template.
 
