@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-04-20
-modDate: 2026-11-17
+modDate: 2026-11-27
 title: OpenFeature providers
 sidebarLabel: OpenFeature providers
 navTitle: OpenFeature providers
@@ -9,7 +9,7 @@ navSection: Feature Flags
 navOrder: 80
 icon: fa-solid fa-code
 description: The Octopus OpenFeature providers for each language, and the minimum versions projects that use feature flag rules need.
-subject: feature flags, OpenFeature, providers, SDK, .NET, Java, TypeScript
+subject: feature flags, OpenFeature, providers, SDK, .NET, Go, Java, TypeScript
 type: reference
 audience: [app-dev]
 image:
@@ -25,6 +25,7 @@ This table lists every Octopus OpenFeature provider. The minimum versions apply 
 | Language | Type | Repository | Minimum version for rules |
 | --- | --- | --- | --- |
 | .NET | Server | [openfeature-provider-dotnet](https://github.com/OctopusDeploy/openfeature-provider-dotnet) | `4.0.0` |
+| Go | Server | [openfeature-provider-go](https://github.com/OctopusDeploy/openfeature-provider-go) | `0.2.0` |
 | Java | Server | [openfeature-provider-java](https://github.com/OctopusDeploy/openfeature-provider-java) | `2.0.0` |
 | TypeScript/JavaScript | Server | [openfeature-provider-ts](https://github.com/OctopusDeploy/openfeature-provider-ts) | `6.2.0` |
 | TypeScript/JavaScript | Web | [openfeature-provider-ts](https://github.com/OctopusDeploy/openfeature-provider-ts) | `5.0.0` |
