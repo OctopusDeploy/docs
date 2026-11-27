@@ -86,7 +86,7 @@ You can also zoom and move with your mouse, trackpad, or keyboard. The keyboard 
 
 ## Version notes
 
-- The task log waterfall is available from [VERIFY: Octopus Server 2026.4.11678, the first release tag that contains the waterfall in the Task Log tab — needs: confirmation from Fire and Motion of the first self-hosted build where the `task-log-waterfall` and `deployment-task-tab-consolidation` feature toggles are both on].
+- The task log waterfall is available from Octopus Server 2027.0.
 
 ## Related links
 
