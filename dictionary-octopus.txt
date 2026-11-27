@@ -156,6 +156,7 @@ eastus
 EBNF
 echoerror
 ecparam
+edov
 elbv2
 elif
 Elyton

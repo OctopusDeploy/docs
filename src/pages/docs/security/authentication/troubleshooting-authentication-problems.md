@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2026-11-27
 title: Troubleshooting authentication problems
 description: A guide for troubleshooting authentication problems in Octopus Deploy.
 navOrder: 50
@@ -52,6 +52,10 @@ This can happen for quite a number of reasons:
 1. Your web browser does not support cookies. Configure your browser to accept cookies from your Octopus Server. You may need to ask your systems administrator for help with this.
 1. The time is incorrect on your computer, or your external authentication provider. This can cause your authentication cookies to expire and become unusable. Correct the time and configure your computers to automatically synchronize their time from a time server.
 1. You are using Chrome and have not configured your external authentication provider to use HTTPS. Chrome has started to consider websites served over `http://` as unsafe and will refuse to accept cookies from those unsafe sites. Configure your external authentication provider to use HTTPS instead of HTTP. [Learn more about Chrome and the move toward a more secure web](https://security.googleblog.com/2016/09/moving-towards-more-secure-web.html).
+
+### Unverified email address
+
+If the message says your identity provider didn't send or hasn't verified your email address, for example `User login failed: your identity provider didn't say whether it has verified your email address (no email_verified claim).`, the security token is missing a claim that Octopus requires, or has one that isn't `true`. To fix it, see the page for your provider: [OpenID Connect](/docs/security/authentication/oidc-authentication#verified-email-claims), [Microsoft Entra ID](/docs/security/authentication/azure-ad-authentication#require-email-domain-verified-claim), [Okta](/docs/security/authentication/okta-authentication#require-email-verified-claim), or [Google Workspace](/docs/security/authentication/googleapps-authentication#require-email-verified-claim).
 
 ### Getting help from us {#support}
 

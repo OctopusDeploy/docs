@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-11-05
-modDate: 2025-12-10
+modDate: 2026-11-27
 title: OpenID Connect authentication
 description: Octopus Deploy can use OpenID Connect authentication to identify users.
 navTitle: General
@@ -57,8 +57,58 @@ To use OIDC authentication with Octopus you will need to:
          Note that the value of **Client Secret** cannot be retrieved once set - it can only be changed or deleted
          :::
      - **Allow Auto User Creation** determines if Octopus Deploy should automatically create user accounts, or only allow authentication for users that already exist in Octopus Deploy.
+     - **Require Email Verified Claim** rejects a sign-in unless the security token has an email address and an `email_verified` claim. It's on by default. Only turn it off if your identity provider doesn't send both.
+     - **Require Email Domain Verified Claim** rejects a sign-in unless the security token has an email address and an `xms_edov` claim. It's off by default. Turn it on for [Microsoft Entra ID](/docs/security/authentication/oidc-authentication/configuring-microsoft-entra), and turn off **Require Email Verified Claim**, which Entra ID doesn't send.
+         :::div{.hint}
+         While either setting is on, a new user's **Username** is their verified email address rather than the **Username Claim Type** value. See [Verified email claims](#verified-email-claims) for details, including what happens when you upgrade.
+         :::
 2. Click **Save** to apply the changes.
 3. If you sign out of Octopus Deploy, you should now see a new button on the login screen to authenticate with the OIDC provider.
+
+## Verified email claims
+
+Octopus can match a sign-in to an existing user by email address, and an email address your identity provider hasn't verified could belong to someone else. Two settings reject a sign-in unless the security token has an email address and a claim saying it's verified:
+
+| Setting | Claim | Default |
+| --- | --- | --- |
+| **Require Email Verified Claim** | `email_verified` | On |
+| **Require Email Domain Verified Claim** | `xms_edov` | Off |
+
+Most identity providers send `email_verified` when Octopus asks for the `email` scope, which it does by default. Check your identity provider's documentation. Microsoft Entra ID doesn't send `email_verified`, so for Entra ID turn on **Require Email Domain Verified Claim** and turn off **Require Email Verified Claim**. See [Configuring Microsoft Entra ID](/docs/security/authentication/oidc-authentication/configuring-microsoft-entra).
+
+An `email_verified` or `xms_edov` claim that is present but isn't `true` is always rejected, whatever the settings.
+
+### Upgrading Octopus
+
+When you upgrade, **Require Email Verified Claim** is turned off if the OpenID Connect provider is enabled and has a **Client ID**, so existing sign-ins keep working if your identity provider doesn't send the claim. **Require Email Domain Verified Claim** stays off.
+
+:::div{.warning}
+While the setting is off, Octopus trusts an email address that has no verified claim. Turn a setting on once you've checked that your identity provider sends the claim.
+:::
+
+### Turn on the settings
+
+1. Check that your identity provider sends the claim, by [inspecting the contents of the security token](#inspect-the-contents-of-the-security-token) for a test user. If it can't send the claim, you'll need to leave the setting off and accept the risk above.
+2. Navigate to **Configuration ➜ Settings ➜ OpenID Connect** and turn on the setting, or run the following from a command prompt in the folder where you installed Octopus Server:
+
+```powershell
+Octopus.Server.exe configure --GenericOidcRequireEmailVerifiedClaim=true
+Octopus.Server.exe configure --GenericOidcRequireEmailDomainVerifiedClaim=true
+```
+
+### Usernames of new users
+
+While either setting is on, a new user's **Username** is their verified email address rather than the **Username Claim Type** value.
+
+### Rejected sign-ins
+
+When Octopus rejects a sign-in, the message names the missing claim and the setting that turns the check off. For example:
+
+```text
+User login failed: your identity provider didn't say whether it has verified your email address (no email_verified claim). Ask your Octopus administrator to configure your identity provider to send the email and email_verified claims, or to turn off Require Email Verified Claim in Octopus.
+```
+
+Octopus records the attempt as a failed login.
 
 ## Assign external groups or roles to Octopus teams (optional)
 
@@ -121,7 +171,7 @@ Perhaps the contents of the security token sent back by your identity provider a
 
    ![A screenshot of the JWT debugger](/docs/img/security/authentication/images/5866123.png)
 
-5. Octopus uses most of the data to validate the token, but primarily uses the `sub`, `email` and `name` claims. If these claims are not present you will likely see unexpected behavior.
+5. Octopus uses most of the data to validate the token, but primarily uses the `sub`, `email` and `name` claims. If these claims are not present you will likely see unexpected behavior. While **Require Email Verified Claim** or **Require Email Domain Verified Claim** is on, Octopus also needs the `email_verified` or `xms_edov` claim, and rejects the sign-in without it.
 6. If you are not able to figure out what is going wrong, please send a copy of the decoded payload to our [support team](https://octopus.com/support) and let them know what behavior you are experiencing.
 
 ### Octopus user accounts are still required
