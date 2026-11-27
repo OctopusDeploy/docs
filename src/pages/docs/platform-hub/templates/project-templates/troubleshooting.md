@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-03-05
-modDate: 2026-10-12
+modDate: 2026-11-26
 title: Troubleshooting
 subtitle: Known issues and limitations for project templates
 icon: fa-solid fa-layer-group
@@ -38,6 +38,25 @@ Support for configuring Platform Hub External Feeds is available from Octopus 20
 Support for configuring project triggers and runbook scheduled triggers for templated projects on the consumer side is available from Octopus 2026.4.1770
 
 :::
+
+## Slot limitations
+
+[Slots](/docs/platform-hub/templates/project-templates/slots) have the following limitations:
+
+- You can't clone a slot in a project template.
+- You can't publish a project template that contains only slots. It needs at least one step.
+
+## Can't create a release after a template update
+
+If a new template version adds a parameter without a default value, creating a release fails until you set a value. The error names the parameter, for example `Parameter 'Database name' must have a value.` Go to the project's **Template Values** page and set a value.
+
+This can happen after an automatic update, not just a manual one. A template owner can add a parameter without a default value in a minor or patch version, and Octopus applies those updates without a notification, so you won't get any warning before creating a release fails. Automatic release creation fails the same way.
+
+## Can't create a release because a slot step name is in use
+
+Steps you add to a slot must have a different name and slug from the template's steps. Octopus checks this when you save the process, and again when you create a release.
+
+If a new template version adds a step with the same name or slug as one of your slot steps, you can't create a release until you change your step. The process page and the **Review template update** drawer name the steps that clash. Open each of your slot steps that clashes, change the name or slug that's in use, and save the process.
 
 ## Retention isn't applied to a templated project
 

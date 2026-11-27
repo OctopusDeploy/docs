@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-03-05
-modDate: 2026-11-04
+modDate: 2026-11-26
 title: Project templates
 subtitle: An overview of project templates
 icon: fa-solid fa-layer-group
@@ -64,7 +64,9 @@ The [deployment process](/docs/projects/deployment-process) defines the steps Oc
 Unlike standard projects, project templates validate the deployment process when you publish, not when you commit. You can save an incomplete process and continue configuring parameters and variables before publishing. This will change once we add inline variable configuration to the deployment process editor.
 :::
 
-Projects created from the template can't modify the deployment process. They can't add, remove, reorder, or disable steps. The only thing a project can configure is the parameter values explicitly exposed in the template, ensuring every project based on the template follows the same deployment process.
+Projects created from the template can't modify the template's steps. They can't edit, remove, reorder, or disable them. A project configures the parameter values exposed in the template, ensuring every project based on the template follows the same deployment process.
+
+To let projects add their own steps at set points in the process, add [slots](/docs/platform-hub/templates/project-templates/slots) to the deployment process. Projects can add steps into a slot, but not anywhere else in the process.
 
 Some steps behave differently inside the project template editor. Instead of letting you set a value directly, they ask for parameters or variables. Parameters are required when a step requires a resource that Platform Hub can't define, such as a Worker Pool, and that resource must be supplied by the project. These fields accept parameters so projects can provide the right values for their context.
 
@@ -96,6 +98,8 @@ Major versioning is enforced for these changes so consumers can review and adopt
 :::div{.hint}
 Before you delete or rename a channel, add another valid channel that projects can re-map their releases and triggers to.
 :::
+
+For how projects review and apply a new major version, see [Template updates](/docs/platform-hub/templates/project-templates/using-project-templates#template-updates).
 
 :::figure
 ![Channels in project templates](/docs/img/platform-hub/project-templates/project-templates-channels.png)
@@ -234,7 +238,7 @@ project-templates/<template-slug>/
 - `channels/` contains the configuration files for each channel
 - `lifecycles/` contains the configuration files for each lifecycle
 - `template.ocl` contains the template settings
-- `deployment_process.ocl` contains the deployment process steps
+- `deployment_process.ocl` contains the deployment process steps and slots
 - `parameters.ocl` contains the parameters defined for the template
 - `variables.ocl` contains the variables defined for the template
 
@@ -254,7 +258,8 @@ Project templates are in Public Preview and we're actively shaping how the featu
 
 ## Version notes
 
-- Creating a parameter or variable from a step in the process editor is available in Octopus Deploy versions `>= 2026.4.11453`.
+- Creating a parameter or variable from a step in the process editor is available from Octopus Server 2026.4.11453.
 
-- [Channels](#channels) and [Lifecycles](#lifecycles) in Project Templates are available from Octopus Server version `2026.4.4005`.
-- Retention policies in project template lifecycles are applied from Octopus Server version `2026.4.7884`.
+- [Channels](#channels) and [Lifecycles](#lifecycles) in Project Templates are available from Octopus Server 2026.4.4005.
+- Retention policies in project template lifecycles are applied from Octopus Server 2026.4.7884.
+- [Slots](/docs/platform-hub/templates/project-templates/slots) in project templates are available from Octopus Server 2027.1.759.
