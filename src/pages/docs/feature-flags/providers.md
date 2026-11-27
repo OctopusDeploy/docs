@@ -9,7 +9,7 @@ navSection: Feature Flags
 navOrder: 80
 icon: fa-solid fa-code
 description: The Octopus OpenFeature providers for each language, and the minimum versions projects that use feature flag rules need.
-subject: feature flags, OpenFeature, providers, SDK, .NET, Go, Java, TypeScript
+subject: feature flags, OpenFeature, providers, SDK, .NET, Go, Java, Python, TypeScript
 type: reference
 audience: [app-dev]
 image:
@@ -27,6 +27,7 @@ This table lists every Octopus OpenFeature provider. The minimum versions apply 
 | .NET | Server | [openfeature-provider-dotnet](https://github.com/OctopusDeploy/openfeature-provider-dotnet) | `4.0.0` |
 | Go | Server | [openfeature-provider-go](https://github.com/OctopusDeploy/openfeature-provider-go) | `0.2.0` |
 | Java | Server | [openfeature-provider-java](https://github.com/OctopusDeploy/openfeature-provider-java) | `2.0.0` |
+| Python | Server | [openfeature-provider-python](https://github.com/OctopusDeploy/openfeature-provider-python) | `0.1.0` |
 | TypeScript/JavaScript | Server | [openfeature-provider-ts](https://github.com/OctopusDeploy/openfeature-provider-ts) | `6.2.0` |
 | TypeScript/JavaScript | Web | [openfeature-provider-ts](https://github.com/OctopusDeploy/openfeature-provider-ts) | `5.0.0` |
 
