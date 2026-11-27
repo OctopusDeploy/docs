@@ -110,3 +110,9 @@ Once you've configured a connection, you can select it when setting up Platform 
 :::figure
 ![Version control configuration in Platform Hub using a GitHub App Connection](/docs/img/platform-hub/platform-hub-version-control-github-connection.png)
 :::
+
+## Resources in shared templates
+
+:::div{.warning}
+When you share a template, the Platform Hub resources it uses can be visible to every space you share it with. See [What spaces can see](/docs/platform-hub/templates/publishing-and-sharing#what-spaces-can-see).
+:::
