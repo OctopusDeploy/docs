@@ -45,7 +45,7 @@ The timeline starts at `0:00` when the task starts. Turn on **Actual time** to s
 
 ## Waterfall controls
 
-You can also zoom and move with your mouse, trackpad, or keyboard. The keyboard controls work when the box in the overview has focus.
+The waterfall opens zoomed out to fit the whole task. The box in the overview at the top shows which part of the task is in view. Use these controls to zoom in and move along the timeline. The keyboard controls work when the box has focus.
 
 | Control | What it does |
 | --- | --- |
