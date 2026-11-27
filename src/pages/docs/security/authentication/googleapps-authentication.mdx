@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-12-10
+modDate: 2026-11-27
 title: Google Workspace authentication
 description: Octopus Deploy can use Google Workspace authentication to identify users.
 navOrder: 15
@@ -63,6 +63,39 @@ Alternatively these settings can be defined through the user interface by select
 ![Settings](/docs/img/security/authentication/images/google.png)
 :::
 
+### Require Email Verified Claim
+
+**Require Email Verified Claim** rejects a sign-in unless the security token has an email address and an `email_verified` claim. It's on by default. Google sends `email_verified` when Octopus asks for the `email` scope, which it does by default.
+
+An `email_verified` claim that is present but isn't `true` is always rejected, whatever the setting.
+
+#### Upgrading Octopus
+
+When you upgrade, **Require Email Verified Claim** is turned off if the Google provider is enabled and has a **Client ID**, so existing sign-ins keep working if Google doesn't send the claim.
+
+:::div{.warning}
+While the setting is off, Octopus trusts an email address that has no verified claim. Turn the setting on once you've checked that Google sends the claim.
+:::
+
+#### Turn on the setting
+
+1. Check that the claim is sent, by [inspecting the contents of the security token](#inspect-the-contents-of-the-security-token) for a test user.
+2. Navigate to **Configuration ➜ Settings ➜ GoogleApps** and turn on **Require Email Verified Claim**, or run the following from a command prompt in the folder where you installed Octopus Server:
+
+```powershell
+Octopus.Server.exe configure --googleAppsRequireEmailVerifiedClaim=true
+```
+
+#### Rejected sign-ins
+
+When Octopus rejects a sign-in, the message names the missing claim and the setting that turns the check off. For example:
+
+```text
+User login failed: your identity provider didn't say whether it has verified your email address (no email_verified claim). Ask your Octopus administrator to configure your identity provider to send the email and email_verified claims, or to turn off Require Email Verified Claim in Octopus.
+```
+
+Octopus records the attempt as a failed login.
+
 ### Octopus user accounts are still required
 
 Even if you are using an external identity provider, Octopus still requires a [user account](/docs/security/users-and-teams/) so you can assign those people to Octopus teams and subsequently grant permissions to Octopus resources. Octopus will automatically create a [user account](/docs/security/users-and-teams) based on the profile information returned in the security token, which includes an **Identifier**, **Name**, and **Email Address**.
@@ -119,5 +152,5 @@ Perhaps the contents of the security token sent back by Google Workspace aren't 
     :::
 
 5. Don't worry if jwt.io complains about the token signature, it doesn't support RS256 which is used by Google Workspace.
-6. Octopus uses most of the data to validate the token, but it primarily uses the `sub`, `email`, and `name` claims. If these claims are not present, you will likely see unexpected behavior.
+6. Octopus uses most of the data to validate the token, but it primarily uses the `sub`, `email`, and `name` claims. If these claims are not present, you will likely see unexpected behavior. While **Require Email Verified Claim** is on, Octopus also needs the `email_verified` claim, and rejects the sign-in without it.
 7. If you are not able to figure out what is going wrong, please send a copy of the decoded payload to our [support team](https://octopus.com/support) and let them know what behavior you are experiencing.

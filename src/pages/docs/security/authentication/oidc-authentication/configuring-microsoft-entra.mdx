@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-11-05
-modDate: 2025-12-10
+modDate: 2026-11-27
 title: Configuring Microsoft Entra ID
 description: How to configure Octopus Deploy and Microsoft Entra to authenticate and identify users with OpenID Connect authentication.
 navTitle: Microsoft Entra ID
@@ -10,7 +10,7 @@ navOrder: 6
 
 ## Configure Microsoft Entra ID
 
-[How to configure Microsoft Entra ID](/docs/security/authentication/azure-ad-authentication#configure-microsoft-entra-id)
+[How to configure Microsoft Entra ID](/docs/security/authentication/azure-ad-authentication#configure-microsoft-entra-id), including [adding the email and xms_edov optional claims](/docs/security/authentication/azure-ad-authentication#add-the-email-and-xms_edov-optional-claims).
 
 ## Configure Octopus Server
 
@@ -28,5 +28,13 @@ navOrder: 6
          Note that the value of **Client Secret** cannot be retrieved once set - it can only be changed or deleted
          :::
      - **Allow Auto User Creation** determines if Octopus Deploy should automatically create user accounts, or only allow authentication for users that already exist in Octopus Deploy.
+     - **Require Email Verified Claim** should be turned off, because Entra ID doesn't send `email_verified`.
+     - **Require Email Domain Verified Claim** should be turned on, so Octopus rejects a sign-in unless the security token has an email address and an `xms_edov` claim. While it's on, a new user's **Username** is their verified email address rather than the **Username Claim Type** value. See [Verified email claims](/docs/security/authentication/oidc-authentication#verified-email-claims).
 2. Click **Save** to apply the changes.
 3. If you sign out of Octopus Deploy, you should now see a new button on the login screen to authenticate with the OIDC provider.
+
+You can also set the verified email settings from a command prompt in the folder where you installed Octopus Server:
+
+```powershell
+Octopus.Server.exe configure --genericOidcRequireEmailVerifiedClaim=false --genericOidcRequireEmailDomainVerifiedClaim=true
+```

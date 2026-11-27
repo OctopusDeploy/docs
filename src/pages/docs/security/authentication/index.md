@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2026-04-14
+modDate: 2026-11-27
 title: Authentication
 description: Authentication options for Octopus Deploy including our internal provider, Active Directory, Microsoft Entra ID, Okta, and Google Workspace.
 navOrder: 50
@@ -92,6 +92,8 @@ You can also specify the details for multiple logins for each user. For example,
 ### Matching external identities to Octopus users {#matching-external-identities}
 
 When someone signs in to Octopus using an external authentication provider, Octopus will try to find their user account by looking for matching identifiers. It starts by looking for a matching identifiers from the external authentication provider, and will eventually fall back to match on email address.
+
+For OpenID Connect providers, Octopus can require the email address to be verified by the identity provider. See the settings for [OpenID Connect](/docs/security/authentication/oidc-authentication#verified-email-claims), [Microsoft Entra ID](/docs/security/authentication/azure-ad-authentication#require-email-domain-verified-claim), [Okta](/docs/security/authentication/okta-authentication#require-email-verified-claim), [Google Workspace](/docs/security/authentication/googleapps-authentication#require-email-verified-claim), and [Octopus ID](/docs/security/authentication/octopusid-authentication#verified-email-addresses).
 
 ## Changing authentication providers
 

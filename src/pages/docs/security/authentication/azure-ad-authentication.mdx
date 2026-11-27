@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-06-01
+modDate: 2026-11-27
 title: Microsoft Entra ID authentication
 description: Octopus Deploy can use Microsoft Entra ID authentication to identify users.
 navOrder: 10
@@ -83,6 +83,13 @@ Support for OAuth code flow with PKCE was introduced in **Octopus 2022.2.4498**.
 :::figure
 ![Configure Logout URL](/docs/img/security/authentication/images/aad_logout_url.png)
 :::
+
+#### Add the email and xms_edov optional claims
+
+Octopus rejects a sign-in unless the ID token has an email address and an `xms_edov` claim, which says whether the email's domain is verified by the user's home tenant. Entra ID only sends them as optional claims. See [Require Email Domain Verified Claim](#require-email-domain-verified-claim) for details.
+
+1. Within your new App registration in Microsoft Entra ID, navigate to Manage > Token configuration.
+2. Select **Add optional claim**, choose the **ID** token type, select `email` and `xms_edov`, then select **Add**.
 
 #### Mapping Microsoft Entra ID users into Octopus teams (optional)
 
@@ -230,6 +237,44 @@ Alternatively, these settings can be defined through the user interface by selec
 ![Settings](/docs/img/security/authentication/images/aad-azure-ad-settings.png)
 :::
 
+### Require Email Domain Verified Claim
+
+**Require Email Domain Verified Claim** rejects a sign-in unless the ID token has an email address and an `xms_edov` claim, which says whether the email's domain is verified by the user's home tenant. It's on by default.
+
+Entra ID doesn't send `email_verified`, so the Entra ID provider has no **Require Email Verified Claim** setting. An `email_verified` or `xms_edov` claim that is present but isn't `true` is always rejected, whatever the setting.
+
+#### Upgrading Octopus
+
+When you upgrade, **Require Email Domain Verified Claim** is turned off if the Entra ID provider is enabled and has a **Client ID**, so existing sign-ins keep working if your app registration doesn't send the claims.
+
+:::div{.warning}
+While the setting is off, Octopus trusts an email address that has no verified claim. Turn the setting on once you've checked that your app registration sends the claim.
+:::
+
+#### Turn on the setting
+
+1. [Add the email and xms_edov optional claims](#add-the-email-and-xms_edov-optional-claims) to your app registration.
+2. Check that the claims are sent, by [inspecting the contents of the security token](#inspect-the-contents-of-the-security-token) for a test user.
+3. Navigate to **Configuration ➜ Settings ➜ Entra ID** and turn on **Require Email Domain Verified Claim**, or run the following from a command prompt in the folder where you installed Octopus Server:
+
+```powershell
+Octopus.Server.exe configure --azureADRequireEmailDomainVerifiedClaim=true
+```
+
+#### Usernames of new users
+
+While **Require Email Domain Verified Claim** is on, a new user's **Username** is their verified email address rather than their UPN.
+
+#### Rejected sign-ins
+
+When Octopus rejects a sign-in, the message names the missing claim and the setting that turns the check off. For example:
+
+```text
+User login failed: your identity provider didn't say whether it has verified your email address (no xms_edov claim). Ask your Octopus administrator to add the email and xms_edov optional claims to the Octopus app registration in Microsoft Entra ID, or to turn off Require Email Domain Verified Claim in Octopus.
+```
+
+Octopus records the attempt as a failed login.
+
 ### Assign app registration roles to Octopus teams (optional)
 
 If you followed the optional steps to modify the App registration's manifest to include new roles, you can assign them to **Teams** in the Octopus Portal.
@@ -315,7 +360,7 @@ Sometimes the contents of the security token sent back by Microsoft Entra ID are
     ![ID Token](/docs/img/security/authentication/images/5866123.png)
     :::
 
-5. Octopus uses most of the data to validate the token, but primarily uses the **sub**, **email**, and **name** claims. If these claims are not present, you will likely see unexpected behavior.
+5. Octopus uses most of the data to validate the token, but primarily uses the **sub**, **email**, and **name** claims. If these claims are not present, you will likely see unexpected behavior. While **Require Email Domain Verified Claim** is on, Octopus also needs the **xms_edov** claim, and rejects the sign-in without it.
 
 ### EntraID Users with 200+ security groups
 
