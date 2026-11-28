@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-03-08
+modDate: 2026-11-28
 title: GitHub Repository feeds
 description: Configuring GitHub repositories as Octopus Feeds
 navOrder: 30
@@ -85,6 +85,10 @@ If Octopus can link a particular version (which in the context of GitHub feeds r
  4. When you create a new release Octopus will query the GitHub api to determine the list of tags which can be parsed as SemVer 2 versions. As with standard package feeds the latest version will be selected by default and any [channel version rules](/docs/releases/channels/#version-rules) will be applied.
 
 5. When the release is deployed and the [package acquisition](/docs/deployments/packages/stage-package-uploads) process begins, Octopus will pull down a copy of the repository based on the commit linked to the tag selected as the package version. This artifact is then treated as a zip and is deployed using the standard package deployment rules that applied previously.
+
+:::div{.hint}
+**Note:** Files from a GitHub feed package don't keep their executable permission on a Linux target. If your script runs another script from the package, call it through its interpreter, for example `bash ./your-script.sh`.
+:::
 
 ## Deployments without a build
 
